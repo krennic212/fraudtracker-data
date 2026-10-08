@@ -9,7 +9,8 @@ The repo has no app code, only the harvest script and its output.
   - HHS, SBA, SSA, IRS, DOL and VA inspector-general releases
   - the Idaho AG Medicaid-fraud newsroom
   - news items that cite an official charging paper
-- `data/harvest-status.json`: when the last change was harvested and which names it added.
+- `data/harvest-meta.json`: `updatedAt` (when the rows last changed), `rows`, `schemes`.
+- `data/harvest-status.json`: the harvester's own status (which names the last change added).
 - Served at **https://krennic212.github.io/fraudtracker-data/harvest.json**. Also available at
   `https://raw.githubusercontent.com/krennic212/fraudtracker-data/main/data/harvest.json`.
 
@@ -21,7 +22,7 @@ Each run does the following:
 1. `scripts/harvest-gov.mjs` reads the sources above. Headline-only rows are dropped.
 2. `scripts/ledger-dedupe.mjs` removes duplicate rows (same person, same case). It also blanks any
    photo field, so the feed never carries images.
-3. If the row list changed, the run commits `data/` (`[skip ci]`) and redeploys GitHub Pages.
+3. If the row list changed, the run stamps `harvest-meta.json`, commits `data/` (`[skip ci]`) and redeploys GitHub Pages.
    A run that finds nothing new commits nothing.
 
 Co-defendants share one `schemeId`. Dollar totals should be counted once per scheme.
@@ -29,3 +30,5 @@ Charges are allegations unless the source says the defendant pleaded guilty or w
 This is an independent record, not a government site.
 
 Run locally: `npm run harvest` (Node 20+, no dependencies). Run the tests with `npm test`.
+
+Spotted a mistake? Open an issue: https://github.com/krennic212/fraudtracker-data/issues
