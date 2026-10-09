@@ -19,7 +19,7 @@ import {
   personOrEntity,
   rewriteHarvestName,
 } from "./harvest-parse.mjs";
-import { rowId } from "./ledger-id.mjs";
+import { rowId, schemeIdFor } from "./ledger-id.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 // The hourly GitHub Actions job points these at data/ (durable, published);
@@ -456,7 +456,9 @@ function buildRow(item, office, name, geo) {
     lon: geo.lon,
     presence: "not_stated",
     scheme: (op || name || item.title).slice(0, 80),
-    schemeId: op ? `op-${slug(op)}` : `harvest-${slug(official)}`,
+    // Full release URL hashed, no name: co-defendants share it, releases
+    // that share a long slug prefix don't (see scripts/ledger-id.mjs).
+    schemeId: op ? `op-${slug(op)}` : schemeIdFor(official),
   };
 }
 

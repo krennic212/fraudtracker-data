@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { rowId, duplicateIds } from "./ledger-id.mjs";
+import { rowId, duplicateIds, schemeIdFor, schemeUrlConflicts } from "./ledger-id.mjs";
 
 const POTASH = "https://www.justice.gov/usao-md/pr/maryland-man-facing-federal-indictment-role-covid-19-healthcare-fraud-scheme-totaling";
 const PIERRE = "https://www.justice.gov/usao-md/pr/maryland-man-facing-federal-indictment-connection-gift-card-scam";
@@ -31,4 +31,35 @@ test("pre-publish check flags duplicate and missing ids", () => {
   assert.deepEqual(duplicateIds([{ id: "a" }, { id: "b" }]), []);
   assert.deepEqual(duplicateIds([{ id: "a" }, { id: "a" }, { id: "b" }]), [{ id: "a", n: 2 }]);
   assert.deepEqual(duplicateIds([{ id: "a" }, {}]), [{ id: undefined, n: 1 }]);
+});
+
+test("schemeId: releases sharing a long slug prefix get different schemeIds", () => {
+  const a = schemeIdFor(POTASH);
+  const b = schemeIdFor(PIERRE);
+  assert.notEqual(a, b);
+  assert.equal(a.slice(0, -11), b.slice(0, -11));
+  assert.match(a, /^harvest-[a-z0-9-]+-[0-9a-f]{10}$/);
+});
+
+test("schemeId: co-defendants on one release share it, stable across runs", () => {
+  assert.equal(schemeIdFor(POTASH), schemeIdFor(POTASH));
+  assert.equal(schemeIdFor(` ${POTASH} `), schemeIdFor(POTASH));
+});
+
+test("pre-publish check flags a harvest- schemeId spanning two release URLs", () => {
+  const ok = [
+    { schemeId: schemeIdFor(POTASH), sourceUrl: POTASH, name: "A" },
+    { schemeId: schemeIdFor(POTASH), sourceUrl: POTASH, name: "B" },
+    { schemeId: schemeIdFor(PIERRE), sourceUrl: PIERRE, name: "C" },
+    { schemeId: "op-operation-x", sourceUrl: POTASH },
+    { schemeId: "op-operation-x", sourceUrl: PIERRE },
+  ];
+  assert.deepEqual(schemeUrlConflicts(ok), []);
+  const bad = [
+    { schemeId: "harvest-https-www-justice-gov-usao-md-pr-maryland-man-fa", sourceUrl: POTASH },
+    { schemeId: "harvest-https-www-justice-gov-usao-md-pr-maryland-man-fa", sourceUrl: PIERRE },
+  ];
+  assert.deepEqual(schemeUrlConflicts(bad), [
+    { schemeId: "harvest-https-www-justice-gov-usao-md-pr-maryland-man-fa", urls: [POTASH, PIERRE] },
+  ]);
 });

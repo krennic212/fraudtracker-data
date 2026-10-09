@@ -33,7 +33,7 @@ jobs:
         run: node scripts/harvest-gov.mjs
       - name: Cut duplicates, blank photos
         run: node scripts/ledger-dedupe.mjs data/harvest.json
-      - name: Pre-publish check (fail on duplicate ids)
+      - name: Pre-publish check (fail on duplicate ids or schemeId spanning releases)
         run: node scripts/ledger-id.mjs data/harvest.json
       - name: Did rows change?
         id: diff

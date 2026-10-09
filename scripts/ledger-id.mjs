@@ -12,7 +12,19 @@
  * Same person + same release => same id on every run. Different release or
  * different defendant => different id.
  *
- *   node scripts/ledger-id.mjs data/harvest.json   # pre-publish check: exits 1 on duplicate ids
+ * schemeIds had the same truncation bug. A release's schemeId now hashes the
+ * full source URL only (no name), so co-defendants on one release still share
+ * one schemeId (their dollar figure counts once) and different releases never
+ * collide:
+ *
+ *   harvest-<48-char url slug>-<first 10 hex of sha1(sourceUrl)>
+ *
+ * Named-operation schemeIds ("op-<operation>") are left alone: they group one
+ * named operation on purpose and are not built from a URL.
+ *
+ *   node scripts/ledger-id.mjs data/harvest.json
+ *   # pre-publish check: exits 1 on duplicate/missing ids, or on a harvest-
+ *   # schemeId shared by two different release URLs
  */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -31,6 +43,24 @@ export function rowId(sourceUrl, name) {
   const url = String(sourceUrl || "").trim();
   const hash = createHash("sha1").update(`${url}|${nameKey(name)}`).digest("hex").slice(0, 10);
   return `harvest-${slug(url)}-${hash}`;
+}
+
+export function schemeIdFor(sourceUrl) {
+  const url = String(sourceUrl || "").trim();
+  const hash = createHash("sha1").update(url).digest("hex").slice(0, 10);
+  return `harvest-${slug(url)}-${hash}`;
+}
+
+/** harvest- schemeIds shared by more than one distinct release URL. */
+export function schemeUrlConflicts(rows) {
+  const urls = new Map();
+  for (const r of rows) {
+    const sid = r?.schemeId;
+    if (typeof sid !== "string" || !sid.startsWith("harvest-")) continue;
+    if (!urls.has(sid)) urls.set(sid, new Set());
+    urls.get(sid).add(String(r.sourceUrl || "").trim());
+  }
+  return [...urls].filter(([, u]) => u.size > 1).map(([schemeId, u]) => ({ schemeId, urls: [...u] }));
 }
 
 /** Ids that appear on more than one row, with their counts. */
@@ -52,5 +82,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     }
     process.exit(1);
   }
-  console.log(`OK ${file}: ${rows.length} rows, all ids unique`);
+  const clash = schemeUrlConflicts(rows);
+  if (clash.length) {
+    console.error(`FAIL ${file}: schemeId shared by different release URLs`);
+    for (const { schemeId, urls } of clash) console.error(`  ${schemeId}: ${urls.join(" | ")}`);
+    process.exit(1);
+  }
+  console.log(`OK ${file}: ${rows.length} rows, all ids unique, no schemeId spans two release URLs`);
 }
