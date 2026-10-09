@@ -2,7 +2,9 @@ name: Hourly ledger harvest
 
 on:
   schedule:
-    - cron: "17 * * * *"
+    # Every 2 hours, Mon-Fri Central time only (CDT = UTC-5): 1:17 AM-5:17 PM CT, then 7:17-11:17 PM CT.
+    - cron: "17 6-22/2 * * 1-5"
+    - cron: "17 0-4/2 * * 2-6"
   workflow_dispatch:
 
 permissions:
