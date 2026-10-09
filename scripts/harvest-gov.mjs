@@ -19,6 +19,7 @@ import {
   personOrEntity,
   rewriteHarvestName,
 } from "./harvest-parse.mjs";
+import { rowId } from "./ledger-id.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 // The hourly GitHub Actions job points these at data/ (durable, published);
@@ -385,7 +386,7 @@ function originFor(blob, official) {
   return "Federal program (see release)";
 }
 
-function buildRow(item, office, name, geo, extraId) {
+function buildRow(item, office, name, geo) {
   const blob = `${item.title} ${item.teaser || ""}`;
   const op = operationName(item.title);
   const picked = Number.isFinite(item.when)
@@ -430,9 +431,9 @@ function buildRow(item, office, name, geo, extraId) {
     picked,
     entered: "Amount not stated",
     office,
-    id: extraId
-      ? `harvest-${slug(official)}-${slug(name)}`
-      : `harvest-${slug(official)}`,
+    // Full source URL + person, hashed: unique across releases that share a
+    // long slug prefix, and stable run to run (see scripts/ledger-id.mjs).
+    id: rowId(official, name),
     when: Number.isFinite(item.when)
       ? new Date(item.when).toISOString().slice(0, 10)
       : "",
@@ -470,14 +471,13 @@ function rowsFromItem(item, office) {
   }
   if (!names.length) return [];
   const fallback = geoFor(item);
-  const multi = names.length > 1;
   const out = [];
   for (const raw of names) {
     const name = String(raw).slice(0, 120);
     if (looksLikeHeadline(name) && !op) continue;
     const geo = geoNearName(blob, name) || fallback;
     if (!geo) continue;
-    out.push(buildRow(item, office, name, geo, multi));
+    out.push(buildRow(item, office, name, geo));
   }
   return out;
 }

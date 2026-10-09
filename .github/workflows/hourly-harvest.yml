@@ -28,11 +28,13 @@ jobs:
         with:
           node-version: "22"
       - name: Tests
-        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs
+        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs
       - name: Harvest official papers
         run: node scripts/harvest-gov.mjs
       - name: Cut duplicates, blank photos
         run: node scripts/ledger-dedupe.mjs data/harvest.json
+      - name: Pre-publish check (fail on duplicate ids)
+        run: node scripts/ledger-id.mjs data/harvest.json
       - name: Did rows change?
         id: diff
         run: |

@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Public data feed for the Fraud Ledger (official-source harvest).",
   "scripts": {
-    "harvest": "LEDGER_HARVEST_FILE=data/harvest.json LEDGER_STATUS_FILE=data/harvest-status.json node scripts/harvest-gov.mjs && node scripts/ledger-dedupe.mjs data/harvest.json",
-    "test": "node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs"
+    "harvest": "LEDGER_HARVEST_FILE=data/harvest.json LEDGER_STATUS_FILE=data/harvest-status.json node scripts/harvest-gov.mjs && node scripts/ledger-dedupe.mjs data/harvest.json && node scripts/ledger-id.mjs data/harvest.json",
+    "test": "node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs"
   }
 }
