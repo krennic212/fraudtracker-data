@@ -2064,5 +2064,29 @@
     "presence": "not_stated",
     "scheme": "Aaron Michael McComsey",
     "schemeId": "harvest-https-www-justice-gov-usao-edpa-pr-bucks-county--b664f7bb1b"
+  },
+  {
+    "name": "The Fisher of Men Project, LLC",
+    "city": "Charlotte, NC",
+    "crime": "Charlotte Man Pleads Guilty to Health Care Fraud for Stealing Hundreds of Thousands from the North Carolina Medicaid Program",
+    "usa": "Charlotte Man Pleads Guilty to Health Care Fraud for Stealing Hundreds of Thousands from the North Carolina Medicaid Program",
+    "foreign": "Not stated in post",
+    "picked": "10/15/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-wdnc-pr-charlotte-man-0fea2f15be",
+    "when": "2026-10-15",
+    "text": "Charlotte Man Pleads Guilty to Health Care Fraud for Stealing Hundreds of Thousands from the North Carolina Medicaid Program. CHARLOTTE, N.C. – Ronnie Lorenzo Robinson, Jr., 56, of Charlotte, appeared in federal court today and pleaded guilty to health care fraud for defrauding the North Carolina Medicaid out of hundreds of thousands of dollars by submitting claims for psychotherapy services that were never provided to recipients. “Medicaid is for those who need medical care and cannot afford it, it is not a free pot of money to be exploited,” said U.S. Attorney Russ Ferguson. “We are working diligently with state and federal partners to aggressively pursue those who steal from the American taxpayer.” “Healthcare fraud schemes drain taxpayer-funded government programs designed to help those in need and raise healthcare costs for all Americans. The FBI and our partners work diligently to hold criminals accountable Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-wdnc/pr/charlotte-man-pleads-guilty-health-care-fraud-stealing-hundreds-thousands-north",
+    "voting": false,
+    "origin": "Medicare / Medicaid",
+    "confirmedBy": "DOJ",
+    "lat": 35.2271,
+    "lon": -80.8431,
+    "presence": "not_stated",
+    "scheme": "The Fisher of Men Project, LLC",
+    "schemeId": "harvest-https-www-justice-gov-usao-wdnc-pr-charlotte-man-d43a739e39"
   }
 ]
