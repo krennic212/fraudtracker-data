@@ -1920,5 +1920,29 @@
     "presence": "not_stated",
     "scheme": "Ulysses Jude Devocion",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-construction-compan-f4b906cb17"
+  },
+  {
+    "name": "Charles Weiner",
+    "city": "Philadelphia, PA",
+    "crime": "Philadelphia Restaurateur Indicted for Employment Tax Fraud",
+    "usa": "Philadelphia Restaurateur Indicted for Employment Tax Fraud",
+    "foreign": "Not stated in post",
+    "picked": "10/15/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-edpa-pr-philadelphia--6f8135358c",
+    "when": "2026-10-15",
+    "text": "Philadelphia Restaurateur Indicted for Employment Tax Fraud. PHILADELPHIA – U.S. Attorney David Metcalf announced that Charles Weiner, 79, of Penn Valley, Pennsylvania, was charged by indictment with one count of conspiracy to defraud the United States, 22 counts of willful failure to withhold and pay over employment taxes, and six counts of aiding and assisting the filing of false tax returns. The indictment is part of the Department of Justice’s first-ever National Tax Enforcement Surge, a month-long initiative involving the National Fraud Enforcement Division’s Tax Section and U.S. Attorneys’ Offices across the country. The surge of nationwide resources resulted in prosecutorial actions against 76 defendants whose alleged and proven crimes intended an estimated loss of revenue to the federal government of more than $490,000,000. As detailed in th Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-edpa/pr/philadelphia-restaurateur-indicted-employment-tax-fraud",
+    "voting": false,
+    "origin": "Medicare / Medicaid",
+    "confirmedBy": "DOJ",
+    "lat": 39.9526,
+    "lon": -75.1652,
+    "presence": "not_stated",
+    "scheme": "Charles Weiner",
+    "schemeId": "harvest-https-www-justice-gov-usao-edpa-pr-philadelphia--de868bddee"
   }
 ]
