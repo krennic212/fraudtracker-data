@@ -29,6 +29,8 @@ Co-defendants share one `schemeId`. Dollar totals should be counted once per sch
 Charges are allegations unless the source says the defendant pleaded guilty or was convicted.
 This is an independent record, not a government site.
 
+Manual add: list an official release in `data/seed-releases.json` (`link`, `title`, `date`, `teaser` = the release's own wording for the named defendants, optional `seat` district for map pin). The harvester ingests it through the same parse/id path, so each release keeps its own `schemeId`.
+
 Run locally: `npm run harvest` (Node 20+, no dependencies). Run the tests with `npm test`.
 
 Spotted a mistake? Open an issue: https://github.com/krennic212/fraudtracker-data/issues

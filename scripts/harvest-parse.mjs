@@ -93,6 +93,8 @@ function cleanPerson(raw) {
 function pushName(out, seen, raw) {
   const name = cleanPerson(normHyphen(raw).trim());
   if (!name) return;
+  // "British National", "Canadian Citizen": a nationality phrase, not a person.
+  if (/^[A-Z][a-z]+ (?:National|Nationals|Citizen|Citizens|Native)$/.test(name)) return;
   const key = name.toLowerCase();
   if (seen.has(key)) return;
   seen.add(key);

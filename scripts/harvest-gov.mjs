@@ -214,6 +214,8 @@ const DISTRICT_SEAT = {
   "usao-co": ["Denver, CO", 39.7392, -104.9903],
   "usao-edwi": ["Green Bay, WI", 44.5133, -88.0133],
   "usao-wdwi": ["Madison, WI", 43.0731, -89.4012],
+  "usao-ndny": ["Albany, NY", 42.6526, -73.7562],
+  "usao-ednc": ["Raleigh, NC", 35.7796, -78.6382],
   "usao-id": ["Boise, ID", 43.615, -116.2023],
   "usao-edva": ["Alexandria, VA", 38.8048, -77.0469],
   "usao-ct": ["Hartford, CT", 41.7658, -72.6734],
@@ -307,6 +309,7 @@ function isSweep(blob) {
 function geoFor(item) {
   return (
     seatFromUrl(item.link) ||
+    (item.seat ? seatFromUrl(item.seat) : null) ||
     placeFromText(item.title) ||
     placeFromText(`${item.title} ${item.teaser || ""}`)
   );
@@ -556,6 +559,26 @@ async function harvestDoj(existing, have, added) {
   return scanned;
 }
 
+// Manual-add intake: data/seed-releases.json lists official release URLs with
+// the release's own wording (named defendants only). Same ingest path as DOJ.
+const SEED = join(ROOT, "data/seed-releases.json");
+function harvestSeed(existing, have, added) {
+  const seed = loadJson(SEED, { releases: [] });
+  const list = Array.isArray(seed?.releases) ? seed.releases : [];
+  for (const r of list) {
+    const link = String(r.link || "").trim();
+    if (!isOfficialHost(link)) continue;
+    ingest(existing, have, added, {
+      title: String(r.title || ""),
+      teaser: String(r.teaser || ""),
+      link,
+      when: Date.parse(`${r.date}T12:00:00Z`),
+      seat: r.seat || "",
+    }, "TheJusticeDept");
+  }
+  return list.length;
+}
+
 async function harvestUsda(existing, have, added) {
   let html;
   try {
@@ -788,6 +811,7 @@ async function main() {
   );
   const added = [];
   const doj = await harvestDoj(existing, have, added);
+  const seedN = harvestSeed(existing, have, added);
   const usda = await harvestUsda(existing, have, added);
   const hhs = await harvestHhsOig(existing, have, added);
   const ig = await harvestIgLists(existing, have, added);
@@ -797,7 +821,7 @@ async function main() {
     if (looksLikeHeadline(r.name)) return false;
     return isKeepRow(r.name, r.crime || r.name, r.text || "");
   });
-  const scanned = doj + usda + hhs + ig + stateAg + news;
+  const scanned = doj + seedN + usda + hhs + ig + stateAg + news;
 
   writeFileSync(HARVEST, `${JSON.stringify(kept, null, 2)}\n`);
   writeFileSync(

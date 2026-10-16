@@ -309,3 +309,13 @@ describe("operationName", () => {
     );
   });
 });
+
+it("nationality phrase is not a person (NDNY voting release)", () => {
+  const names = allPeople(
+    "Five Non-Citizens Arrested for Voter Fraud Across the Northern District",
+    "On October 13 and 14, 2026, Vikki Bradt, age 51, a British National, of Ballston Spa, NY, Samantha Merkle, age 55, a British National of Glens Falls, NY, appeared on charges of voting by aliens.",
+  );
+  assert.ok(names.includes("Vikki Bradt"));
+  assert.ok(names.includes("Samantha Merkle"));
+  assert.ok(!names.includes("British National"));
+});

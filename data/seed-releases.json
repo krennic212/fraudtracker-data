@@ -1,0 +1,24 @@
+{
+  "_note": "Manual-add intake. Official release URLs (justice.gov) with the release's own wording copied verbatim (excerpt limited to the named defendants). Ingested by scripts/harvest-gov.mjs through the same parse/build path as the DOJ API. 'seat' sets the district map pin when the URL has none (OPA).",
+  "releases": [
+    {
+      "link": "https://www.justice.gov/usao-ednc/pr/ednc-unveils-ten-federal-indictments-alleging-noncitizens-voted-2024-election",
+      "title": "EDNC Unveils Ten Federal Indictments Alleging Noncitizens Voted in the 2024 Election",
+      "date": "2026-10-15",
+      "teaser": "RALEIGH, N.C. – Today, Ellis Boyle, U.S. Attorney for the Eastern District of North Carolina, announced that a federal grand jury indicted 10 noncitizens, including an illegal alien, for illegally voting in the 2024 elections under 18 U.S.C. 611 and 1015. The grand jury returned indictments against the following individuals: Eduardd Omar Majano Sosa, 22, a native of El Salvador and an illegal alien living in Cumberland County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Gjina Gojcaj McDonald, 60, a native of the former Yugoslavia and a lawful permanent resident residing in Robeson County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. James Edward Herrmann, 47, a native of Germany and a lawful permanent resident residing in Cumberland County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Karl Fout, 73, a native of Germany and a lawful permanent resident residing in Cumberland County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Lawton Caswell McKenzie, 46, a native of Jamaica and a lawful permanent resident residing in Wayne County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Lionel Paul, 62, a native of Haiti and a lawful permanent resident residing in Granville County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Ludgardys Olena Matthews, 62, a native of Panama and a lawful permanent resident residing in Cumberland County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Mervin Sylvester Bogle, 60, a native of Jamaica and a lawful permanent resident residing in Harnett County, is charged with one count of falsely claiming citizenship to vote. Ramona Abreu-Exia, 71, a native of Germany and a lawful permanent resident residing in Cumberland County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. Robert Harold Corbett, 69, a native of Canada and a lawful permanent resident residing in Wake County, is charged with one count of falsely claiming citizenship to vote and one count of voting by an alien. An indictment is merely an accusation."
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndny/pr/five-non-citizens-arrested-voter-fraud-across-northern-district",
+      "title": "Five Non-Citizens Arrested for Voter Fraud Across the Northern District",
+      "date": "2026-10-16",
+      "teaser": "On October 13 and 14, 2026, Vikki Bradt, age 51, a British National, of Ballston Spa, NY, Samantha Merkle, age 55, a British National of Glens Falls, NY, Suad Sasic, age 30, a Bosnian National of Clifton Park, NY, Jacques Patry, age 64, a Canadian National of Tupper Lake, NY, and Paula Stitt, age 57, a Canadian National of Albany, NY, appeared on charges of voting by aliens. All defendants are lawful permanent residents. The complaints against all five defendants allege that they are aliens, who knew they were not United States citizens and that they knowingly voted in an election held in part for the purpose of electing a candidate for President, Vice President, Member of the United States Senate, or Member of the United States House of Representatives. The charges in the complaints are merely accusations."
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/justice-department-announces-charges-involving-16-aliens-illegal-voting",
+      "title": "Justice Department Announces Charges Involving 16 Aliens for Illegal Voting",
+      "date": "2026-10-16",
+      "seat": "usao-id",
+      "teaser": "District of Idaho: Canadian national, Taralynn Bosco, 48, a lawful permanent resident, has been charged with illegal voting by alien. Bosco allegedly voted in the 2022 general election even though she was not a United States citizen."
+    }
+  ]
+}
