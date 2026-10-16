@@ -1,11 +1,24 @@
 {
-  "checkedAt": 1792186565857,
+  "checkedAt": 1792189058006,
   "added": [
-    "MURPHY MEDICAL ASSOCIATES, LLC",
-    "Miracle-Ear, Inc",
-    "Alternative Solutions Consulting Corporation"
+    "Eduardd Omar Majano Sosa",
+    "Gjina Gojcaj McDonald",
+    "James Edward Herrmann",
+    "Karl Fout",
+    "Lawton Caswell McKenzie",
+    "Lionel Paul",
+    "Ludgardys Olena Matthews",
+    "Mervin Sylvester Bogle",
+    "Ramona Abreu-Exia",
+    "Robert Harold Corbett",
+    "Vikki Bradt",
+    "Samantha Merkle",
+    "Suad Sasic",
+    "Jacques Patry",
+    "Paula Stitt",
+    "Taralynn Bosco"
   ],
   "enriched": [],
-  "scanned": 470,
+  "scanned": 475,
   "note": "Hourly: justice.gov + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
