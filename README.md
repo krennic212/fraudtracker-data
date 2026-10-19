@@ -33,6 +33,8 @@ Manual add: list an official release in `data/seed-releases.json` (`link`, `titl
 
 OPA multi-district election roundups (justice.gov/opa/pr/..., election wording, two or more "District of" sections) are read from the full DOJ API body, because their teaser has no names. Each defendant is pinned to the district section it is listed under, and their own line from the release is quoted verbatim, with `nationality` holding the DOJ wording exactly as written ("a Mexico national", "a citizen of the Philippines"). If a voter already appears on another release within 14 days (a USAO mirror or an OPA recap), they are not added again.
 
+Removed rows: `data/exclude.json` lists releases (by `sourceUrl`) or rows (by `id`) that Krennic removed. The harvester drops them from the feed and never ingests them again. Servicemember-rights civil settlements (SCRA / USERRA) are not fraud and are skipped, unless the release also mentions fraud, false claims, kickbacks, false statements, theft, embezzlement or bribery.
+
 Run locally: `npm run harvest` (Node 20+, no dependencies). Run the tests with `npm test`.
 
 Spotted a mistake? Open an issue: https://github.com/krennic212/fraudtracker-data/issues

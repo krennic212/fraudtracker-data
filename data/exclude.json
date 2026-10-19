@@ -1,0 +1,12 @@
+{
+  "_note": "Rows that must never be in the feed. Matched by source URL (any row from that release) or by row id. scripts/harvest-gov.mjs drops matching rows already in data/harvest.json and never ingests them again. Add an entry only on Krennic's decision, with the reason.",
+  "rows": [
+    {
+      "sourceUrl": "https://www.justice.gov/usao-nv/pr/va-home-loan-servicer-village-capital-pay-over-500000-violating-servicemembers-rights",
+      "id": "harvest-https-www-justice-gov-usao-nv-pr-va-home-loan-se-6afb12a55e",
+      "name": "Village Capital & Investment LLC",
+      "reason": "Servicemembers Civil Relief Act (SCRA) civil settlement, not fraud",
+      "decided": "Krennic 2026-10-19"
+    }
+  ]
+}

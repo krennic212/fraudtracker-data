@@ -539,8 +539,47 @@ export function rowsFromItem(item, office) {
   return out;
 }
 
+/**
+ * Servicemember-rights civil cases (SCRA / USERRA settlements: interest-rate caps, foreclosures,
+ * lease terminations, reemployment) are not fraud. They are kept out unless the same release
+ * also speaks of fraud, false claims, kickbacks, false statements, theft or embezzlement.
+ */
+const SERVICEMEMBER_RIGHTS =
+  /servicemembers['’]? civil relief act|\bSCRA\b|servicemembers['’]? rights|uniformed services employment and reemployment rights act|\bUSERRA\b/i;
+const FRAUD_WORDS = /fraud|false claims?|kickback|false statements?|embezzl|theft|\bstole\b|brib/i;
+export function isServicememberRightsCase(blob) {
+  return SERVICEMEMBER_RIGHTS.test(blob) && !FRAUD_WORDS.test(blob);
+}
+
+// data/exclude.json: rows Krennic removed, by source URL or id. Never ingested again.
+const EXCLUDE_FILE = join(ROOT, "data/exclude.json");
+function urlKeyOf(url) {
+  try {
+    const u = new URL(String(url).trim());
+    return `${u.hostname.replace(/^(www|legacy)\./, "")}${u.pathname.replace(/\/+$/, "")}`.toLowerCase();
+  } catch {
+    return String(url || "").trim().toLowerCase();
+  }
+}
+export function loadExclude(file = EXCLUDE_FILE) {
+  const list = loadJson(file, { rows: [] })?.rows;
+  const rows = Array.isArray(list) ? list : [];
+  return {
+    urls: new Set(rows.map((e) => e?.sourceUrl).filter(Boolean).map(urlKeyOf)),
+    ids: new Set(rows.map((e) => e?.id).filter(Boolean)),
+  };
+}
+let EXCLUDE = null;
+export function isExcluded(row, ex = (EXCLUDE ??= loadExclude())) {
+  if (!row) return false;
+  if (row.id && ex.ids.has(row.id)) return true;
+  for (const u of [row.sourceUrl, row.link]) if (u && ex.urls.has(urlKeyOf(u))) return true;
+  return false;
+}
+
 export function keepBlob(title, teaser) {
   const blob = `${title} ${teaser || ""}`;
+  if (isServicememberRightsCase(blob)) return false;
   if (
     /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b/i.test(
       blob,
@@ -586,10 +625,12 @@ export function alreadyListedVoter(existing, row) {
 
 export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
+  if (isExcluded({ link: item.link })) return;
   if (Number.isFinite(item.when) && item.when < CUTOFF) return;
   if (!keepBlob(item.title, item.teaser || "")) return;
   const rows = rowsFromItem(item, office);
   for (const row of rows) {
+    if (isExcluded(row)) continue;
     const key = `${row.sourceUrl}|${row.id}`;
     if (have.has(key)) {
       // A seed that names the stage (e.g. "Charged") fills it in on a row the DOJ API added first.
@@ -993,6 +1034,8 @@ async function main() {
   const existing = loadJson(HARVEST, [])
     .map(rewriteExisting)
     .filter(Boolean)
+    // Rows Krennic removed (data/exclude.json) never come back.
+    .filter((r) => !isExcluded(r))
     // Drop prior DOL OIG rows whose title scrape grabbed the agency logo <h1>.
     .filter(
       (r) =>
