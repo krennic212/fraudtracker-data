@@ -688,6 +688,66 @@ async function harvestHhsOig(existing, have, added) {
   return scanned;
 }
 
+
+/** DOL OIG pages put the agency logo in <h1>; the real headline is often <h3> or twitter:description. */
+function oigPageTitle(page, url) {
+  const twitter = (page.match(
+    /<meta[^>]+name=["']twitter:description["'][^>]+content=["']([^"']+)["']/i,
+  ) || page.match(
+    /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:description["']/i,
+  ) || [])[1];
+  const og = (page.match(
+    /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
+  ) || [])[1];
+  const h3s = [...page.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)].map((m) =>
+    strip(m[1]),
+  );
+  const h3 = h3s.find(
+    (t) =>
+      t &&
+      t.length >= 20 &&
+      !/^sub header/i.test(t) &&
+      !/united states department of labor/i.test(t) &&
+      !/^office of inspector general$/i.test(t),
+  );
+  const h1 = strip(
+    (page.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || "",
+  );
+  const titleTag = strip(
+    (page.match(/<title>([^<]+)<\/title>/i) || [])[1] || "",
+  )
+    .replace(/^Office of Inspector General\s*-\s*/i, "")
+    .replace(/\s*\|\s*.*$/, "")
+    .trim();
+  for (const cand of [twitter, og, h3, titleTag, h1]) {
+    const t = strip(String(cand || ""))
+      .replace(/^Office of Inspector General\s*-\s*/i, "")
+      .replace(/\s*\|\s*.*$/, "")
+      .trim();
+    if (
+      t &&
+      t.length >= 12 &&
+      !/^united states department of labor$/i.test(t) &&
+      !/^office of inspector general$/i.test(t) &&
+      !/^investigative updates$/i.test(t) &&
+      !/^press releases$/i.test(t)
+    ) {
+      return t;
+    }
+  }
+  return url;
+}
+
+/** Prefer article text from the release headline onward; nav chrome otherwise fills the teaser. */
+function oigPageBody(page, title) {
+  const full = strip(page);
+  if (title && title.length >= 12) {
+    const at = full.toLowerCase().indexOf(title.toLowerCase());
+    if (at >= 0) return full.slice(at, at + 4000);
+  }
+  return full.slice(0, 4000);
+}
+
 async function harvestIgLists(existing, have, added) {
   let scanned = 0;
   for (const ig of IG_LISTS) {
@@ -729,16 +789,8 @@ async function harvestIgLists(existing, have, added) {
       } catch {
         continue;
       }
-      const title =
-        strip(
-          (page.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) ||
-            page.match(/<title>([^<]+)<\/title>/i) ||
-            [])[1] || "",
-        )
-          .replace(/\s*\|\s*.*$/, "")
-          .replace(/^Office of Inspector General\s*-\s*/i, "")
-          .trim() || url;
-      const body = strip(page).slice(0, 4000);
+      const title = oigPageTitle(page, url);
+      const body = oigPageBody(page, title);
       const monthHit = body.match(
         /\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2})\b/i,
       );
@@ -824,7 +876,14 @@ async function harvestNews(existing, have, added) {
 }
 
 async function main() {
-  const existing = loadJson(HARVEST, []).map(rewriteExisting).filter(Boolean);
+  const existing = loadJson(HARVEST, [])
+    .map(rewriteExisting)
+    .filter(Boolean)
+    // Drop prior DOL OIG rows whose title scrape grabbed the agency logo <h1>.
+    .filter(
+      (r) =>
+        !/^UNITED STATES DEPARTMENT OF LABOR$/i.test(String(r.crime || "").trim()),
+    );
   const have = new Set(
     existing.map((r) => `${r.sourceUrl || ""}|${r.id || ""}`),
   );

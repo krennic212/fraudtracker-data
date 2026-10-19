@@ -61,3 +61,27 @@ test("OIG mirror of the same titled release for the same person collapses", () =
   assert.equal(merged.length, 1);
   assert.match(rows[0].sourceUrl, /justice\.gov/);
 });
+
+test("junk OIG banner title still collapses to same-day justice.gov UI plea", () => {
+  const { rows, merged } = dedupeRows([
+    row({
+      name: "Ricky Lee Ware",
+      when: "2026-10-16",
+      crime: "Two Plead Guilty to Unemployment Insurance Benefits Fraud Conspiracy",
+      text: "pleaded guilty to conspiracy to commit access device fraud involving unemployment benefits",
+      sourceUrl: "https://www.justice.gov/usao-edca/pr/two-plead-guilty-unemployment-insurance-benefits-fraud-conspiracy",
+      schemeId: "s-doj",
+    }),
+    row({
+      name: "Ricky Lee Ware",
+      when: "2026-10-16",
+      crime: "UNITED STATES DEPARTMENT OF LABOR",
+      text: "Las Vegas residents Ricky Lee Ware pleaded guilty; unemployment benefits debit cards",
+      sourceUrl: "https://www.oig.dol.gov/public/Press%20Releases/OIG-OI-Press-Release-101926_1.htm",
+      schemeId: "s-dol",
+    }),
+  ]);
+  assert.equal(rows.length, 1);
+  assert.equal(merged.length, 1);
+  assert.match(rows[0].sourceUrl, /justice\.gov/);
+});

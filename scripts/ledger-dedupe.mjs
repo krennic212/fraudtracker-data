@@ -60,6 +60,16 @@ export function dedupeRows(rows) {
     const when = String(row.when || "").slice(0, 10);
     const title = nameKey(row.crime || row.usa || "").slice(0, 80);
     if (when && title.length >= 24) keys.push(`t|${n}|${when}|${title}`);
+    // When an OIG page title scrape fails (agency banner as <h1>), still
+    // collapse same person + day with a justice.gov / OIG unemployment case.
+    const blob = `${row.crime || ""} ${row.text || ""} ${row.sourceUrl || ""}`;
+    if (
+      when &&
+      /oig\.dol\.gov|justice\.gov\/usao-/i.test(row.sourceUrl || "") &&
+      /unemployment|access device fraud|pandemic unemployment|\bpua\b|ui fraud/i.test(blob)
+    ) {
+      keys.push(`ui|${n}|${when}`);
+    }
     const hit = keys.map((k) => seen.get(k)).find(Boolean);
     if (hit) {
       merged.push({
