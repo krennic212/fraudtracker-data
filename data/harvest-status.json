@@ -1,22 +1,24 @@
 {
-  "checkedAt": 1792427509172,
+  "checkedAt": 1792428147769,
   "added": [
-    "Mark Marriott",
-    "San Diego Logistics Group Inc",
+    "Charles Marshall",
     "Ricky Lee Ware",
     "Kimberly Ann Wallace",
     "Carlos Lee Sanchez Jr.",
-    "Ricky Lee Ware",
-    "Kimberly Ann Wallace",
     "Christopher Powell",
+    "Karon Olufemi Blalock",
     "Tyler Lee Berens",
     "Raul Fernandez Vicioso",
+    "Roman Vequiz Fernandez",
+    "Coralba Albarracin Siniva",
+    "Joel Vicioso Fernandez",
     "Brandon Robinson",
     "Antonio Robinson",
     "Joshuan Porter",
-    "Jensen Vatel"
+    "Jensen Vatel",
+    "Officer of New York-based Fast Lab Technologies, LLC"
   ],
   "enriched": [],
-  "scanned": 482,
+  "scanned": 481,
   "note": "Hourly: justice.gov + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
