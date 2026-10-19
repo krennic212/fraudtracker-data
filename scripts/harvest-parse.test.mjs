@@ -319,3 +319,21 @@ it("nationality phrase is not a person (NDNY voting release)", () => {
   assert.ok(names.includes("Samantha Merkle"));
   assert.ok(!names.includes("British National"));
 });
+
+describe("EDCA unemployment debit-card plea (Ware / Wallace / Sanchez Jr.)", () => {
+  const title =
+    "Two Plead Guilty to Unemployment Insurance Benefits Fraud Conspiracy";
+  const teaser =
+    "SACRAMENTO, Calif. — Las Vegas residents Ricky Lee Ware, 43, and Kimberly Ann Wallace, 30, pleaded guilty today to conspiracy to commit access device fraud, U.S. Attorney Eric Grant announced. According to court documents, between July 2020 and January 2021, the defendants conspired to obtain debit cards that allowed them to access unemployment benefits. The defendants then used the debit cards to withdraw more than $900,000 in unemployment benefits from ATMs. The third defendant in the case, Carlos Lee Sanchez Jr., 46, of Sacramento, pleaded guilty to conspiracy to commit access device fraud in June 2026 and is scheduled to be sentenced Nov. 13, 2026.";
+
+  it("pulls all three named defendants including Jr. suffix", () => {
+    const names = allPeople(title, teaser);
+    assert.ok(names.includes("Ricky Lee Ware"));
+    assert.ok(names.includes("Kimberly Ann Wallace"));
+    assert.ok(names.includes("Carlos Lee Sanchez Jr."));
+  });
+
+  it("keeps the unemployment-fraud KEEP path for this release", () => {
+    assert.equal(isKeepRow("Ricky Lee Ware", title, teaser), true);
+  });
+});

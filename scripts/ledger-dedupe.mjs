@@ -55,6 +55,11 @@ export function dedupeRows(rows) {
     const keys = [`u|${n}|${urlKey(row.sourceUrl)}`];
     const s = releaseSlug(row.sourceUrl);
     if (s) keys.push(`s|${n}|${s}`);
+    // OIG mirrors often use a different filename than the USAO slug; same
+    // person + same day + same release title still collapses to one row.
+    const when = String(row.when || "").slice(0, 10);
+    const title = nameKey(row.crime || row.usa || "").slice(0, 80);
+    if (when && title.length >= 24) keys.push(`t|${n}|${when}|${title}`);
     const hit = keys.map((k) => seen.get(k)).find(Boolean);
     if (hit) {
       merged.push({

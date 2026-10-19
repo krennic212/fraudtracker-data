@@ -9,20 +9,33 @@ const HEADLINE_VERB =
 const COMPANY =
   /\b([A-Z][A-Za-z0-9&.'' -]{1,50}(?:,?\s*(?:Inc|LLC|LLP|Corp|Corporation|Ltd|Co)\.?))\b/;
 
-const PERSON =
-  /\b([A-Z][a-z]+(?:-[A-Z][a-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?){1,3}),\s*(?:age\s*)?\d{1,3},\s*(?:of|from)\s+/;
+// Optional Jr./Sr./II–IV after the last name token (period optional).
+const NAME_CORE =
+  String.raw`[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
+const NAME_CORE_TITLE =
+  String.raw`[A-Z][a-z]+(?:-[A-Z][a-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
 
-const PERSON_CHARGED =
-  /\b(?:charged|indicted|sentenced|arrested)\s+([A-Z][a-z]+(?:-[A-Z][a-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?){1,3})\b/;
+const PERSON = new RegExp(
+  String.raw`\b(` + NAME_CORE_TITLE + String.raw`),\s*(?:age\s*)?\d{1,3},\s*(?:of|from)\s+`,
+);
 
-const PERSON_YEAR_OLD =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s+a(?:n)?\s+\d{1,3}[-\s]year[-\s]old\b/g;
+const PERSON_CHARGED = new RegExp(
+  String.raw`\b(?:charged|indicted|sentenced|arrested)\s+(` + NAME_CORE_TITLE + String.raw`)\b`,
+);
 
-const PERSON_WAS =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s+(?:a|an)\s+[^.!?]{0,80}?\s+was\s+(?:arrested|charged|indicted|sentenced)/g;
+const PERSON_YEAR_OLD = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`),\s+a(?:n)?\s+\d{1,3}[-\s]year[-\s]old\b`,
+  "g",
+);
 
-const PERSON_PLEAD =
-  /\b([A-Z][a-z]+(?:-[A-Z][a-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?){1,3})\s+(?:pleaded guilty|pleads guilty|was sentenced|was indicted|was arrested|has been charged)/;
+const PERSON_WAS = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+[^.!?]{0,80}?\s+was\s+(?:arrested|charged|indicted|sentenced)`,
+  "g",
+);
+
+const PERSON_PLEAD = new RegExp(
+  String.raw`\b(` + NAME_CORE_TITLE + String.raw`)\s+(?:pleaded guilty|pleads guilty|was sentenced|was indicted|was arrested|has been charged)`,
+);
 
 
 const OFFICIAL =
@@ -46,22 +59,32 @@ export function officialUrl(blob) {
   return m ? m[0].replace(/[),.;]+$/, "") : null;
 }
 
-const PERSON_AGE =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s*(?:age\s*)?\d{1,3},/g;
+const PERSON_AGE = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`),\s*(?:age\s*)?\d{1,3},`,
+  "g",
+);
 
-const PERSON_STATUS =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s+(?:(?:a|an)\s+)?(?:suspected\s+)?(?:illegal alien|lawful permanent resident|alien with lawful)/gi;
+const PERSON_STATUS = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`),\s+(?:(?:a|an)\s+)?(?:suspected\s+)?(?:illegal alien|lawful permanent resident|alien with lawful)`,
+  "gi",
+);
 
-const PERSON_OF =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s+of\s+[A-Z]/g;
+const PERSON_OF = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`),\s+of\s+[A-Z]`,
+  "g",
+);
 
-const PERSON_ALIEN_LEAD =
-  /\b(?:illegal alien|lawful permanent resident)\s+([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),\s+of\s+/gi;
+const PERSON_ALIEN_LEAD = new RegExp(
+  String.raw`\b(?:illegal alien|lawful permanent resident)\s+(` + NAME_CORE + String.raw`),\s+of\s+`,
+  "gi",
+);
 
 const PERSON_CHARGED_G = new RegExp(PERSON_CHARGED.source, "g");
 
-const PERSON_PAIR =
-  /\b([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3})\s+and\s+(?:(?:his|her)\s+(?:wife|husband),?\s+)?([A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}),?\s+were\s+(?:indicted|charged|arrested)/g;
+const PERSON_PAIR = new RegExp(
+  String.raw`\b(` + NAME_CORE + String.raw`)\s+and\s+(?:(?:his|her)\s+(?:wife|husband),?\s+)?(` + NAME_CORE + String.raw`),?\s+were\s+(?:indicted|charged|arrested)`,
+  "g",
+);
 
 function normHyphen(s) {
   return String(s).replace(/[\u2010-\u2015\u2212]/g, "-");

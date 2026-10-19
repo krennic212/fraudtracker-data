@@ -39,3 +39,25 @@ test("scheme dollars count once per schemeId", () => {
   ]);
   assert.deepEqual(t, { schemes: 2, usd: 5_000_000 });
 });
+
+test("OIG mirror of the same titled release for the same person collapses", () => {
+  const { rows, merged } = dedupeRows([
+    row({
+      name: "Ricky Lee Ware",
+      when: "2026-10-16",
+      crime: "Two Plead Guilty to Unemployment Insurance Benefits Fraud Conspiracy",
+      sourceUrl: "https://www.justice.gov/usao-edca/pr/two-plead-guilty-unemployment-insurance-benefits-fraud-conspiracy",
+      schemeId: "s-doj",
+    }),
+    row({
+      name: "Ricky Lee Ware",
+      when: "2026-10-16",
+      crime: "Two Plead Guilty to Unemployment Insurance Benefits Fraud Conspiracy",
+      sourceUrl: "https://www.oig.dol.gov/public/Press%20Releases/OIG-OI-Press-Release-101926_1.htm",
+      schemeId: "s-dol",
+    }),
+  ]);
+  assert.equal(rows.length, 1);
+  assert.equal(merged.length, 1);
+  assert.match(rows[0].sourceUrl, /justice\.gov/);
+});

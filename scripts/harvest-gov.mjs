@@ -233,6 +233,8 @@ const DISTRICT_SEAT = {
   "usao-sdfl": ["Miami, FL", 25.7617, -80.1918],
   "usao-mdfl": ["Tampa, FL", 27.9506, -82.4572],
   "usao-cdca": ["Los Angeles, CA", 34.0522, -118.2437],
+  "usao-edca": ["Sacramento, CA", 38.5816, -121.4944],
+  "usao-sdca": ["San Diego, CA", 32.7157, -117.1611],
   "usao-ndca": ["San Francisco, CA", 37.7749, -122.4194],
   "usao-ndil": ["Chicago, IL", 41.8781, -87.6298],
   "usao-edpa": ["Philadelphia, PA", 39.9526, -75.1652],
@@ -257,6 +259,8 @@ const PLACE_HINTS = [
   { re: /\bqueens\b/i, city: "Queens, NY", lat: 40.7282, lon: -73.7949 },
   { re: /\bmanhattan\b/i, city: "Manhattan, NY", lat: 40.7831, lon: -73.9712 },
   { re: /los angeles/i, city: "Los Angeles, CA", lat: 34.0522, lon: -118.2437 },
+  { re: /\bsacramento\b|eastern district of california/i, city: "Sacramento, CA", lat: 38.5816, lon: -121.4944 },
+  { re: /las vegas/i, city: "Las Vegas, NV", lat: 36.1699, lon: -115.1398 },
   { re: /\bchicago\b/i, city: "Chicago, IL", lat: 41.8781, lon: -87.6298 },
   { re: /south florida|fort lauderdale|\bplantation\b|west palm beach|lauderhill/i, city: "Fort Lauderdale, FL", lat: 26.1224, lon: -80.1373 },
   { re: /\bmiami\b/i, city: "Miami, FL", lat: 25.7617, lon: -80.1918 },
@@ -695,7 +699,12 @@ async function harvestIgLists(existing, have, added) {
       continue;
     }
     const hrefs = [...html.matchAll(/href="(https?:\/\/[^"]+)"/gi)].map((m) => m[1]);
-    const rel = [...html.matchAll(/href="(\/[^"]+)"/gi)].map((m) => {
+    // Absolute paths (/foo) and DOL-style relatives that omit the leading slash
+    // (public/Press%20Releases/....htm).
+    const rel = [
+      ...html.matchAll(/href="(\/[^"]+)"/gi),
+      ...html.matchAll(/href="((?:public|Press)[^"]+)"/gi),
+    ].map((m) => {
       try {
         return new URL(m[1], ig.url).href;
       } catch {
@@ -707,10 +716,11 @@ async function harvestIgLists(existing, have, added) {
         if (!ig.host.test(u)) return false;
         if (/\/articles\/?$/i.test(u) || /\/news-releases\/?$/i.test(u)) return false;
         if (/criminal-investigation-press-releases\/?$/i.test(u)) return false;
+        if (/oigpressreleases\.htm/i.test(u)) return false;
         if (ig.path) return ig.path.test(u);
         return /article\/|news-releases\/|press-release|oig|ppp|fraud/i.test(u);
       })
-      .slice(0, 12);
+      .slice(0, 16);
     for (const url of urls) {
       scanned += 1;
       let page = "";
@@ -726,12 +736,21 @@ async function harvestIgLists(existing, have, added) {
             [])[1] || "",
         )
           .replace(/\s*\|\s*.*$/, "")
+          .replace(/^Office of Inspector General\s*-\s*/i, "")
           .trim() || url;
+      const body = strip(page).slice(0, 4000);
+      const monthHit = body.match(
+        /\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2})\b/i,
+      );
+      const urlHit = url.match(/\/(20\d{2})(\d{2})(\d{2})[_\/]/);
+      let when = NaN;
+      if (monthHit) when = Date.parse(monthHit[1]);
+      else if (urlHit) when = Date.parse(`${urlHit[1]}-${urlHit[2]}-${urlHit[3]}T12:00:00Z`);
       ingest(
         existing,
         have,
         added,
-        { title, teaser: strip(page).slice(0, 4000), link: url, when: NaN },
+        { title, teaser: body, link: url, when },
         ig.office,
       );
     }
