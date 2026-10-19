@@ -124,3 +124,21 @@ describe("OPA multi-district election roundup (Operation Protect the Vote, 2026-
     assert.equal(dojItem(r).teaser, "short");
   });
 });
+
+describe("seed stage on a row the DOJ API added first", () => {
+  it("fills a missing stage (Charged) and never changes an existing one", () => {
+    const item = { title: rel.title, teaser: rel.teaser, link: rel.link, when: Date.parse(`${rel.date}T12:00:00Z`) };
+    const existing = rowsFromItem(item, "TheJusticeDept");
+    assert.ok(existing.every((r) => !r.stage && !/Stage:/.test(r.text)));
+    existing[1].stage = "Convicted"; // pretend a later official paper said so; the seed must not touch it
+    const have = new Set(existing.map((r) => `${r.sourceUrl}|${r.id}`));
+    const added = [];
+    ingest(existing, have, added, { ...item, stage: "Charged" }, "TheJusticeDept");
+    assert.deepEqual(added, []);
+    assert.equal(existing.length, 28);
+    assert.equal(existing[0].stage, "Charged");
+    assert.match(existing[0].text, /Stage: Charged \(not convicted\)\. Charges are allegations/);
+    assert.equal(existing[1].stage, "Convicted");
+    assert.equal(existing.filter((r) => r.stage === "Charged").length, 27);
+  });
+});

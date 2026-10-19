@@ -120,19 +120,22 @@ function loadJson(path, fallback) {
   }
 }
 
-function strip(html) {
+export function strip(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/&nbsp;/g, " ")
-    .replace(/&/g, "&")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#39;/g, "'")
-    .replace(/'/g, "'")
-    .replace(/"/g, '"')
-    .replace(/</g, "<")
-    .replace(/>/g, ">")
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    .replace(/&rsquo;|&lsquo;/g, "’")
+    .replace(/&rdquo;|&ldquo;/g, "”")
+    .replace(/&ndash;|&mdash;/g, "–")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -588,7 +591,20 @@ export function ingest(existing, have, added, item, office) {
   const rows = rowsFromItem(item, office);
   for (const row of rows) {
     const key = `${row.sourceUrl}|${row.id}`;
-    if (have.has(key)) continue;
+    if (have.has(key)) {
+      // A seed that names the stage (e.g. "Charged") fills it in on a row the DOJ API added first.
+      // Only a missing stage is filled; an existing stage is never changed (never upgraded).
+      if (item.stage) {
+        const prev = existing.find((e) => e && e.id === row.id && e.sourceUrl === row.sourceUrl);
+        if (prev && !prev.stage) {
+          prev.stage = item.stage;
+          if (item.stage === "Charged" && !/Stage: Charged/.test(prev.text || "")) {
+            prev.text = String(prev.text || "").replace(/ Charges are allegations unless/, " Stage: Charged (not convicted). Charges are allegations unless");
+          }
+        }
+      }
+      continue;
+    }
     if (alreadyListedVoter(existing, row)) continue;
     have.add(key);
     existing.push(row);
@@ -663,8 +679,8 @@ async function harvestDoj(existing, have, added) {
 // Manual-add intake: data/seed-releases.json lists official release URLs with
 // the release's own wording (named defendants only). Same ingest path as DOJ.
 const SEED = join(ROOT, "data/seed-releases.json");
-function harvestSeed(existing, have, added) {
-  const seed = loadJson(SEED, { releases: [] });
+export function harvestSeed(existing, have, added, seedFile = SEED) {
+  const seed = loadJson(seedFile, { releases: [] });
   const list = Array.isArray(seed?.releases) ? seed.releases : [];
   for (const r of list) {
     const link = String(r.link || "").trim();

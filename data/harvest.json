@@ -2978,7 +2978,7 @@
     "schemeId": "harvest-https-www-oig-dol-gov-public-press-20releases-oi-4e1b2233a7"
   },
   {
-    "name": "Investment LLC",
+    "name": "Village Capital & Investment LLC",
     "city": "Las Vegas, NV",
     "crime": "VA Home Loan Servicer Village Capital to Pay Over $500,000 for Violating Servicemembers’ Rights",
     "usa": "VA Home Loan Servicer Village Capital to Pay Over $500,000 for Violating Servicemembers’ Rights",
@@ -2986,9 +2986,9 @@
     "picked": "10/19/2026",
     "entered": "Amount not stated",
     "office": "TheJusticeDept",
-    "id": "harvest-https-www-justice-gov-usao-nv-pr-va-home-loan-se-aa661cb004",
+    "id": "harvest-https-www-justice-gov-usao-nv-pr-va-home-loan-se-6afb12a55e",
     "when": "2026-10-19",
-    "text": "VA Home Loan Servicer Village Capital to Pay Over $500,000 for Violating Servicemembers’ Rights. LAS VEGAS — The Justice Department today announced that Village Capital &amp; Investment LLC, a servicer of home loans guaranteed by the Department of Veterans Affairs, will pay over $500,000 to resolve allegations that it failed to properly apply Servicemembers Civil Relief Act (SCRA) interest rate benefits to at least 41 servicemembers’ mortgages and retaliated against servicemembers who requested interest rate benefits. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "VA Home Loan Servicer Village Capital to Pay Over $500,000 for Violating Servicemembers’ Rights. LAS VEGAS — The Justice Department today announced that Village Capital & Investment LLC, a servicer of home loans guaranteed by the Department of Veterans Affairs, will pay over $500,000 to resolve allegations that it failed to properly apply Servicemembers Civil Relief Act (SCRA) interest rate benefits to at least 41 servicemembers’ mortgages and retaliated against servicemembers who requested interest rate benefits. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/usao-nv/pr/va-home-loan-servicer-village-capital-pay-over-500000-violating-servicemembers-rights",
@@ -2998,7 +2998,7 @@
     "lat": 36.1699,
     "lon": -115.1398,
     "presence": "not_stated",
-    "scheme": "Investment LLC",
+    "scheme": "Village Capital & Investment LLC",
     "schemeId": "harvest-https-www-justice-gov-usao-nv-pr-va-home-loan-se-d0fb961657"
   },
   {
@@ -3084,7 +3084,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--95f0510474",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Omar Alexander Muñoz, 72, a Belizean national living in Commerce, California, fraudulently registered to vote in September 2019, claiming his was a U.S. citizen, then voted in U.S. elections in 2020, twice in 2022, and in 2024. He also lied on his application to become a naturalized U.S. citizen when he falsely stated under oath to have never claimed to be a U.S. citizen. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Omar Alexander Muñoz, 72, a Belizean national living in Commerce, California, fraudulently registered to vote in September 2019, claiming his was a U.S. citizen, then voted in U.S. elections in 2020, twice in 2022, and in 2024. He also lied on his application to become a naturalized U.S. citizen when he falsely stated under oath to have never claimed to be a U.S. citizen. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3096,7 +3096,8 @@
     "presence": "not_stated",
     "scheme": "Omar Alexander Muñoz",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Belizean national"
+    "nationality": "a Belizean national",
+    "stage": "Charged"
   },
   {
     "name": "Amandeep Kaur",
@@ -3109,7 +3110,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--9d57f43ff5",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Amandeep Kaur, 30, an Indian national living in Rancho Palos Verdes, California, and who is seeking to become a U.S. citizen, fraudulently registered to vote in December 2022 and voted in the November 2024 U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Amandeep Kaur, 30, an Indian national living in Rancho Palos Verdes, California, and who is seeking to become a U.S. citizen, fraudulently registered to vote in December 2022 and voted in the November 2024 U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3121,7 +3122,8 @@
     "presence": "not_stated",
     "scheme": "Amandeep Kaur",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "an Indian national"
+    "nationality": "an Indian national",
+    "stage": "Charged"
   },
   {
     "name": "Ana Domínguez",
@@ -3134,7 +3136,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--6b2da85fcc",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ana Domínguez, 60, a Salvadoran national living in Long Beach, California, fraudulently registered to vote in July 2006 and lied in her naturalization paperwork in March 2026. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ana Domínguez, 60, a Salvadoran national living in Long Beach, California, fraudulently registered to vote in July 2006 and lied in her naturalization paperwork in March 2026. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3146,7 +3148,8 @@
     "presence": "not_stated",
     "scheme": "Ana Domínguez",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Salvadoran national"
+    "nationality": "a Salvadoran national",
+    "stage": "Charged"
   },
   {
     "name": "Axel Giovani Prera García",
@@ -3159,7 +3162,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--f3b146f596",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Axel Giovani Prera García, 46, a Guatemalan national and Pico Rivera, California, resident, fraudulently registered to vote in 2002 and 2005, and lied in his naturalization paperwork in June 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Axel Giovani Prera García, 46, a Guatemalan national and Pico Rivera, California, resident, fraudulently registered to vote in 2002 and 2005, and lied in his naturalization paperwork in June 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3171,7 +3174,8 @@
     "presence": "not_stated",
     "scheme": "Axel Giovani Prera García",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Guatemalan national"
+    "nationality": "a Guatemalan national",
+    "stage": "Charged"
   },
   {
     "name": "Flavio Alejandro Zúñiga",
@@ -3184,7 +3188,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--de35f5bf19",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Flavio Alejandro Zúñiga, 43, a Mexico national and La Puente, California, resident, fraudulently registered to vote in 2003 and lied in his naturalization paperwork in February 2026. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Flavio Alejandro Zúñiga, 43, a Mexico national and La Puente, California, resident, fraudulently registered to vote in 2003 and lied in his naturalization paperwork in February 2026. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3196,7 +3200,8 @@
     "presence": "not_stated",
     "scheme": "Flavio Alejandro Zúñiga",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexico national"
+    "nationality": "a Mexico national",
+    "stage": "Charged"
   },
   {
     "name": "Butleng Taing",
@@ -3209,7 +3214,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--ddbc91cc0e",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Butleng Taing, 43, a Cambodian national living in Long Beach, fraudulently registered to vote in July 2021, voted in the 2022 and 2024 U.S. elections, and lied on his naturalization paperwork in August 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Butleng Taing, 43, a Cambodian national living in Long Beach, fraudulently registered to vote in July 2021, voted in the 2022 and 2024 U.S. elections, and lied on his naturalization paperwork in August 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3221,7 +3226,8 @@
     "presence": "not_stated",
     "scheme": "Butleng Taing",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Cambodian national"
+    "nationality": "a Cambodian national",
+    "stage": "Charged"
   },
   {
     "name": "Carlos Antonio Galeas",
@@ -3234,7 +3240,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--947dc5fd1d",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Carlos Antonio Galeas, 54, a Honduran national and West Covina, California, resident, fraudulently registered to vote in 2012 and 2016, then lied in his naturalization paperwork in September 2018. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Carlos Antonio Galeas, 54, a Honduran national and West Covina, California, resident, fraudulently registered to vote in 2012 and 2016, then lied in his naturalization paperwork in September 2018. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3246,7 +3252,8 @@
     "presence": "not_stated",
     "scheme": "Carlos Antonio Galeas",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Honduran national"
+    "nationality": "a Honduran national",
+    "stage": "Charged"
   },
   {
     "name": "Ernest Gutiérrez Ruvalcaba",
@@ -3259,7 +3266,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e31428fb1c",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ernest Gutiérrez Ruvalcaba, 57, a Mexican national living in Wilmington, California, fraudulently registered to vote in February 2024 and voted one month later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ernest Gutiérrez Ruvalcaba, 57, a Mexican national living in Wilmington, California, fraudulently registered to vote in February 2024 and voted one month later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3271,7 +3278,8 @@
     "presence": "not_stated",
     "scheme": "Ernest Gutiérrez Ruvalcaba",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Jesús Narez-Madrigal",
@@ -3284,7 +3292,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--cdcd858606",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Jesús Narez-Madrigal, 52, a Mexican national living in Carson, California, fraudulently registered to vote in 2014, voted in the 2024 U.S. general election, and lied in his naturalization paperwork in June 2024. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Jesús Narez-Madrigal, 52, a Mexican national living in Carson, California, fraudulently registered to vote in 2014, voted in the 2024 U.S. general election, and lied in his naturalization paperwork in June 2024. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3296,7 +3304,8 @@
     "presence": "not_stated",
     "scheme": "Jesús Narez-Madrigal",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "José Antonio Bañuelos-Díaz",
@@ -3309,7 +3318,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e5abf524ff",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: José Antonio Bañuelos-Díaz, 42, a Mexican national and West Adams, California, resident, fraudulently registered to vote in 2007 and lied on his naturalization paperwork in March 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: José Antonio Bañuelos-Díaz, 42, a Mexican national and West Adams, California, resident, fraudulently registered to vote in 2007 and lied on his naturalization paperwork in March 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3321,7 +3330,8 @@
     "presence": "not_stated",
     "scheme": "José Antonio Bañuelos-Díaz",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Muhammad Khan",
@@ -3334,7 +3344,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e265c5285d",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Muhammad Khan, 50, a Pakistani national and Anaheim, California, resident, submitted a provisional ballot in 2020 and lied on his naturalization paperwork five years later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Muhammad Khan, 50, a Pakistani national and Anaheim, California, resident, submitted a provisional ballot in 2020 and lied on his naturalization paperwork five years later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3346,7 +3356,8 @@
     "presence": "not_stated",
     "scheme": "Muhammad Khan",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Pakistani national"
+    "nationality": "a Pakistani national",
+    "stage": "Charged"
   },
   {
     "name": "Rouzbeh Seyamaknejad",
@@ -3359,7 +3370,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--4f51a6cb8d",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Rouzbeh Seyamaknejad, 63, a Canadian national and Rancho Palos Verdes, California, resident, fraudulently registered to vote in December 2018, lied in his naturalization application in January 2024, and voted in the November 2024 U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Rouzbeh Seyamaknejad, 63, a Canadian national and Rancho Palos Verdes, California, resident, fraudulently registered to vote in December 2018, lied in his naturalization application in January 2024, and voted in the November 2024 U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3371,7 +3382,8 @@
     "presence": "not_stated",
     "scheme": "Rouzbeh Seyamaknejad",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Canadian national"
+    "nationality": "a Canadian national",
+    "stage": "Charged"
   },
   {
     "name": "Sulema de León",
@@ -3384,7 +3396,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--7b8e1af29b",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Sulema de León, 35, a Mexican national and Long Beach, California, resident, fraudulently registered to vote in 2013, lied on her naturalization application in 2019, and voted in the November 2020 U.S. general election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Sulema de León, 35, a Mexican national and Long Beach, California, resident, fraudulently registered to vote in 2013, lied on her naturalization application in 2019, and voted in the November 2020 U.S. general election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3396,7 +3408,8 @@
     "presence": "not_stated",
     "scheme": "Sulema de León",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Maricela Nazarín González",
@@ -3409,7 +3422,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--4ca78a62e0",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Maricela Nazarín González, 43, a Mexican national living in Clovis, California, registered to vote in 2020, indicating that she was a U.S. citizen, and voted in elections in 2022, twice in 2024, and 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Maricela Nazarín González, 43, a Mexican national living in Clovis, California, registered to vote in 2020, indicating that she was a U.S. citizen, and voted in elections in 2022, twice in 2024, and 2025. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3421,7 +3434,8 @@
     "presence": "not_stated",
     "scheme": "Maricela Nazarín González",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Rony de Jesús Sicaja",
@@ -3434,7 +3448,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--05cd824e9a",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Rony de Jesús Sicaja, 38, a Guatemalan national living in Fresno, California, fraudulently registered to vote in 2017, and voted in the June 2022 primary election and the November 2024 general election in the United States. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Rony de Jesús Sicaja, 38, a Guatemalan national living in Fresno, California, fraudulently registered to vote in 2017, and voted in the June 2022 primary election and the November 2024 general election in the United States. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3446,7 +3460,8 @@
     "presence": "not_stated",
     "scheme": "Rony de Jesús Sicaja",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Guatemalan national"
+    "nationality": "a Guatemalan national",
+    "stage": "Charged"
   },
   {
     "name": "Camino Giles Jiménez",
@@ -3459,7 +3474,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--96086e4545",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Camino Giles Jiménez, 51, a Mexican national living in Kerman, California, knowingly voted in three U.S. elections despite knowing he is a noncitizen, the most recent election being the June 2026 primary. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Camino Giles Jiménez, 51, a Mexican national living in Kerman, California, knowingly voted in three U.S. elections despite knowing he is a noncitizen, the most recent election being the June 2026 primary. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3471,7 +3486,8 @@
     "presence": "not_stated",
     "scheme": "Camino Giles Jiménez",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Juan Antonio Rivas García",
@@ -3484,7 +3500,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e02b4032a2",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Juan Antonio Rivas García, 46, a Mexican national and Sacramento, California, resident, fraudulently registered to vote in 2018 and 2020, both times falsely asserting under oath that he was a U.S. citizen. Rivas voted in the 2022 and 2024 U.S. elections. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Juan Antonio Rivas García, 46, a Mexican national and Sacramento, California, resident, fraudulently registered to vote in 2018 and 2020, both times falsely asserting under oath that he was a U.S. citizen. Rivas voted in the 2022 and 2024 U.S. elections. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3496,7 +3512,8 @@
     "presence": "not_stated",
     "scheme": "Juan Antonio Rivas García",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "Giezell Viduya Adawag",
@@ -3509,7 +3526,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--a46c861ca2",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Giezell Viduya Adawag, 41, a Philippines national and Vacaville, California, resident, fraudulently registered to vote the day of the November 2024 general election, falsely certified that she was a U.S. citizen, and voted in the election that day. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Giezell Viduya Adawag, 41, a Philippines national and Vacaville, California, resident, fraudulently registered to vote the day of the November 2024 general election, falsely certified that she was a U.S. citizen, and voted in the election that day. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3521,7 +3538,8 @@
     "presence": "not_stated",
     "scheme": "Giezell Viduya Adawag",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Philippines national"
+    "nationality": "a Philippines national",
+    "stage": "Charged"
   },
   {
     "name": "Kamlesh Navnitlal Shah",
@@ -3534,7 +3552,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e886193e7b",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Kamlesh Navnitlal Shah, 67, an Indian national living in Sacramento, California, fraudulently registered to vote on the day of the November 2024 general election and voted that day. He is charged via information. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Kamlesh Navnitlal Shah, 67, an Indian national living in Sacramento, California, fraudulently registered to vote on the day of the November 2024 general election and voted that day. He is charged via information. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3546,7 +3564,8 @@
     "presence": "not_stated",
     "scheme": "Kamlesh Navnitlal Shah",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "an Indian national"
+    "nationality": "an Indian national",
+    "stage": "Charged"
   },
   {
     "name": "Verónica Bullene",
@@ -3559,7 +3578,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--0e1870e25e",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Verónica Bullene, 43, a.k.a. “Verónica Hernández Martínez,” a Mexican national living in Petaluma, California, made false statements on her naturalization application that she had never claimed to be a U.S. citizen when, in fact, she did so under penalty of perjury to register to vote in 2022 and 2023 then voted in 2024. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Verónica Bullene, 43, a.k.a. “Verónica Hernández Martínez,” a Mexican national living in Petaluma, California, made false statements on her naturalization application that she had never claimed to be a U.S. citizen when, in fact, she did so under penalty of perjury to register to vote in 2022 and 2023 then voted in 2024. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3571,7 +3590,8 @@
     "presence": "not_stated",
     "scheme": "Verónica Bullene",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Mexican national"
+    "nationality": "a Mexican national",
+    "stage": "Charged"
   },
   {
     "name": "David Shapiro",
@@ -3584,7 +3604,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--bd5165870c",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: David Shapiro, 41, a Georgian national living in San Jose, California, fraudulently registered to vote in 2024 and later voted in a U.S. election, and made false statements on his naturalization application that he had never claimed to be a U.S. citizen. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: David Shapiro, 41, a Georgian national living in San Jose, California, fraudulently registered to vote in 2024 and later voted in a U.S. election, and made false statements on his naturalization application that he had never claimed to be a U.S. citizen. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3596,7 +3616,8 @@
     "presence": "not_stated",
     "scheme": "David Shapiro",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Georgian national"
+    "nationality": "a Georgian national",
+    "stage": "Charged"
   },
   {
     "name": "Moe Thida Lwin",
@@ -3609,7 +3630,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--8f0b9f5f15",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Moe Thida Lwin, 57, a Myanmar national and Daly City, California, resident, fraudulently registered to vote in 2024 and then proceeded to illegally vote in a U.S. citizen. She made false statements on her naturalization paperwork as well. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Moe Thida Lwin, 57, a Myanmar national and Daly City, California, resident, fraudulently registered to vote in 2024 and then proceeded to illegally vote in a U.S. citizen. She made false statements on her naturalization paperwork as well. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3621,7 +3642,8 @@
     "presence": "not_stated",
     "scheme": "Moe Thida Lwin",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Myanmar national"
+    "nationality": "a Myanmar national",
+    "stage": "Charged"
   },
   {
     "name": "Manakotau Mataele Finau",
@@ -3634,7 +3656,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--c60ebc8ebd",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Manakotau Mataele Finau, 61, a Tongan national and Hayward, California, resident, fraudulently registered to vote in the 2024 election then vote, then lied about it in naturalization paperwork. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Manakotau Mataele Finau, 61, a Tongan national and Hayward, California, resident, fraudulently registered to vote in the 2024 election then vote, then lied about it in naturalization paperwork. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3646,7 +3668,8 @@
     "presence": "not_stated",
     "scheme": "Manakotau Mataele Finau",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Tongan national"
+    "nationality": "a Tongan national",
+    "stage": "Charged"
   },
   {
     "name": "Maribel del Carmen Garcés Barriga",
@@ -3659,7 +3682,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--8d7e3522e2",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Maribel del Carmen Garcés Barriga, 62, an Ecuadoran national and San Francisco, California, resident, made false statements in her naturalization paperwork that she never claimed U.S. citizenship and had never voted in a U.S. election or had registered to vote. In fact, Garcés fraudulently registered to vote in 2024 and proceeded to vote in a U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Maribel del Carmen Garcés Barriga, 62, an Ecuadoran national and San Francisco, California, resident, made false statements in her naturalization paperwork that she never claimed U.S. citizenship and had never voted in a U.S. election or had registered to vote. In fact, Garcés fraudulently registered to vote in 2024 and proceeded to vote in a U.S. election. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3671,7 +3694,8 @@
     "presence": "not_stated",
     "scheme": "Maribel del Carmen Garcés Barriga",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "an Ecuadoran national"
+    "nationality": "an Ecuadoran national",
+    "stage": "Charged"
   },
   {
     "name": "José Probitsado Amaro",
@@ -3684,7 +3708,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--524ceb31f0",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: José Probitsado Amaro, 51, a citizen of the Philippines living in National City, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements during his naturalization interview, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: José Probitsado Amaro, 51, a citizen of the Philippines living in National City, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements during his naturalization interview, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3696,7 +3720,8 @@
     "presence": "not_stated",
     "scheme": "José Probitsado Amaro",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a citizen of the Philippines"
+    "nationality": "a citizen of the Philippines",
+    "stage": "Charged"
   },
   {
     "name": "Jennifer Jung",
@@ -3709,7 +3734,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--debc869adb",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Jennifer Jung, 31, a Canadian national living in San Diego, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. She then cast a ballot in the November 2024 general election and made false statements during her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Jennifer Jung, 31, a Canadian national living in San Diego, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. She then cast a ballot in the November 2024 general election and made false statements during her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3721,7 +3746,8 @@
     "presence": "not_stated",
     "scheme": "Jennifer Jung",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a Canadian national"
+    "nationality": "a Canadian national",
+    "stage": "Charged"
   },
   {
     "name": "Erick Ronaldo Soto Mendizábal",
@@ -3734,7 +3760,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--1fcd34edd1",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Erick Ronaldo Soto Mendizábal, 64, a citizen of Guatemala and former Oceanside, California, resident now living in Moreno Valley, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements in his naturalization application, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Erick Ronaldo Soto Mendizábal, 64, a citizen of Guatemala and former Oceanside, California, resident now living in Moreno Valley, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements in his naturalization application, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3746,7 +3772,8 @@
     "presence": "not_stated",
     "scheme": "Erick Ronaldo Soto Mendizábal",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a citizen of Guatemala"
+    "nationality": "a citizen of Guatemala",
+    "stage": "Charged"
   },
   {
     "name": "Pamele Arbués Line",
@@ -3759,7 +3786,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--27e8afec99",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Pamele Arbués Line, 56, a citizen of the Philippines living in Escondido, California, registered to vote, cast a ballot in the November 2024 general election, and made false statements in her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. A complaint, indictment, and information merely contain accusations. All defendants are presumed innocent until proven guilty beyond a reasonable doubt in a court of law. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Pamele Arbués Line, 56, a citizen of the Philippines living in Escondido, California, registered to vote, cast a ballot in the November 2024 general election, and made false statements in her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. A complaint, indictment, and information merely contain accusations. All defendants are presumed innocent until proven guilty beyond a reasonable doubt in a court of law. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -3771,7 +3798,8 @@
     "presence": "not_stated",
     "scheme": "Pamele Arbués Line",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
-    "nationality": "a citizen of the Philippines"
+    "nationality": "a citizen of the Philippines",
+    "stage": "Charged"
   },
   {
     "name": "John O’Brien",
