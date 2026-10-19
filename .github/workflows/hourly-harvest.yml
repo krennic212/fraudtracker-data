@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: "22"
       - name: Tests
-        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs
+        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs
       - name: Harvest official papers
         run: node scripts/harvest-gov.mjs
       - name: Cut duplicates, blank photos

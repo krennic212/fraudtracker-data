@@ -12,6 +12,16 @@ describe("hourly harvest sources", () => {
     assert.match(gov, /"usao-edca":\s*\["Sacramento, CA"/);
   });
 
+  it("pins all four California districts (usao-cdca, usao-edca, usao-ndca, usao-sdca) and their OPA section headers", () => {
+    assert.match(gov, /"usao-cdca":\s*\["Los Angeles, CA"/);
+    assert.match(gov, /"usao-ndca":\s*\["San Francisco, CA"/);
+    assert.match(gov, /"usao-sdca":\s*\["San Diego, CA"/);
+    assert.match(gov, /central district of california\/i, city: "Los Angeles, CA"/);
+    assert.match(gov, /northern district of california\/i, city: "San Francisco, CA"/);
+    assert.match(gov, /southern district of california\/i, city: "San Diego, CA"/);
+    assert.match(gov, /eastern district of california\/i, city: "Sacramento, CA"/);
+  });
+
   it("lists DOL OIG press releases as a recurring IG source", () => {
     assert.match(gov, /office:\s*"DOLOIG"/);
     assert.match(gov, /oig\.dol\.gov\/oigpressreleases\.htm/);

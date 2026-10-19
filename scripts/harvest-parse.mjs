@@ -10,31 +10,41 @@ const COMPANY =
   /\b([A-Z][A-Za-z0-9&.'' -]{1,50}(?:,?\s*(?:Inc|LLC|LLP|Corp|Corporation|Ltd|Co)\.?))\b/;
 
 // Optional Jr./Sr./II–IV after the last name token (period optional).
+// Name tokens are Unicode-aware (Muñoz, Jiménez, Bañuelos-Díaz, Garcés) and may be joined by
+// lowercase Spanish / Portuguese / Dutch particles (de León, del Carmen, de la Cruz, dos Santos),
+// but a particle never starts or ends a name. Tokens are joined by spaces only, so a name never
+// runs across a sentence end ("United States. Camino Giles Jiménez" is two pieces).
+const W = String.raw`\p{Lu}[\p{Ll}\p{Lu}'’]*\p{L}(?:[-‐‑]\p{Lu}[\p{Ll}\p{Lu}'’]*\p{L})?`;
+const WT = String.raw`\p{Lu}[\p{Ll}'’]*\p{Ll}(?:-\p{Lu}[\p{Ll}'’]*\p{Ll})?`;
+const PARTICLE = String.raw`(?:(?:de|del|de la|de las|de los|da|das|do|dos|di|du|van|van der|von|y)\s+)`;
 const NAME_CORE =
-  String.raw`[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][A-Za-z]+(?:[-‐‑][A-Z][A-Za-z]+)?){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
+  String.raw`(?<![\p{L}\p{N}'’])` + W + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + W + String.raw`){1,4}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
 const NAME_CORE_TITLE =
-  String.raw`[A-Z][a-z]+(?:-[A-Z][a-z]+)?(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
+  String.raw`(?<![\p{L}\p{N}'’])` + WT + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + WT + String.raw`){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
 
 const PERSON = new RegExp(
-  String.raw`\b(` + NAME_CORE_TITLE + String.raw`),\s*(?:age\s*)?\d{1,3},\s*(?:of|from)\s+`,
+  String.raw`(` + NAME_CORE_TITLE + String.raw`),\s*(?:age\s*)?\d{1,3},\s*(?:of|from)\s+`,
+  "u",
 );
 
 const PERSON_CHARGED = new RegExp(
-  String.raw`\b(?:charged|indicted|sentenced|arrested)\s+(` + NAME_CORE_TITLE + String.raw`)\b`,
+  String.raw`\b(?:charged|indicted|sentenced|arrested)\s+(` + NAME_CORE_TITLE + String.raw`)(?![\p{L}\p{N}])`,
+  "u",
 );
 
 const PERSON_YEAR_OLD = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`),\s+a(?:n)?\s+\d{1,3}[-\s]year[-\s]old\b`,
-  "g",
+  String.raw`(` + NAME_CORE + String.raw`),\s+a(?:n)?\s+\d{1,3}[-\s]year[-\s]old\b`,
+  "gu",
 );
 
 const PERSON_WAS = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+[^.!?]{0,80}?\s+was\s+(?:arrested|charged|indicted|sentenced)`,
-  "g",
+  String.raw`(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+[^.!?]{0,80}?\s+was\s+(?:arrested|charged|indicted|sentenced)`,
+  "gu",
 );
 
 const PERSON_PLEAD = new RegExp(
-  String.raw`\b(` + NAME_CORE_TITLE + String.raw`)\s+(?:pleaded guilty|pleads guilty|was sentenced|was indicted|was arrested|has been charged)`,
+  String.raw`(` + NAME_CORE_TITLE + String.raw`)\s+(?:pleaded guilty|pleads guilty|was sentenced|was indicted|was arrested|has been charged)`,
+  "u",
 );
 
 
@@ -60,30 +70,30 @@ export function officialUrl(blob) {
 }
 
 const PERSON_AGE = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`),\s*(?:age\s*)?\d{1,3},`,
-  "g",
+  String.raw`(` + NAME_CORE + String.raw`),\s*(?:age\s*)?\d{1,3},`,
+  "gu",
 );
 
 const PERSON_STATUS = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`),\s+(?:(?:a|an)\s+)?(?:suspected\s+)?(?:illegal alien|lawful permanent resident|alien with lawful)`,
-  "gi",
+  String.raw`(` + NAME_CORE + String.raw`),\s+(?:(?:a|an)\s+)?(?:suspected\s+)?(?:illegal alien|lawful permanent resident|alien with lawful)`,
+  "giu",
 );
 
 const PERSON_OF = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`),\s+of\s+[A-Z]`,
-  "g",
+  String.raw`(` + NAME_CORE + String.raw`),\s+of\s+[A-Z]`,
+  "gu",
 );
 
 const PERSON_ALIEN_LEAD = new RegExp(
   String.raw`\b(?:illegal alien|lawful permanent resident)\s+(` + NAME_CORE + String.raw`),\s+of\s+`,
-  "gi",
+  "giu",
 );
 
-const PERSON_CHARGED_G = new RegExp(PERSON_CHARGED.source, "g");
+const PERSON_CHARGED_G = new RegExp(PERSON_CHARGED.source, "gu");
 
 const PERSON_PAIR = new RegExp(
-  String.raw`\b(` + NAME_CORE + String.raw`)\s+and\s+(?:(?:his|her)\s+(?:wife|husband),?\s+)?(` + NAME_CORE + String.raw`),?\s+were\s+(?:indicted|charged|arrested)`,
-  "g",
+  String.raw`(` + NAME_CORE + String.raw`)\s+and\s+(?:(?:his|her)\s+(?:wife|husband),?\s+)?(` + NAME_CORE + String.raw`),?\s+were\s+(?:indicted|charged|arrested)`,
+  "gu",
 );
 
 function normHyphen(s) {
@@ -105,11 +115,21 @@ export function personOrEntity(title, teaser = "") {
 const NAME_STOP =
   /^(Fraud|Defendants?|Owner|Clinic|Man|Woman|Two|Former|United|States|Department|Justice|Medicare|Medicaid|COVID(?:-19)?|Northern|Southern|Eastern|Western|District|Married|Couple|Wife|Husband|American|Elections?|Labrador|Provider|Sentenced|Convicted)$/i;
 
+// A section header glued onto a name ("Southern District of California José Probitsado Amaro"):
+// a leading U.S. state token is never part of the defendant's name.
+const STATE_LEAD =
+  /^(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|Ohio|Oklahoma|Oregon|Pennsylvania|Tennessee|Texas|Utah|Vermont|Virginia|Wisconsin|Wyoming|Columbia|Rico)$/;
+const PARTICLE_WORD = /^(?:de|del|la|las|los|da|das|do|dos|di|du|van|der|von|y)$/;
+
 function cleanPerson(raw) {
   const parts = String(raw)
     .split(/\s+/)
     .filter((w) => !NAME_STOP.test(w.replace(/[.,]$/, "")));
-  if (parts.length < 2) return null;
+  while (parts.length > 2 && STATE_LEAD.test(parts[0])) parts.shift();
+  // A particle never starts or ends a name.
+  while (parts.length && PARTICLE_WORD.test(parts[0])) parts.shift();
+  while (parts.length && PARTICLE_WORD.test(parts[parts.length - 1])) parts.pop();
+  if (parts.filter((w) => !PARTICLE_WORD.test(w)).length < 2) return null;
   return parts.join(" ");
 }
 
@@ -117,7 +137,8 @@ function pushName(out, seen, raw) {
   const name = cleanPerson(normHyphen(raw).trim());
   if (!name) return;
   // "British National", "Canadian Citizen": a nationality phrase, not a person.
-  if (/^[A-Z][a-z]+ (?:National|Nationals|Citizen|Citizens|Native)$/.test(name)) return;
+  // Also "Belizean National", "Mexico National", "Philippines National", "Citizen Of Guatemala".
+  if (/(?:^|\s)(?:nationals?|citizens?|natives?|residents?)(?:\s+of\b.*)?$/iu.test(name) || /^(?:citizens?|nationals?)\s+of\b/iu.test(name)) return;
   const key = name.toLowerCase();
   if (seen.has(key)) return;
   seen.add(key);

@@ -29,7 +29,9 @@ Co-defendants share one `schemeId`. Dollar totals should be counted once per sch
 Charges are allegations unless the source says the defendant pleaded guilty or was convicted.
 This is an independent record, not a government site.
 
-Manual add: list an official release in `data/seed-releases.json` (`link`, `title`, `date`, `teaser` = the release's own wording for the named defendants, optional `seat` district for map pin). The harvester ingests it through the same parse/id path, so each release keeps its own `schemeId`.
+Manual add: list an official release in `data/seed-releases.json` (`link`, `title`, `date`, `teaser` = the release's own wording for the named defendants, optional `seat` district for map pin). The harvester ingests it through the same parse/id path, so each release keeps its own `schemeId`. Optional `stage` (e.g. `"Charged"`) is copied onto each row and into its text ("Stage: Charged (not convicted)"); it is never upgraded.
+
+OPA multi-district election roundups (justice.gov/opa/pr/..., election wording, two or more "District of" sections) are read from the full DOJ API body, because their teaser has no names. Each defendant is pinned to the district section it is listed under, and their own line from the release is quoted verbatim, with `nationality` holding the DOJ wording exactly as written ("a Mexico national", "a citizen of the Philippines"). If a voter already appears on another release within 14 days (a USAO mirror or an OPA recap), they are not added again.
 
 Run locally: `npm run harvest` (Node 20+, no dependencies). Run the tests with `npm test`.
 

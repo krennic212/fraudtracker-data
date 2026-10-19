@@ -20,6 +20,7 @@ import {
   rewriteHarvestName,
 } from "./harvest-parse.mjs";
 import { rowId, schemeIdFor } from "./ledger-id.mjs";
+import { nameKey } from "./ledger-dedupe.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 // The hourly GitHub Actions job points these at data/ (durable, published);
@@ -68,7 +69,7 @@ const NEWS_OFFICE = [
 ];
 
 const KEEP =
-  /medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|passport fraud|wire fraud|bank fraud|mail fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)/i;
+  /medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|wire fraud|bank fraud|mail fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)/i;
 
 const DROP =
   /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b|murder|homicide|manslaughter|carjack|armed robbery|fentanyl|heroin|methamphetamine|kidnapping|tortur|illegal reentry/i;
@@ -260,6 +261,9 @@ const PLACE_HINTS = [
   { re: /\bmanhattan\b/i, city: "Manhattan, NY", lat: 40.7831, lon: -73.9712 },
   { re: /los angeles/i, city: "Los Angeles, CA", lat: 34.0522, lon: -118.2437 },
   { re: /\bsacramento\b|eastern district of california/i, city: "Sacramento, CA", lat: 38.5816, lon: -121.4944 },
+  { re: /central district of california/i, city: "Los Angeles, CA", lat: 34.0522, lon: -118.2437 },
+  { re: /northern district of california/i, city: "San Francisco, CA", lat: 37.7749, lon: -122.4194 },
+  { re: /southern district of california/i, city: "San Diego, CA", lat: 32.7157, lon: -117.1611 },
   { re: /las vegas/i, city: "Las Vegas, NV", lat: 36.1699, lon: -115.1398 },
   { re: /\bchicago\b/i, city: "Chicago, IL", lat: 41.8781, lon: -87.6298 },
   { re: /south florida|fort lauderdale|\bplantation\b|west palm beach|lauderhill/i, city: "Fort Lauderdale, FL", lat: 26.1224, lon: -80.1373 },
@@ -323,11 +327,17 @@ function geoNearName(blob, name) {
   const text = String(blob);
   const at = text.toLowerCase().indexOf(String(name).toLowerCase());
   if (at < 0) return null;
+  // The place named closest before the defendant wins (a roundup's section header, e.g.
+  // "Eastern District of California", beats an earlier "Central District of California").
   let hit = null;
+  let best = -1;
   for (const p of PLACE_HINTS) {
     const re = new RegExp(p.re.source, "gi");
     for (const m of text.matchAll(re)) {
-      if (m.index <= at) hit = { city: p.city, lat: p.lat, lon: p.lon };
+      if (m.index <= at && m.index > best) {
+        best = m.index;
+        hit = { city: p.city, lat: p.lat, lon: p.lon };
+      }
     }
   }
   return hit;
@@ -393,8 +403,41 @@ function originFor(blob, official) {
   return "Federal program (see release)";
 }
 
-function buildRow(item, office, name, geo) {
+/**
+ * The release's own words for one defendant in a roundup: from the name up to the next named
+ * defendant or the next "<X> District of <State>" section header (max 700 chars). Verbatim.
+ */
+export function ownLine(teaser, name, names = []) {
+  const text = String(teaser || "");
+  const at = text.indexOf(name);
+  if (at < 0) return "";
+  let end = Math.min(text.length, at + 700);
+  for (const other of names) {
+    if (other === name) continue;
+    const j = text.indexOf(other, at + name.length);
+    if (j > at && j < end) end = j;
+  }
+  const rest = text.slice(at + name.length, end);
+  const hdr = rest.search(/\s(?:(?:Central|Eastern|Northern|Southern|Western|Middle)\s+)?District of [A-Z]/);
+  if (hdr >= 0) end = at + name.length + hdr;
+  return text.slice(at, end).trim();
+}
+
+/** The DOJ nationality wording for the defendant, exactly as written ("a Belizean national",
+ *  "a Mexico national", "a citizen of the Philippines"). Never inferred. */
+export function nationalityAsPosted(line, name) {
+  const s = String(line || "");
+  if (!s.startsWith(name)) return "";
+  const m = s.slice(name.length).match(
+    /^,\s*\d{1,3},\s*(?:a\.k\.a\.\s*[“"][^”"]+[”"]\s*,?\s*)?((?:a|an)\s+(?:citizen of (?:the\s+)?\p{Lu}[\p{L}]*(?:\s\p{Lu}[\p{L}]*)*|\p{Lu}[\p{L}]*(?:\s\p{Lu}[\p{L}]*)*\s+national))(?=[\s,.])/u,
+  );
+  return m ? m[1] : "";
+}
+
+function buildRow(item, office, name, geo, names = [name]) {
   const blob = `${item.title} ${item.teaser || ""}`;
+  const line = names.length > 1 ? ownLine(item.teaser || "", name, names) : "";
+  const nationality = nationalityAsPosted(line || ownLine(item.teaser || "", name, names), name);
   const op = operationName(item.title);
   const picked = Number.isFinite(item.when)
     ? new Date(item.when).toLocaleDateString("en-US")
@@ -444,7 +487,7 @@ function buildRow(item, office, name, geo) {
     when: Number.isFinite(item.when)
       ? new Date(item.when).toISOString().slice(0, 10)
       : "",
-    text: `${item.title}. ${String(item.teaser || "").slice(0, 800)} Source: official ${agency} press. ${
+    text: `${item.title}. ${line ? `As posted for this defendant: ${line} ` : ""}${String(item.teaser || "").slice(0, 800)} Source: official ${agency} press. ${item.stage === "Charged" ? "Stage: Charged (not convicted). " : ""}${
       sweep
         ? "Named scheme / enforcement sweep. Individual stores or defendants are listed only if the release names them. Administrative penalties are not convictions."
         : "Charges are allegations unless the page says convicted or a guilty plea."
@@ -466,10 +509,12 @@ function buildRow(item, office, name, geo) {
     // Full release URL hashed, no name: co-defendants share it, releases
     // that share a long slug prefix don't (see scripts/ledger-id.mjs).
     schemeId: op ? `op-${slug(op)}` : schemeIdFor(official),
+    ...(nationality ? { nationality } : {}),
+    ...(item.stage ? { stage: item.stage } : {}),
   };
 }
 
-function rowsFromItem(item, office) {
+export function rowsFromItem(item, office) {
   const blob = `${item.title} ${item.teaser || ""}`;
   const people = allPeople(item.title, item.teaser || "");
   const op = operationName(item.title);
@@ -486,12 +531,12 @@ function rowsFromItem(item, office) {
     if (looksLikeHeadline(name) && !op) continue;
     const geo = geoNearName(blob, name) || fallback;
     if (!geo) continue;
-    out.push(buildRow(item, office, name, geo));
+    out.push(buildRow(item, office, name, geo, names));
   }
   return out;
 }
 
-function keepBlob(title, teaser) {
+export function keepBlob(title, teaser) {
   const blob = `${title} ${teaser || ""}`;
   if (
     /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b/i.test(
@@ -517,7 +562,26 @@ function rewriteExisting(r) {
   return { ...r, name: next, scheme: looksLikeHeadline(r.scheme || "") ? next : r.scheme };
 }
 
-function ingest(existing, have, added, item, office) {
+/**
+ * Same person, same voting case, announced again by another office (an OPA roundup of USAO
+ * cases, or the USAO mirror of an OPA roundup): an existing voting row from a different
+ * release within 14 days whose name equals this name or ends it ("Yugoslavia Gjina Gojcaj
+ * McDonald" is "Gjina Gojcaj McDonald" with the country glued on).
+ */
+export function alreadyListedVoter(existing, row) {
+  if (!row?.voting) return false;
+  const tok = nameKey(row.name).split(" ").filter(Boolean);
+  const t = Date.parse(row.when);
+  return existing.some((e) => {
+    if (!e?.voting || e.sourceUrl === row.sourceUrl) return false;
+    const et = Date.parse(e.when);
+    if (Number.isFinite(t) && Number.isFinite(et) && Math.abs(t - et) > 14 * 86400000) return false;
+    const etok = nameKey(e.name).split(" ").filter(Boolean);
+    return etok.length >= 2 && etok.length <= tok.length && tok.slice(-etok.length).join(" ") === etok.join(" ");
+  });
+}
+
+export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
   if (Number.isFinite(item.when) && item.when < CUTOFF) return;
   if (!keepBlob(item.title, item.teaser || "")) return;
@@ -525,10 +589,48 @@ function ingest(existing, have, added, item, office) {
   for (const row of rows) {
     const key = `${row.sourceUrl}|${row.id}`;
     if (have.has(key)) continue;
+    if (alreadyListedVoter(existing, row)) continue;
     have.add(key);
     existing.push(row);
     added.push(row.name);
   }
+}
+
+const ELECTION =
+  /illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (?:an? )?aliens?|election crimes?|election fraud|voter fraud|fraudulent(?:ly)? (?:voter )?regist|registered to vote|false claims? (?:to|of).{0,20}citizenship|protect the vote/i;
+
+/**
+ * True for an OPA (Main Justice) election-crimes roundup that lists defendants district by
+ * district ("Central District of California ... Eastern District of California ..."). These
+ * have no usao- office in the URL and their API "teaser" is only the opening paragraph.
+ */
+export function isOpaElectionRoundup(url, title, body) {
+  if (!/justice\.gov\/opa\/pr\//i.test(String(url))) return false;
+  if (!ELECTION.test(`${title} ${body}`)) return false;
+  const districts = new Set(
+    (String(body).match(/\b(?:(?:Central|Eastern|Northern|Southern|Western|Middle)\s+)?District of [A-Z][a-z]+(?: [A-Z][a-z]+)?/g) || []).map((d) => d.toLowerCase()),
+  );
+  return districts.size >= 2;
+}
+
+/**
+ * One DOJ API result as an ingest item. The API "teaser" is often only the opening paragraph
+ * (no defendant names), so an OPA multi-district election roundup such as "Justice Department
+ * Charges 28 Foreign Nationals in California for Election Crimes" lost every name. For those
+ * releases the full body is read; every other release keeps the teaser (reading every body
+ * pulled in officials' names and glued headers).
+ */
+export function dojItem(r) {
+  const title = strip(String(r.title || ""));
+  const link = String(r.url || "").trim();
+  const body = strip(String(r.body || ""));
+  const teaser = strip(String(r.teaser || r.body || ""));
+  return {
+    title,
+    teaser: body && isOpaElectionRoundup(link, title, body) ? body : teaser,
+    link,
+    when: unixMs(r.date),
+  };
 }
 
 async function harvestDoj(existing, have, added) {
@@ -550,12 +652,7 @@ async function harvestDoj(existing, have, added) {
         existing,
         have,
         added,
-        {
-          title: strip(String(r.title || "")),
-          teaser: strip(String(r.teaser || r.body || "")),
-          link: String(r.url || "").trim(),
-          when: unixMs(r.date),
-        },
+        dojItem(r),
         "TheJusticeDept",
       );
     }
@@ -578,6 +675,7 @@ function harvestSeed(existing, have, added) {
       link,
       when: Date.parse(`${r.date}T12:00:00Z`),
       seat: r.seat || "",
+      stage: r.stage || "",
     }, "TheJusticeDept");
   }
   return list.length;
@@ -921,7 +1019,9 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
