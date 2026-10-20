@@ -411,7 +411,7 @@
   },
   {
     "name": "Fadil Rasim Ozegovic",
-    "city": "Boston, MA",
+    "city": "Minneapolis, MN",
     "crime": "Federal Grand Jury Indicts Ten Foreign Nationals for Voter Fraud in Minnesota Elections",
     "usa": "Federal Grand Jury Indicts Ten Foreign Nationals for Voter Fraud in Minnesota Elections",
     "foreign": "Not stated in post",
@@ -427,8 +427,8 @@
     "voting": true,
     "origin": "Voting / elections",
     "confirmedBy": "DOJ",
-    "lat": 42.3601,
-    "lon": -71.0589,
+    "lat": 44.9778,
+    "lon": -93.265,
     "presence": "not_stated",
     "scheme": "Fadil Rasim Ozegovic",
     "schemeId": "harvest-https-www-justice-gov-usao-mn-pr-federal-grand-j-6a422b0d72"

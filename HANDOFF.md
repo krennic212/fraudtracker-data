@@ -1,5 +1,27 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (9:46 AM CDT) voting cross-post from Invasion Update (Krennic approved)
+
+- 30 voting rows added through data/seed-releases.json (13 new releases, `"voting": true`). Each person is named in the
+  official release for voting / registration fraud; stage is the release's own (Charged / Convicted / Sentenced /
+  Arrested), never upgraded; nationality is the release's wording (seed `nationality` map, used only if the excerpt has it).
+  - usao-mn (Charged): Bryant, Edmunds, Edzie, Kargbo, Kras, Padovan, Chris Adam Pettiquoi (official spelling), Schenk,
+    Weihmann (Ozegovic was already listed; his missing stage was filled "Charged").
+  - usao-edpa: Hacina Saadi, Paulo Silva. usao-sdal: Staciann Pollion Davis, Silvia Delgado Phelps. usao-wdmo: Andre’s Garcia.
+    usao-mdfl: Andrea Catanese. usao-ndtx: Adams, Akpom (charged with false statements in naturalization about his 2017
+    registration / 2018 vote), Salas Barrios, Bhengura, Katubadi (20), Thrasher. usao-ma: Okafor. usao-ndga: Lewis,
+    Covarrubias, Eccles. usao-nj: Coulibaly. usao-ednc: Denis Joseph Bouchard (Convicted).
+  - ice.gov: Carlos Felipe Jaramillo Grajales (Sentenced, MDFL). dhs.gov: Helda Araceli Mendez-Merida ("Arrested (ICE
+    immigration arrest; no voting charge stated)"), Ludwig Uriel Espejo-Carrillo ("Arrested (administratively charged by ICE;
+    no criminal charge stated)").
+- Code: harvestSeed passes `voting` / `nationality`; ingest treats a voting seed as in scope; buildRow sets voting=true and
+  origin "Voting / elections" for it. geoNearName ignores "initial appearance in / arrested in the District of X" (that put
+  Ozegovic and Weihmann in Boston; Ozegovic fixed to Minneapolis, MN in data/harvest.json). ice.gov seeds are DHS rows with
+  via "ICE press"; justice.gov is no longer mistaken for ice.gov when picking the seed office.
+- Tests: scripts/harvest-voting-crosspost.test.mjs (in package.json and the workflow): voting seed fields, one schemeId per
+  release, Minneapolis not Boston, nationality wording, every voting seed person has non-citizen wording, every live voting row
+  has a state, no voter listed twice (accent-insensitive).
+
 ## 2026-10-20 (9:36 AM CDT) small fixes
 
 - Aaron Michael McComsey (EDPA, threats against a member of Congress) removed via data/exclude.json. Cause: the

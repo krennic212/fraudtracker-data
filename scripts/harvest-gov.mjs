@@ -409,6 +409,9 @@ function geoNearName(blob, name) {
   for (const p of PLACE_HINTS) {
     const re = new RegExp(p.re.source, "gi");
     for (const m of text.matchAll(re)) {
+      // Where a defendant made an initial appearance or was arrested is not where the case is (the
+      // Minnesota voter-fraud indictment: "initial appearance in the District of Massachusetts").
+      if (/(?:appearance|appeared|arrested|surrendered)\s+(?:\w+\s+){0,3}(?:in|before)\s+(?:the\s+)?$/i.test(text.slice(Math.max(0, m.index - 60), m.index))) continue;
       if (m.index <= at && m.index > best) {
         best = m.index;
         hit = { city: p.city, lat: p.lat, lon: p.lon };
@@ -431,6 +434,7 @@ function viaFor(office, official) {
   if (office === "VAOIG") return "VA OIG press";
   if (/hud\.gov|hudoig/i.test(official)) return "HUD press";
   if (/dhs\.gov/i.test(official)) return "DHS press";
+  if (/\/\/(?:www\.)?ice\.gov\//i.test(official)) return "ICE press";
   if (/fema\.gov/i.test(official)) return "FEMA press";
   if (!isOfficialHost(official)) return `${office} RSS`;
   return "DOJ press feed";
@@ -520,7 +524,12 @@ export function nationalityAsPosted(line, name) {
 function buildRow(item, office, name, geo, names = [name]) {
   const blob = `${item.title} ${item.teaser || ""}`;
   const line = names.length > 1 ? ownLine(item.teaser || "", name, names) : "";
-  const nationality = nationalityAsPosted(line || ownLine(item.teaser || "", name, names), name);
+  // A seed may give the release's own nationality wording per person ("a citizen of Mexico", "Jamaican
+  // national") when it is not in the "Name, 59, a X national" form; it is used only if the release text has it.
+  const seeded = item.nationality && typeof item.nationality === "object" ? item.nationality[name] : "";
+  const nationality =
+    (seeded && blob.includes(seeded) ? seeded : "") ||
+    nationalityAsPosted(line || ownLine(item.teaser || "", name, names), name);
   const op = operationName(item.title);
   const picked = Number.isFinite(item.when)
     ? new Date(item.when).toLocaleDateString("en-US")
@@ -557,6 +566,7 @@ function buildRow(item, office, name, geo, names = [name]) {
     /illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|noncitizen vot|non-citizen vot|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration/i.test(
       blob,
     );
+  const votingRow = voting || item.voting === true;
   return {
     name,
     city: geo.city,
@@ -580,8 +590,8 @@ function buildRow(item, office, name, geo, names = [name]) {
     photo: "",
     via: viaFor(office, official),
     sourceUrl: official,
-    voting,
-    origin: originFor(blob, official),
+    voting: votingRow,
+    origin: item.voting === true ? "Voting / elections" : originFor(blob, official),
     confirmedBy: news
       ? "gov-amplified press"
       : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(official)
@@ -807,7 +817,8 @@ export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
   if (isExcluded({ link: item.link })) return;
   if (Number.isFinite(item.when) && item.when < CUTOFF) return;
-  const program = keepBlob(item.title, item.teaser || "");
+  // A voting seed (official release, Krennic-approved cross-post) is in scope like any election case.
+  const program = item.voting === true || keepBlob(item.title, item.teaser || "");
   // Not a government program: a private-victim fraud release, kept only for defendants the release states are
   // non-citizens (Krennic 2026-10-20). fullText is the whole release body when the source gave one.
   const fullText = `${item.title}. ${item.fullText || item.teaser || ""}`;
@@ -947,7 +958,11 @@ export function harvestSeed(existing, have, added, seedFile = SEED) {
       seat: r.seat || "",
       stage: r.stage || "",
       ...(Array.isArray(r.names) && r.names.length ? { names: r.names } : {}),
-    }, /oig\.dol\.gov/i.test(link) ? "DOLOIG" : /dhs\.gov/i.test(link) ? "DHSgov" : "TheJusticeDept");
+      // A seed for an official voting / registration-fraud case (e.g. cross-posted from Invasion Update) is
+      // filed as voting even when its excerpt's charge wording is a naturalization or citizenship count.
+      ...(r.voting === true ? { voting: true } : {}),
+      ...(r.nationality && typeof r.nationality === "object" ? { nationality: r.nationality } : {}),
+    }, /oig\.dol\.gov/i.test(link) ? "DOLOIG" : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(link) ? "DHSgov" : "TheJusticeDept");
   }
   return list.length;
 }
