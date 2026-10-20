@@ -1,5 +1,16 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (11:50 AM CDT) harvest-meta.json always matches harvest.json (Krennic approved)
+
+- Cause: the hourly job ran scripts/write-meta.mjs only when its own run changed data/harvest.json. Seed / hand edits pushed
+  straight to main (today's 198 -> 328) left harvest-meta.json at 198 rows / 9:58 AM CDT, and every later run found "no change".
+- Fix: write-meta.mjs stores harvestSha256 and is safe to run any time: same sha256 -> meta untouched; harvest.json changed
+  and committed -> updatedAt = that commit's time; changed in the run -> now. The workflow runs it before the tests (re-stamps a
+  stale pushed meta) and after the harvest on every run; harvest-meta.json counts as a change for commit + Pages deploy.
+  checkout uses fetch-depth 0 so the commit time is real. If you edit data/harvest.json by hand, run
+  `node scripts/write-meta.mjs` before committing (npm test fails otherwise).
+- Test: scripts/harvest-meta.test.mjs (stamp logic + committed meta matches committed harvest.json), in npm test + workflow.
+
 ## 2026-10-20 (11:45 AM CDT) state-row pins: county beats dateline (Krennic approved)
 
 - scripts/state-sources.mjs stateGeo() order: printed town -> county in the person's own entry -> the county the case

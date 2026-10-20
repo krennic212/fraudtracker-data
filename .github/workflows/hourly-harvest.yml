@@ -24,29 +24,35 @@ jobs:
       LEDGER_STATUS_FILE: data/harvest-status.json
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      # A pushed harvest.json edit (seeds, hand fixes) that was not re-stamped is caught here, before the meta test.
+      - name: Re-stamp harvest-meta.json if stale
+        run: node scripts/write-meta.mjs
       - name: Tests
-        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs
+        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs scripts/harvest-meta.test.mjs
       - name: Harvest official papers
         run: node scripts/harvest-gov.mjs
       - name: Cut duplicates, blank photos
         run: node scripts/ledger-dedupe.mjs data/harvest.json
       - name: Pre-publish check (fail on duplicate ids or schemeId spanning releases)
         run: node scripts/ledger-id.mjs data/harvest.json
+      # write-meta.mjs runs every time: it keeps updatedAt when harvest.json is unchanged (same sha256) and re-stamps it
+      # whenever harvest.json changed, in this run or in a pushed commit.
+      - name: Stamp harvest-meta.json
+        run: node scripts/write-meta.mjs
       - name: Did rows change?
         id: diff
         run: |
-          if git diff --quiet -- data/harvest.json; then
+          if git diff --quiet -- data/harvest.json data/harvest-meta.json; then
             git checkout -- data/harvest-status.json
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: Stamp harvest-meta.json
-        if: steps.diff.outputs.changed == 'true'
-        run: node scripts/write-meta.mjs
       - name: Commit only when rows changed
         if: steps.diff.outputs.changed == 'true'
         run: |
