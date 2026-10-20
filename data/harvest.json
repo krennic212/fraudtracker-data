@@ -8386,5 +8386,29 @@
     "presence": "not_stated",
     "scheme": "Kara DiPietro",
     "schemeId": "harvest-https-www-justice-gov-usao-md-pr-baltimore-count-21d4faba0a"
+  },
+  {
+    "name": "Patrick Britton-Harr",
+    "city": "Phoenix, AZ",
+    "crime": "Maryland Man Convicted of $18.7M Medicare Fraud for Respiratory Testing Scheme Targeting Nursing Homes",
+    "usa": "Maryland Man Convicted of $18.7M Medicare Fraud for Respiratory Testing Scheme Targeting Nursing Homes",
+    "foreign": "Not stated in post",
+    "picked": "10/20/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-opa-pr-maryland-man-convic-51d58f5319",
+    "when": "2026-10-20",
+    "text": "Maryland Man Convicted of $18.7M Medicare Fraud for Respiratory Testing Scheme Targeting Nursing Homes. A federal jury in the District of Maryland convicted a laboratory owner yesterday for taking advantage of nursing homes that needed COVID-19 tests during the pandemic and fraudulently billing Medicare more than $18 million for other expensive respiratory tests that nursing home residents did not need, physicians did not order, and, in many cases, were never performed. “Mr. Britton-Harr’s decision to exploit elderly nursing‑home residents and inexperienced interns for personal gain during a global pandemic is unconscionable. This verdict reinforces our message: there is nowhere to hide for those who commit fraud. We will find you and prosecute you to the fullest extent of the law,” said U.S. Attorney Kelly O. Hayes for the District of Maryland. “The U.S. Attorney’s Office, along with our la Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/opa/pr/maryland-man-convicted-187m-medicare-fraud-respiratory-testing-scheme-targeting-nursing",
+    "voting": false,
+    "origin": "Medicare / Medicaid",
+    "confirmedBy": "DOJ",
+    "lat": 33.4484,
+    "lon": -112.074,
+    "presence": "not_stated",
+    "scheme": "Patrick Britton-Harr",
+    "schemeId": "harvest-https-www-justice-gov-opa-pr-maryland-man-convic-c3e3bea6fa"
   }
 ]
