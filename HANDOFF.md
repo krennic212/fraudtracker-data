@@ -1,5 +1,22 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (11:45 AM CDT) state-row pins: county beats dateline (Krennic approved)
+
+- scripts/state-sources.mjs stateGeo() order: printed town -> county in the person's own entry -> the county the case
+  sentences name most (charge / arrest / court sentences only, must be dominant) -> dateline (only if no town printed) ->
+  state capital. Nobody is dropped for an unknown town any more. COUNTY_SEATS / STATE_CAPITALS tables added;
+  stateDefendants takes the office town from "Pearsall City Council, Name: 1 count" / "Former Dilley Mayor, Name".
+- Live rows: 8 Frio County TX rows "Frio County, TX" -> "Pearsall, TX" (county seat); Modesta Vela "Starr County, TX" ->
+  "Rio Grande City, TX" (row + seed places). Pearsall / Dilley office-town rows, KS (Coldwater, Hutchinson), MI, NH, FL rows
+  unchanged. PA canvassers stay Harrisburg (dateline): the release names no county for the case (only "Berks, Lancaster, and
+  York counties" and a side mention of Monroe County). Federal rows labelled "<X> County, ST" from their releases unchanged.
+- city-geo.json: + Bartow, FL; Titusville, FL. Tests: harvest-state-sources.test.mjs pin test (Pearsall, Rio Grande City,
+  Coldwater, Rose Township, unknown town -> county seat / state capital). npm test 128/128.
+- CUTOFF (harvest-gov.mjs line 36, `Date.parse("2025-01-21T00:00:00Z")`, used in ingest() and the state sources): the product
+  window "on or after January 21, 2025" from the Fraud Ledger brief (krennic212/fraudtracker GROK-BUILD.md, site header
+  "since January 21, 2025"); in the first harvester commit b8d8204 (Oct 8, 2026). Not changed.
+
+
 ## 2026-10-20 (11:30 AM CDT) federal, DHS and state voting cases + state election sources in the hourly job (Krennic approved)
 
 - Rows: 198 -> 328. 125 new voting rows (77 federal: 75 DOJ + 2 DHS; 48 state: TX AG 16, FL AG 12, PA AG 7, MI AG 6,

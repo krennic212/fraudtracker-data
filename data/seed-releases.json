@@ -1958,14 +1958,14 @@
       "voting": true,
       "places": {
         "Rochelle Camacho": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "Carlos Segura": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "Ramiro Trevino": {
           "city": "Pearsall, TX",
@@ -1983,9 +1983,9 @@
           "lon": -99.0944
         },
         "Rosa Rodriguez": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         }
       },
       "anyVoter": true
@@ -2010,19 +2010,19 @@
       "voting": true,
       "places": {
         "Manuel Medina": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "Cecilia Castellano": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "Raul Carrizales": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "MaryAnn Obregon": {
           "city": "Dilley, TX",
@@ -2045,14 +2045,14 @@
           "lon": -99.0944
         },
         "Susie Carrizales": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         },
         "Rachel Leal": {
-          "city": "Frio County, TX",
-          "lat": 28.8676,
-          "lon": -99.1083
+          "city": "Pearsall, TX",
+          "lat": 28.8923,
+          "lon": -99.0944
         }
       },
       "anyVoter": true
@@ -2069,9 +2069,9 @@
       "voting": true,
       "places": {
         "Modesta Vela": {
-          "city": "Starr County, TX",
-          "lat": 26.562,
-          "lon": -98.7384
+          "city": "Rio Grande City, TX",
+          "lat": 26.3942,
+          "lon": -98.8104
         }
       },
       "anyVoter": true
