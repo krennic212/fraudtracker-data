@@ -108,6 +108,11 @@ const PERSON_PLEAD_G = new RegExp(
 //  "Miguel Dario Bautista Jimenez, a/k/a “Carlos Chapman Hernandez,”"
 const PERSON_AKA = new RegExp(String.raw`(` + NAME_CORE + String.raw`),?\s+(?:a/k/a|a\.k\.a\.|aka)\s`, "gu");
 //  "her alleged co-conspirator, Randall Easley," / "co-defendant RANDALL EASLEY"
+//  "an eight-count indictment charging Rosa Cazares , Chief Executive Officer of La Mota, LLC, with ..."
+const PERSON_CHARGING = new RegExp(
+  String.raw`\b(?:indictment|information|complaint)\s+charging\s+(` + NAME_CORE + String.raw`)\s*,`,
+  "gu",
+);
 const PERSON_CODEF = new RegExp(
   String.raw`\b[Cc]o-?(?:defendant|conspirator)s?,?\s+(` + NAME_CORE + String.raw`)`,
   "gu",
@@ -405,6 +410,8 @@ export function allPeople(title, teaser = "") {
   }
   PERSON_AKA.lastIndex = 0;
   for (const m of text.matchAll(PERSON_AKA)) pushName(out, seen, m[1]);
+  PERSON_CHARGING.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_CHARGING)) pushName(out, seen, m[1]);
   PERSON_CODEF.lastIndex = 0;
   for (const m of text.matchAll(PERSON_CODEF)) pushName(out, seen, m[1]);
   PERSON_LIST.lastIndex = 0;

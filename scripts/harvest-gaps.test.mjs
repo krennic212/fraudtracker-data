@@ -60,7 +60,8 @@ describe("scope: government-program fraud only", () => {
   });
   it("ignores agency boilerplate and payroll 'Medicare taxes'; skips HHS-OIG exclusion notices", () => {
     assert.equal(keepBlob("Miami Man Pleads Guilty to Conspiracy to Distribute Opioid Pills", "Jose Llerena, 49, conspired to distribute oxycodone. In addition, the Centers for Medicare & Medicaid Services, working in conjunction with the Office of the Inspector General"), false);
-    assert.equal(keepBlob("Tax Fraud Cases Move Forward", "responsible for withholding federal income taxes and Social Security and Medicare taxes"), false);
+    // Payroll "Medicare taxes" is not Medicare fraud. (A release titled "Tax Fraud ..." is in scope since 2026-10-20 as tax.)
+    assert.equal(keepBlob("Restaurant Owner Sentenced", "responsible for withholding federal income taxes and Social Security and Medicare taxes"), false);
     assert.equal(keepBlob("HHS-OIG Issues Notice of Exclusion to Founder and CEO of Theranos, Inc.", "excluded from Medicare and Medicaid"), false);
     assert.match(programText("He billed Medicaid. The Task Force to Eliminate Fraud is chaired by the Vice President."), /billed Medicaid/);
   });
@@ -73,7 +74,7 @@ describe("DOJ API item: body read when the teaser has no name", () => {
     assert.deepEqual(rowsFromItem(it0, "TheJusticeDept").map((r) => r.name), ["ANDREA WELLINGTON"]);
   });
   it("keeps the teaser's names when only the program wording is in the body (no official becomes a row)", () => {
-    const it1 = dojItem({ title: "Waipahu Woman Sentenced", url: "https://www.justice.gov/usao-hi/pr/y", teaser: "Heidi Cafirma, 46, of Waipahu, Hawaii, was sentenced for filing false tax returns and wire fraud.", body: "<p>Heidi Cafirma, 46, of Waipahu, Hawaii, was sentenced for filing false tax returns and wire fraud.</p><p>Cafirma submitted 22 false claims for Pandemic Unemployment Assistance.</p><p>Special Agent in Charge John Doe, 50, of the IRS, said.</p>", date: "1792411200" });
+    const it1 = dojItem({ title: "Waipahu Woman Sentenced", url: "https://www.justice.gov/usao-hi/pr/y", teaser: "Heidi Cafirma, 46, of Waipahu, Hawaii, was sentenced for wire fraud.", body: "<p>Heidi Cafirma, 46, of Waipahu, Hawaii, was sentenced for wire fraud.</p><p>Cafirma submitted 22 false claims for Pandemic Unemployment Assistance.</p><p>Special Agent in Charge John Doe, 50, of the IRS, said.</p>", date: "1792411200" });
     assert.deepEqual(it1.names, ["Heidi Cafirma"]);
     assert.deepEqual(rowsFromItem(it1, "TheJusticeDept").map((r) => r.name), ["Heidi Cafirma"]);
   });

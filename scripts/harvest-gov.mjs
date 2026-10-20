@@ -75,6 +75,19 @@ const KEEP =
 // private-victim schemes (investors, banks, elderly victims) on the ledger whenever the district had a
 // map pin. The ledger covers government-program fraud: a release now needs a program term above.
 
+// Government money that is not a named benefit program: taxes and public funds (Krennic 2026-10-20: "keep
+// government-money cases: stolen U.S. Treasury check, state agency, MBTA, tax ..."). Specific phrases only,
+// so "IRS Criminal Investigation" credits on a private-victim case do not count.
+const GOV_MONEY =
+  /tax evasion|evad(?:e|ed|ing) (?:federal |income |payroll |employment )?taxes|(?:false|fraudulent|bogus) (?:federal |income |individual |corporate )?tax returns?|tax fraud|tax[- ]refund fraud|fraudulent (?:tax )?refunds?|employment tax|payroll tax(?:es)? (?:fraud|evasion|scheme)|trust fund taxes|fail(?:ed|ing|ure) to (?:pay|collect|account for)(?: over)? (?:payroll |employment |federal )?taxes|(?:return|tax) preparer|conspiracy to defraud the United States|defraud(?:ing)? the (?:United States|IRS|Internal Revenue Service|government)|(?:U\.S\.|United States) Treasury checks?|stolen treasury checks?|theft of (?:government|public) (?:money|funds|property)|major fraud against the United States|(?:false|fraudulent) (?:documents?|statements?|claims?|records?) (?:to|with) the (?:\w+ )?(?:Department|Division|Bureau) of/i;
+// Weaker words (public money, a public agency) count only on a crime release, so an SBA grant announcement or a
+// page footer does not.
+const GOV_MONEY_WEAK = /(?:public|taxpayer|government) funds|government contracts?|transit authority|\bmbta\b/i;
+const CRIME_TITLE = /fraud|defraud|stole|steal|theft|embezzl|false|kickback|brib|sentenced|pleads?|pleaded|charged|indicted|convicted|guilty/i;
+function govMoney(title, text) {
+  return GOV_MONEY.test(text) || (CRIME_TITLE.test(title) && GOV_MONEY_WEAK.test(text));
+}
+
 const DROP =
   /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b|murder|homicide|manslaughter|carjack|armed robbery|fentanyl|heroin|methamphetamine|kidnapping|tortur|illegal reentry/i;
 
@@ -672,12 +685,68 @@ export function keepBlob(title, teaser) {
   ) {
     return false;
   }
-  if (DROP.test(blob) && !KEEP.test(blob)) return false;
-  if (KEEP.test(title)) return true;
+  if (DROP.test(blob) && !KEEP.test(blob) && !govMoney(title, blob)) return false;
+  if (KEEP.test(title) || govMoney(title, title)) return true;
   if (/^podcasts?$/i.test(title.trim())) return false;
   // HHS-OIG exclusion notices are administrative program bans, not fraud cases.
   if (/\bnotice of exclusion\b/i.test(title)) return false;
-  return KEEP.test(programText(teaser || ""));
+  const prog = programText(teaser || "");
+  return KEEP.test(prog) || govMoney(title, prog);
+}
+
+/**
+ * Krennic 2026-10-20: PRIVATE-VICTIM fraud (victims are private people, businesses, banks, clients, investors,
+ * nonprofits, churches, sports betting ...) is on the ledger ONLY when the official release states the person
+ * is a non-citizen. Government-program fraud (KEEP above) is unchanged. These run only when keepBlob() is false.
+ */
+const PRIVATE_FRAUD =
+  /\b(?:wire|bank|mail|securities|investment|commodities|access device|credit card|check|insurance|sleight-of-hand|romance|lottery|sweepstakes|elder|grandparent|tech[- ]support|gift[- ]card|business email|bust-out) (?:fraud|scams?|compromise)|\bdefraud(?:ed|ing|s)?\b|\bscam(?:s|med|mer|mers)?\b|\bswindl|\bembezzl|identity theft|\bponzi\b|fraud(?:ulent)? (?:scheme|conspiracy)/i;
+// Not private-victim fraud even with non-citizen wording: smuggling, drugs, sanctions/export, immigration-case
+// roundups and document cases belong to other trackers.
+const PRIVATE_NOT =
+  /smuggl|drug trafficking|narcotic|cartel|sanctions|export(?:ing|s|ed)? (?:of )?(?:controlled|micro|military|defense)|unlawful(?:ly)? export|immigration cases|false identification document/i;
+// Non-citizen status as the release states it. Case-sensitive parts need a capitalised country/demonym, so
+// "National Fraud Enforcement Division", "senior citizens" or "our citizens" never count; "criminal aliens"
+// in HSTF boilerplate does not count either (only "illegal alien" / "is an alien" style wording).
+const NONCITIZEN_CI =
+  /\billegal (?:alien|immigrant|migrant)s?\b|\b(?:is|was|as|an?) (?:alien|non-?citizen)\b|\bundocumented (?:immigrant|migrant|alien|non-?citizen)s?\b|\bnon-?citizens?\b|\b(?:unlawfully|illegally) (?:present|residing|living) in the (?:United States|U\.S\.)|\bforeign nationals?\b|\b(?:lawful|legal) permanent resident\b|\bgreen[- ]card holders?\b|\bvisa (?:had |has )?(?:expired|overstay)|\boverst(?:ayed|aying) (?:his|her|their|a|the) (?:\w+ )?visa|\b(?:student|tourist|visitor|work|H-1B|H-2[AB]|B-?[12]|F-?1|J-?1) visa (?:that|which) (?:had )?expired|\bin the country on an? (?:\w+ )?visa\b|\bsubject to (?:deportation|removal from the United States)|\bwill be (?:immediately )?deported\b/i;
+const NONCITIZEN_CS =
+  /\b(?:is|was|are|were|a|an|as|and|both)\s+(?:a\s+)?citizens? of (?!the United States|the U\.S\.)(?:the )?\p{Lu}|\bnationals? of (?!the United States|the U\.S\.)(?:the )?\p{Lu}|\b(?!American\b|U\.S\b)\p{Lu}[\p{Ll}]+(?:[- ]\p{Lu}[\p{Ll}]+)? nationals?\b/u;
+const CITIZEN_TOO = /\bdual (?:U\.S\. )?(?:national|citizen)|\bnaturali[sz]ed\b|\bU\.S\. citizen\b|\bUnited States citizen\b|\bnational of the United States\b/i;
+const US_STATES_RE = /citizens? of (?:the )?(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New \w+|North \w+|South \w+|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming|Puerto Rico|Guam|this|our|[A-Z][a-z]+ County|[A-Z][a-z]+ City)\b/g;
+
+function sentencesOf(text) {
+  return String(text || "").replace(US_STATES_RE, " ").split(/(?<=[.!?])\s+(?=[“"(]?[A-Z0-9])/);
+}
+export function nonCitizenSentence(s) {
+  return (NONCITIZEN_CI.test(s) || NONCITIZEN_CS.test(s)) && !CITIZEN_TOO.test(s);
+}
+/** True when the release itself states someone's non-citizen status. */
+export function nonCitizenInRelease(text) {
+  return sentencesOf(text).some(nonCitizenSentence);
+}
+/**
+ * The release states THIS person's non-citizen status: a sentence that names them (full name or surname)
+ * carries the wording, or the release has a single defendant and its title/lead carries it
+ * ("Illegal alien sentenced ... a Chinese national ..." with one defendant, Jin).
+ */
+export function nonCitizenStatedFor(name, text, single = false) {
+  const sents = sentencesOf(text);
+  const words = String(name || "").replace(/\b(?:Jr|Sr|II|III|IV)\.?$/i, "").trim().split(/\s+/).filter(Boolean);
+  const sur = words.length ? words[words.length - 1] : "";
+  const re = sur && sur.length > 1 ? new RegExp(`\\b${sur.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i") : null;
+  if (re && sents.some((s) => re.test(s) && nonCitizenSentence(s))) return true;
+  return single && sents.some(nonCitizenSentence);
+}
+/** Private-victim fraud release that may still go on the ledger: fraud, not a dropped crime, non-citizen stated. */
+export function privateVictimNonCitizen(title, text) {
+  const blob = `${title} ${text || ""}`;
+  if (isServicememberRightsCase(blob)) return false;
+  if (/enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b/i.test(blob)) return false;
+  // Illegal reentry is not a reason to drop here: it is itself the release stating non-citizen status.
+  if (DROP.test(blob.replace(/illegal(?:ly)? re-?entry/gi, " "))) return false;
+  if (PRIVATE_NOT.test(title) || /smuggl|drug trafficking|narcotic|cartel|sanctions/i.test(blob)) return false;
+  return PRIVATE_FRAUD.test(blob) && nonCitizenInRelease(blob);
 }
 
 function rewriteExisting(r) {
@@ -731,8 +800,13 @@ export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
   if (isExcluded({ link: item.link })) return;
   if (Number.isFinite(item.when) && item.when < CUTOFF) return;
-  if (!keepBlob(item.title, item.teaser || "")) return;
-  const rows = rowsFromItem(item, office);
+  const program = keepBlob(item.title, item.teaser || "");
+  // Not a government program: a private-victim fraud release, kept only for defendants the release states are
+  // non-citizens (Krennic 2026-10-20). fullText is the whole release body when the source gave one.
+  const fullText = `${item.title}. ${item.fullText || item.teaser || ""}`;
+  if (!program && !privateVictimNonCitizen(item.title, item.fullText || item.teaser || "")) return;
+  let rows = rowsFromItem(item, office);
+  if (!program) rows = rows.filter((r) => nonCitizenStatedFor(r.name, fullText, rows.length === 1));
   for (const row of rows) {
     if (isExcluded(row)) continue;
     const key = `${row.sourceUrl}|${row.id}`;
@@ -800,6 +874,12 @@ export function dojItem(r) {
     // fraud"; the PUA claims are in the next paragraph): read the opening of the body for the program,
     // but keep the teaser's names, so no official or agent named further down becomes a row.
     else if (named.length && !keepBlob(title, teaser) && keepBlob(title, head)) return { title, teaser: head, link, when: unixMs(r.date), names: named };
+  }
+  // Not a program case by teaser or opening: if the body states a defendant's non-citizen status, ingest()
+  // may keep it as private-victim fraud (Krennic 2026-10-20); it needs the whole body for that check.
+  if (body && !keepBlob(title, use) && !keepBlob(title, body.slice(0, 3000)) && privateVictimNonCitizen(title, body)) {
+    const named = allPeople(title, teaser);
+    return { title, teaser: named.length ? teaser : body.slice(0, 3000), link, when: unixMs(r.date), fullText: body, ...(named.length ? { names: named } : {}) };
   }
   return {
     title,

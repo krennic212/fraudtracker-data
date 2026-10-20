@@ -1,5 +1,56 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (9:17 AM CDT) Krennic: private-victim fraud needs stated non-citizen status
+
+Rule: PRIVATE-VICTIM fraud (victims are private people, businesses, banks, clients, investors, nonprofits,
+churches, sports betting ...) stays on the ledger ONLY if the official release states the person is a non-citizen
+(illegal alien, foreign national, "<Nationality> national", "citizen of <foreign country>", visa overstay/expired
+visa, LPR/green card ...). Government-program and government-money fraud (programs, taxes, public agencies,
+elections, immigration benefits) is unchanged.
+
+Feed cleanup (all 187 live rows reviewed; every private-victim release body read via the DOJ API):
+- 25 rows / 24 releases moved to data/exclude.json, reason "Krennic 2026-10-20: private-victim, citizenship not
+  stated": Tremont Hancock, Roy Dave Davis, Chanise Coyne, Cordara Mattox, Yolanda Rumph, Mercedes Henry, Emily
+  Roberts, Olivia Oxley, Clayton Lloyd Iley, Kijuana Evans, Dondre O. Daniels, Juan Francisco Ramirez, Brian
+  Mitchell, MonsterCloud LLC (Pinhasi is "a national of the United States and Israel" = U.S. citizen), Sharieff
+  Tate Pierre, Tahnya Hyung Shafer, Parker James Wilde, Jalen Smith, Judith A. Hetzell, Christopher Erik Septon,
+  Bob Hunter, Michael Herrera, Mark Marriott, John O'Brien, San Diego Logistics Group Inc. (Co-defendants named in
+  Krennic's list - Oxley's, Evans's, Daniels's - had no rows of their own.)
+- Kept, non-citizen stated: Bazili Anghel Anghel ("citizen of Romania and national of Spain", illegal reentry),
+  Shenghan Jin ("Chinese national", expired student visa), Samuel B. Javier ("citizen of the Dominican Republic
+  whose visa has expired"; was on the likely-removal list).
+- Kept, government money (were on the likely-removal list): Steve Randall Howe (PPP), Joshua Lybolt (EIDL/PPP),
+  Raghava Reddy Ghosala (conspiracy to defraud the United States + false NATA tax returns).
+- Kept, unsure: "New York" row = Michael DeNicola, Amtrak health-plan fraud (Amtrak is federally owned; row name
+  is a parser error); Aaron Michael McComsey (threat to a member of Congress - not fraud at all, mis-harvested).
+- Amachukwu (SDNY, already excluded on the skip list): release says "Nigerian Man" / "40, of Nigeria" /
+  "Nigeria-based" only - no national/citizen wording, so not stated. NOTE: his scheme includes fraudulent IRS/state
+  tax refunds (~$2.5M) and EIDL (~$819K), i.e. government money. Left excluded; Krennic to decide.
+
+Harvester (scripts/harvest-gov.mjs):
+- ingest(): if keepBlob() (program / government money) is false, the release is kept only via
+  privateVictimNonCitizen(): a victim-fraud term (wire/bank/investment fraud, defraud, scam, embezzle, identity
+  theft ...) AND nonCitizenInRelease(); and each row must pass nonCitizenStatedFor(name) - a sentence naming that
+  defendant carries the wording (or the release has one defendant). Co-defendants without stated status are not
+  added (Javier yes, Jackson no). Boilerplate never counts: "criminal aliens" (HSTF), "senior citizens",
+  "citizens of <State>", "National Fraud Enforcement Division", "national of the United States", dual/U.S. citizen.
+  Smuggling, drug money, sanctions/export, immigration-case roundups and ID-document cases are not private-victim
+  fraud even with non-citizen wording.
+- dojItem(): for a non-program release whose body states non-citizen status, the full body travels as
+  item.fullText so the per-person check sees "Jin was in the country on a student visa ...".
+- GOV_MONEY (new, alongside KEEP): tax evasion / false tax returns / payroll taxes / tax preparer, conspiracy to
+  defraud the United States, U.S. Treasury checks, theft of government money, major fraud against the U.S., false
+  documents to a state Department; weak words (public/taxpayer funds, government contracts, MBTA/transit
+  authority) count only on a crime-titled release. Since the morning change removed generic wire/bank/mail fraud,
+  tax cases had no KEEP term; this restores them. Dry run adds 6 tax rows (Koller, Rosa Cazares, Kludje, Jason and
+  Lacey Carney, Sherita Booker).
+- harvest-parse.mjs: "indictment charging <Name> , <title>" names the person (Rosa Cazares, not "La Mota, LLC").
+- Tests: scripts/harvest-private-victim.test.mjs (in npm test and the hourly workflow). One existing assertion in
+  harvest-gaps.test.mjs changed its title ("Tax Fraud Cases Move Forward" -> "Restaurant Owner Sentenced") because
+  a "Tax Fraud" title is now in scope as tax; the payroll "Medicare taxes" guard it tests is unchanged. The Cafirma
+  body-read test teaser dropped "false tax returns" so it still exercises the body path.
+- Known quirk: Carney rows get origin "Health care / nursing credentials" (originFor wording match); harmless label.
+
 ## 2026-10-20 missed-case audit (Oct 16–20) + harvester gap fixes
 
 Krennic chose "add the clear missed cases and fix the harvester gaps" after a list-only audit.
