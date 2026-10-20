@@ -18,6 +18,9 @@
   origin "Voting / elections" for it. geoNearName ignores "initial appearance in / arrested in the District of X" (that put
   Ozegovic and Weihmann in Boston; Ozegovic fixed to Minneapolis, MN in data/harvest.json). ice.gov seeds are DHS rows with
   via "ICE press"; justice.gov is no longer mistaken for ice.gov when picking the seed office.
+- Victoria Viktorovna Aquilina (usao-edmi, "Feds Charge Russian National for Illegally Voting") was on the ledger with
+  voting=false / origin "Federal program"; fixed in data/harvest.json to voting=true, "Voting / elections", stage Charged,
+  nationality "a Russian national". Same person as Invasion's "Victoria Viktorivna Aquilina" (spelling), not re-added.
 - Tests: scripts/harvest-voting-crosspost.test.mjs (in package.json and the workflow): voting seed fields, one schemeId per
   release, Minneapolis not Boston, nationality wording, every voting seed person has non-citizen wording, every live voting row
   has a state, no voter listed twice (accent-insensitive).

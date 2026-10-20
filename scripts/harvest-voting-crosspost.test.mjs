@@ -90,6 +90,9 @@ describe("live voting rows", () => {
   it("every voting row has a state", () => {
     for (const r of feed.filter((r) => r.voting)) assert.match(r.city, /, [A-Z]{2}$/, r.name);
   });
+  it("a release headlined as illegal voting is a voting row (Aquilina was filed as a program case)", () => {
+    for (const r of feed.filter((r) => /illegal(?:ly)? voting|voting by (?:an )?alien|voter fraud/i.test(r.crime))) assert.equal(r.voting, true, r.name);
+  });
   it("no person is listed twice as a voter", () => {
     const norm = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z ]/g, "").replace(/\s+/g, " ").trim();
     const seen = new Map();
