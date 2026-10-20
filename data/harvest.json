@@ -8242,5 +8242,29 @@
     "presence": "not_stated",
     "scheme": "Marianne Rolland",
     "schemeId": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-4a36fc3ea3"
+  },
+  {
+    "name": "Asha Anderson",
+    "city": "Miami, FL",
+    "crime": "Pompano Beach Woman Convicted of Stealing $152,000 in in Social Security Benefits Following Great-Aunt’s Death",
+    "usa": "Pompano Beach Woman Convicted of Stealing $152,000 in in Social Security Benefits Following Great-Aunt’s Death",
+    "foreign": "Not stated in post",
+    "picked": "10/20/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-sdfl-pr-pompano-beach-e039dc1be0",
+    "when": "2026-10-20",
+    "text": "Pompano Beach Woman Convicted of Stealing $152,000 in in Social Security Benefits Following Great-Aunt’s Death. MIAMI – A federal jury in the Southern District of Florida convicted a Pompano Beach woman of stealing more than $152,000 in Social Security retirement benefits intended for her deceased great-aunt over nearly six years. Asha Anderson, 48, of Pompano Beach, was convicted of theft of government funds and Social Security fraud following a six-day trial. “Social Security is funded by the hard work of American taxpayers and exists to support those who are lawfully entitled to its benefits,” said U.S. Attorney Jason A. Reding Quiñones for the Southern District of Florida. “For nearly six years, Asha Anderson stole more than $152,000 in benefits intended for her deceased great-aunt. Today’s jury verdict makes clear that those who steal from programs Americans depend on will be investigated, pros Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-sdfl/pr/pompano-beach-woman-convicted-stealing-152000-social-security-benefits-following-great",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 25.7617,
+    "lon": -80.1918,
+    "presence": "not_stated",
+    "scheme": "Asha Anderson",
+    "schemeId": "harvest-https-www-justice-gov-usao-sdfl-pr-pompano-beach-7f1a2b1f00"
   }
 ]
