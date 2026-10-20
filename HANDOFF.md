@@ -1,5 +1,20 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (9:36 AM CDT) small fixes
+
+- Aaron Michael McComsey (EDPA, threats against a member of Congress) removed via data/exclude.json. Cause: the
+  threat email quoted "Medicare ... medicaid", which matched KEEP. keepBlob() now drops a release whose title is a
+  threats case (threat/threatening/swatting/stalking) unless the title also has a fraud word.
+- "New York" row renamed to Michael DeNicola (NJ, Amtrak employee health care plan; kept), id recomputed with
+  ledger-id rowId(), "As posted" quote added from the release. Cause: firstPerson() fallback took "New York" from
+  "a podiatrist formerly based in New York was sentenced"; cleanPerson() now rejects U.S. state names on every
+  path, so the DOJ item falls back to the body and finds DeNicola.
+- Jason and Lacey Carney (WDAR, 2nd Milk non-profit; wire fraud + tax fraud): origin corrected to "Tax fraud"
+  (was "Health care / nursing credentials" from "nursing mothers"). originFor() now labels tax-evasion / false
+  return / payroll-tax / tax-preparer cases "Tax fraud" (checked before the nursing rule; tax-credit, PPP, UI and
+  Medicare cases keep their program label). Existing tax rows labelled "Federal program (see release)" unchanged.
+- Tests: scripts/harvest-fixes-1020b.test.mjs (npm test + hourly workflow). Voting cross-posting untouched.
+
 ## 2026-10-20 (9:17 AM CDT) Krennic: private-victim fraud needs stated non-citizen status
 
 Rule: PRIVATE-VICTIM fraud (victims are private people, businesses, banks, clients, investors, nonprofits,

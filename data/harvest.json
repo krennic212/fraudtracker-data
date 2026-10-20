@@ -914,7 +914,7 @@
     "schemeId": "harvest-https-www-justice-gov-usao-ma-pr-springfield-com-9d9bb42b44"
   },
   {
-    "name": "New York",
+    "name": "Michael DeNicola",
     "city": "Newark, NJ",
     "crime": "New York Health Care Provider Sentenced to 32 Months in Prison for Role in $11 Million Health Care Fraud Scheme Targeting Amtrak, Drug Distribution, and Unlawful Possession of Firearm",
     "usa": "New York Health Care Provider Sentenced to 32 Months in Prison for Role in $11 Million Health Care Fraud Scheme Targeting Amtrak, Drug Distribution, and Unlawful Possession of Firearm",
@@ -922,9 +922,9 @@
     "picked": "10/7/2026",
     "entered": "Amount not stated",
     "office": "TheJusticeDept",
-    "id": "harvest-https-www-justice-gov-usao-nj-pr-new-york-health-5d16cc8484",
+    "id": "harvest-https-www-justice-gov-usao-nj-pr-new-york-health-75289eb03d",
     "when": "2026-10-07",
-    "text": "New York Health Care Provider Sentenced to 32 Months in Prison for Role in $11 Million Health Care Fraud Scheme Targeting Amtrak, Drug Distribution, and Unlawful Possession of Firearm. A podiatrist formerly based in New York was sentenced today for his role in a health care fraud scheme targeting Amtrak’s health care plan, as well as for unlawful distribution of opioids and unlawful possession of a firearm. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "New York Health Care Provider Sentenced to 32 Months in Prison for Role in $11 Million Health Care Fraud Scheme Targeting Amtrak, Drug Distribution, and Unlawful Possession of Firearm. As posted for this defendant: Michael DeNicola, 64, pleaded guilty on June 29, 2022, before U.S. District Judge Madeline Cox Arleo in Newark federal court to conspiracy to commit health care fraud, unlawful distribution of controlled substances, and unlawful possession of a firearm. DeNicola was sentenced today to 32 months’ imprisonment. A podiatrist formerly based in New York was sentenced today for his role in a health care fraud scheme targeting Amtrak’s health care plan, as well as for unlawful distribution of opioids and unlawful possession of a firearm. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/usao-nj/pr/new-york-health-care-provider-sentenced-32-months-prison-role-11-million-health-care",
@@ -934,7 +934,7 @@
     "lat": 40.7357,
     "lon": -74.1724,
     "presence": "not_stated",
-    "scheme": "New York",
+    "scheme": "Michael DeNicola",
     "schemeId": "harvest-https-www-justice-gov-usao-nj-pr-new-york-health-330e9fb570"
   },
   {
@@ -4058,7 +4058,7 @@
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/usao-wdar/pr/arkansas-non-profit-founders-receive-maximum-prison-sentences-defrauding-donors-and",
     "voting": false,
-    "origin": "Health care / nursing credentials",
+    "origin": "Tax fraud",
     "confirmedBy": "DOJ",
     "lat": 35.3859,
     "lon": -94.3985,
@@ -4082,7 +4082,7 @@
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/usao-wdar/pr/arkansas-non-profit-founders-receive-maximum-prison-sentences-defrauding-donors-and",
     "voting": false,
-    "origin": "Health care / nursing credentials",
+    "origin": "Tax fraud",
     "confirmedBy": "DOJ",
     "lat": 35.3859,
     "lon": -94.3985,

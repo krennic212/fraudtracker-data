@@ -157,6 +157,12 @@
       "name": "San Diego Logistics Group Inc",
       "reason": "Krennic 2026-10-20: private-victim, citizenship not stated",
       "decided": "Krennic 2026-10-20"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-edpa/pr/bucks-county-man-charged-threatening-assault-and-murder-member-united-states-congress",
+      "name": "Aaron Michael McComsey",
+      "reason": "Threats against a member of Congress, not fraud (harvested because the threat quoted Medicare/Medicaid)",
+      "decided": "Krennic 2026-10-20"
     }
   ]
 }

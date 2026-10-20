@@ -450,6 +450,9 @@ function originFor(rawBlob, official) {
   if (/usda\.gov/i.test(official) || /\bsnap\b|food[- ]stamp|\bebt\b/i.test(blob)) {
     return "SNAP / food stamps";
   }
+  if (/tax evasion|evad(?:e|ed|ing) (?:\w+ )?taxes|(?:false|fraudulent) (?:\w+ )?tax returns?|\btax fraud\b|payroll tax|employment tax|trust fund taxes|tax preparer/i.test(blob) && !/medicare|medicaid|\bppp\b|eidl|unemployment|tax credits?|employee retention/i.test(blob)) {
+    return "Tax fraud";
+  }
   if (/nurs(?:e|es|ing)\b|diploma|nightingale|\blicen[cs]e\b|credential/i.test(blob) && !/medicaid|medicare/i.test(blob)) {
     return "Health care / nursing credentials";
   }
@@ -675,6 +678,7 @@ export function programText(text) {
     .replace(/\b(?:social security and )?medicare tax(?:es)?\b/gi, " ");
 }
 
+const THREAT_TITLE = /\bthreat(?:en(?:s|ed|ing)?|s)?\b|\bswatting\b|\bstalking\b|\bextortion(?:ate)? threats?/i;
 export function keepBlob(title, teaser) {
   const blob = `${title} ${programText(teaser || "")}`;
   if (isServicememberRightsCase(blob)) return false;
@@ -688,6 +692,9 @@ export function keepBlob(title, teaser) {
   if (DROP.test(blob) && !KEEP.test(blob) && !govMoney(title, blob)) return false;
   if (KEEP.test(title) || govMoney(title, title)) return true;
   if (/^podcasts?$/i.test(title.trim())) return false;
+  // A threats case is not fraud even when the threat quotes a program ("Medicare doesn't cover drugs. And medicaid
+  // is refusing to pay ..." - McComsey, EDPA 2026-10-15).
+  if (THREAT_TITLE.test(title) && !FRAUD_WORDS.test(title)) return false;
   // HHS-OIG exclusion notices are administrative program bans, not fraud cases.
   if (/\bnotice of exclusion\b/i.test(title)) return false;
   const prog = programText(teaser || "");

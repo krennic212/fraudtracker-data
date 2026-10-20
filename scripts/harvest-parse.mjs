@@ -180,6 +180,8 @@ function cleanPerson(raw) {
   while (parts.length && PARTICLE_WORD.test(parts[0])) parts.shift();
   while (parts.length && PARTICLE_WORD.test(parts[parts.length - 1])) parts.pop();
   if (parts.filter((w) => !PARTICLE_WORD.test(w)).length < 2) return null;
+  // "A podiatrist formerly based in New York was sentenced": a state is never a defendant (every path, incl. firstPerson).
+  if (US_STATE_NAME.test(parts.join(" "))) return null;
   return parts.join(" ");
 }
 
