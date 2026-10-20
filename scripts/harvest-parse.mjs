@@ -81,6 +81,11 @@ const PERSON_STATUS = new RegExp(
   "giu",
 );
 
+// "Mercedes Alexandra Cardoso of Union County, New Jersey, was charged with voting by an alien" (OPA roundup, no age).
+const PERSON_OF_PLACE_CHARGED = new RegExp(
+  String.raw`(` + NAME_CORE + String.raw`)\s+of\s+[A-Z][\p{L}.' -]{1,40},\s+[A-Z][\p{L}]+(?:\s[A-Z][\p{L}]+)?,\s+(?:was|has been|is)\s+(?:charged|indicted|arrested|sentenced|convicted)\b`,
+  "gu",
+);
 const PERSON_OF = new RegExp(
   String.raw`(` + NAME_CORE + String.raw`),\s+of\s+[A-Z]`,
   "gu",
@@ -382,9 +387,12 @@ function firstPerson(blob) {
 
 /** Every named defendant in a DOJ roundup body, not just the first. */
 export function allPeople(title, teaser = "") {
-  const text = normHyphen(`${teaser || ""}\n${title || ""}`);
+  // "Celestin Katubadi , 20," (a stray space before the comma in the Sept 18, 2026 roundup) reads as "Celestin Katubadi, 20,".
+  const text = normHyphen(`${teaser || ""}\n${title || ""}`).replace(/(\p{L})\s+,/gu, "$1,");
   const out = [];
   const seen = new Set();
+  PERSON_OF_PLACE_CHARGED.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_OF_PLACE_CHARGED)) pushName(out, seen, m[1]);
   PERSON_AGE.lastIndex = 0;
   for (const m of text.matchAll(PERSON_AGE)) pushName(out, seen, m[1]);
   PERSON_YEAR_OLD.lastIndex = 0;
@@ -427,7 +435,53 @@ export function allPeople(title, teaser = "") {
     const one = firstPerson(text);
     if (one) out.push(one.name);
   }
-  return out;
+  // Roundup bodies lose their block breaks when stripped, so a section header or photo caption runs into the next
+  // defendant ("District of New Mexico Patrick Perea", "from Haiti Dilea Ochoa-Perez", "Photo of Avila Gomez"). Drop
+  // that lead-in; the person is the rest, and only when the text really has the place right before it.
+  const clean = [];
+  const cleanSeen = new Set();
+  for (const n of out) {
+    const c = stripLeadPlace(n, text);
+    const k = c.toLowerCase();
+    if (cleanSeen.has(k)) continue;
+    cleanSeen.add(k);
+    clean.push(c);
+  }
+  return clean;
+}
+
+const LEAD_PLACES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Columbia", "Florida", "Georgia", "Hawaii",
+  "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
+  "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+  "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming", "Puerto Rico", "Guam",
+  "Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Bahamas", "Bangladesh", "Barbados", "Belarus",
+  "Belgium", "Belize", "Benin", "Bolivia", "Bosnia", "Brazil", "Bulgaria", "Burkina Faso", "Burma", "Cambodia", "Cameroon", "Canada", "Cape Verde",
+  "Chile", "China", "Colombia", "Congo", "Costa Rica", "Croatia", "Cuba", "Czech Republic", "Dominica", "Dominican Republic", "Ecuador", "Egypt",
+  "El Salvador", "Eritrea", "Ethiopia", "Fiji", "France", "Gambia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guyana",
+  "Haiti", "Honduras", "Hungary", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan",
+  "Kazakhstan", "Kenya", "Korea", "Kosovo", "Kuwait", "Laos", "Lebanon", "Liberia", "Libya", "Lithuania", "Macedonia", "North Macedonia", "Malaysia",
+  "Mali", "Mexico", "Moldova", "Mongolia", "Morocco", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Pakistan", "Palestine",
+  "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Romania", "Russia", "Rwanda", "Samoa", "Saudi Arabia", "Senegal", "Serbia",
+  "Sierra Leone", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga",
+  "Trinidad and Tobago", "Trinidad", "Tunisia", "Turkey", "Uganda", "Ukraine", "United Kingdom", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam",
+  "Yemen", "Yugoslavia", "Zambia", "Zimbabwe",
+];
+const LEAD_PLACE_RE = new RegExp(`^(?:(?:Photo|Image|Picture) of|of(?: the)?(?: (?:${LEAD_PLACES.join("|")}))?|(?:the )?(?:${LEAD_PLACES.join("|")}))$`);
+const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/** "District of New Mexico Patrick Perea" -> "Patrick Perea", only when the text has that lead-in right before the person. */
+export function stripLeadPlace(name, text = "") {
+  const w = String(name || "").split(/\s+/).filter(Boolean);
+  for (let k = Math.min(4, w.length - 2); k >= 1; k--) {
+    const prefix = w.slice(0, k).join(" ");
+    if (!LEAD_PLACE_RE.test(prefix)) continue;
+    const rest = w.slice(k).join(" ");
+    const caption = /^(?:Photo|Image|Picture) of$/.test(prefix);
+    const ctx = new RegExp(`(?:District of|from(?: the)?|of(?: the)?|\\bin)\\s+${escRe(prefix.replace(/^of(?: the)? /, ""))}\\s+${escRe(rest)}`);
+    if (caption || /^of\b/.test(prefix) || ctx.test(text)) return rest;
+  }
+  return name;
 }
 
 export function looksLikeHeadline(name) {
@@ -462,8 +516,54 @@ export function newsHasChargingPaper(link, teaser = "") {
   return Boolean(officialUrl(`${link} ${teaser}`) || OFFICIAL.test(link));
 }
 
+/**
+ * State election-crime newsrooms (Krennic 2026-10-20: "add the clear state voting cases ... and add state sources to the
+ * hourly job"). A state attorney general / state police release is the official source for a STATE case. Exact host (plus
+ * a path prefix where the host is a whole state portal), https only. `agency` is the office as it signs its releases; it
+ * becomes the row's agency, via and confirmedBy (never "DOJ"). Same table as invasionupdate-data scripts/rules.mjs.
+ */
+export const STATE_OFFICES = [
+  { host: "myfloridalegal.com", path: "/", office: "FloridaAG", agency: "Florida Attorney General", state: "FL" },
+  { host: "fdle.state.fl.us", path: "/", office: "FDLE", agency: "Florida Department of Law Enforcement", state: "FL" },
+  { host: "texasattorneygeneral.gov", path: "/", office: "TexasAG", agency: "Texas Attorney General", state: "TX" },
+  { host: "michigan.gov", path: "/ag/", office: "MichiganAG", agency: "Michigan Attorney General", state: "MI" },
+  { host: "doj.nh.gov", path: "/", office: "NewHampshireDOJ", agency: "New Hampshire Department of Justice", state: "NH" },
+  { host: "ag.nv.gov", path: "/", office: "NevadaAG", agency: "Nevada Attorney General", state: "NV" },
+  { host: "attorneygeneral.gov", path: "/", office: "PennsylvaniaAG", agency: "Pennsylvania Attorney General", state: "PA" },
+  { host: "ag.ks.gov", path: "/", office: "KansasAG", agency: "Kansas Attorney General", state: "KS" },
+  { host: "law.georgia.gov", path: "/", office: "GeorgiaAG", agency: "Georgia Attorney General", state: "GA" },
+  { host: "sos.ga.gov", path: "/", office: "GeorgiaSOS", agency: "Georgia Secretary of State", state: "GA" },
+  { host: "ncdoj.gov", path: "/", office: "NorthCarolinaAG", agency: "North Carolina Attorney General", state: "NC" },
+  { host: "ohioattorneygeneral.gov", path: "/", office: "OhioAG", agency: "Ohio Attorney General", state: "OH" },
+  { host: "ohiosos.gov", path: "/", office: "OhioSOS", agency: "Ohio Secretary of State", state: "OH" },
+  { host: "azag.gov", path: "/", office: "ArizonaAG", agency: "Arizona Attorney General", state: "AZ" },
+  { host: "doj.state.wi.us", path: "/", office: "WisconsinDOJ", agency: "Wisconsin Department of Justice", state: "WI" },
+  { host: "alabamaag.gov", path: "/", office: "AlabamaAG", agency: "Alabama Attorney General", state: "AL" },
+  { host: "oag.state.va.us", path: "/", office: "VirginiaAG", agency: "Virginia Attorney General", state: "VA" },
+  { host: "ag.state.la.us", path: "/", office: "LouisianaAG", agency: "Louisiana Attorney General", state: "LA" },
+  { host: "in.gov", path: "/attorneygeneral/", office: "IndianaAG", agency: "Indiana Attorney General", state: "IN" },
+  { host: "ago.mo.gov", path: "/", office: "MissouriAG", agency: "Missouri Attorney General", state: "MO" },
+  { host: "tn.gov", path: "/attorneygeneral/", office: "TennesseeAG", agency: "Tennessee Attorney General", state: "TN" },
+  { host: "iowaattorneygeneral.gov", path: "/", office: "IowaAG", agency: "Iowa Attorney General", state: "IA" },
+];
+
+/** The STATE_OFFICES entry an official state release URL belongs to, else null. */
+export function stateOffice(link) {
+  const s = String(link || "");
+  if (!/^https:\/\//i.test(s)) return null;
+  let u;
+  try {
+    u = new URL(s);
+  } catch {
+    return null;
+  }
+  const h = u.hostname.toLowerCase().replace(/^www\./, "");
+  const path = u.pathname.toLowerCase();
+  return STATE_OFFICES.find((o) => h === o.host && path.startsWith(o.path)) || null;
+}
+
 export function isOfficialHost(link) {
   return /(?:justice|usda|dhs|ice|irs|hud|fema|va|dol|cms)\.gov|oig\.(?:hhs|ssa|sba|dhs|dol)|vaoig\.gov|hudoig\.gov|sba\.gov|ssa\.gov|ag\.idaho\.gov|federalregister\.gov/i.test(
     String(link),
-  );
+  ) || Boolean(stateOffice(link));
 }

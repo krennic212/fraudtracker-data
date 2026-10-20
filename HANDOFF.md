@@ -1,5 +1,39 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-20 (11:30 AM CDT) federal, DHS and state voting cases + state election sources in the hourly job (Krennic approved)
+
+- Rows: 198 -> 328. 125 new voting rows (77 federal: 75 DOJ + 2 DHS; 48 state: TX AG 16, FL AG 12, PA AG 7, MI AG 6,
+  NH DOJ 4, KS AG 2, FDLE 1), all through data/seed-releases.json (68 new seed releases; 103 seeds in total). The hourly run
+  also added 5 routine non-voting fraud rows (EDPA Treasury checks x4, Travis Vue). Voting rows: 209 unique people.
+- Seed fields: `places` {name: {city, lat, lon}} = the town the release prints for that person (takes precedence over
+  district pins); `nameIn` {name: printed form} for names the release does not write out ("Joshua and Lisa Urovitch");
+  `anyVoter: true` on seeds whose people are not non-citizens (election fraud by anyone counts; the nationality test skips
+  them). State-host seeds take the state office (stateOffice(link)); agency / confirmedBy = the state agency, via "<agency> press".
+- Seeded every OPA voting roundup (Sept 4, Sept 18, Oct 5, Oct 12, 2026), so the DOJ API pass skips them (seededLinks).
+- Parser (harvest-parse.mjs): stripLeadPlace() removes a glued "Photo of / of / <place>" lead-in from roundup names;
+  PERSON_OF_PLACE_CHARGED ("Name of X County, State, was charged"); "Katubadi , 20," spacing fixed. harvest-gov.mjs:
+  districtNearName() pins a roundup defendant to the nearest preceding "X District of Y" header (not "initial appearance
+  in"); alreadyListedVoter also catches a shortened roundup name ("Avila Gomez" = "Fredy Avila Gomez") within 14 days.
+- NEW state election sources (scripts/state-sources.mjs, same file as invasionupdate-data/scripts/state-sources.mjs):
+  harvestStateVoting() in main(), after harvestStateAg. 20 official newsrooms: FL AG (RSS), FDLE, TX AG, MI AG (newsroom
+  search JSON), NH DOJ, NV AG, PA AG, KS AG, GA AG, GA SOS, NC AG, OH AG, OH SOS, AZ AG, AL AG, VA AG, LA AG, MO AG, TN AG,
+  IA AG. Rules: https + exact host + release path only; listing item must have an election word; page must be an election
+  CRIME (isElectionCase: crime verb needed, petition-only excluded); people only from stateDefendants() (list entries
+  "Name, 39, of Town", "charges against / arrest of Name", "<office>, Name: 3 counts", "The charged canvassers are: ...");
+  a name printed after an official's title is dropped; pin = the person's printed town, else the dateline only when no town
+  is printed, else no row; stage from the release (stateStage); one item per release (one schemeId); seeded releases and
+  people already listed as voters are skipped. 6 releases per source, 180 s budget (STATE_BUDGET_MS), STATE_SOURCES=0
+  turns it off; every error is logged, never thrown.
+  - Not added: WI DOJ and IN AG (JS-only listings, no feed). Live now: GA SOS and OH SOS return 403, NC AG and NH DOJ
+    listings return 0 items (bot check / JS) - they fail soft; NH cases are in the seeds.
+- HI, WDKY, WDTX, ID, UT and WDLA: DOJ API reads every office; DISTRICT_SEAT has all six (test added).
+- Engelstad row: aka ["Julieta Englestad"]. "Mayen" (Adams aka) is in no official source, so not added.
+- Skipped: Brass/Price/Herron, Seei, KS Andrews/Johnson (listing URL only), Higgs (Krennic); Pulley, Francisco, Mark White
+  (before the 2025-01-21 cutoff); Engelstad, Luma, Jamil Ahmad were already listed.
+- Tests: scripts/harvest-roundup-all.test.mjs (roundups: every named defendant), scripts/harvest-state-sources.test.mjs
+  (offline: scripts/fixtures/state-releases-2026.json = 12 saved state pages); both in package.json and the workflow.
+  npm test: 127/127. scripts/city-geo.json copied from invasionupdate-data for state pins.
+
 ## 2026-10-20 (9:46 AM CDT) voting cross-post from Invasion Update (Krennic approved)
 
 - 30 voting rows added through data/seed-releases.json (13 new releases, `"voting": true`). Each person is named in the

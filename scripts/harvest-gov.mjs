@@ -18,9 +18,11 @@ import {
   operationName,
   personOrEntity,
   rewriteHarvestName,
+  stateOffice,
 } from "./harvest-parse.mjs";
 import { rowId, schemeIdFor } from "./ledger-id.mjs";
 import { nameKey } from "./ledger-dedupe.mjs";
+import { readStateSources, stateDefendants, stateStage, stateGeo, BROWSER_UA } from "./state-sources.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 // The hourly GitHub Actions job points these at data/ (durable, published);
@@ -421,7 +423,27 @@ function geoNearName(blob, name) {
   return hit;
 }
 
+/**
+ * The "<X> District of <State>" section header closest before the defendant in a roundup -> that office's seat (the
+ * Oct 5, 2026 OPA roundup "Middle District of Florida ... Eastern District of Louisiana ..." has no other place words).
+ * A district named only as where someone made an initial appearance or was arrested does not count.
+ */
+export function districtNearName(blob, name) {
+  const text = String(blob);
+  const at = text.indexOf(String(name));
+  if (at < 0) return null;
+  let best = null;
+  for (const m of text.matchAll(/\b(?:(?:Northern|Southern|Eastern|Western|Middle|Central)\s+)?District of (?:New |North |South |West |Rhode |Puerto )?[A-Z][a-z]+/g)) {
+    if (m.index > at) break;
+    if (/(?:appearance|appeared|arrested|surrendered)\s+(?:\w+\s+){0,3}(?:in|before)\s+(?:the\s+)?$/i.test(text.slice(Math.max(0, m.index - 60), m.index))) continue;
+    best = m[0];
+  }
+  return best ? districtSeatFromText(best) : null;
+}
+
 function viaFor(office, official) {
+  const st = stateOffice(official);
+  if (st) return `${st.agency} press`;
   if (/usda\.gov/i.test(official)) return "USDA press";
   if (/hhs\.gov/i.test(official)) return "HHS OIG press";
   if (/ag\.idaho\.gov/i.test(official) || office === "Raul_Labrador") {
@@ -537,7 +559,11 @@ function buildRow(item, office, name, geo, names = [name]) {
   const sweep = isSweep(blob);
   const official = officialUrl(blob) || item.link;
   const news = !isOfficialHost(official);
-  const agency = /usda\.gov/i.test(official)
+  // A state newsroom release (state case): the state office is the agency, never "Justice Department".
+  const st = stateOffice(official);
+  const agency = st
+    ? st.agency
+    : /usda\.gov/i.test(official)
     ? "USDA"
     : /hhs\.gov/i.test(official)
       ? "HHS OIG"
@@ -594,6 +620,8 @@ function buildRow(item, office, name, geo, names = [name]) {
     origin: item.voting === true ? "Voting / elections" : originFor(blob, official),
     confirmedBy: news
       ? "gov-amplified press"
+      : st
+        ? st.agency
       : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(official)
         ? "DHS"
       : office === "Raul_Labrador"
@@ -615,7 +643,10 @@ export function rowsFromItem(item, office) {
   const blob = `${item.title} ${item.teaser || ""}`;
   // A seed (or a cross-posted Invasion Update row) may list its defendants explicitly; each must appear
   // verbatim in the teaser, so the row still quotes the release's own words for that person.
-  const listed = Array.isArray(item.names) ? item.names.filter((n) => n && String(item.teaser || "").includes(n)) : null;
+  // A seed may say how the release prints a name that is not written out in full ("Joshua and Lisa Urovitch" for
+  // "Joshua Urovitch"): nameIn[name] must itself appear verbatim in the teaser.
+  const printed = (n) => (item.nameIn && typeof item.nameIn === "object" && item.nameIn[n]) || n;
+  const listed = Array.isArray(item.names) ? item.names.filter((n) => n && String(item.teaser || "").includes(printed(n))) : null;
   const people = listed && listed.length ? listed : allPeople(item.title, item.teaser || "");
   const op = operationName(item.title);
   const names = people.length ? people : op ? [op] : [];
@@ -629,7 +660,10 @@ export function rowsFromItem(item, office) {
   for (const raw of names) {
     const name = String(raw).slice(0, 120);
     if (looksLikeHeadline(name) && !op) continue;
-    const geo = geoNearName(blob, name) || fallback;
+    // A seed's places[name] is the city the release gives for that person (state cases, county-level cases).
+    const placed = item.places && typeof item.places === "object" ? item.places[name] : null;
+    const pin = placed && Number.isFinite(placed.lat) && Number.isFinite(placed.lon) && placed.city ? { city: placed.city, lat: placed.lat, lon: placed.lon } : null;
+    const geo = pin || geoNearName(blob, printed(name)) || fallback || districtNearName(blob, printed(name));
     if (!geo) continue;
     out.push(buildRow(item, office, name, geo, names));
   }
@@ -792,7 +826,14 @@ export function alreadyListedVoter(existing, row) {
     const et = Date.parse(e.when);
     if (Number.isFinite(t) && Number.isFinite(et) && Math.abs(t - et) > 14 * 86400000) return false;
     const etok = nameKey(e.name).split(" ").filter(Boolean);
-    return etok.length >= 2 && etok.length <= tok.length && tok.slice(-etok.length).join(" ") === etok.join(" ");
+    if (etok.length >= 2 && etok.length <= tok.length && tok.slice(-etok.length).join(" ") === etok.join(" ")) return true;
+    // A roundup that shortens the name the district release printed in full: "Avila Gomez" (OPA, Sept 18, 2026) is
+    // "Fredy Avila Gomez" (USAO Idaho); "Monica Carzoli" is "Monica Ivette Carzoli Carillo"; "Paulo Silva" is "Paulo Jorge Silva".
+    if (tok.length >= 2 && tok.length < etok.length) {
+      if (etok.slice(-tok.length).join(" ") === tok.join(" ")) return true;
+      if (tok.length === 2 && tok[0] === etok[0] && etok.slice(1).includes(tok[1])) return true;
+    }
+    return false;
   });
 }
 
@@ -962,7 +1003,9 @@ export function harvestSeed(existing, have, added, seedFile = SEED) {
       // filed as voting even when its excerpt's charge wording is a naturalization or citizenship count.
       ...(r.voting === true ? { voting: true } : {}),
       ...(r.nationality && typeof r.nationality === "object" ? { nationality: r.nationality } : {}),
-    }, /oig\.dol\.gov/i.test(link) ? "DOLOIG" : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(link) ? "DHSgov" : "TheJusticeDept");
+      ...(r.places && typeof r.places === "object" ? { places: r.places } : {}),
+      ...(r.nameIn && typeof r.nameIn === "object" ? { nameIn: r.nameIn } : {}),
+    }, stateOffice(link)?.office || (/oig\.dol\.gov/i.test(link) ? "DOLOIG" : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(link) ? "DHSgov" : "TheJusticeDept"));
   }
   return list.length;
 }
@@ -1348,6 +1391,74 @@ async function harvestNews(existing, have, added) {
   return scanned;
 }
 
+/**
+ * State election-crime newsrooms (scripts/state-sources.mjs: state AGs, FDLE, secretaries of state). Only official
+ * state pages, only releases about an election crime, only people the release names as defendants, each pinned to
+ * the home town (or dateline) the release prints. One item per release, so co-defendants share one schemeId. A
+ * release already in data/seed-releases.json is skipped (the seed keeps Krennic's names and stage), and so is a
+ * person already on the ledger as a voter under any release. Every source fails soft.
+ */
+let CITY_GEO = null;
+const STATE_NATIONALITY =
+  /^,\s*\d{1,3},\s*(?:(?:of|from)\s+[^,()]+(?:\s*\([^)]*\))?,\s*)?((?:a|an)\s+(?:citizen of (?:the\s+)?\p{Lu}\p{L}*(?:\s\p{Lu}\p{L}*)*|\p{Lu}\p{L}*(?:\s\p{Lu}\p{L}*)*\s+[Nn]ational))(?=[\s,.])/u;
+export function stateVotingItem(rel, existing, seeded = new Set(), table = (CITY_GEO ??= loadJson(join(ROOT, "scripts/city-geo.json"), {}))) {
+  if (!rel?.url || seeded.has(urlKeyOf(rel.url))) return null;
+  // "Astrid Shamatu Navarrete Quintana , 24, of Fort Myers" (Florida AG list): the stray space before the comma goes.
+  const teaser = String(rel.text || "").replace(/\s+,/g, ",").slice(0, 12000);
+  const names = [];
+  const places = {};
+  const nameIn = {};
+  const nationality = {};
+  for (const p of stateDefendants(rel)) {
+    if (listedVoterAnyDate(existing, p.name)) continue;
+    const geo = stateGeo(p, rel, table);
+    if (!geo) continue;
+    // "Jose Luis Gomez, Sr." is printed with the comma; the row's name drops it.
+    const printed = teaser.includes(p.name) ? p.name : p.name.replace(/ (Jr|Sr)\.$/, ", $1.");
+    if (!teaser.includes(printed)) continue;
+    names.push(p.name);
+    places[p.name] = geo;
+    // The release's own nationality wording for this person, verbatim: "Name, 24, of Fort Myers (Lee County), a
+    // Mexican national ..." / "James Ross Wightman, 65, a British National". Never inferred.
+    const own = String(p.sentence || "").replace(/\s+,/g, ",");
+    const at = own.indexOf(printed);
+    const nat = at < 0 ? null : own.slice(at + printed.length).match(STATE_NATIONALITY);
+    if (nat && teaser.includes(nat[1])) nationality[p.name] = nat[1];
+    if (printed !== p.name) nameIn[p.name] = printed;
+  }
+  if (!names.length) return null;
+  return {
+    title: rel.title,
+    teaser,
+    link: rel.url,
+    when: Date.parse(`${rel.date}T12:00:00Z`),
+    stage: stateStage(rel.title, rel.text),
+    voting: true,
+    names,
+    places,
+    ...(Object.keys(nameIn).length ? { nameIn } : {}),
+    ...(Object.keys(nationality).length ? { nationality } : {}),
+  };
+}
+
+async function harvestStateVoting(existing, have, added) {
+  if (process.env.STATE_SOURCES === "0") return 0;
+  let res;
+  try {
+    res = await readStateSources((u) => fetchText(u, BROWSER_UA), { since: new Date(CUTOFF).toISOString().slice(0, 10), budgetMs: Number(process.env.STATE_BUDGET_MS || 180000) });
+  } catch (e) {
+    console.error("state voting sources skip", String(e));
+    return 0;
+  }
+  for (const line of res.log) console.log("state voting:", line);
+  const seeded = seededLinks();
+  for (const rel of res.releases) {
+    const item = stateVotingItem(rel, existing, seeded);
+    if (item) ingest(existing, have, added, item, rel.office);
+  }
+  return res.releases.length;
+}
+
 async function main() {
   const existing = loadJson(HARVEST, [])
     .map(rewriteExisting)
@@ -1372,12 +1483,13 @@ async function main() {
   const hhs = await harvestHhsOig(existing, have, added);
   const ig = await harvestIgLists(existing, have, added);
   const stateAg = await harvestStateAg(existing, have, added);
+  const stateVoting = await harvestStateVoting(existing, have, added);
   const news = await harvestNews(existing, have, added);
   const kept = existing.filter((r) => {
     if (looksLikeHeadline(r.name)) return false;
     return isKeepRow(r.name, r.crime || r.name, r.text || "");
   });
-  const scanned = doj + seedN + inv + usda + hhs + ig + stateAg + news;
+  const scanned = doj + seedN + inv + usda + hhs + ig + stateAg + stateVoting + news;
 
   writeFileSync(HARVEST, `${JSON.stringify(kept, null, 2)}\n`);
   writeFileSync(
@@ -1388,14 +1500,14 @@ async function main() {
         added,
         enriched: [],
         scanned,
-        note: "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept.",
+        note: "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept.",
       },
       null,
       2,
     )}\n`,
   );
   console.log(
-    `scanned ${scanned} (doj ${doj}, seed ${seedN}, invasion-voting ${inv}, usda ${usda}, hhs ${hhs}, ig ${ig}, stateAg ${stateAg}, news ${news}); added ${added.length}; harvest ${kept.length}`,
+    `scanned ${scanned} (doj ${doj}, seed ${seedN}, invasion-voting ${inv}, usda ${usda}, hhs ${hhs}, ig ${ig}, stateAg ${stateAg}, stateVoting ${stateVoting}, news ${news}); added ${added.length}; harvest ${kept.length}`,
   );
 }
 

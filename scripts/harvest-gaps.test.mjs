@@ -89,7 +89,8 @@ describe("DOJ API item: body read when the teaser has no name", () => {
 
 describe("seed releases (2026-10-20 adds)", () => {
   it("each listed name appears verbatim in its teaser; only listed names become rows", () => {
-    for (const r of seed.releases) for (const n of r.names || []) assert.ok(r.teaser.includes(n), `${n} not in teaser of ${r.link}`);
+    // nameIn[n]: how the release prints a name it does not write out ("Joshua and Lisa Urovitch"); that form must be verbatim.
+    for (const r of seed.releases) for (const n of r.names || []) assert.ok(r.teaser.includes(r.nameIn?.[n] || n), `${n} not in teaser of ${r.link}`);
     const existing = [];
     harvestSeed(existing, new Set(), []);
     const names = existing.map((r) => r.name);

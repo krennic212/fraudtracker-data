@@ -71,7 +71,9 @@ describe("voting seeds", () => {
 });
 
 describe("seed file voting entries", () => {
-  const votes = seed.releases.filter((r) => r.voting === true);
+  // anyVoter: an election-crime seed where status is not the point (election fraud by anyone qualifies, citizen or not;
+  // Krennic 2026-10-20). Those rows never claim a nationality; every other voting seed still needs the release's wording.
+  const votes = seed.releases.filter((r) => r.voting === true && r.anyVoter !== true);
   it("every person on a voting seed has non-citizen wording from the release", () => {
     assert.ok(votes.length >= 12);
     for (const r of votes) {
