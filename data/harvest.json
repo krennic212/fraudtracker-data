@@ -8218,5 +8218,29 @@
     "presence": "not_stated",
     "scheme": "Travis Vue",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-staffing-business-o-0471d20b14"
+  },
+  {
+    "name": "Marianne Rolland",
+    "city": "Anchorage, AK",
+    "crime": "Anchorage woman pleads guilty to committing more than $2 million in Health Care Fraud",
+    "usa": "Anchorage woman pleads guilty to committing more than $2 million in Health Care Fraud",
+    "foreign": "Not stated in post",
+    "picked": "10/19/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-2e73807c54",
+    "when": "2026-10-19",
+    "text": "Anchorage woman pleads guilty to committing more than $2 million in Health Care Fraud. ANCHORAGE – U.S. Attorney Michael J. Heyman announced today that Marianne Rolland , 73, of Anchorage, pled guilty to billing the Veterans Health Administration for more than $2 million in fraudulent claims. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ak/pr/anchorage-woman-pleads-guilty-committing-more-2-million-health-care-fraud",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 61.2181,
+    "lon": -149.9003,
+    "presence": "not_stated",
+    "scheme": "Marianne Rolland",
+    "schemeId": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-4a36fc3ea3"
   }
 ]
