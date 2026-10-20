@@ -69,7 +69,11 @@ const NEWS_OFFICE = [
 ];
 
 const KEEP =
-  /medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|wire fraud|bank fraud|mail fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)/i;
+  /medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)|pandemic relief|pandemic(?:[- ]era)?(?: and \w+)? (?:relief |loan |benefits? )?fraud|covid.?19 relief|employee retention credits?|\bercs?\b|sick and family leave credits?|tax shelter|theft of (?:government|public) (?:money|funds|property|benefits)|false claims act|fraud against taxpayers act|overbill\w*.{0,60}(?:postal service|usps|government|federal|army|navy|air force|military|agency|program)|(?:postal service|usps|government|federal) .{0,40}overbill|sham marriage|immigration (?:document )?fraud|fraud and misuse of visas/i;
+
+// 2026-10-20: "wire fraud | bank fraud | mail fraud" were removed from KEEP. On their own they put
+// private-victim schemes (investors, banks, elderly victims) on the ledger whenever the district had a
+// map pin. The ledger covers government-program fraud: a release now needs a program term above.
 
 const DROP =
   /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b|murder|homicide|manslaughter|carjack|armed robbery|fentanyl|heroin|methamphetamine|kidnapping|tortur|illegal reentry/i;
@@ -249,6 +253,61 @@ const DISTRICT_SEAT = {
   "usao-wdnc": ["Charlotte, NC", 35.2271, -80.8431],
   "usao-az": ["Phoenix, AZ", 33.4484, -112.074],
   "usao-nv": ["Las Vegas, NV", 36.1699, -115.1398],
+  // Every other U.S. Attorney's office (seat city). Before 2026-10-20 a release from a district missing
+  // here produced no row at all (no map pin), which silently dropped e.g. D. Kan., S.D. Ind., D. Haw.
+  "usao-mdal": ["Montgomery, AL", 32.3792, -86.3077],
+  "usao-sdal": ["Mobile, AL", 30.6954, -88.0399],
+  "usao-ak": ["Anchorage, AK", 61.2181, -149.9003],
+  "usao-edar": ["Little Rock, AR", 34.7465, -92.2896],
+  "usao-wdar": ["Fort Smith, AR", 35.3859, -94.3985],
+  "usao-de": ["Wilmington, DE", 39.7391, -75.5398],
+  "usao-dc": ["Washington, DC", 38.9072, -77.0369],
+  "usao-ndfl": ["Tallahassee, FL", 30.4383, -84.2807],
+  "usao-mdga": ["Macon, GA", 32.8407, -83.6324],
+  "usao-sdga": ["Savannah, GA", 32.0809, -81.0912],
+  "usao-gu": ["Hagatna, GU", 13.4757, 144.7489],
+  "usao-hi": ["Honolulu, HI", 21.3069, -157.8583],
+  "usao-cdil": ["Springfield, IL", 39.7817, -89.6501],
+  "usao-sdil": ["Fairview Heights, IL", 38.5889, -89.9904],
+  "usao-ndin": ["South Bend, IN", 41.6764, -86.252],
+  "usao-sdin": ["Indianapolis, IN", 39.7684, -86.1581],
+  "usao-ndia": ["Cedar Rapids, IA", 41.9779, -91.6656],
+  "usao-sdia": ["Des Moines, IA", 41.5868, -93.625],
+  "usao-ks": ["Wichita, KS", 37.6872, -97.3301],
+  "usao-edky": ["Lexington, KY", 38.0406, -84.5037],
+  "usao-wdky": ["Louisville, KY", 38.2527, -85.7585],
+  "usao-edla": ["New Orleans, LA", 29.9511, -90.0715],
+  "usao-mdla": ["Baton Rouge, LA", 30.4515, -91.1871],
+  "usao-wdla": ["Shreveport, LA", 32.5252, -93.7502],
+  "usao-me": ["Portland, ME", 43.6591, -70.2568],
+  "usao-wdmi": ["Grand Rapids, MI", 42.9634, -85.6681],
+  "usao-mn": ["Minneapolis, MN", 44.9778, -93.265],
+  "usao-ndms": ["Oxford, MS", 34.3665, -89.5192],
+  "usao-sdms": ["Jackson, MS", 32.2988, -90.1848],
+  "usao-mt": ["Billings, MT", 45.7833, -108.5007],
+  "usao-ne": ["Omaha, NE", 41.2565, -95.9345],
+  "usao-nh": ["Concord, NH", 43.2081, -71.5376],
+  "usao-wdny": ["Buffalo, NY", 42.8864, -78.8784],
+  "usao-mdnc": ["Greensboro, NC", 36.0726, -79.792],
+  "usao-nd": ["Fargo, ND", 46.8772, -96.7898],
+  "usao-nmi": ["Saipan, MP", 15.1778, 145.7508],
+  "usao-ndoh": ["Cleveland, OH", 41.4993, -81.6944],
+  "usao-edok": ["Muskogee, OK", 35.7479, -95.3697],
+  "usao-ndok": ["Tulsa, OK", 36.154, -95.9928],
+  "usao-wdok": ["Oklahoma City, OK", 35.4676, -97.5164],
+  "usao-pr": ["San Juan, PR", 18.4655, -66.1057],
+  "usao-ri": ["Providence, RI", 41.824, -71.4128],
+  "usao-sc": ["Columbia, SC", 34.0007, -81.0348],
+  "usao-sd": ["Sioux Falls, SD", 43.5446, -96.7311],
+  "usao-edtn": ["Knoxville, TN", 35.9606, -83.9207],
+  "usao-wdtn": ["Memphis, TN", 35.1495, -90.049],
+  "usao-edtx": ["Plano, TX", 33.0198, -96.6989],
+  "usao-vt": ["Burlington, VT", 44.4759, -73.2121],
+  "usao-vi": ["St. Thomas, VI", 18.3381, -64.8941],
+  "usao-wdva": ["Roanoke, VA", 37.271, -79.9414],
+  "usao-ndwv": ["Wheeling, WV", 40.064, -80.7209],
+  "usao-sdwv": ["Charleston, WV", 38.3498, -81.6326],
+  "usao-wy": ["Cheyenne, WY", 41.14, -104.8202],
 };
 
 const PLACE_HINTS = [
@@ -358,14 +417,19 @@ function viaFor(office, official) {
   if (office === "DOLOIG") return "DOL OIG press";
   if (office === "VAOIG") return "VA OIG press";
   if (/hud\.gov|hudoig/i.test(official)) return "HUD press";
+  if (/dhs\.gov/i.test(official)) return "DHS press";
   if (/fema\.gov/i.test(official)) return "FEMA press";
   if (!isOfficialHost(official)) return `${office} RSS`;
   return "DOJ press feed";
 }
 
-function originFor(blob, official) {
+function originFor(rawBlob, official) {
+  const blob = programText(rawBlob);
   if (/illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|noncitizen vot|non-citizen vot|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration/i.test(blob)) {
     return "Voting / elections";
+  }
+  if (/naturaliz|passport fraud|citizenship fraud|immigration (?:document )?fraud|sham marriage|fraud and misuse of visas/i.test(blob) && !/medicare|medicaid|unemployment|\bppp\b|eidl|\bsnap\b/i.test(blob)) {
+    return /\bi-?9\b|employment eligibility/i.test(blob) ? "I-9 / work documents" : "Visa / immigration status";
   }
   if (/\bwic\b|school meals|child nutrition|national school lunch/i.test(blob)) {
     return "WIC / child nutrition";
@@ -373,7 +437,7 @@ function originFor(blob, official) {
   if (/usda\.gov/i.test(official) || /\bsnap\b|food[- ]stamp|\bebt\b/i.test(blob)) {
     return "SNAP / food stamps";
   }
-  if (/nurs|diploma|nightingale|license|credential/i.test(blob) && !/medicaid|medicare/i.test(blob)) {
+  if (/nurs(?:e|es|ing)\b|diploma|nightingale|\blicen[cs]e\b|credential/i.test(blob) && !/medicaid|medicare/i.test(blob)) {
     return "Health care / nursing credentials";
   }
   if (/aca\b|affordable care|obamacare|improper enroll|phantom enroll/i.test(blob)) {
@@ -468,6 +532,8 @@ function buildRow(item, office, name, geo, names = [name]) {
                   ? "FEMA"
                   : /hud\.gov/i.test(official)
                     ? "HUD"
+                    : /dhs\.gov/i.test(official)
+                    ? "DHS"
                     : news
                       ? "verified news citing official press"
                       : "Justice Department";
@@ -490,7 +556,7 @@ function buildRow(item, office, name, geo, names = [name]) {
     when: Number.isFinite(item.when)
       ? new Date(item.when).toISOString().slice(0, 10)
       : "",
-    text: `${item.title}. ${line ? `As posted for this defendant: ${line} ` : ""}${String(item.teaser || "").slice(0, 800)} Source: official ${agency} press. ${item.stage === "Charged" ? "Stage: Charged (not convicted). " : ""}${
+    text: `${item.title}. ${line ? `As posted for this defendant: ${line} ` : ""}${String(item.teaser || "").slice(0, 800)} Source: official ${agency} press. ${item.stage === "Charged" ? "Stage: Charged (not convicted). " : item.stage ? `Stage: ${item.stage}. ` : ""}${
       sweep
         ? "Named scheme / enforcement sweep. Individual stores or defendants are listed only if the release names them. Administrative penalties are not convictions."
         : "Charges are allegations unless the page says convicted or a guilty plea."
@@ -502,6 +568,8 @@ function buildRow(item, office, name, geo, names = [name]) {
     origin: originFor(blob, official),
     confirmedBy: news
       ? "gov-amplified press"
+      : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(official)
+        ? "DHS"
       : office === "Raul_Labrador"
         ? "local LE"
         : "DOJ",
@@ -519,7 +587,10 @@ function buildRow(item, office, name, geo, names = [name]) {
 
 export function rowsFromItem(item, office) {
   const blob = `${item.title} ${item.teaser || ""}`;
-  const people = allPeople(item.title, item.teaser || "");
+  // A seed (or a cross-posted Invasion Update row) may list its defendants explicitly; each must appear
+  // verbatim in the teaser, so the row still quotes the release's own words for that person.
+  const listed = Array.isArray(item.names) ? item.names.filter((n) => n && String(item.teaser || "").includes(n)) : null;
+  const people = listed && listed.length ? listed : allPeople(item.title, item.teaser || "");
   const op = operationName(item.title);
   const names = people.length ? people : op ? [op] : [];
   if (!names.length) {
@@ -527,7 +598,7 @@ export function rowsFromItem(item, office) {
     if (entity) names.push(entity.name);
   }
   if (!names.length) return [];
-  const fallback = geoFor(item);
+  const fallback = geoFor(item) || item.geo || null;
   const out = [];
   for (const raw of names) {
     const name = String(raw).slice(0, 120);
@@ -577,8 +648,22 @@ export function isExcluded(row, ex = (EXCLUDE ??= loadExclude())) {
   return false;
 }
 
+/**
+ * Agency boilerplate that names a program without the case being about it: strike-force paragraphs
+ * ("... billed federal health care programs ... Centers for Medicare & Medicaid Services"), the Task
+ * Force / Fraud Division paragraph, and payroll "Social Security and Medicare taxes". Removed before
+ * the program test, so a drug or payroll-tax case is not filed as Medicare fraud.
+ */
+const BOILERPLATE_SENTENCE =
+  /[^.]*\b(?:Strike Force|Health Care Fraud Unit|National Fraud Enforcement Division|Task Force to Eliminate Fraud|Centers for Medicare\W+(?:and\W+)?Medicaid Services\W+working|Fraud Section (?:is|are) prosecuting|Health Care Fraud Section|has charged more than [\d,]+ defendants|800-HHS-TIPS|Report Fraud)[^.]*(?:\.|$)/g;
+export function programText(text) {
+  return String(text || "")
+    .replace(BOILERPLATE_SENTENCE, " ")
+    .replace(/\b(?:social security and )?medicare tax(?:es)?\b/gi, " ");
+}
+
 export function keepBlob(title, teaser) {
-  const blob = `${title} ${teaser || ""}`;
+  const blob = `${title} ${programText(teaser || "")}`;
   if (isServicememberRightsCase(blob)) return false;
   if (
     /enticement of a minor|child (porn|sex|exploit|predator)|sexual (abus|exploit|assault)|rape\b/i.test(
@@ -590,7 +675,9 @@ export function keepBlob(title, teaser) {
   if (DROP.test(blob) && !KEEP.test(blob)) return false;
   if (KEEP.test(title)) return true;
   if (/^podcasts?$/i.test(title.trim())) return false;
-  return KEEP.test(teaser || "");
+  // HHS-OIG exclusion notices are administrative program bans, not fraud cases.
+  if (/\bnotice of exclusion\b/i.test(title)) return false;
+  return KEEP.test(programText(teaser || ""));
 }
 
 function rewriteExisting(r) {
@@ -623,6 +710,23 @@ export function alreadyListedVoter(existing, row) {
   });
 }
 
+/**
+ * Same person, same case, posted again by another agency within 21 days (a DOL OIG regional roundup
+ * repeating a USAO indictment: "Andrea Wellington" there, "ANDREA WELLINGTON" at the USAO). Full name
+ * match (case / accent-insensitive, 2+ words) only; the row already on the ledger is kept.
+ */
+export function samePersonRecent(existing, row) {
+  const k = nameKey(row?.name);
+  if (!k || k.split(" ").length < 2) return false;
+  const t = Date.parse(row.when);
+  return existing.some((e) => {
+    if (!e || nameKey(e.name) !== k) return false;
+    if (e.sourceUrl === row.sourceUrl) return true;
+    const et = Date.parse(e.when);
+    return !Number.isFinite(t) || !Number.isFinite(et) || Math.abs(t - et) <= 21 * 86400000;
+  });
+}
+
 export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
   if (isExcluded({ link: item.link })) return;
@@ -647,6 +751,7 @@ export function ingest(existing, have, added, item, office) {
       continue;
     }
     if (alreadyListedVoter(existing, row)) continue;
+    if (samePersonRecent(existing, row)) continue;
     have.add(key);
     existing.push(row);
     added.push(row.name);
@@ -682,16 +787,36 @@ export function dojItem(r) {
   const link = String(r.url || "").trim();
   const body = strip(String(r.body || ""));
   const teaser = strip(String(r.teaser || r.body || ""));
+  let use = teaser;
+  if (body && isOpaElectionRoundup(link, title, body)) use = body;
+  // The teaser of many USAO releases is a one-line summary with no name ("A former employee of a State
+  // of Illinois subcontractor has been indicted ..."). Then, and only then, the opening of the body is
+  // read (first 3,000 characters: the case paragraphs, before the agency-credit boilerplate).
+  else if (body && !operationName(title)) {
+    const head = body.slice(0, 3000);
+    const named = allPeople(title, teaser);
+    if (!named.length && keepBlob(title, head)) use = head;
+    // The teaser names the defendant(s) but not the program ("... for filing false tax returns and wire
+    // fraud"; the PUA claims are in the next paragraph): read the opening of the body for the program,
+    // but keep the teaser's names, so no official or agent named further down becomes a row.
+    else if (named.length && !keepBlob(title, teaser) && keepBlob(title, head)) return { title, teaser: head, link, when: unixMs(r.date), names: named };
+  }
   return {
     title,
-    teaser: body && isOpaElectionRoundup(link, title, body) ? body : teaser,
+    teaser: use,
     link,
     when: unixMs(r.date),
   };
 }
 
+export function seededLinks(seedFile = SEED) {
+  const seed = loadJson(seedFile, { releases: [] });
+  return new Set((Array.isArray(seed?.releases) ? seed.releases : []).map((r) => urlKeyOf(r.link)).filter(Boolean));
+}
+
 async function harvestDoj(existing, have, added) {
   let scanned = 0;
+  const seeded = seededLinks();
   for (let page = 0; page < DOJ_PAGES; page++) {
     const url = `${DOJ_API}&page=${page}`;
     let payload;
@@ -705,6 +830,7 @@ async function harvestDoj(existing, have, added) {
     if (!results.length) break;
     for (const r of results) {
       scanned += 1;
+      if (seeded.has(urlKeyOf(r.url))) continue;
       ingest(
         existing,
         have,
@@ -733,9 +859,99 @@ export function harvestSeed(existing, have, added, seedFile = SEED) {
       when: Date.parse(`${r.date}T12:00:00Z`),
       seat: r.seat || "",
       stage: r.stage || "",
-    }, "TheJusticeDept");
+      ...(Array.isArray(r.names) && r.names.length ? { names: r.names } : {}),
+    }, /oig\.dol\.gov/i.test(link) ? "DOLOIG" : /dhs\.gov/i.test(link) ? "DHSgov" : "TheJusticeDept");
   }
   return list.length;
+}
+
+/**
+ * Cross-post: election / voting-fraud rows that the Invasion Update harvester found in official
+ * releases (status "approved", voting: true, official .gov source) and the ledger does not have yet.
+ * Only rows the Invasion harvester built itself are used (usa = "<DOJ|DHS|ICE|CBP> release <date>:
+ * <headline>"), because their label is the release's own sentence, word for word. X posts, news and
+ * hand-summarized rows are never cross-posted. A person already on the ledger as a voter (any release,
+ * any date, same name or the name with a country glued on) is not added again. Stage comes from the
+ * Invasion label and is never upgraded ("Arrested" stays Arrested, "Charged" stays Charged).
+ */
+const INVASION_FEED = process.env.INVASION_FEED_URL || "https://krennic212.github.io/invasionupdate-data/harvest.json";
+const INV_USA = /^(DOJ|DHS|ICE|CBP) release [A-Z][a-z]{2} \d{1,2}, \d{4}: (.+)$/;
+const STATE_NAMES = { AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware", DC: "District of Columbia", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming", PR: "Puerto Rico" };
+
+/** "District of Minnesota" / "Northern District of Texas" in the release text -> that office's seat. */
+export function districtSeatFromText(text) {
+  const m = String(text || "").match(/\b(?:(Northern|Southern|Eastern|Western|Middle|Central)\s+)?District of ((?:New |North |South |West |Rhode |Puerto )?[A-Z][a-z]+)/);
+  if (!m) return null;
+  const code = Object.keys(STATE_NAMES).find((k) => STATE_NAMES[k] === m[2]);
+  if (!code) return null;
+  const key = `usao-${m[1] ? `${m[1][0].toLowerCase()}d` : ""}${code.toLowerCase()}`;
+  const hit = DISTRICT_SEAT[key] || Object.values(DISTRICT_SEAT).find((v) => v[0].endsWith(`, ${code}`));
+  return hit ? { city: hit[0], lat: hit[1], lon: hit[2] } : null;
+}
+
+/** Map pin for a cross-posted row: the Invasion row's own lat/lon, else a district named in its
+ *  sentence, else the first listed district seat of its state. */
+export function geoForInvasionRow(row) {
+  if (Number.isFinite(row?.lat) && Number.isFinite(row?.lon)) return { city: row.city, lat: row.lat, lon: row.lon };
+  const fromText = districtSeatFromText(row?.crime);
+  if (fromText) return fromText;
+  const city = String(row?.city || "");
+  const code = (city.match(/,\s*([A-Z]{2})\s*$/) || [])[1] || Object.keys(STATE_NAMES).find((k) => STATE_NAMES[k].toLowerCase() === city.trim().toLowerCase());
+  if (!code) return null;
+  const seat = Object.values(DISTRICT_SEAT).find((v) => v[0].endsWith(`, ${code}`));
+  return seat ? { city: /,\s*[A-Z]{2}$/.test(city) ? city : seat[0], lat: seat[1], lon: seat[2] } : null;
+}
+
+export function listedVoterAnyDate(existing, name) {
+  const tok = nameKey(name).split(" ").filter(Boolean);
+  return existing.some((e) => {
+    if (!e?.voting) return false;
+    const etok = nameKey(e.name).split(" ").filter(Boolean);
+    if (etok.length < 2) return false;
+    const [short, long] = etok.length <= tok.length ? [etok, tok] : [tok, etok];
+    return long.slice(-short.length).join(" ") === short.join(" ");
+  });
+}
+
+/** One Invasion Update row as a ledger ingest item, or null when it must not be cross-posted. */
+export function invasionVotingItem(row) {
+  if (row?.status !== "approved" || row?.voting !== true) return null;
+  const link = String(row.sourceUrl || "").trim();
+  if (!/^https:\/\/(?:www\.)?(?:justice|dhs|ice|cbp)\.gov\//i.test(link)) return null;
+  const m = String(row.usa || "").match(INV_USA);
+  if (!m) return null;
+  const crime = String(row.crime || "");
+  const colon = crime.indexOf(":");
+  const label = colon > 0 ? crime.slice(0, colon).trim() : "";
+  const sentence = colon > 0 ? crime.slice(colon + 1).trim() : "";
+  if (!sentence.includes(row.name)) return null;
+  const when = Date.parse(`${row.when} 12:00 UTC`);
+  const stage = /^(Charged|Arrested|Convicted|Removed)$/.test(label) ? label : "";
+  const geo = geoForInvasionRow(row);
+  return { title: m[2].trim(), teaser: sentence, link, when, names: [row.name], ...(stage ? { stage } : {}), ...(geo ? { geo } : {}) };
+}
+
+export function crossPostInvasionVoting(existing, have, added, rows) {
+  let n = 0;
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const item = invasionVotingItem(row);
+    if (!item) continue;
+    n += 1;
+    if (listedVoterAnyDate(existing, row.name)) continue;
+    ingest(existing, have, added, item, /\/\/(?:www\.)?(?:dhs|ice|cbp)\.gov\//i.test(item.link) ? "DHSgov" : "TheJusticeDept");
+  }
+  return n;
+}
+
+async function harvestInvasionVoting(existing, have, added) {
+  let rows;
+  try {
+    rows = JSON.parse(await fetchText(`${INVASION_FEED}?t=${Date.now()}`));
+  } catch (e) {
+    console.error("Invasion Update feed skip", String(e));
+    return 0;
+  }
+  return crossPostInvasionVoting(existing, have, added, rows);
 }
 
 async function harvestUsda(existing, have, added) {
@@ -1045,8 +1261,11 @@ async function main() {
     existing.map((r) => `${r.sourceUrl || ""}|${r.id || ""}`),
   );
   const added = [];
-  const doj = await harvestDoj(existing, have, added);
+  // Seeds first: a hand-listed release keeps exactly the names and stage Krennic chose, and the DOJ API
+  // pass skips that release (see seededLinks), so it cannot add a second spelling or an extra name.
   const seedN = harvestSeed(existing, have, added);
+  const doj = await harvestDoj(existing, have, added);
+  const inv = await harvestInvasionVoting(existing, have, added);
   const usda = await harvestUsda(existing, have, added);
   const hhs = await harvestHhsOig(existing, have, added);
   const ig = await harvestIgLists(existing, have, added);
@@ -1056,7 +1275,7 @@ async function main() {
     if (looksLikeHeadline(r.name)) return false;
     return isKeepRow(r.name, r.crime || r.name, r.text || "");
   });
-  const scanned = doj + seedN + usda + hhs + ig + stateAg + news;
+  const scanned = doj + seedN + inv + usda + hhs + ig + stateAg + news;
 
   writeFileSync(HARVEST, `${JSON.stringify(kept, null, 2)}\n`);
   writeFileSync(
@@ -1067,14 +1286,14 @@ async function main() {
         added,
         enriched: [],
         scanned,
-        note: "Hourly: justice.gov + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept.",
+        note: "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept.",
       },
       null,
       2,
     )}\n`,
   );
   console.log(
-    `scanned ${scanned} (doj ${doj}, usda ${usda}, hhs ${hhs}, ig ${ig}, stateAg ${stateAg}, news ${news}); added ${added.length}; harvest ${kept.length}`,
+    `scanned ${scanned} (doj ${doj}, seed ${seedN}, invasion-voting ${inv}, usda ${usda}, hhs ${hhs}, ig ${ig}, stateAg ${stateAg}, news ${news}); added ${added.length}; harvest ${kept.length}`,
   );
 }
 

@@ -1,5 +1,5 @@
 {
-  "_note": "Manual-add intake. Official release URLs (justice.gov) with the release's own wording copied verbatim (excerpt limited to the named defendants). Ingested by scripts/harvest-gov.mjs through the same parse/build path as the DOJ API. 'seat' sets the district map pin when the URL has none (OPA).",
+  "_note": "Manual-add intake. Official release URLs (justice.gov) with the release's own wording copied verbatim (excerpt limited to the named defendants). Ingested by scripts/harvest-gov.mjs through the same parse/build path as the DOJ API. 'seat' sets the district map pin when the URL has none (OPA). Optional 'names': the defendants to list, each copied exactly as the teaser spells it (used instead of the name parser; nobody else in the excerpt becomes a row). Optional 'stage' is the release's own stage (Charged, Pleaded guilty, Sentenced, Civil settlement ...); it is copied, never upgraded.",
   "releases": [
     {
       "link": "https://www.justice.gov/usao-ednc/pr/ednc-unveils-ten-federal-indictments-alleging-noncitizens-voted-2024-election",
@@ -32,6 +32,188 @@
       "date": "2026-10-19",
       "stage": "Charged",
       "teaser": "Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. elections. The criminal charges include making false statements in a naturalization application and some of the defendants also are charged with fraudulent voter registration. Both charges are felonies that carry a maximum penalty of five years in federal prison. Broken down by jurisdiction, the following defendants are charged in today’s takedown: Central District of California All the following defendants below in this jurisdiction face felony charges, including false statements in a naturalization application: Omar Alexander Muñoz, 72, a Belizean national living in Commerce, California, fraudulently registered to vote in September 2019, claiming his was a U.S. citizen, then voted in U.S. elections in 2020, twice in 2022, and in 2024. He also lied on his application to become a naturalized U.S. citizen when he falsely stated under oath to have never claimed to be a U.S. citizen. Amandeep Kaur, 30, an Indian national living in Rancho Palos Verdes, California, and who is seeking to become a U.S. citizen, fraudulently registered to vote in December 2022 and voted in the November 2024 U.S. election. Ana Domínguez, 60, a Salvadoran national living in Long Beach, California, fraudulently registered to vote in July 2006 and lied in her naturalization paperwork in March 2026. Axel Giovani Prera García, 46, a Guatemalan national and Pico Rivera, California, resident, fraudulently registered to vote in 2002 and 2005, and lied in his naturalization paperwork in June 2025. Flavio Alejandro Zúñiga, 43, a Mexico national and La Puente, California, resident, fraudulently registered to vote in 2003 and lied in his naturalization paperwork in February 2026. Butleng Taing, 43, a Cambodian national living in Long Beach, fraudulently registered to vote in July 2021, voted in the 2022 and 2024 U.S. elections, and lied on his naturalization paperwork in August 2025. Carlos Antonio Galeas, 54, a Honduran national and West Covina, California, resident, fraudulently registered to vote in 2012 and 2016, then lied in his naturalization paperwork in September 2018. Ernest Gutiérrez Ruvalcaba, 57, a Mexican national living in Wilmington, California, fraudulently registered to vote in February 2024 and voted one month later. Jesús Narez-Madrigal, 52, a Mexican national living in Carson, California, fraudulently registered to vote in 2014, voted in the 2024 U.S. general election, and lied in his naturalization paperwork in June 2024. José Antonio Bañuelos-Díaz, 42, a Mexican national and West Adams, California, resident, fraudulently registered to vote in 2007 and lied on his naturalization paperwork in March 2025. Muhammad Khan, 50, a Pakistani national and Anaheim, California, resident, submitted a provisional ballot in 2020 and lied on his naturalization paperwork five years later. Rouzbeh Seyamaknejad, 63, a Canadian national and Rancho Palos Verdes, California, resident, fraudulently registered to vote in December 2018, lied in his naturalization application in January 2024, and voted in the November 2024 U.S. election. Sulema de León, 35, a Mexican national and Long Beach, California, resident, fraudulently registered to vote in 2013, lied on her naturalization application in 2019, and voted in the November 2020 U.S. general election. Eastern District of California The following defendants are charged with voting by an alien in a federal election, a misdemeanor that carries a statutory maximum sentence of one year in federal prison: Maricela Nazarín González, 43, a Mexican national living in Clovis, California, registered to vote in 2020, indicating that she was a U.S. citizen, and voted in elections in 2022, twice in 2024, and 2025. Rony de Jesús Sicaja, 38, a Guatemalan national living in Fresno, California, fraudulently registered to vote in 2017, and voted in the June 2022 primary election and the November 2024 general election in the United States. Camino Giles Jiménez, 51, a Mexican national living in Kerman, California, knowingly voted in three U.S. elections despite knowing he is a noncitizen, the most recent election being the June 2026 primary. Juan Antonio Rivas García, 46, a Mexican national and Sacramento, California, resident, fraudulently registered to vote in 2018 and 2020, both times falsely asserting under oath that he was a U.S. citizen. Rivas voted in the 2022 and 2024 U.S. elections. Giezell Viduya Adawag, 41, a Philippines national and Vacaville, California, resident, fraudulently registered to vote the day of the November 2024 general election, falsely certified that she was a U.S. citizen, and voted in the election that day. Kamlesh Navnitlal Shah, 67, an Indian national living in Sacramento, California, fraudulently registered to vote on the day of the November 2024 general election and voted that day. He is charged via information. Northern District of California The following defendants are charged with attempted procurement of naturalization contrary to law, false statement under oath in any matter relating to naturalization or citizenship, and voting by an alien: Verónica Bullene, 43, a.k.a. “Verónica Hernández Martínez,” a Mexican national living in Petaluma, California, made false statements on her naturalization application that she had never claimed to be a U.S. citizen when, in fact, she did so under penalty of perjury to register to vote in 2022 and 2023 then voted in 2024. David Shapiro, 41, a Georgian national living in San Jose, California, fraudulently registered to vote in 2024 and later voted in a U.S. election, and made false statements on his naturalization application that he had never claimed to be a U.S. citizen. Moe Thida Lwin, 57, a Myanmar national and Daly City, California, resident, fraudulently registered to vote in 2024 and then proceeded to illegally vote in a U.S. citizen. She made false statements on her naturalization paperwork as well. Manakotau Mataele Finau, 61, a Tongan national and Hayward, California, resident, fraudulently registered to vote in the 2024 election then vote, then lied about it in naturalization paperwork. Maribel del Carmen Garcés Barriga, 62, an Ecuadoran national and San Francisco, California, resident, made false statements in her naturalization paperwork that she never claimed U.S. citizenship and had never voted in a U.S. election or had registered to vote. In fact, Garcés fraudulently registered to vote in 2024 and proceeded to vote in a U.S. election. Southern District of California The following defendants are charged with false claim to citizenship to vote, unlawful attempted procurement of naturalization, and false statement under oath in matter relating to naturalization or citizenship: José Probitsado Amaro, 51, a citizen of the Philippines living in National City, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements during his naturalization interview, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Jennifer Jung, 31, a Canadian national living in San Diego, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. She then cast a ballot in the November 2024 general election and made false statements during her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. Erick Ronaldo Soto Mendizábal, 64, a citizen of Guatemala and former Oceanside, California, resident now living in Moreno Valley, California, fraudulently registered to vote by falsely claiming to be a U.S. citizen. He then cast a ballot in the November 2024 general election and made false statements in his naturalization application, denying that he had ever claimed U.S. citizenship and misrepresenting his voting history. Pamele Arbués Line, 56, a citizen of the Philippines living in Escondido, California, registered to vote, cast a ballot in the November 2024 general election, and made false statements in her naturalization interview, denying that she had ever claimed U.S. citizenship and misrepresenting her voting history. A complaint, indictment, and information merely contain accusations. All defendants are presumed innocent until proven guilty beyond a reasonable doubt in a court of law."
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/illegal-alien-admits-illegally-voting-federal-election-new-jersey",
+      "title": "Illegal Alien Admits to Illegally Voting in Federal Election in New Jersey",
+      "date": "2026-10-19",
+      "teaser": "Gaye Tyndale-Simpson, an illegal alien from Jamaica, pleaded guilty to one count of voting by an alien in a federal election before U.S. Magistrate Rukhsanah L. Singh in federal court in Trenton, New Jersey. According to documents filed in the case and statements made in court, Tyndale-Simpson, 55, is a citizen of Jamaica and has never been a citizen of the United States. In November 2024, Tyndale-Simpson voted in the general election that was held in part for the purpose of electing a candidate for the office of the President.",
+      "seat": "usao-nj",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Gaye Tyndale-Simpson"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndil/pr/former-employee-state-illinois-subcontractor-indicted-allegedly-fraudulently-obtaining",
+      "title": "Former Employee of State of Illinois Subcontractor Indicted for Allegedly Fraudulently Obtaining More Than $4.6 Million in Covid-Relief Benefits",
+      "date": "2026-10-19",
+      "teaser": "ANDREA WELLINGTON engaged in fraud related to the Pandemic Unemployment Assistance (“PUA”) program, one of the sources of relief under the Coronavirus Aid, Relief, and Economic Security (“CARES”) Act, according to an indictment returned in U.S. District Court in Chicago. Wellington worked as a customer service representative for a company that subcontracted with the Illinois Department of Employment Security (“IDES”). The position gave her access to the IDES PUA system, the indictment states. IDES determined the amount of each payment to be issued to PUA claimants based, in part, on the amount of income that the claimant had earned prior to the filing of their claim for PUA benefits. The more wages reported, the greater the amount of the PUA payment. The charges allege that in the fall of 2021, after Wellington had been terminated from her position with the IDES subcontractor, she and co-defendant RANDALL EASLEY accessed the IDES PUA system and fraudulently increased the wage histories of hundreds of PUA applicants, causing IDES to disburse approximately $4,680,582 in PUA payments to which the recipients were not entitled. The indictment alleges that Wellington and Easley modified the wage histories in exchange for thousands of dollars from the applicants. Wellington, 35, of Chicago, is charged with 21 counts of wire fraud, while Easley, 38, of Chicago, is charged with 14 counts of wire fraud. Wellington and Easley were arraigned in federal court on Oct. 8, 2026, and pleaded not guilty to the charges.",
+      "stage": "Charged",
+      "names": [
+        "ANDREA WELLINGTON",
+        "RANDALL EASLEY"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ks/pr/two-florida-defendants-sentenced-prison-nearly-900000-health-care-scam",
+      "title": "Two Florida defendants sentenced to prison for nearly $900,000 health care scam",
+      "date": "2026-10-16",
+      "teaser": "According to court documents, the following defendants pleaded guilty to one count of conspiracy to commit health care fraud, mail fraud, and wire fraud: Steven Anthony Churchill, 39, of Boca Raton, Florida, was sentenced to 24 months in prison; Samson Kollelil Solomon, 28, of Pompano Beach, Florida, was sentenced to 24 months in prison; and Fawn Lickteig, 46, of Lawrence, Kansas, will be sentenced on November 10, 2026. In March 2020, Steven Churchill bought Free State Pharmacy (FSP) in Lawrence, Kansas, but under the name of a now deceased, accused coconspirator. FSP operated as a mail-order pharmacy despite representing itself to Medicare as a retail pharmacy.",
+      "stage": "Sentenced",
+      "names": [
+        "Steven Anthony Churchill",
+        "Samson Kollelil Solomon"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-sdin/pr/muncie-man-accused-falsely-requesting-over-1-million-covid-19-relief-tax-credits",
+      "title": "Muncie Man Accused of Falsely Requesting over $1 Million in COVID-19 Relief Tax Credits",
+      "date": "2026-10-16",
+      "teaser": "Gregory Vernon Dupree, 38, of Muncie, has been charged in a federal indictment with eight counts of filing false COVID-19 claims,including claims for the Employee Retention Credit (ERC) and COVID‑related Sick and Family Leave credits. These charges were brought as part of the Trump Administration’s Task Force to Eliminate Fraud. According to the indictment, between January 2021 and January 2022, Dupree allegedly filed eight Forms 941 (Employer’s Quarterly Federal Tax Return) with the Internal Revenue Service. Through these filings, Dupree made claims against the United States requesting refunds totaling over $1 million, knowing those claims to be false.",
+      "stage": "Charged",
+      "names": [
+        "Gregory Vernon Dupree"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-hi/pr/waipahu-women-sentenced-two-years-prison-pandemic-and-tax-fraud-while-earning-millions",
+      "title": "Waipahu Women Sentenced to Two Years in Prison for Pandemic and Tax Fraud While Earning Millions from an Unlicensed Construction Business",
+      "date": "2026-10-16",
+      "teaser": "Heidi Cafirma, 46, of Waipahu, Hawaii, was sentenced on September 30, 2026, by United States District Judge Shanlyn A.S. Park to 24 months in prison followed by 3 years of supervised release for filing false tax returns and wire fraud. Cafirma was also ordered to forfeit $70,500 and pay up to over $1 million in restitution, which total amount will be determined by the court at a later date. Cafirma pled guilty pursuant to a plea agreement in December 2025. In 2020, the Coronavirus Aid, Relief, and Economic Security (CARES) Act created the Pandemic Unemployment Assistance (PUA) unemployment insurance program to provide emergency unemployment payments to certain workers whose livelihoods were impacted by the COVID-19 pandemic but who were ineligible for traditional state unemployment insurance benefits, such as business owners, self-employed workers, independent contractors, and those with a limited work history who were out of business or had significantly reduced their services as a direct result of the pandemic. To obtain either traditional unemployment insurance (UI) or PUA UI benefit payments, claimants could submit a claim online. If approved, the U.S. Treasury typically deposited payments every week into a claimant’s bank account. To continue to receive benefit payments, claimants were required to certify on a weekly basis under penalty of law that they remained unemployed or partially employed, and eligible to receive benefit payments. According to court documents, Cafirma admitted that between June 2020 and September 2021, she submitted 22 false claims online for UI benefit payments for herself by repeatedly falsely certifying under penalty of law that she was unemployed and not receiving income, despite knowing that her certifications were false because she received over $1 million in income during that period from her and her husband’s unlicensed construction business. Cafirma fraudulently obtained at least $70,500 in unemployment insurance and PUA UI benefits to which she was not entitled.",
+      "stage": "Sentenced",
+      "names": [
+        "Heidi Cafirma"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ct/pr/new-haven-man-pleads-guilty-pandemic-relief-program-fraud-offense",
+      "title": "New Haven Man Pleads Guilty to Pandemic Relief Program Fraud Offense",
+      "date": "2026-10-16",
+      "teaser": "DAVANTE MALLARD, 33, of New Haven, waived his right to be indicted and pleaded guilty today before U.S. District Judge Sarah F. Russell in New Haven to an offense stemming from a pandemic relief program fraud scheme. According to court documents and statements made in court, in March 2020, Congress passed legislation that sought to mitigate the economic harm caused by the COVID-19 pandemic. Legislation included the Coronavirus Aid, Relief, and Economic Security Act (the CARES Act), which created employee retention credits (ERCs) that were intended to repay employers for certain costs expended to retain employees during the pandemic and permitted businesses to recoup previously paid wages and certain health insurance costs, and the Families First Coronavirus Response Act, which created the sick and family leave credit (SFLC) that reimbursed small and mid-sized employers for the cost of providing paid sick and family leave wages to employees for leave related to COVID-19 during the pandemic. Mallard owned Mallard Dynasty Realty Group (MDR Group), which provided real estate and property management services. The business earned little to no income, had no employees, had not paid wages, and had not filed W-2 forms with the Internal Revenue Service. In early 2022, Mallard was contacted by individuals who he knew who instructed him to open an online account with a business that provided online tax preparation services. Mallard than provided the individuals with the account information and password. Between April 2022 and February 2023, the individuals accessed the account and prepared and filed with the IRS fraudulent Employer’s Quarterly Federal Tax Returns (Forms 941) for MDR Group. The Forms 941 misrepresented the number of employees and total wages paid, and were used to apply for large ERC and SFLC refunds. When contacted by the IRS to verify information about MDR Group, Mallard provided false information, including that his business had five employees. Between August 2022 and March 2023, MDR Group received from the IRS six refund checks totaling $256,906. Mallard kicked a portion of the refund monies back to the individuals who orchestrated the scheme. Mallard pleaded guilty to making false claims regarding IRS refunds, an offense that carries a maximum term of imprisonment of five years.",
+      "stage": "Pleaded guilty",
+      "names": [
+        "DAVANTE MALLARD"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-edla/pr/slidell-man-sentenced-cares-act-fraud",
+      "title": "Slidell Man Sentenced for Cares Act Fraud",
+      "date": "2026-10-19",
+      "teaser": "MARCEL GROSS (“GROSS”) , age 56, of Slidell, was sentenced on October 13, 2026 by U.S. District Judge Darrel James Papillion, to four years’ probation and the payment of $350,272 in restitution, for conspiracy to commit wire fraud, announced U.S. Attorney David I. Courcelle. GROSS fraudulently obtained a Paycheck Protection Program loan, which was a form of assistance authorized by the Coronavirus Aid, Relief, and Economic Security Act in response to the COVID-19 pandemic.",
+      "stage": "Sentenced",
+      "names": [
+        "MARCEL GROSS"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndfl/pr/national-fraud-enforcement-division-obtains-guilty-plea-pensacola-postal-worker-ppp",
+      "title": "National Fraud Enforcement Division Obtains Guilty Plea of Pensacola Postal Worker for PPP Loan Fraud",
+      "date": "2026-10-19",
+      "teaser": "Dominique J. Stanberry, 33, of Pensacola, Florida, pleaded guilty in federal court to two counts of wire fraud involving Small Business Administration (SBA) Paycheck Protection Program (PPP) loan funds. This prosecution was part of the Task Force to Eliminate Fraud launched by President Donald J. Trump, a whole-of-government effort to eliminate fraud, waste, and abuse within Federal benefit programs. The plea was announced by John P. Heekin, United States Attorney for the Northern District of Florida. U.S. Attorney Heekin said: “We saw unprecedented levels of fraud during the COVID-19 pandemic by scammers, like this defendant, who sought to enrich themselves by ripping off the American taxpayer, but my office will tirelessly pursue those fraudsters to make them pay for their crimes. Anyone in the Northern District of Florida who abuses or defrauds a Federal benefit program should be on notice: my office is coming for you.” Court documents reflect that in 2021, the defendant, while working full time as a United States Postal Service employee, caused to be submitted a fraudulent online application for a PPP loan that falsely claimed she was self-employed with a business that lost income due to the COVID-19 pandemic. As a result of her fraud, the defendant received $20,833 in PPP loan funds to which she was not entitled.",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Dominique J. Stanberry"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-me/pr/sanford-woman-sentenced-theft-government-money",
+      "title": "Sanford Woman Sentenced for Theft of Government Money",
+      "date": "2026-10-19",
+      "teaser": "U.S. District Judge John A. Woodcock, Jr., sentenced Cori Godin , 47, to 18 months in prison, to be followed by three years of supervised release. Godin was also ordered to pay $37,105 in restitution. Godin pleaded guilty on November 18, 2025. According to court records, Godin falsely claimed to be unemployed in order to receive unemployment insurance benefits, including federally funded benefits intended to address the COVID-19 pandemic. Unemployment insurance is a joint state and federal program that provides monetary benefits to eligible beneficiaries. Payments are intended to provide temporary financial assistance to lawful workers who are unemployed through no fault of their own. Beginning in about March 2020, in response to the COVID-19 pandemic, several federal programs expanded unemployment insurance eligibility and benefits. For a period of approximately 13 months in 2020 and 2021, Godin falsely claimed to be unemployed and received approximately $37,105 in benefits.",
+      "stage": "Sentenced",
+      "names": [
+        "Cori Godin"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndtx/pr/texas-residents-charged-promoting-illegal-tax-shelter",
+      "title": "Texas residents charged with promoting Illegal tax shelter",
+      "date": "2026-10-16",
+      "teaser": "a federal grand jury in Dallas, Texas returned an indictment on Sept. 22, 2026, charging four Texas residents with conspiracy to defraud the United States and other crimes for promoting an illegal tax shelter. According to the indictment, Texas residents Duncan John MacDonald, Sarah Duren, Richard Ronald Cayce and Thomas Weickgenant promoted and sold a fraudulent trust scheme that was used to shelter more than $1.5 billion of income, causing an estimated tax loss to the IRS of more than $200 million.",
+      "stage": "Charged",
+      "names": [
+        "Duncan John MacDonald",
+        "Sarah Duren",
+        "Richard Ronald Cayce",
+        "Thomas Weickgenant"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/somerset-lifesciences-inc-agrees-pay-4m-resolve-allegations-causing-medicare-pay-claims-its",
+      "title": "Somerset Lifesciences Inc. Agrees to Pay $4M to Resolve Allegations of Causing Medicare to Pay Claims for its Mislabeled Generic Drug",
+      "date": "2026-10-16",
+      "teaser": "Somerset Lifesciences Inc. (Somerset) has agreed to pay $4 million to resolve common law claims for causing Medicare Part D (Medicare) to pay for its prescription-only (Rx-only) generic drug Olopatadine when it was no longer eligible for Medicare coverage. Medicare does not cover drugs that can be purchased by retail customers over-the-counter (OTC) without a prescription. In 2020, the brand name version of Olopatadine switched from Rx-only to OTC, and Somerset was required to change Olopatadine’s label from Rx-only to OTC as well. Instead, Somerset continued to label and sell Olopatadine as Rx-only and caused Medicare to wrongfully pay claims for an OTC drug.",
+      "seat": "usao-dc",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "Somerset Lifesciences Inc."
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-wdva/pr/negril-agrees-settle-allegations-improper-medicaid-billing",
+      "title": "Negril Agrees to Settle Allegations of Improper Medicaid Billing",
+      "date": "2026-10-19",
+      "teaser": "To resolve allegations that Negril Incorporated and its owners violated the False Claims Act and the Virginia Fraud Against Taxpayers Act by causing false claims to be submitted to the Virginia Medicaid Program, the company has agreed to a $1,817,910.60 civil settlement. The Government alleged that, from January 2021 through May 2022, Negril billed Virginia Medicaid for certain mental health skill‑building services under its National Provider Identification (NPI) number. However, the company that actually provided those services to Virginia Medicaid beneficiaries did not have its own NPI, was not credentialed through the Virginia Department of Behavioral Health and Developmental Services and was not enrolled as a Medicaid provider. Under the parties’ billing arrangement, Negril submitted the claims to Virginia Medicaid, remitted 75 percent of the Medicaid reimbursement to the other company, and retained the remaining 25 percent.",
+      "stage": "Civil settlement (no admission of wrongdoing, no determination of liability)",
+      "names": [
+        "Negril Incorporated"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-de/pr/dover-contractor-and-owners-pay-295204-settle-postal-service-overbilling-claims",
+      "title": "Dover Contractor and Owners Pay $295,204 to Settle Postal Service Overbilling Claims",
+      "date": "2026-10-19",
+      "teaser": "Garrett Mechanical Inc., a Dover repair and maintenance contractor; Hey Brother, LLC, a Florida limited liability company; Joseph Bruni; and Daniel Tulchin have agreed to pay $295,204 to resolve allegations that they violated the False Claims Act by overbilling the U.S. Postal Service (USPS) for work performed at Postal facilities. Garrett Mechanical Inc., owned and operated by Bruni, began providing repair and maintenance services at USPS facilities in February 2021. In May 2022, Hey Brother, owned by Tulchin, purchased substantially all of Garrett Mechanical Inc.’s assets. Following the sale, Bruni continued to work for Hey Brother, which did business as Garrett Mechanical, and reported to Tulchin. The companies performed work for USPS until September 2023 and billed USPS approximately $263,576 between 2021 and 2023. As part of the settlement, the defendants admitted that from February 2021 through September 2023, the companies submitted claims to USPS that included inflated labor hours, inflated material costs, false completion certificates, and forged signatures of USPS employees. As a result, USPS paid the companies more than it owed under the service agreement.",
+      "stage": "Civil settlement",
+      "names": [
+        "Garrett Mechanical Inc.",
+        "Hey Brother, LLC",
+        "Joseph Bruni",
+        "Daniel Tulchin"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-sdwv/pr/wyoming-county-business-owner-pleads-guilty-immigration-fraud",
+      "title": "Wyoming County Business Owner Pleads Guilty to Immigration Fraud",
+      "date": "2026-10-19",
+      "teaser": "Peggy Jill Hendrick, 58, of Pineville, pleaded guilty today to fraud and misuse of visas, permits, and other documents. Hendrick admitted that she falsified employee eligibility verification forms for seven illegal aliens who worked at her restaurant. According to court documents and statements made in court, on February 18, 2026, a law enforcement officer inspected the Pineville restaurant owned by Hendrick to check if every employee had a Form I-9, Employment Eligibility Verification. As part of her guilty plea, Hendrick admitted that she falsely told the officer that she possessed a completed I-9 form for each employee. The officer told Hendrick that she had three business days to produce the I-9 forms for review. Hendrick admitted that following the inspection, she prepared I-9 forms for seven employees she believed were highly likely illegal aliens and not authorized to work in the United States.",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Peggy Jill Hendrick"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndoh/pr/massachusetts-man-charged-his-role-marriage-and-immigration-document-fraud",
+      "title": "Massachusetts Man Charged for His Role in Marriage and Immigration Document Fraud",
+      "date": "2026-10-16",
+      "teaser": "A federal grand jury returned an indictment charging Jingming Chen, 31, of Quincy, Massachusetts, with Conspiracy to Commit Marriage Fraud and Immigration Document Fraud. According to allegations in the indictment, Chen, a U.S. citizen, was paid by a Chinese national co-conspirator residing in Aurora, Ohio, to enter into a sham marriage and commit immigration document fraud by fabricating evidence to support the false claim that their marriage was legitimate. They submitted false statements to the U.S. Citizenship and Immigration Service (USCIS) to obtain lawful permanent resident status—commonly known as a Green Card—and other immigration benefits for the co-conspirator.",
+      "stage": "Charged",
+      "names": [
+        "Jingming Chen"
+      ]
+    },
+    {
+      "link": "https://www.dhs.gov/news/2026/10/16/ice-hsi-arrests-non-citizen-illegally-voting-2024-election",
+      "title": "ICE HSI Arrests Non-Citizen for Illegally Voting in 2024 Election",
+      "date": "2026-10-16",
+      "teaser": "Homeland Security Investigations (HSI) arrested Mukeshkumar Somabhai Chaudhari, a non-citizen, for knowingly making a false claim of United States citizenship to vote in the 2024 general election. On September 10, a federal grand jury in the District of Minnesota returned the two-count indictment charging Chaudhari with allegedly making the false citizenship claim. According to the indictment, on or about November 5, 2024, Chaudhari signed the voter signature certificate required by Minnesota law to vote in the general election. The certificate required him to swear or affirm that he was a citizen of the United States. The indictment alleges Chaudhari was not a U.S. citizen and knowingly made the false citizenship statement in order to vote.",
+      "seat": "usao-mn",
+      "stage": "Charged",
+      "names": [
+        "Mukeshkumar Somabhai Chaudhari"
+      ]
+    },
+    {
+      "link": "https://www.oig.dol.gov/public/Press%20Releases/OIG-Press-Release-101626.htm",
+      "title": "DOL OIG Great Lakes Region Announces Charges and Arrests in Multiple Unemployment Insurance Fraud Schemes Tied to Gang Activity",
+      "date": "2026-10-16",
+      "teaser": "DETROIT — On October 6, 2026, Derrick Thompson, a multi-convicted felon with previous charges of fraud, assault and felony firearms violations, was arrested by DOL-OIG and ATF agents for his role in an unemployment insurance (UI) fraud scheme. Thompson was previously charged with one count of bank fraud and one count of aggravated identity theft. He is alleged to have filed dozens of UI claims in his own name and in the names of others not associated with him, defrauding various state workforce agencies (SWA) of approximately $400,000 in UI benefits.",
+      "seat": "usao-edmi",
+      "stage": "Charged",
+      "names": [
+        "Derrick Thompson"
+      ]
     }
   ]
 }

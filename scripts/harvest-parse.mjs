@@ -6,8 +6,10 @@ const OP_STOP =
 const HEADLINE_VERB =
   /pleads guilty|pleaded guilty|sentenced|indicted|imprisoned|charged with|sues |agrees to pay|shuts down|announces|investigation/i;
 
+// Company: up to six capitalized words right before the suffix ("CVS Pharmacy Inc", "La Mota, LLC").
+// A lowercase word ends it, so "Attorney Ken Sorenson announced that CVS Pharmacy Inc" is "CVS Pharmacy Inc".
 const COMPANY =
-  /\b([A-Z][A-Za-z0-9&.'' -]{1,50}(?:,?\s*(?:Inc|LLC|LLP|Corp|Corporation|Ltd|Co)\.?))\b/;
+  /(?<![A-Za-z0-9&.'’-])((?:[A-Z0-9][A-Za-z0-9&.'’-]*\s+){0,5}[A-Z0-9][A-Za-z0-9&'’-]*(?:,?\s*(?:Incorporated|Inc|LLC|LLP|Corp|Corporation|Ltd|Co)\.?))(?![A-Za-z])/;
 
 // Optional Jr./Sr./II–IV after the last name token (period optional).
 // Name tokens are Unicode-aware (Muñoz, Jiménez, Bañuelos-Díaz, Garcés) and may be joined by
@@ -18,7 +20,7 @@ const W = String.raw`\p{Lu}[\p{Ll}\p{Lu}'’]*\p{L}(?:[-‐‑]\p{Lu}[\p{Ll}\p{L
 const WT = String.raw`\p{Lu}[\p{Ll}'’]*\p{Ll}(?:-\p{Lu}[\p{Ll}'’]*\p{Ll})?`;
 const PARTICLE = String.raw`(?:(?:de|del|de la|de las|de los|da|das|do|dos|di|du|van|van der|von|y)\s+)`;
 const NAME_CORE =
-  String.raw`(?<![\p{L}\p{N}'’])` + W + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + W + String.raw`){1,4}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
+  String.raw`(?<![\p{L}\p{N}'’])` + W + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + W + String.raw`){1,4}(?:,?\s+(?:Jr\.?|Sr\.?|II|III|IV)(?![\p{L}]))?`;
 const NAME_CORE_TITLE =
   String.raw`(?<![\p{L}\p{N}'’])` + WT + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + WT + String.raw`){1,3}(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?`;
 
@@ -38,7 +40,7 @@ const PERSON_YEAR_OLD = new RegExp(
 );
 
 const PERSON_WAS = new RegExp(
-  String.raw`(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+[^.!?]{0,80}?\s+was\s+(?:arrested|charged|indicted|sentenced)`,
+  String.raw`(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+[^.!?]{0,200}?\s+(?:was|were)\s+(?:arrested|charged|indicted|sentenced)`,
   "gu",
 );
 
@@ -96,6 +98,43 @@ const PERSON_PAIR = new RegExp(
   "gu",
 );
 
+// Multi-defendant releases (DOL OIG regional roundups, USAO indictments): every named defendant.
+//  "On October 7, 2026, Charles Marshall was arrested" / "Hendrick pleaded guilty" (2+ tokens only).
+const PERSON_PLEAD_G = new RegExp(
+  // Not right after "<Place>, " ("of Hoboken, New Jersey pleaded guilty" is a place, not a person).
+  String.raw`(?<!\p{L},\s)(` + NAME_CORE + String.raw`)\s+(?:pleaded guilty|pleads guilty|was sentenced|were sentenced|was indicted|was arrested|has been charged|was charged)\b`,
+  "gu",
+);
+//  "Miguel Dario Bautista Jimenez, a/k/a “Carlos Chapman Hernandez,”"
+const PERSON_AKA = new RegExp(String.raw`(` + NAME_CORE + String.raw`),?\s+(?:a/k/a|a\.k\.a\.|aka)\s`, "gu");
+//  "her alleged co-conspirator, Randall Easley," / "co-defendant RANDALL EASLEY"
+const PERSON_CODEF = new RegExp(
+  String.raw`\b[Cc]o-?(?:defendant|conspirator)s?,?\s+(` + NAME_CORE + String.raw`)`,
+  "gu",
+);
+//  "Texas residents Duncan John MacDonald, Sarah Duren, Richard Ronald Cayce and Thomas Weickgenant promoted"
+const PERSON_LIST = new RegExp(
+  String.raw`\b(?:residents|defendants)\s+((?:` + NAME_CORE + String.raw`,\s+)+` + NAME_CORE + String.raw`(?:,?\s+and\s+` + NAME_CORE + String.raw`)?)`,
+  "gu",
+);
+
+//  USAO style: the first mention is ALL CAPS ("ANDREA WELLINGTON engaged in fraud ..."). Kept only when
+//  the same surname is later the subject of an age / charge line ("Wellington, 35, of Chicago, is charged").
+const CAPS_NAME = /(?<![\p{L}\p{N}'’])(\p{Lu}{2,}(?:\s+\p{Lu}\.)?(?:\s+\p{Lu}[\p{Lu}'’-]*\p{Lu}){1,3})(?![\p{L}\p{N}])/gu;
+function capsDefendants(text) {
+  const out = [];
+  for (const m of text.matchAll(CAPS_NAME)) {
+    const toks = m[1].split(/\s+/);
+    if (toks.some((t) => ALLCAPS_STOP.has(t) || /^(?:U|S|USA|IRS|FBI|DOJ|HSI|ICE|DHS|OIG|PPP|EIDL|SBA|PUA|IDES|CARES|COVID|LLC|INC|II|III|IV|JR|SR)$/.test(t))) continue;
+    const sur = toks[toks.length - 1];
+    const surT = sur.charAt(0) + sur.slice(1).toLowerCase();
+    const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(String.raw`(?<![\p{L}])(?:` + esc(surT) + "|" + esc(sur) + String.raw`)(?:\s*\([“"][^”"]{1,40}[”"]\)\s*)?(?:\s*,\s*(?:age\s*)?\d{1,3},|\s+(?:is|was|were|has been)\s+(?:charged|indicted|sentenced|arrested)|\s+pleaded guilty)`, "u");
+    if (re.test(text)) out.push(m[1]);
+  }
+  return out;
+}
+
 function normHyphen(s) {
   return String(s).replace(/[\u2010-\u2015\u2212]/g, "-");
 }
@@ -112,6 +151,9 @@ export function personOrEntity(title, teaser = "") {
   return null;
 }
 
+// A run that starts with a sentence-opening word is not a clean name ("Today John Doe pleaded guilty").
+const LEAD_WORD = /^(?:Today|Yesterday|Also|Additionally|Previously|Later|Then|Here|There|Thereafter|Ultimately|Finally|Meanwhile|In|On|At|By|When|After|Before|Since|Defendant|Co-?defendant|Co-?conspirator)\s/;
+
 const NAME_STOP =
   /^(Fraud|Defendants?|Owner|Clinic|Man|Woman|Two|Former|United|States|Department|Justice|Medicare|Medicaid|COVID(?:-19)?|Northern|Southern|Eastern|Western|District|Married|Couple|Wife|Husband|American|Elections?|Labrador|Provider|Sentenced|Convicted)$/i;
 
@@ -119,10 +161,13 @@ const NAME_STOP =
 // a leading U.S. state token is never part of the defendant's name.
 const STATE_LEAD =
   /^(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|Ohio|Oklahoma|Oregon|Pennsylvania|Tennessee|Texas|Utah|Vermont|Virginia|Wisconsin|Wyoming|Columbia|Rico)$/;
+const US_STATE_NAME =
+  /^(?:New (?:Jersey|York|Mexico|Hampshire)|North (?:Carolina|Dakota)|South (?:Carolina|Dakota)|West Virginia|Rhode Island|Puerto Rico|District of Columbia|United States)$/;
 const PARTICLE_WORD = /^(?:de|del|la|las|los|da|das|do|dos|di|du|van|der|von|y)$/;
 
 function cleanPerson(raw) {
   const parts = String(raw)
+    .replace(/,\s+(?=(?:Jr|Sr|II|III|IV)\b)/, " ")
     .split(/\s+/)
     .filter((w) => !NAME_STOP.test(w.replace(/[.,]$/, "")));
   while (parts.length > 2 && STATE_LEAD.test(parts[0])) parts.shift();
@@ -139,6 +184,7 @@ function pushName(out, seen, raw) {
   // "British National", "Canadian Citizen": a nationality phrase, not a person.
   // Also "Belizean National", "Mexico National", "Philippines National", "Citizen Of Guatemala".
   if (/(?:^|\s)(?:nationals?|citizens?|natives?|residents?)(?:\s+of\b.*)?$/iu.test(name) || /^(?:citizens?|nationals?)\s+of\b/iu.test(name)) return;
+  if (US_STATE_NAME.test(name)) return;
   const key = name.toLowerCase();
   if (seen.has(key)) return;
   seen.add(key);
@@ -353,6 +399,19 @@ export function allPeople(title, teaser = "") {
     pushName(out, seen, m[1]);
     if (m[2]) pushName(out, seen, m[2]);
   }
+  PERSON_PLEAD_G.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_PLEAD_G)) {
+    if (!HEADLINE_VERB.test(m[1]) && !LEAD_WORD.test(m[1])) pushName(out, seen, m[1]);
+  }
+  PERSON_AKA.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_AKA)) pushName(out, seen, m[1]);
+  PERSON_CODEF.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_CODEF)) pushName(out, seen, m[1]);
+  PERSON_LIST.lastIndex = 0;
+  for (const m of text.matchAll(PERSON_LIST)) {
+    for (const part of m[1].split(/,\s+(?:and\s+)?|\s+and\s+/)) pushName(out, seen, part);
+  }
+  for (const n of capsDefendants(text)) pushName(out, seen, n);
   const person = text.match(PERSON);
   if (person) pushName(out, seen, person[1]);
   if (!out.length) {
