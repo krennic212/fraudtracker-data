@@ -8362,5 +8362,29 @@
     "presence": "not_stated",
     "scheme": "South Africa",
     "schemeId": "harvest-https-www-justice-gov-usao-wdmo-pr-lawful-perman-e31c49ddd3"
+  },
+  {
+    "name": "Kara DiPietro",
+    "city": "Baltimore, MD",
+    "crime": "Baltimore County Woman Indicted in Federal $2.5 Million Paycheck Protection Program Funds Case",
+    "usa": "Baltimore County Woman Indicted in Federal $2.5 Million Paycheck Protection Program Funds Case",
+    "foreign": "Not stated in post",
+    "picked": "10/20/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-md-pr-baltimore-count-55fab621a0",
+    "when": "2026-10-20",
+    "text": "Baltimore County Woman Indicted in Federal $2.5 Million Paycheck Protection Program Funds Case. Baltimore, Maryland – A Maryland woman is facing indictment stemming from submitting fraudulent applications for millions of dollars in federal loans. Kara DiPietro, 49, of Towson, is charged with bank fraud in connection with fraudulent applications that she allegedly filed to obtain Paycheck Protection Program loans in the names of multiple businesses. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-md/pr/baltimore-county-woman-indicted-federal-25-million-paycheck-protection-program-funds",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 39.2904,
+    "lon": -76.6122,
+    "presence": "not_stated",
+    "scheme": "Kara DiPietro",
+    "schemeId": "harvest-https-www-justice-gov-usao-md-pr-baltimore-count-21d4faba0a"
   }
 ]
