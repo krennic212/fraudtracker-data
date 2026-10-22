@@ -1,21 +1,16 @@
 {
-  "checkedAt": 1792615292088,
+  "checkedAt": 1792627322232,
   "added": [
-    "Ian Jackson",
-    "Edward Scott Morrison",
-    "Ernest Eugene Brown",
-    "Vidal Blanco-Blas",
-    "Mercedes Reshard New",
-    "Mark Frisbie",
-    "Beth French",
-    "Jake Miley",
-    "Beth Miley",
-    "Jason Miley",
-    "Bradley Wayne Base",
-    "Press Release Ian Jackson",
-    "Los Angeles"
+    "Alex Stewart International, LLC",
+    "Jennifer Gonzalez",
+    "Erica Daniels",
+    "Amara Pugh",
+    "Jessica Tavares",
+    "Jaylin Hill",
+    "Murotech Ohio Corporation",
+    "James Wohlers"
   ],
   "enriched": [],
-  "scanned": 687,
+  "scanned": 708,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
