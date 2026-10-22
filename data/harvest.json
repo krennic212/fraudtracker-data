@@ -9202,5 +9202,29 @@
     "presence": "not_stated",
     "scheme": "Alfonso A. Zamarra",
     "schemeId": "harvest-https-www-justice-gov-usao-nj-pr-former-hudson-c-f4bd43471f"
+  },
+  {
+    "name": "TERRELL DYER",
+    "city": "New Orleans, LA",
+    "crime": "New Orleans Man Indicted for Violating the Federal Controlled Substances Act",
+    "usa": "New Orleans Man Indicted for Violating the Federal Controlled Substances Act",
+    "foreign": "Not stated in post",
+    "picked": "10/22/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-edla-pr-new-orleans-m-6b20883d01",
+    "when": "2026-10-22",
+    "text": "New Orleans Man Indicted for Violating the Federal Controlled Substances Act. NEW ORLEANS, LA – On October 15, 2026, TERRELL DYER (\"DYER\") , age 42, of New Orleans, was indicted for possession with intent to distribute controlled substances, in violation of Title 21, United States Code, Sections 841(a)(1), 841(b)(1)(B), and 841(b)(1)(C), announced United States Attorney David I. Courcelle. According to court records, on June 23, 2026, DYER possessed, with intent to distribute, fifty grams or more of a mixture and substance containing methamphetamine, a quantity of a mixture and substance containing fentanyl, and a quantity of a mixture and substance containing cocaine. If convicted of possession with intent to distribute controlled substances, DYER faces a minimum term of five (5) years up to a maximum term of forty (40) years imprisonment, a fine of up to $5,000,00 Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-edla/pr/new-orleans-man-indicted-violating-federal-controlled-substances-act-0",
+    "voting": false,
+    "origin": "HUD / housing",
+    "confirmedBy": "DOJ",
+    "lat": 29.9511,
+    "lon": -90.0715,
+    "presence": "not_stated",
+    "scheme": "TERRELL DYER",
+    "schemeId": "harvest-https-www-justice-gov-usao-edla-pr-new-orleans-m-055c87b532"
   }
 ]
