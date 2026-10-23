@@ -1,24 +1,11 @@
 {
-  "checkedAt": 1792779383668,
+  "checkedAt": 1792793922942,
   "added": [
-    "Artur Kopacz",
-    "Osmal Loy",
-    "Yehuda Peer",
-    "Alfredo Santiesteban",
-    "Joyce Donovan",
-    "Inna Henry",
-    "Nourten Kuruju",
-    "Nina Nyawara",
-    "Joyce Pitts",
-    "Jeremiah Yzaguirre",
-    "Maria Luisa Yzaguirre",
-    "Kevin Chongsup Kim",
-    "Jin Andrew Kim",
-    "Christopher Harwood",
-    "Carl Lawrence",
-    "AMANDA CLAYBORNE-WILLIAMS"
+    "Eoin Cranney",
+    "Ronald Sheldon Baird",
+    "Karlene Daniels Samuels"
   ],
   "enriched": [],
-  "scanned": 737,
+  "scanned": 746,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
