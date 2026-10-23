@@ -9880,5 +9880,29 @@
     "presence": "not_stated",
     "scheme": "Almotawakil Nassr",
     "schemeId": "harvest-https-www-justice-gov-usao-ndoh-pr-us-attorneys--9b17a2e14c"
+  },
+  {
+    "name": "Jasmine Murphy",
+    "city": "Boston, MA",
+    "crime": "Former Suffolk County Corrections Officer Sentenced for COVID Unemployment and Loan Fraud",
+    "usa": "Former Suffolk County Corrections Officer Sentenced for COVID Unemployment and Loan Fraud",
+    "foreign": "Not stated in post",
+    "picked": "10/22/2026",
+    "entered": "Amount not stated",
+    "office": "DOLOIG",
+    "id": "harvest-https-www-oig-dol-gov-public-press-20releases-oi-37ff3dd439",
+    "when": "2026-10-22",
+    "text": "Former Suffolk County Corrections Officer Sentenced for COVID Unemployment and Loan Fraud. As posted for this defendant: Jasmine Murphy, 39, of Cambridge, Mass. was sentenced by U.S. District Court Judge Richard G. Stearns to time served (one day in prison) and two years of supervised release. The defendant was also ordered to pay $19,868 in restitution to the Department of Unemployment Assistance and $17,708 restitution to the Small Business Administration. In April 2026 , Murphy pleaded guilty to seven counts of wire fraud and one count of false statements to a financial institution. Murphy was charged in December 2024 . Murphy had been a corrections officer with the Suffolk County Sherriff’s Department from January 2022 to December 2024. Murphy fraudulently applied for pandemic unemployment and small busine Former Suffolk County Corrections Officer Sentenced for COVID Unemployment and Loan Fraud October 22, 2026 FOR IMMEDIATE RELEASE U.S. Department of Labor, Office of Inspector General BOSTON – A former Suffolk County Corrections Officer was sentenced yesterday in federal court in Boston for COVID unemployment and loan fraud. Jasmine Murphy, 39, of Cambridge, Mass. was sentenced by U.S. District Court Judge Richard G. Stearns to time served (one day in prison) and two years of supervised release. The defendant was also ordered to pay $19,868 in restitution to the Department of Unemployment Assistance and $17,708 restitution to the Small Business Administration. In April 2026 , Murphy pleaded guilty to seven counts of wire fraud and one count of false statements to a financial institution. Mu Source: official DOL OIG press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOL OIG press",
+    "sourceUrl": "https://www.oig.dol.gov/public/Press%20Releases/OIG-OI-Press-Release-102326_2.htm",
+    "voting": false,
+    "origin": "Unemployment insurance",
+    "confirmedBy": "DOJ",
+    "lat": 42.3601,
+    "lon": -71.0589,
+    "presence": "not_stated",
+    "scheme": "Jasmine Murphy",
+    "schemeId": "harvest-https-www-oig-dol-gov-public-press-20releases-oi-6aefee8571"
   }
 ]
