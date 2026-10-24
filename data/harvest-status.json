@@ -1,17 +1,20 @@
 {
-  "checkedAt": 1792802000060,
+  "checkedAt": 1792805424441,
   "added": [
-    "Timothy Wadsworth",
-    "Zheng Zhao",
-    "PARTH NAYI",
-    "Olvin O’Neill Concepción-Tapia",
-    "Daniel J. López-Vega",
-    "Andyel González-Sáez",
-    "Luis N. Isaac-Sánchez",
-    "San Diego CPA Oladapo Olagbemi",
-    "Demitrious Gilmore"
+    "Javaria Jabeen",
+    "Allendor Kenyon Brown",
+    "Harold Tabaie",
+    "Hany Malek",
+    "Geoffrey Jimenez",
+    "Richard Keech",
+    "Armani Raffi",
+    "Hassan Badday",
+    "Robby Ayoub",
+    "Christina Mareik",
+    "Gail Starks",
+    "Gregory P. Heimann Jr."
   ],
   "enriched": [],
-  "scanned": 745,
+  "scanned": 751,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
