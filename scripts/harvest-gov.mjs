@@ -633,7 +633,11 @@ function buildRow(item, office, name, geo, names = [name]) {
     scheme: (op || name || item.title).slice(0, 80),
     // Full release URL hashed, no name: co-defendants share it, releases
     // that share a long slug prefix don't (see scripts/ledger-id.mjs).
-    schemeId: op ? `op-${slug(op)}` : schemeIdFor(official),
+    // A seed's schemeKey splits one multi-case release (a takedown roundup) into its separate schemes, so each
+    // scheme's dollar figure counts once and is never shared with an unrelated case in the same release.
+    schemeId: op ? `op-${slug(op)}` : item.schemeKey ? `${schemeIdFor(official)}-${slug(item.schemeKey)}` : schemeIdFor(official),
+    // A seed's usdAlleged is the scheme's own figure as the release states it (set once per scheme, never summed).
+    ...(Number.isFinite(item.usdAlleged) ? { usdAlleged: item.usdAlleged } : {}),
     ...(nationality ? { nationality } : {}),
     ...(item.stage ? { stage: item.stage } : {}),
   };
@@ -1005,6 +1009,8 @@ export function harvestSeed(existing, have, added, seedFile = SEED) {
       ...(r.nationality && typeof r.nationality === "object" ? { nationality: r.nationality } : {}),
       ...(r.places && typeof r.places === "object" ? { places: r.places } : {}),
       ...(r.nameIn && typeof r.nameIn === "object" ? { nameIn: r.nameIn } : {}),
+      ...(typeof r.schemeKey === "string" && r.schemeKey.trim() ? { schemeKey: r.schemeKey.trim() } : {}),
+      ...(Number.isFinite(r.usdAlleged) && r.usdAlleged > 0 ? { usdAlleged: r.usdAlleged } : {}),
     }, stateOffice(link)?.office || (/oig\.dol\.gov/i.test(link) ? "DOLOIG" : /\/\/(?:www\.)?(?:dhs|ice)\.gov\//i.test(link) ? "DHSgov" : "TheJusticeDept"));
   }
   return list.length;

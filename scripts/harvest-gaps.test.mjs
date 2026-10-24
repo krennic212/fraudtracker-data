@@ -153,3 +153,31 @@ describe("cross-post: Invasion Update voting rows -> ledger", () => {
     assert.match(gov, /krennic212\.github\.io\/invasionupdate-data\/harvest\.json/);
   });
 });
+
+describe("seed schemeKey / usdAlleged: one multi-case takedown release, one schemeId and one figure per scheme", () => {
+  const LA = "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical";
+  const la = seed.releases.filter((r) => r.link === LA);
+  it("the L.A. takedown is seeded per scheme, government-program cases only (no Young / Phipps / Moore / Mladinich / Wang)", () => {
+    const names = la.flatMap((r) => r.names);
+    assert.deepEqual(names, ["Harold Tabaie", "Hany Malek", "Geoffrey Jimenez", "Richard Keech", "Armani Raffi", "Hassan Badday", "Robby Ayoub", "Christina Mareik"]);
+    assert.equal(new Set(la.map((r) => r.schemeKey)).size, la.length);
+    for (const r of la) for (const n of r.names) assert.ok(r.teaser.includes(n), n);
+  });
+  it("rows: co-defendants share a scheme, separate cases never do; usdAlleged is the scheme's own figure", () => {
+    const existing = [];
+    const added = [];
+    harvestSeed(existing, new Set(), added);
+    const rows = existing.filter((r) => r.sourceUrl === LA);
+    assert.equal(rows.length, 8);
+    const by = Object.fromEntries(rows.map((r) => [r.name, r]));
+    assert.equal(by["Harold Tabaie"].schemeId, by["Hany Malek"].schemeId);
+    assert.equal(new Set(rows.map((r) => r.schemeId)).size, 7);
+    assert.equal(by["Hany Malek"].usdAlleged, 135000000);
+    assert.equal(by["Christina Mareik"].usdAlleged, 269130000);
+    for (const r of rows) assert.equal(r.photo, "");
+    for (const r of rows) assert.equal(r.stage, "Charged");
+    const plea = existing.find((r) => r.name === "Gregory P. Heimann Jr.");
+    assert.equal(plea.stage, "Pleaded guilty");
+    assert.ok(!("usdAlleged" in plea), "no figure stated, none set");
+  });
+});

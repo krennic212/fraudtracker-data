@@ -2075,6 +2075,192 @@
         }
       },
       "anyVoter": true
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndtx/pr/two-defendants-charged-superseding-indictment-alleging-19-million-health-care-fraud",
+      "title": "Two defendants charged in superseding indictment alleging $19 million health care fraud scheme targeting federal workers’ compensation program",
+      "date": "2026-10-23",
+      "teaser": "DALLAS — United States Attorney for the Northern District of Texas Ryan Raybould announced that a federal grand jury returned a superseding indictment Oct. 7 charging Dr. Javaria Jabeen and Allendor Kenyon Brown with participating in a years‑long scheme to defraud the Federal Employees’ Compensation Act program of approximately $19 million in fraudulent medical claims. According to the indictment, from 2017 to 2023, the defendants engaged in a scheme to submit false and fraudulent claims to the U.S. Department of Labor’s Office of Workers’ Compensation Programs (OWCP). FECA provides medical and wage benefits to federal employees injured on the job. In total, the conspirators submitted roughly $19 million in fraudulent claims, resulting in at least $17 million in payments from the FECA program. The indictment alleges that the defendants and their coconspirators each received a share of the proceeds. Jabeen and Brown were both arrested and had their initial appearances on Oct. 14. If convicted, the defendants each face a maximum sentence of 10 years’ imprisonment.",
+      "stage": "Charged",
+      "names": [
+        "Javaria Jabeen",
+        "Allendor Kenyon Brown"
+      ],
+      "usdAlleged": 19000000
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Dr. Harold Tabaie, 78, of Anaheim, a cardiothoracic surgeon, and his business partner, Hany Malek, 61, of Tarzana, a chiropractor, are charged by indictment with a $135 million scheme to bill Medicare for medically unnecessary arterial procedures. Tabaie and Malek are charged with four counts of health care fraud, and Malek is charged with an additional two counts of bank fraud.",
+      "stage": "Charged",
+      "names": [
+        "Harold Tabaie",
+        "Hany Malek"
+      ],
+      "schemeKey": "tabaie-malek-medicare-atherectomy",
+      "usdAlleged": 135000000,
+      "places": {
+        "Harold Tabaie": {
+          "city": "Anaheim, CA",
+          "lat": 33.8366,
+          "lon": -117.9143
+        },
+        "Hany Malek": {
+          "city": "Tarzana, CA",
+          "lat": 34.1734,
+          "lon": -118.5537
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Geoffrey Jimenez, 60, of Los Angeles, is charged by complaint with health care fraud for allegedly operating a fraudulent hospice scheme through Transitions Hospice Inc. As alleged, Jimenez enrolled nonterminal Medicare beneficiaries into hospice care and submitted claims for medically unnecessary and often unprovided services, resulting in approximately $9.8 million billed to Medicare and more than $8.3 million paid out. Transitions allegedly had a non-death discharge rate of roughly 85% – more than four times the national average – indicating that beneficiaries were not terminally ill.",
+      "stage": "Charged",
+      "names": [
+        "Geoffrey Jimenez"
+      ],
+      "schemeKey": "jimenez-transitions-hospice",
+      "usdAlleged": 9800000,
+      "places": {
+        "Geoffrey Jimenez": {
+          "city": "Los Angeles, CA",
+          "lat": 34.0522,
+          "lon": -118.2437
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Dr. Richard Keech, 83, of Torrance, is charged by information in connection with a scheme to defraud Medicare by causing over $10 million in false and fraudulent claims for unnecessary hospice services.",
+      "stage": "Charged",
+      "names": [
+        "Richard Keech"
+      ],
+      "schemeKey": "keech-hospice",
+      "usdAlleged": 10000000,
+      "places": {
+        "Richard Keech": {
+          "city": "Torrance, CA",
+          "lat": 33.8358,
+          "lon": -118.3406
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Armani Raffi, 59, of Van Nuys, is charged by information with health care fraud for orchestrating a multi-entity hospice fraud scheme through four interconnected hospice providers – Golden Age Hospice & Palliative Care, St. Mary’s Hospice & Palliative Care, CA Hospice Care, and Miracle Hospice & Palliative Care, all located in Sherman Oaks. The scheme resulted in approximately $21 million in false claims submitted to Medicare and over $17.5 million paid out, with non-death discharge rates three to five times the national average – indicating widespread admission of patients who were not terminally ill.",
+      "stage": "Charged",
+      "names": [
+        "Armani Raffi"
+      ],
+      "schemeKey": "raffi-hospice",
+      "usdAlleged": 21000000,
+      "places": {
+        "Armani Raffi": {
+          "city": "Van Nuys, CA",
+          "lat": 34.1899,
+          "lon": -118.4514
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Two California doctors, Hassan Badday, 48, of Los Angeles, and Robby Ayoub, 52, of Huntington Beach, California, were charged in separate indictments for allegedly accepting illegal kickbacks from in exchange for authorizing millions of dollars in medically unnecessary genetic testing orders. Each doctor is charged with a conspiracy to defraud the United States and to pay and receive health care kickbacks. According to the indictments, Badday authorized genetic testing orders that resulted in ApolloMDx submitting more than $4.2 million in fraudulent claims to federal health care programs, yielding more than $2.8 million in reimbursements. Ayoub allegedly authorized testing orders that led to more than $1.3 million in billed claims, resulting in more than $900,000 in federal reimbursements. The marketer then submitted these DNA samples and doctors’ orders to ApolloMDx, which billed Medicare for the genetic tests, which are alleged to be medically unnecessary and rarely, if ever, used to manage or treat the patient’s actual medical conditions.",
+      "stage": "Charged",
+      "names": [
+        "Hassan Badday"
+      ],
+      "schemeKey": "badday-genetic-testing",
+      "usdAlleged": 4200000,
+      "places": {
+        "Hassan Badday": {
+          "city": "Los Angeles, CA",
+          "lat": 34.0522,
+          "lon": -118.2437
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Two California doctors, Hassan Badday, 48, of Los Angeles, and Robby Ayoub, 52, of Huntington Beach, California, were charged in separate indictments for allegedly accepting illegal kickbacks from in exchange for authorizing millions of dollars in medically unnecessary genetic testing orders. Each doctor is charged with a conspiracy to defraud the United States and to pay and receive health care kickbacks. According to the indictments, Badday authorized genetic testing orders that resulted in ApolloMDx submitting more than $4.2 million in fraudulent claims to federal health care programs, yielding more than $2.8 million in reimbursements. Ayoub allegedly authorized testing orders that led to more than $1.3 million in billed claims, resulting in more than $900,000 in federal reimbursements. The marketer then submitted these DNA samples and doctors’ orders to ApolloMDx, which billed Medicare for the genetic tests, which are alleged to be medically unnecessary and rarely, if ever, used to manage or treat the patient’s actual medical conditions.",
+      "stage": "Charged",
+      "names": [
+        "Robby Ayoub"
+      ],
+      "schemeKey": "ayoub-genetic-testing",
+      "usdAlleged": 1300000,
+      "places": {
+        "Robby Ayoub": {
+          "city": "Huntington Beach, CA",
+          "lat": 33.6603,
+          "lon": -117.9992
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/la-health-care-fraud-takedown-results-15-defendants-charged-including-six-medical",
+      "title": "L.A. Health Care Fraud Takedown Results in 15 Defendants Charged, Including Six Medical Professionals, with $2 Billion in Losses Alleged",
+      "date": "2026-10-22",
+      "teaser": "Christina Mareik 61, a.k.a. “Christina Sanchez Hernandez,” of Whittier, is criminally charged by indictment for her role in a nearly $270 million scheme to defraud Medicaid of California (Medi-Cal). She previously was charged via federal criminal complaint in June 2026 and is charged in the indictment with conspiracy to commit health care fraud and wire fraud and four counts of health care fraud. Over the course of the fraudulent scheme, Mareik and her co-conspirators caused the submission of approximately $269,130,000 in false and fraudulent claims to Medi-Cal, of which Medi-Cal paid at least approximately $178,746,000. Mareik received at least approximately $279,000 in fraud scheme proceeds.",
+      "stage": "Charged",
+      "names": [
+        "Christina Mareik"
+      ],
+      "schemeKey": "mareik-medi-cal-pharmacy",
+      "usdAlleged": 269130000,
+      "places": {
+        "Christina Mareik": {
+          "city": "Whittier, CA",
+          "lat": 33.9792,
+          "lon": -118.0328
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdfl/pr/jacksonville-woman-charged-theft-dependency-and-indemnity-compensation-benefits",
+      "title": "Jacksonville Woman Charged with Theft of Dependency and Indemnity Compensation Benefits from the Department of Veterans Affairs",
+      "date": "2026-10-23",
+      "teaser": "Jacksonville, FL – Gail Starks (63, Jacksonville) has been charged by federal indictment with theft of government money or property and making a false statement to a federal agency. If convicted on all counts, Starks faces a maximum penalty of 15 years in federal prison. The indictment also notifies Starks that the United States is seeking an order of forfeiture in the amount of $397,120, the proceeds of the theft of government money. U.S. Attorney Gregory W. Kehoe made the announcement. According to the indictment, for 35 years, from June 1991 and continuing through August 2026, Starks knowingly and willfully stole Dependency and Indemnity Compensation benefits for spousal support from the Department of Veterans Affairs (VA). Additionally, on August 11, 2026, upon investigation into her eligibility to receive such benefits, Starks knowingly and willfully misrepresented to a VA employee that she was not married, when, in fact, she was married.",
+      "stage": "Charged",
+      "names": [
+        "Gail Starks"
+      ],
+      "usdAlleged": 397120,
+      "places": {
+        "Gail Starks": {
+          "city": "Jacksonville, FL",
+          "lat": 30.3322,
+          "lon": -81.6557
+        }
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-me/pr/forest-city-township-man-pleads-guilty-making-false-statements",
+      "title": "Forest City Township Man Pleads Guilty to Making False Statements",
+      "date": "2026-10-23",
+      "teaser": "Gregory P. Heimann Jr. falsely stated that he was unable to walk in order to receive disability benefits BANGOR, Maine: A Forest City Township man pleaded guilty today in U.S. District Court in Bangor to making false statements to a federal official. According to court records, Gregory P. Heimann Jr. , 52, falsely represented to the U.S. Department of Veterans Affairs (VA) in May 2023 that he had been using a wheelchair since 2004 and was unable to walk or stand. Heimann was documented and recorded walking and standing without the assistance of any mobility devices on numerous occasions.",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Gregory P. Heimann Jr."
+      ],
+      "places": {
+        "Gregory P. Heimann Jr.": {
+          "city": "Forest City Township, ME",
+          "lat": 45.66,
+          "lon": -67.73
+        }
+      }
     }
   ]
 }

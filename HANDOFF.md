@@ -1,5 +1,23 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-23 (8:40 PM CDT) 12 missed government-program rows via seeds (Krennic approved)
+
+- data/seed-releases.json: 10 new seed entries (4 releases), ingested by the hourly job like every seed. No photos, no
+  nationality (none stated), stage = the release's own.
+  - usao-ndtx $19M FECA scheme: Javaria Jabeen, Allendor Kenyon Brown (Charged; superseding indictment). Same release and
+    schemeId as the existing Demitrious Gilmore row the DOJ pass made earlier (same scheme; that row is unchanged).
+  - usao-cdca L.A. takedown, government-program cases only, one seed per scheme: Harold Tabaie + Hany Malek ($135M Medicare),
+    Geoffrey Jimenez ($9.8M Medicare hospice, Transitions), Richard Keech ($10M Medicare hospice), Armani Raffi ($21M Medicare
+    hospice), Hassan Badday ($4.2M) and Robby Ayoub ($1.3M) (separate indictments, Medicare genetic testing), Christina Mareik
+    ($269.13M Medi-Cal). All Charged. Skipped: Nathan/David Young, Honey/Cody Phipps (private insurers, $1.6B), Nicholas Moore
+    and Thomas Mladinich (private insurance), Dejun Wang (drug samples, no program fraud).
+  - usao-mdfl Gail Starks (Charged; VA DIC theft, $397,120 forfeiture = proceeds). usao-me Gregory P. Heimann Jr. (Pleaded
+    guilty; false statements to VA; no dollar figure stated).
+- New optional seed fields (scripts/harvest-gov.mjs harvestSeed -> buildRow): `schemeKey` -> schemeId =
+  schemeIdFor(url) + "-" + slug(schemeKey), so a multi-case release gets one schemeId per scheme (ledger-id's one-URL rule
+  still holds); `usdAlleged` -> row.usdAlleged, the scheme's own figure (the site reads it before parsing text, so the L.A.
+  title's "$2 Billion" is never used for these rows). Test: harvest-gaps.test.mjs (last describe). npm test 132/132.
+
 ## 2026-10-20 (11:50 AM CDT) harvest-meta.json always matches harvest.json (Krennic approved)
 
 - Cause: the hourly job ran scripts/write-meta.mjs only when its own run changed data/harvest.json. Seed / hand edits pushed
