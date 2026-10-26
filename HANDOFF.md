@@ -1,5 +1,14 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-26 (12:45 PM CDT) state-only voting city -> "<State>, XX" (Krennic approved)
+
+- Cause: run 40367712010 failed "every voting row has a state". The 9 AM run cross-posted Anthony Tyrone Higgs from the
+  Invasion Update feed (DHS Oct 23 NC release) with city "North Carolina"; geoForInvasionRow passed that city through as is.
+- The DHS release names no city for Higgs, so the row is now "North Carolina, NC" (no other field changed; lat/lon unchanged).
+- scripts/harvest-gov.mjs: stateOnlyCity() maps a bare full state name (50 states + DC + PR) to "<State>, XX";
+  geoForInvasionRow uses it in both branches, so no town is made up. Test: harvest-gaps.test.mjs cross-post describe.
+  npm test 133/133.
+
 ## 2026-10-23 (8:40 PM CDT) 12 missed government-program rows via seeds (Krennic approved)
 
 - data/seed-releases.json: 10 new seed entries (4 releases), ingested by the hourly job like every seed. No photos, no

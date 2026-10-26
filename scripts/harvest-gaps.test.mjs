@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { allPeople, personOrEntity } from "./harvest-parse.mjs";
 import {
   crossPostInvasionVoting, districtSeatFromText, dojItem, harvestSeed, ingest, invasionVotingItem, keepBlob,
-  listedVoterAnyDate, programText, rowsFromItem, samePersonRecent, seededLinks,
+  listedVoterAnyDate, programText, stateOnlyCity, geoForInvasionRow, rowsFromItem, samePersonRecent, seededLinks,
 } from "./harvest-gov.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -147,6 +147,18 @@ describe("cross-post: Invasion Update voting rows -> ledger", () => {
     assert.match(r.text, /pleaded guilty to one count of voting by an alien/);
     assert.equal(listedVoterAnyDate(existing, "Gaye Tyndale-Simpson"), true);
     assert.equal(listedVoterAnyDate(existing, "Jamaica Gaye Tyndale-Simpson"), true);
+  });
+  it("a release that names only a state gets \"<State>, XX\", never a made-up town (Higgs, DHS NC release)", () => {
+    assert.equal(stateOnlyCity("North Carolina"), "North Carolina, NC");
+    assert.equal(stateOnlyCity("district of columbia"), "District of Columbia, DC");
+    assert.equal(stateOnlyCity("Wyoming"), "Wyoming, WY");
+    assert.equal(stateOnlyCity("Trenton, NJ"), "Trenton, NJ");
+    assert.equal(stateOnlyCity("Bahamas"), "Bahamas");
+    assert.equal(geoForInvasionRow({ city: "North Carolina", lat: 35.7596, lon: -79.0193 }).city, "North Carolina, NC");
+    assert.equal(geoForInvasionRow({ city: "Nevada" }).city, "Nevada, NV");
+    const existing = [];
+    crossPostInvasionVoting(existing, new Set(), [], [inv({ city: "North Carolina", lat: 35.7596, lon: -79.0193 })]);
+    assert.equal(existing[0].city, "North Carolina, NC");
   });
   it("is wired into the hourly run", () => {
     assert.match(gov, /const inv = await harvestInvasionVoting\(existing, have, added\);/);

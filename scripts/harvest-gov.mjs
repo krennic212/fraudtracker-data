@@ -1042,15 +1042,24 @@ export function districtSeatFromText(text) {
 
 /** Map pin for a cross-posted row: the Invasion row's own lat/lon, else a district named in its
  *  sentence, else the first listed district seat of its state. */
+/** A city that is only a full state name ("North Carolina", any case) -> "North Carolina, NC" (50 states + DC + PR).
+ *  Anything else comes back unchanged. No town is ever made up for a release that names only the state. */
+export function stateOnlyCity(city) {
+  const c = String(city ?? "").trim();
+  const code = Object.keys(STATE_NAMES).find((k) => STATE_NAMES[k].toLowerCase() === c.toLowerCase());
+  return code ? `${STATE_NAMES[code]}, ${code}` : city;
+}
+
 export function geoForInvasionRow(row) {
-  if (Number.isFinite(row?.lat) && Number.isFinite(row?.lon)) return { city: row.city, lat: row.lat, lon: row.lon };
+  if (Number.isFinite(row?.lat) && Number.isFinite(row?.lon)) return { city: stateOnlyCity(row.city), lat: row.lat, lon: row.lon };
   const fromText = districtSeatFromText(row?.crime);
   if (fromText) return fromText;
   const city = String(row?.city || "");
   const code = (city.match(/,\s*([A-Z]{2})\s*$/) || [])[1] || Object.keys(STATE_NAMES).find((k) => STATE_NAMES[k].toLowerCase() === city.trim().toLowerCase());
   if (!code) return null;
   const seat = Object.values(DISTRICT_SEAT).find((v) => v[0].endsWith(`, ${code}`));
-  return seat ? { city: /,\s*[A-Z]{2}$/.test(city) ? city : seat[0], lat: seat[1], lon: seat[2] } : null;
+  // State-only city: keep the state as the label ("Nevada, NV"), only the pin uses the district seat.
+  return seat ? { city: /,\s*[A-Z]{2}$/.test(city) ? city : stateOnlyCity(city), lat: seat[1], lon: seat[2] } : null;
 }
 
 export function listedVoterAnyDate(existing, name) {
