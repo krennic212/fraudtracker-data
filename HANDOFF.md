@@ -1,5 +1,14 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-26 (1:30 PM CDT) Anthony Tyrone Higgs removed (Krennic)
+
+- Krennic removed Higgs on Oct 26 (DHS Oct 23 "HSI and FBI Arrest Ten Aliens for Voter Fraud in North Carolina"). He was
+  skipped on Oct 20 (seed pass) but came back through the Invasion Update cross-post (crossPostInvasionVoting /
+  geoForInvasionRow) on the Oct 26 9 AM run. Rows 441 -> 440.
+- Kept out by data/exclude.json: new person-scoped entry ("match": "person", name + source URL, plus his row id). isExcluded()
+  matches it only for that name from that release, so other people from the same DHS release can still be cross-posted.
+  Entries without "match" still exclude the whole release. Test: harvest-exclude.test.mjs (person-scoped describe).
+
 ## 2026-10-26 (12:45 PM CDT) state-only voting city -> "<State>, XX" (Krennic approved)
 
 - Cause: run 40367712010 failed "every voting row has a state". The 9 AM run cross-posted Anthony Tyrone Higgs from the

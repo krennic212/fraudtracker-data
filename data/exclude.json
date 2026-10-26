@@ -1,5 +1,5 @@
 {
-  "_note": "Rows that must never be in the feed. Matched by source URL (any row from that release) or by row id. scripts/harvest-gov.mjs drops matching rows already in data/harvest.json and never ingests them again. Add an entry only on Krennic's decision, with the reason.",
+  "_note": "Rows that must never be in the feed. Matched by source URL (any row from that release) or by row id; an entry with \"match\": \"person\" matches only that name from that source URL. scripts/harvest-gov.mjs drops matching rows already in data/harvest.json and never ingests them again. Add an entry only on Krennic's decision, with the reason.",
   "rows": [
     {
       "sourceUrl": "https://www.justice.gov/usao-nv/pr/va-home-loan-servicer-village-capital-pay-over-500000-violating-servicemembers-rights",
@@ -163,6 +163,14 @@
       "name": "Aaron Michael McComsey",
       "reason": "Threats against a member of Congress, not fraud (harvested because the threat quoted Medicare/Medicaid)",
       "decided": "Krennic 2026-10-20"
+    },
+    {
+      "sourceUrl": "https://www.dhs.gov/news/2026/10/23/hsi-and-fbi-arrest-ten-aliens-voter-fraud-north-carolina",
+      "id": "harvest-https-www-dhs-gov-news-2026-10-23-hsi-and-fbi-ar-3da517d773",
+      "name": "Anthony Tyrone Higgs",
+      "match": "person",
+      "reason": "Krennic 2026-10-26: removed (skipped 2026-10-20; came back through the Invasion Update cross-post)",
+      "decided": "Krennic 2026-10-26"
     }
   ]
 }

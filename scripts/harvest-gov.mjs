@@ -696,19 +696,29 @@ function urlKeyOf(url) {
     return String(url || "").trim().toLowerCase();
   }
 }
+// Person-scoped entries ("match": "person"): only that name from that release is excluded (name + source URL), so
+// the release's other people can still be listed. Every other entry excludes the whole release (or the id).
+const personKeyOf = (url, name) =>
+  `${urlKeyOf(url)}|${String(name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z ]/g, " ").replace(/\s+/g, " ").trim()}`;
 export function loadExclude(file = EXCLUDE_FILE) {
   const list = loadJson(file, { rows: [] })?.rows;
   const rows = Array.isArray(list) ? list : [];
+  const person = (e) => e?.match === "person";
   return {
-    urls: new Set(rows.map((e) => e?.sourceUrl).filter(Boolean).map(urlKeyOf)),
+    urls: new Set(rows.filter((e) => !person(e)).map((e) => e?.sourceUrl).filter(Boolean).map(urlKeyOf)),
     ids: new Set(rows.map((e) => e?.id).filter(Boolean)),
+    people: new Set(rows.filter((e) => person(e) && e.sourceUrl && e.name).map((e) => personKeyOf(e.sourceUrl, e.name))),
   };
 }
 let EXCLUDE = null;
 export function isExcluded(row, ex = (EXCLUDE ??= loadExclude())) {
   if (!row) return false;
   if (row.id && ex.ids.has(row.id)) return true;
-  for (const u of [row.sourceUrl, row.link]) if (u && ex.urls.has(urlKeyOf(u))) return true;
+  for (const u of [row.sourceUrl, row.link]) {
+    if (!u) continue;
+    if (ex.urls.has(urlKeyOf(u))) return true;
+    if (row.name && ex.people?.has(personKeyOf(u, row.name))) return true;
+  }
   return false;
 }
 

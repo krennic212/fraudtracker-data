@@ -10939,29 +10939,5 @@
     "presence": "not_stated",
     "scheme": "Jullie Ann Sumalinog Moore",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--dcfdd5b920"
-  },
-  {
-    "name": "Anthony Tyrone Higgs",
-    "city": "North Carolina, NC",
-    "crime": "HSI and FBI Arrest Ten Aliens for Voter Fraud in North Carolina | Homeland Security",
-    "usa": "HSI and FBI Arrest Ten Aliens for Voter Fraud in North Carolina | Homeland Security",
-    "foreign": "Not stated in post",
-    "picked": "10/23/2026",
-    "entered": "Amount not stated",
-    "office": "DHSgov",
-    "id": "harvest-https-www-dhs-gov-news-2026-10-23-hsi-and-fbi-ar-3da517d773",
-    "when": "2026-10-23",
-    "text": "HSI and FBI Arrest Ten Aliens for Voter Fraud in North Carolina | Homeland Security. In September, ICE arrested Anthony Tyrone Higgs, an alien from the Bahamas who had illegally voted in the 2020 election, and whose criminal history includes convictions for TWO counts of possession of a weapon during a violent crime, TWO counts of grand larceny, armed robbery with a deadly weapon, criminal domestic violence, assault on a police officer, and resisting arrest. Source: official DHS press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
-    "photo": "",
-    "via": "DHS press",
-    "sourceUrl": "https://www.dhs.gov/news/2026/10/23/hsi-and-fbi-arrest-ten-aliens-voter-fraud-north-carolina",
-    "voting": true,
-    "origin": "Voting / elections",
-    "confirmedBy": "DHS",
-    "lat": 35.7596,
-    "lon": -79.0193,
-    "presence": "not_stated",
-    "scheme": "Anthony Tyrone Higgs",
-    "schemeId": "harvest-https-www-dhs-gov-news-2026-10-23-hsi-and-fbi-ar-cb65f2b6a6"
   }
 ]
