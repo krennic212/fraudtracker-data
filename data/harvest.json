@@ -11083,5 +11083,29 @@
     "presence": "not_stated",
     "scheme": "Michael Kahn",
     "schemeId": "harvest-https-www-justice-gov-usao-wdnc-pr-charlotte-bus-e6380af06a"
+  },
+  {
+    "name": "Christopher J. Altemus Jr.",
+    "city": "Atlanta, GA",
+    "crime": "Nigerian Man Extradited from Benin to Face Federal Charges in $100 Million Stolen Identity Tax Scheme",
+    "usa": "Nigerian Man Extradited from Benin to Face Federal Charges in $100 Million Stolen Identity Tax Scheme",
+    "foreign": "Not stated in post",
+    "picked": "10/27/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ndga-pr-nigerian-man--d741009c05",
+    "when": "2026-10-27",
+    "text": "Nigerian Man Extradited from Benin to Face Federal Charges in $100 Million Stolen Identity Tax Scheme. ATLANTA - Akinade Adedeji Raheem, a Nigerian citizen who allegedly conspired to file fraudulent tax returns seeking over $100 million in refunds using stolen identities, was arraigned yesterday on federal fraud, money laundering, and aggravated identity theft charges after his extradition from Benin. “Raheem and his co-conspirators allegedly obtained hundreds of stolen identities, filed fraudulent tax returns using that information, and laundered the proceeds through prepaid debit cards and purchases of used cars that were shipped to Nigeria and other locations,” said U.S. Attorney Theodore S. Hertzberg. “The scope of the alleged fraud is staggering. Thanks to the dedication of the prosecution team and our law enforcement partners around the world, Raheem has been extradited to the United  Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ndga/pr/nigerian-man-extradited-benin-face-federal-charges-100-million-stolen-identity-tax",
+    "voting": false,
+    "origin": "Tax fraud",
+    "confirmedBy": "DOJ",
+    "lat": 33.749,
+    "lon": -84.388,
+    "presence": "not_stated",
+    "scheme": "Christopher J. Altemus Jr.",
+    "schemeId": "harvest-https-www-justice-gov-usao-ndga-pr-nigerian-man--a96ea5b29f"
   }
 ]
