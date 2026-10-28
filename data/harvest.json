@@ -11611,5 +11611,29 @@
     "presence": "not_stated",
     "scheme": "Maksim Sergeevich Shakirov",
     "schemeId": "harvest-https-www-justice-gov-usao-wy-pr-non-citizen-ple-5b5dc1f213"
+  },
+  {
+    "name": "Arun Mago",
+    "city": "San Antonio, TX",
+    "crime": "Accountant Sentenced to Federal Prison for Money Laundering, PPP Fraud",
+    "usa": "Accountant Sentenced to Federal Prison for Money Laundering, PPP Fraud",
+    "foreign": "Not stated in post",
+    "picked": "10/28/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-wdtx-pr-accountant-se-4e714c6bcb",
+    "when": "2026-10-28",
+    "text": "Accountant Sentenced to Federal Prison for Money Laundering, PPP Fraud. Arun Mago, an Austin accountant, was sentenced to 41 months in federal prison for money laundering and bank fraud that undermined the Paycheck Protection Program Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-wdtx/pr/accountant-sentenced-federal-prison-money-laundering-ppp-fraud",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 29.4241,
+    "lon": -98.4936,
+    "presence": "not_stated",
+    "scheme": "Arun Mago",
+    "schemeId": "harvest-https-www-justice-gov-usao-wdtx-pr-accountant-se-ed37abea3a"
   }
 ]
