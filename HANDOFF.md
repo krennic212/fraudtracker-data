@@ -1,5 +1,21 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-28 (1:15 PM CDT) usao-ndga $100M stolen-identity tax row: Altemus -> Akinade Adedeji Raheem (Krennic approved)
+
+- Row was named "Christopher J. Altemus Jr." (IRS-CI Special Agent in Charge quoted in the release). Now name / scheme =
+  "Akinade Adedeji Raheem" as printed; stage "Charged" (+ "Stage: Charged (not convicted)." in text; the release: extradited
+  from Benin, arraigned on the indictment, not convicted). DOJ wording (crime / usa / text excerpt) and schemeId
+  (...-a96ea5b29f) unchanged; id re-derived for the new name (rowId: ...-d741009c05 -> ...-f1bfd7bfd4). No other row changed.
+  Rows 471 -> 471.
+- Cause (parser): dojItem read the body head (the API teaser names nobody in a parsed form); allPeople's PERSON_OF
+  ("Name, of [A-Z]") matched "... said Special Agent in Charge Christopher J. Altemus Jr., of IRS-CI’s Texas Field Office".
+  Fix (scripts/harvest-parse.mjs): onlyQuotedSpeaker(name, text) drops a name only when EVERY place the text prints it is
+  right after "said" + title words (no sentence break); used in allPeople and on personOrEntity's teaser hit. No existing
+  feed row or seed name trips it.
+- Kept from coming back: data/seed-releases.json seed for the release (names ["Akinade Adedeji Raheem"], stage Charged;
+  the DOJ pass skips a seeded URL) + data/exclude.json person-scoped Altemus entry (name + source URL, plus the old row id).
+- Test: harvest-exclude.test.mjs "quoted official is never the defendant" (real release text). npm test 142/142.
+
 ## 2026-10-26 (1:30 PM CDT) Anthony Tyrone Higgs removed (Krennic)
 
 - Krennic removed Higgs on Oct 26 (DHS Oct 23 "HSI and FBI Arrest Ten Aliens for Voter Fraud in North Carolina"). He was

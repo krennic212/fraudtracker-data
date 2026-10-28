@@ -152,7 +152,8 @@ function normHyphen(s) {
 export function personOrEntity(title, teaser = "") {
   const op = operationName(title);
   const fromTeaser = teaser ? firstPerson(teaser) : null;
-  if (fromTeaser) return fromTeaser;
+  // A quoted official is never the defendant (see onlyQuotedSpeaker).
+  if (fromTeaser && !onlyQuotedSpeaker(fromTeaser.name, teaser)) return fromTeaser;
   const fromTitle = firstPerson(title);
   if (fromTitle) return fromTitle;
   const co = `${title} ${teaser}`.match(COMPANY);
@@ -447,7 +448,20 @@ export function allPeople(title, teaser = "") {
     cleanSeen.add(k);
     clean.push(c);
   }
-  return clean;
+  // A quoted official ("…,” said Special Agent in Charge Christopher J. Altemus Jr., of IRS-CI’s Texas Field Office")
+  // is never a defendant: drop a name only when EVERY place the text prints it is right after "said" + title words
+  // (Krennic 2026-10-28, usao-ndga $100M stolen-identity tax release). A name that also appears anywhere else is kept.
+  return clean.filter((n) => !onlyQuotedSpeaker(n, text));
+}
+
+// "said" + up to 8 title words ("U.S. Attorney", "Special Agent in Charge", "TIGTA Special Agent-in-Charge").
+// A title word has no sentence-ending period ("U.S." is the one dotted form), so the lead never crosses a sentence end.
+const SAID_LEAD = /\bsaid\s+(?:(?:\p{Lu}\.(?:\p{Lu}\.)+|\p{Lu}[\p{L}’'-]*|in|of|the|for|and)\s+){0,8}$/u;
+export function onlyQuotedSpeaker(name, text = "") {
+  const blob = normHyphen(String(text || ""));
+  const hits = [...blob.matchAll(new RegExp(escRe(String(name || "")), "gu"))];
+  if (!hits.length) return false;
+  return hits.every((m) => SAID_LEAD.test(blob.slice(Math.max(0, m.index - 120), m.index)));
 }
 
 const LEAD_PLACES = [

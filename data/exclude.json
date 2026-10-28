@@ -171,6 +171,14 @@
       "match": "person",
       "reason": "Krennic 2026-10-26: removed (skipped 2026-10-20; came back through the Invasion Update cross-post)",
       "decided": "Krennic 2026-10-26"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-ndga/pr/nigerian-man-extradited-benin-face-federal-charges-100-million-stolen-identity-tax",
+      "id": "harvest-https-www-justice-gov-usao-ndga-pr-nigerian-man--d741009c05",
+      "name": "Christopher J. Altemus Jr.",
+      "match": "person",
+      "reason": "Krennic 2026-10-28: IRS-CI Special Agent in Charge quoted in the release, not a defendant (row renamed to the defendant, Akinade Adedeji Raheem)",
+      "decided": "Krennic 2026-10-28"
     }
   ]
 }
