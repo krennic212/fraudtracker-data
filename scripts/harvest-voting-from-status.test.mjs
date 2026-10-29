@@ -71,3 +71,46 @@ describe("a later release of a listed voter is not a second voter row (any date)
     assert.equal(alreadyListedVoter(existing, { name: "Maria Gallardo Maldonado", voting: true, when: "2026-10-28", sourceUrl: "https://x.gov/y" }), false);
   });
 });
+
+describe("stage update: Eduardo Gallardo Maldonado pleaded guilty (EDPA Oct 28, 2026; Krennic 2026-10-28)", async () => {
+  const { applyStageUpdates, dojItem: item, ingest: ing, harvestSeed } = await import("./harvest-gov.mjs");
+  const ID = "harvest-https-www-justice-gov-usao-edpa-pr-four-aliens-c-60d1d58f3e";
+  const PLEA = "https://www.justice.gov/usao-edpa/pr/alien-pleads-guilty-illegally-voting-2024-general-election";
+  const rows = () => feed.filter((r) => r.name === "Eduardo Gallardo Maldonado");
+  it("feed: exactly one row, same id and schemeId, Pleaded guilty, plea + sentencing sentences verbatim", () => {
+    const [r, extra] = rows();
+    assert.ok(r && !extra);
+    assert.equal(r.id, ID);
+    assert.equal(r.schemeId, "harvest-https-www-justice-gov-usao-edpa-pr-four-aliens-c-d646e1e39d");
+    assert.equal(r.stage, "Pleaded guilty");
+    assert.equal(r.stageSourceUrl, PLEA);
+    assert.match(r.text, /Stage: Pleaded guilty\./);
+    assert.ok(!/Stage: Charged/.test(r.text));
+    assert.ok(r.text.includes("entered a plea of guilty today before United States Magistrate Judge Elizabeth L. Toplin to one count of voting as an alien."));
+    assert.ok(r.text.includes("The defendant is scheduled to be sentenced on February 9"));
+    assert.ok(r.text.includes("was charged by information with one count of voting as an alien.")); // DOJ wording kept
+  });
+  it("a harvest keeps it: seeds, the plea release itself and the update are all no-ops", () => {
+    const ex = JSON.parse(JSON.stringify(feed));
+    const have = new Set(ex.map((r) => `${r.sourceUrl || ""}|${r.id || ""}`));
+    const added = [];
+    harvestSeed(ex, have, added);
+    const plea = { title: "Alien Pleads Guilty to Illegally Voting in 2024 General Election", url: PLEA, date: "1793188800", teaser: "", body: "<p>PHILADELPHIA – United States Attorney David Metcalf announced that Eduardo Gallardo Maldonado, 66, a Mexican citizen and lawful permanent resident of the United States who has been residing in Philadelphia, Pennsylvania, entered a plea of guilty today before United States Magistrate Judge Elizabeth L. Toplin to one count of voting as an alien.</p>" };
+    ing(ex, have, added, item(plea), "TheJusticeDept");
+    assert.deepEqual(applyStageUpdates(ex), []);
+    assert.ok(!added.includes("Eduardo Gallardo Maldonado"));
+    assert.equal(ex.filter((r) => r.name === "Eduardo Gallardo Maldonado").length, 1);
+    assert.deepEqual(ex.find((r) => r.id === ID), rows()[0]);
+  });
+  it("a row reset to Charged is put back to Pleaded guilty once (idempotent)", () => {
+    const r = { ...rows()[0], stage: "Charged", text: "X. As posted for this defendant: Y. Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea." };
+    delete r.stageSourceUrl;
+    const ex = [r];
+    assert.deepEqual(applyStageUpdates(ex), ["Eduardo Gallardo Maldonado"]);
+    assert.equal(ex[0].stage, "Pleaded guilty");
+    assert.equal((ex[0].text.match(/Stage: /g) || []).length, 1);
+    const once = ex[0].text;
+    assert.deepEqual(applyStageUpdates(ex), []);
+    assert.equal(ex[0].text, once);
+  });
+});

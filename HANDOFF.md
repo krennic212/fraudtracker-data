@@ -1,5 +1,21 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-28 (11:35 PM CDT) Eduardo Gallardo Maldonado: Charged -> Pleaded guilty (Krennic approved 11:27 PM CDT)
+
+- Row harvest-https-www-justice-gov-usao-edpa-pr-four-aliens-c-60d1d58f3e (Sep 24 "Four Aliens Charged With Election Fraud")
+  kept: same id, schemeId (...-d646e1e39d), sourceUrl, crime / usa and DOJ excerpt. Changed: stage "Pleaded guilty";
+  stageSourceUrl = usao-edpa Oct 28, 2026 "Alien Pleads Guilty to Illegally Voting in 2024 General Election"; text "Stage:
+  Charged (not convicted)." -> "Stage: Pleaded guilty." plus the plea release's own sentences, verbatim, as
+  'Update ("<title>", Oct 28, 2026): ... entered a plea of guilty today ... The defendant is scheduled to be sentenced on
+  February 9 ...' (plea date = "today" in the Oct 28, 2026 release; sentencing "February 9", no year printed). No other row.
+- Sticks across harvests: NEW data/stage-updates.json (one entry: id + name + sourceUrl, stage, source, sentences) applied by
+  scripts/harvest-gov.mjs applyStageUpdates() in main() after every ingest; idempotent (text appended once, one "Stage:"
+  phrase). The Four Aliens seed's "Charged" only fills a missing stage, so it never reverts this. The plea release itself is
+  still not a second row (alreadyListedVoter exact-name any-date rule); that check only blocks new rows, never edits one.
+- Tests (scripts/harvest-voting-from-status.test.mjs): one row, stage/source/text; a simulated harvest (all seeds + the plea
+  release through dojItem/ingest + applyStageUpdates) leaves the row byte-identical; a row reset to Charged is restored once.
+  npm test 153/153. Invasion Update not touched.
+
 ## 2026-10-28 (11:00 PM CDT) usao-nv Yousif + Safi (illegal voting) via seed + parser fix; voter any-date dedupe (Krennic approved)
 
 - Source: usao-nv Oct 28, 2026 "Two Aliens From Sudan and Afghanistan Charged for Illegal Voting"

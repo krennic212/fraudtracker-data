@@ -1,0 +1,19 @@
+{
+  "_note": "Stage updates from a LATER official release about a person already on the ledger (Krennic-approved, one entry per person). scripts/harvest-gov.mjs applyStageUpdates() runs on every harvest after all ingests: it sets `stage`, `stageSourceUrl`, swaps the 'Stage: ...' phrase in `text`, and appends the release's own sentences (verbatim) once. The row (id, schemeId, sourceUrl, DOJ wording) is otherwise unchanged. Matched by row id + name + sourceUrl.",
+  "rows": [
+    {
+      "id": "harvest-https-www-justice-gov-usao-edpa-pr-four-aliens-c-60d1d58f3e",
+      "name": "Eduardo Gallardo Maldonado",
+      "sourceUrl": "https://www.justice.gov/usao-edpa/pr/four-aliens-charged-election-fraud",
+      "stage": "Pleaded guilty",
+      "stageSourceUrl": "https://www.justice.gov/usao-edpa/pr/alien-pleads-guilty-illegally-voting-2024-general-election",
+      "stageSourceTitle": "Alien Pleads Guilty to Illegally Voting in 2024 General Election",
+      "stageSourceDate": "Oct 28, 2026",
+      "sentences": [
+        "PHILADELPHIA – United States Attorney David Metcalf announced that Eduardo Gallardo Maldonado, 66, a Mexican citizen and lawful permanent resident of the United States who has been residing in Philadelphia, Pennsylvania, entered a plea of guilty today before United States Magistrate Judge Elizabeth L. Toplin to one count of voting as an alien.",
+        "The defendant is scheduled to be sentenced on February 9 and faces a maximum of one year of imprisonment, one year of supervised release, and a $100,000 fine."
+      ],
+      "decided": "Krennic 2026-10-28 11:27 PM CDT"
+    }
+  ]
+}

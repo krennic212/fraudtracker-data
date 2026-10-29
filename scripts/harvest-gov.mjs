@@ -1002,6 +1002,35 @@ async function harvestDoj(existing, have, added) {
 // Manual-add intake: data/seed-releases.json lists official release URLs with
 // the release's own wording (named defendants only). Same ingest path as DOJ.
 const SEED = join(ROOT, "data/seed-releases.json");
+/**
+ * Stage updates from a later official release (data/stage-updates.json, Krennic-approved; first: Eduardo Gallardo
+ * Maldonado, EDPA plea Oct 28, 2026). Runs after every ingest so a harvest never leaves or puts back the old stage.
+ * Only the matched row (id + name + sourceUrl) changes: stage, stageSourceUrl, the "Stage: ..." phrase in text, and the
+ * later release's own sentences appended once (verbatim). id, schemeId, sourceUrl and DOJ wording stay. Idempotent.
+ */
+const STAGE_UPDATES = join(ROOT, "data/stage-updates.json");
+export function applyStageUpdates(existing, file = STAGE_UPDATES) {
+  const list = loadJson(file, { rows: [] })?.rows;
+  const changed = [];
+  for (const u of Array.isArray(list) ? list : []) {
+    if (!u?.id || !u.stage || !u.stageSourceUrl) continue;
+    const row = existing.find((r) => r && r.id === u.id && r.name === u.name && r.sourceUrl === u.sourceUrl);
+    if (!row) continue;
+    const before = JSON.stringify(row);
+    row.stage = u.stage;
+    row.stageSourceUrl = u.stageSourceUrl;
+    let text = String(row.text || "").replace(/Stage: [^.]*(?:\([^)]*\))?\.\s*/, "").replace(/ Charges are allegations unless/, ` Stage: ${u.stage}. Charges are allegations unless`);
+    const said = (u.sentences || []).join(" ");
+    if (said && !text.includes(said)) {
+      const tag = `Update (${u.stageSourceTitle ? `"${u.stageSourceTitle}", ` : ""}${u.stageSourceDate || "later release"}): ${said}`;
+      text = text.includes(" Source: official") ? text.replace(" Source: official", ` ${tag} Source: official`) : `${text} ${tag}`;
+    }
+    row.text = text;
+    if (JSON.stringify(row) !== before) changed.push(row.name);
+  }
+  return changed;
+}
+
 export function harvestSeed(existing, have, added, seedFile = SEED) {
   const seed = loadJson(seedFile, { releases: [] });
   const list = Array.isArray(seed?.releases) ? seed.releases : [];
@@ -1513,6 +1542,8 @@ async function main() {
   const stateAg = await harvestStateAg(existing, have, added);
   const stateVoting = await harvestStateVoting(existing, have, added);
   const news = await harvestNews(existing, have, added);
+  const staged = applyStageUpdates(existing);
+  if (staged.length) console.error(`stage updates: ${staged.join(", ")}`);
   const kept = existing.filter((r) => {
     if (looksLikeHeadline(r.name)) return false;
     return isKeepRow(r.name, r.crime || r.name, r.text || "");
