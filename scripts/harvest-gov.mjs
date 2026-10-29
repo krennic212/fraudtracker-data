@@ -898,6 +898,11 @@ export function ingest(existing, have, added, item, office) {
           }
         }
       }
+      // Same for a seed's own nationality wording (verbatim in the release, see buildRow): filled only when the row has none.
+      if (row.nationality && item.nationality && typeof item.nationality === "object" && item.nationality[row.name] === row.nationality) {
+        const prev = existing.find((e) => e && e.id === row.id && e.sourceUrl === row.sourceUrl);
+        if (prev && !prev.nationality) prev.nationality = row.nationality;
+      }
       continue;
     }
     if (alreadyListedVoter(existing, row)) continue;

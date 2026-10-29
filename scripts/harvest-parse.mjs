@@ -88,6 +88,15 @@ const PERSON_FROM_STATUS = new RegExp(
   "gu",
 );
 
+// OPA Oct 29, 2026 NC roundup (MDNC section, no age): "Phillip Alexander Carter, a native of Barbados and a lawful permanent
+// resident of the United States living in Winston-Salem, ..." / "Yamila Avalos, an Argentinian national and a lawful permanent
+// resident ..." / "Juan Florencio Ramos, a citizen of Cuba and lawful permanent resident ...". The permanent-resident words
+// must follow in the same sentence, so a quoted official ("said Acting Deputy Attorney General Trent McCotter") never matches.
+const PERSON_NATIVE_STATUS = new RegExp(
+  String.raw`(` + NAME_CORE + String.raw`),\s+(?:a|an)\s+(?:native of|citizen of|national of|\p{Lu}\p{L}+ national)\b[^.;!?]{0,80}?\band\s+(?:a\s+)?(?:lawful|legal) permanent resident\b`,
+  "gu",
+);
+
 // "Mercedes Alexandra Cardoso of Union County, New Jersey, was charged with voting by an alien" (OPA roundup, no age).
 const PERSON_OF_PLACE_CHARGED = new RegExp(
   String.raw`(` + NAME_CORE + String.raw`)\s+of\s+[A-Z][\p{L}.' -]{1,40},\s+[A-Z][\p{L}]+(?:\s[A-Z][\p{L}]+)?,\s+(?:was|has been|is)\s+(?:charged|indicted|arrested|sentenced|convicted)\b`,
@@ -412,6 +421,7 @@ export function allPeople(title, teaser = "") {
   PERSON_OF.lastIndex = 0;
   for (const m of text.matchAll(PERSON_OF)) pushName(out, seen, m[1]);
   for (const m of text.matchAll(PERSON_FROM_STATUS)) pushName(out, seen, m[1]);
+  for (const m of text.matchAll(PERSON_NATIVE_STATUS)) pushName(out, seen, m[1]);
   PERSON_ALIEN_LEAD.lastIndex = 0;
   for (const m of text.matchAll(PERSON_ALIEN_LEAD)) pushName(out, seen, m[1]);
   PERSON_CHARGED_G.lastIndex = 0;

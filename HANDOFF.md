@@ -1,5 +1,30 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-29 (3:00 PM CDT) OPA NC "Charges 18 More ... Illegally Voting": Carter via seed + parser fix; stage/nationality filled (Krennic approved 2:43 PM CT)
+
+- Source: OPA Oct 29, 2026 "Justice Department Charges 18 More in North Carolina with Illegally Voting in 2024 Election"
+  https://www.justice.gov/opa/pr/justice-department-charges-18-more-north-carolina-illegally-voting-2024-election (DOJ
+  press-release API; @TheJusticeDept X post 2115854639950119267). Copies: usao-ednc, usao-wdnc (same names; deduped).
+- Before: 17 of 18 on the ledger (12:11 PM CT run: 13 from the OPA body, EDNC 9 + WDNC 4; 4 MDNC via the Invasion Update
+  cross-post). Missing: Phillip Alexander Carter (MDNC). 13 rows had no stage; most had no nationality.
+- Why missed: the MDNC paragraphs have no age ("Phillip Alexander Carter, a native of Barbados and a lawful permanent
+  resident of the United States living in Winston-Salem, ..."), so no allPeople pattern matched; the other MDNC four came only
+  via the cross-post, and Carter was not on Invasion Update either.
+- Fix (scripts/harvest-parse.mjs): PERSON_NATIVE_STATUS "<Name>, a/an native of | citizen of | national of | <X> national ...
+  and (a) lawful|legal permanent resident" (same sentence). Quoted officials (McCotter, Boyle, Bishop, Ferguson, Davis, Zito)
+  never match; onlyQuotedSpeaker unchanged. Old vs new on the last 400 DOJ API releases + voting title searches: only the 3
+  NC copies differ (now 18 names each). Ingesting all 3 copies against the new feed adds nobody (alreadyListedVoter).
+- data/seed-releases.json: new voting seed for the OPA link (teaser = the release body, verbatim), 18 names, stage Charged,
+  voting true, nationality = the release's words per person (e.g. "a native of Italy, citizen of the United Kingdom, and
+  lawful permanent resident of the United States"); places: Carter "Winston-Salem, NC" (the release: "living in
+  Winston-Salem, North Carolina"; same as his 4 MDNC co-defendants' rows). Rows written with harvestSeed (hourly path).
+- ingest (scripts/harvest-gov.mjs): like stage, a seed's own nationality wording is filled on an existing row of the same
+  release only when that row has none; never replaced (Agah keeps "a Nigerian national").
+- Result: Carter added (Charged, voting, origin "Voting / elections", no photo). Stage Charged filled on 13 rows (never
+  upgraded; the 4 MDNC rows already said Charged). Nationality filled on 14 rows. Rows 507 -> 508.
+- Tests: scripts/harvest-nc-roundup.test.mjs (real text in scripts/fixtures/opa-2026-10-29-nc-18-illegal-voting.json; also
+  wdnc copy fixture), added to npm test and the workflow Tests step. npm test 159/159.
+
 ## 2026-10-28 (11:35 PM CDT) Eduardo Gallardo Maldonado: Charged -> Pleaded guilty (Krennic approved 11:27 PM CDT)
 
 - Row harvest-https-www-justice-gov-usao-edpa-pr-four-aliens-c-60d1d58f3e (Sep 24 "Four Aliens Charged With Election Fraud")
