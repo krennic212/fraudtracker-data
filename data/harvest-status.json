@@ -1,22 +1,12 @@
 {
-  "checkedAt": 1793293960919,
+  "checkedAt": 1793302437343,
   "added": [
-    "Selvin Porfidio Gonzalez Escobar",
-    "Amerigo Di Nolfi",
-    "Elizabeth Margaret Crudup",
-    "Gregory Eugene Wade",
-    "Jacqueline Yvonne Papandreou Brown",
-    "Karl Anthony Wilkins",
-    "Patricia Elena Valencia Cardona",
-    "Richard John Reid",
-    "Taso Gretes",
-    "Michael Agah",
-    "Luis Alberto DeJesus",
-    "Serge Christian Dupont",
-    "Edread Ray Stanley",
-    "Operation No Doze Launches"
+    "Adrianus Marinus Van Der Staak",
+    "Saida Adali Hirachete Olivarez",
+    "Juan Florencio Ramos",
+    "Yamila Avalos"
   ],
   "enriched": [],
-  "scanned": 772,
+  "scanned": 776,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
