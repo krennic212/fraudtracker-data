@@ -1,5 +1,31 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-28 (11:00 PM CDT) usao-nv Yousif + Safi (illegal voting) via seed + parser fix; voter any-date dedupe (Krennic approved)
+
+- Source: usao-nv Oct 28, 2026 "Two Aliens From Sudan and Afghanistan Charged for Illegal Voting"
+  https://www.justice.gov/usao-nv/pr/two-aliens-sudan-and-afghanistan-charged-illegal-voting (DOJ press-release API).
+- data/seed-releases.json: new voting seed (verbatim teaser: dateline lead + both criminal-information sentences + "Yousif and
+  Safi are each charged with one count of voting by an alien." ...), names ["Moneir Elzobier Ali Yousif", "Khalida Safi"],
+  stage Charged, voting true, nationality = the release's words ("from Sudan and a lawful permanent resident" / "from
+  Afghanistan and a lawful permanent resident"). Rows written with harvestSeed (same path as the hourly job): election-fraud
+  (origin "Voting / elections"), Charged, one schemeId for the release (...-9ac5164957), pin Las Vegas, NV (district seat; the
+  release names only "a federal election in Nevada"), no photo. Rows 486 -> 487 (see the Gallardo item below).
+- Why missed: the DOJ API pass read the release (teaser names nobody, so dojItem read the body head) but allPeople had no
+  pattern for "<Name>, from <Country> and a lawful permanent resident, voted ..." (no age, no "of", no charge verb by the name).
+  Fix (scripts/harvest-parse.mjs): PERSON_FROM_STATUS "<Name>, from <Country> and a/an lawful|legal permanent resident |
+  illegal alien | alien | non-citizen". Quoted officials (Chattah, Erin Burke, Delzotto) are not matched; onlyQuotedSpeaker
+  unchanged. Old vs new on the last 400 DOJ API releases + 54 "illegal voting" titles: only this release differs.
+- Also found: the 01:44Z scheduled run (40802239455) FAILED at Tests ("duplicate voter Eduardo Gallardo Maldonado"). The 22:18Z
+  run had added a second voter row for him from the EDPA Oct 28 plea release ("Alien Pleads Guilty to Illegally Voting in 2024
+  General Election", id ...-aa7c4752f0), because alreadyListedVoter only looked 14 days back (his charged row is Sep 24). Every
+  later ledger run would fail the same way. Removed that duplicate row; his Sep 24 row (Charged, ...-60d1d58f3e) is unchanged.
+  Fix (scripts/harvest-gov.mjs alreadyListedVoter): the exact same name already listed as a voter (any date, other release) is
+  not added again (suffix / short-form rules keep their 14-day window). NOTE for Krennic: the EDPA release says he pleaded
+  guilty on Oct 28 (sentencing Feb 9); his row still says Charged. Change the stage only if Krennic says so.
+- Tests: scripts/harvest-voting-from-status.test.mjs (real release text in scripts/fixtures/usao-nv-2026-10-28-two-aliens-
+  illegal-voting.json; negatives; a defendant sharing a quoted official's surname; seed + feed rows; any-date voter dedupe),
+  added to npm test and the workflow Tests step. npm test 150/150.
+
 ## 2026-10-28 (1:15 PM CDT) usao-ndga $100M stolen-identity tax row: Altemus -> Akinade Adedeji Raheem (Krennic approved)
 
 - Row was named "Christopher J. Altemus Jr." (IRS-CI Special Agent in Charge quoted in the release). Now name / scheme =

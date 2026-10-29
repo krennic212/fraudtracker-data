@@ -5,6 +5,6 @@
   "description": "Public data feed for the Fraud Ledger (official-source harvest).",
   "scripts": {
     "harvest": "LEDGER_HARVEST_FILE=data/harvest.json LEDGER_STATUS_FILE=data/harvest-status.json node scripts/harvest-gov.mjs && node scripts/ledger-dedupe.mjs data/harvest.json && node scripts/ledger-id.mjs data/harvest.json",
-    "test": "node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs scripts/harvest-meta.test.mjs"
+    "test": "node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs scripts/harvest-meta.test.mjs scripts/harvest-voting-from-status.test.mjs"
   }
 }

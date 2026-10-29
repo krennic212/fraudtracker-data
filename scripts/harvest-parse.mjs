@@ -81,6 +81,13 @@ const PERSON_STATUS = new RegExp(
   "giu",
 );
 
+// "Moneir Elzobier Ali Yousif, from Sudan and a lawful permanent resident, voted in an election ..." (usao-nv Oct 28, 2026:
+// the name follows "According to the criminal information, on or about October 29, 2024,"; no age, no "of").
+const PERSON_FROM_STATUS = new RegExp(
+  String.raw`(` + NAME_CORE + String.raw`),\s+from\s+(?:the\s+)?\p{Lu}[\p{L}'’-]*(?:\s+\p{Lu}[\p{L}'’-]*){0,2}\s+and\s+(?:a|an)\s+(?:lawful permanent resident|legal permanent resident|illegal alien|alien|non-?citizen)\b`,
+  "gu",
+);
+
 // "Mercedes Alexandra Cardoso of Union County, New Jersey, was charged with voting by an alien" (OPA roundup, no age).
 const PERSON_OF_PLACE_CHARGED = new RegExp(
   String.raw`(` + NAME_CORE + String.raw`)\s+of\s+[A-Z][\p{L}.' -]{1,40},\s+[A-Z][\p{L}]+(?:\s[A-Z][\p{L}]+)?,\s+(?:was|has been|is)\s+(?:charged|indicted|arrested|sentenced|convicted)\b`,
@@ -404,6 +411,7 @@ export function allPeople(title, teaser = "") {
   for (const m of text.matchAll(PERSON_STATUS)) pushName(out, seen, m[1]);
   PERSON_OF.lastIndex = 0;
   for (const m of text.matchAll(PERSON_OF)) pushName(out, seen, m[1]);
+  for (const m of text.matchAll(PERSON_FROM_STATUS)) pushName(out, seen, m[1]);
   PERSON_ALIEN_LEAD.lastIndex = 0;
   for (const m of text.matchAll(PERSON_ALIEN_LEAD)) pushName(out, seen, m[1]);
   PERSON_CHARGED_G.lastIndex = 0;

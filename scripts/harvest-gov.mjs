@@ -837,6 +837,9 @@ export function alreadyListedVoter(existing, row) {
   const t = Date.parse(row.when);
   return existing.some((e) => {
     if (!e?.voting || e.sourceUrl === row.sourceUrl) return false;
+    // The exact same name is already a voter (any date): a later release of the same case (the Oct 28, 2026 EDPA plea
+    // release for Eduardo Gallardo Maldonado, charged Sep 24) is not a second voter row ("no person is listed twice").
+    if (tok.length >= 2 && nameKey(e.name) === tok.join(" ")) return true;
     const et = Date.parse(e.when);
     if (Number.isFinite(t) && Number.isFinite(et) && Math.abs(t - et) > 14 * 86400000) return false;
     const etok = nameKey(e.name).split(" ").filter(Boolean);

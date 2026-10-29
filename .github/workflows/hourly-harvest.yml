@@ -34,7 +34,7 @@ jobs:
       - name: Re-stamp harvest-meta.json if stale
         run: node scripts/write-meta.mjs
       - name: Tests
-        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs scripts/harvest-meta.test.mjs
+        run: node --test scripts/ledger-dedupe.test.mjs scripts/harvest-parse.test.mjs scripts/ledger-id.test.mjs scripts/harvest-sources.test.mjs scripts/harvest-opa-roundup.test.mjs scripts/harvest-exclude.test.mjs scripts/harvest-gaps.test.mjs scripts/harvest-private-victim.test.mjs scripts/harvest-fixes-1020b.test.mjs scripts/harvest-voting-crosspost.test.mjs scripts/harvest-roundup-all.test.mjs scripts/harvest-state-sources.test.mjs scripts/harvest-meta.test.mjs scripts/harvest-voting-from-status.test.mjs
       - name: Harvest official papers
         run: node scripts/harvest-gov.mjs
       - name: Cut duplicates, blank photos

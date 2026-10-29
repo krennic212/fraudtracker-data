@@ -2271,6 +2271,22 @@
       "names": [
         "Akinade Adedeji Raheem"
       ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-nv/pr/two-aliens-sudan-and-afghanistan-charged-illegal-voting",
+      "title": "Two Aliens From Sudan and Afghanistan Charged for Illegal Voting",
+      "date": "2026-10-28",
+      "teaser": "LAS VEGAS – Today, two aliens, one from Sudan and one from Afghanistan, have been charged for illegally voting in a federal election in Nevada. According to the criminal information, on or about October 29, 2024, Moneir Elzobier Ali Yousif, from Sudan and a lawful permanent resident, voted in an election held in part for the purpose of electing a candidate for the office of President, Vice President, Member of the Senate, and Member of the House of Representatives. In a separate criminal information, on or about November 5, 2024, Khalida Safi, from Afghanistan and a lawful permanent resident, voted in an election held in part for the purpose of electing a candidate for the office of President, Vice President, Member of the Senate, and Member of the House of Representatives. Yousif and Safi are each charged with one count of voting by an alien. The maximum statutory penalty is one year of imprisonment, a fine of up to $100,000, or both. An initial appearance date has not yet been scheduled.",
+      "stage": "Charged",
+      "names": [
+        "Moneir Elzobier Ali Yousif",
+        "Khalida Safi"
+      ],
+      "voting": true,
+      "nationality": {
+        "Moneir Elzobier Ali Yousif": "from Sudan and a lawful permanent resident",
+        "Khalida Safi": "from Afghanistan and a lawful permanent resident"
+      }
     }
   ]
 }
