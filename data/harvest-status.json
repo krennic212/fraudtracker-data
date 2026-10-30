@@ -1,29 +1,15 @@
 {
-  "checkedAt": 1793387746856,
+  "checkedAt": 1793398772030,
   "added": [
-    "Christopher Doucet",
-    "Charges Shaakir Mohamud Ibrahim",
-    "Emily Marice Ravits",
-    "Feisal Mohamed Elmi",
-    "Habiba Mohamed",
-    "Faiza Osman Ahmed",
-    "Jama Yusuf Mohamod",
-    "Ahmed Abdul Razaq Al Obaidi",
-    "Convictions Muna Wais Fidhin",
-    "Nicole Lee Slegers",
-    "Shaun Hubert Slegers",
-    "Sentences Salim Ahmed Said",
-    "Salim Said SaidFarah",
-    "Aimee Bock",
-    "Jamie Nevid Wallace",
-    "Al Amin",
-    "Denise Baez",
-    "Vincent Bruce",
-    "Mariela Elizabeth Avila Ortiz",
-    "Allison Melissa Wilkes",
-    "Kalder Inc."
+    "Mariela Delia Mendoza",
+    "Syed Murtuza Kablazada",
+    "Erpawi Roque Collado",
+    "Robert Heckstall",
+    "Deborah Oldis",
+    "Mark Adwar Odisho",
+    "Frederic Jean Rene Sicard"
   ],
   "enriched": [],
-  "scanned": 766,
+  "scanned": 781,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
