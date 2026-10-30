@@ -12927,5 +12927,31 @@
     "presence": "not_stated",
     "scheme": "Adrian Smith",
     "schemeId": "harvest-https-www-justice-gov-usao-wdmo-pr-11-kansas-cit-6b340ada70"
+  },
+  {
+    "name": "ANNETTE JOHNSON",
+    "city": "Aurora, IL",
+    "crime": "Federal Indictment Charges Former President of Suburban Chicago School District Board of Education With Engaging in $1.3 Million Honest Services Fraud Scheme",
+    "usa": "Federal Indictment Charges Former President of Suburban Chicago School District Board of Education With Engaging in $1.3 Million Honest Services Fraud Scheme",
+    "foreign": "Not stated in post",
+    "picked": "10/29/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ndil-pr-federal-indic-bd67eb9c75",
+    "when": "2026-10-29",
+    "text": "Federal Indictment Charges Former President of Suburban Chicago School District Board of Education With Engaging in $1.3 Million Honest Services Fraud Scheme. The former President of the East Aurora, Ill. School District 131 Board of Education directed $1.3 million to a company for which she was the Chief Financial Officer as a kickback or bribe in exchange for taking acts in her capacity as President to approve the purchase of air purifiers from a school district vendor, according to an indictment returned Tuesday in federal court in Chicago. The indictment accuses ANNETTE JOHNSON of steering District 131 to purchase air purifiers from the vendor for approximately $2.7 million in 2021 and voting in favor of the purchase. District 131 paid for the air purifiers using Covid-era federal grant funds, the indictment states. Unbeknownst to the other District 131 board members, Johnson and the vendor had agreed that the vendor would pay a company owne Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ndil/pr/federal-indictment-charges-former-president-suburban-chicago-school-district-board",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 41.7606,
+    "lon": -88.3201,
+    "presence": "not_stated",
+    "scheme": "ANNETTE JOHNSON",
+    "schemeId": "harvest-https-www-justice-gov-usao-ndil-pr-federal-indic-6e6603021c",
+    "usdAlleged": 1300000,
+    "stage": "Charged"
   }
 ]

@@ -1,5 +1,20 @@
 # HANDOFF: fraudtracker-data
 
+
+## 2026-10-29 (9:35 PM CDT) ANNETTE JOHNSON (NDIL Oct 29, Charged) via seed; KEEP + "Covid-era federal grant funds" (Krennic asked 6:10 PM + 9:26 PM CT)
+
+- Source: usao-ndil Oct 29, 2026 "Federal Indictment Charges Former President of Suburban Chicago School District Board of
+  Education With Engaging in $1.3 Million Honest Services Fraud Scheme" (DOJ API uuid 4bd8ee14-...). Seed: names
+  ["ANNETTE JOHNSON"] (as printed), stage Charged, place Aurora, IL ("Johnson, 63, of Aurora, Ill."), usdAlleged 1300000,
+  teaser = release text through the Sentencing Guidelines sentence (attachment name dropped). No nationality, no photo.
+- Why it needed a rule: keepBlob() rejected it (no program term; "Covid-era" is not "covid-19"). KEEP gains only
+  "covid[- ]era federal (grant|relief) funds" (the release: "District 131 paid for the air purifiers using Covid-era federal
+  grant funds"). Old vs new keepBlob on the last 250 DOJ API releases: only this release differs. No guard changed.
+- Row harvest-https-www-justice-gov-usao-ndil-pr-federal-indic-bd67eb9c75, own schemeId (...-6e6603021c, 1 row). 521 -> 522.
+- Test: scripts/harvest-ndil-johnson.test.mjs (fixture ndil-2026-10-29-annette-johnson.json). npm test 161/161.
+- Not added (B, ICE @ICEgov 2115946443202543963 -> Daily Caller only): no official page lists the 17; the ones named on
+  official pages are already here (Sanon, Edzie, Dewey, Lise Marie Johnson) or excluded by Krennic (Higgs, Oct 26).
+
 ## 2026-10-29 (3:00 PM CDT) OPA NC "Charges 18 More ... Illegally Voting": Carter via seed + parser fix; stage/nationality filled (Krennic approved 2:43 PM CT)
 
 - Source: OPA Oct 29, 2026 "Justice Department Charges 18 More in North Carolina with Illegally Voting in 2024 Election"
