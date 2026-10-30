@@ -1,21 +1,18 @@
 {
-  "checkedAt": 1793312152751,
+  "checkedAt": 1793380877353,
   "added": [
-    "Washoe County",
-    "JAMES PERDIGAO",
-    "Antonio Mitchell",
-    "Ahmed Maqbul Syed",
-    "Kimblery Elamina Wu",
-    "Liannys Yaiselys Vega-Perez",
-    "Miguel Martinez Vasconcelos",
-    "Layra Libertad Treto Santos",
-    "Luis Emmanuel Escalona-Marrero",
-    "Walbis Pozo-Dutel",
-    "Emanuel Martinez Gonzalez",
-    "Victoria Townsend",
-    "Adrian Smith"
+    "JEWELL JACKSON",
+    "Luis Rodolfo Valero Aldana",
+    "Ana Virginia Lopez Macias",
+    "Jeffrey Skinner",
+    "Daniel Keith McDougal",
+    "Peter Holly",
+    "Mohammed Omar Hassan",
+    "Diego Benavides Rodriguez",
+    "Jose Vazquez-Mendoza",
+    "Karen Hinojosa-Martinez"
   ],
   "enriched": [],
-  "scanned": 790,
+  "scanned": 794,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
