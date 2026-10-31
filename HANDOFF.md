@@ -1,5 +1,26 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-31 (1:05 PM CDT) three filter fixes (Krennic approved 12:52 PM CDT)
+
+- Checked first: data/harvest.json was intact (567 rows). No new "Fargo Levy" commit.
+- Commit 403607e, scripts/harvest-gov.mjs:
+  1. KEEP: `federal student (?:financial )?aid|\bfafsa\b|\bfsa (?:program )?funds|student[- ]aid fraud|\bpell grants?\b`.
+  2. titleNationalStated(title) (new, exported). A capital-N "<Demonym> National(s)" in the TITLE states the status
+     ("Jamaican National Extradited ..."). The word must be demonym-shaped (-an/-ian/-ese/-ish/-i/-ic/-ch/-ss, or Greek /
+     Thai / Lao / Filipino / Kyrgyz). It is not American or Native, and is not followed by Guard / Bank / Park / Security /
+     Center ...; titles with U.S.-citizen, naturalized or dual wording fail. Used in privateVictimNonCitizen(), and in
+     ingest() only when the release gives a single row (a two-defendant title cannot say which one is the national).
+  3. PRIVATE_FRAUD: `\bbank theft\b|\bjackpott(?:ing|ed|ers?)\b` (still needs stated non-citizen status; DROP and the
+     smuggling / drug exclusions still apply).
+- Test: scripts/harvest-rules-1031.test.mjs (fixtures opa-2026-10-29-ghostbusters, mdpa-2026-10-30-campbell-jamaican-
+  national, edmo-2026-10-29-atm-jackpotter), in npm test and the workflow Tests step. npm test 167/167.
+- Dry run (old vs new harvest-gov.mjs, every seed + the last 400 DOJ API releases, Oct 22-31, against the live 567 rows):
+  0 rows added, 0 changed, 0 removed. Only one release-level decision flips: EDMO "ATM Jackpotter from Venezuela" (now
+  passes privateVictimNonCitizen; its row already exists). The NJ Ghostbusters, Campbell and Nieves-Carrillo seeds now
+  pass ingest. Each one maps onto the row added by hand earlier (same id), so nothing doubles.
+- Village Capital and Higgs exclusions unchanged (harvest-exclude tests pass; neither is in the feed). Workflow run
+  41227112168 OK; Pages feed 567 rows.
+
 ## 2026-10-31 (12:55 PM CDT) missed-cases check: Ghostbusters, Campbell, Nieves-Carrillo; Cuban ring stage; harvest.json restored (Krennic approved)
 
 - RESTORED data/harvest.json: commits f19532e / e0953c9 / 19d8b17 (author "Fargo Levy", Oct 31 12:17-12:18 PM CDT, messages
