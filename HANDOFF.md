@@ -1,5 +1,39 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-10-31 (12:55 PM CDT) missed-cases check: Ghostbusters, Campbell, Nieves-Carrillo; Cuban ring stage; harvest.json restored (Krennic approved)
+
+- RESTORED data/harvest.json: commits f19532e / e0953c9 / 19d8b17 (author "Fargo Levy", Oct 31 12:17-12:18 PM CDT, messages
+  claim "add Ghostbusters + Mailyan Botox") replaced the file with the text "restore from previous" (0 rows). The live feed
+  was still fine (last deploy 12:13 PM CDT). Restored byte-for-byte from 1d606c3 (561 rows) in 020396f. No Mailyan row added.
+- Added (020396f; DOJ press-release API read, wording verbatim, no photos, no nationality invented):
+  - OPA Oct 29 "Justice Department Unveils Indictments in Nationwide 'Ghost Student' Fraud Scam Linked to Kenyan Network",
+    two seeds on the same link, one per scheme (schemeKey): Francis Mogambi (D. Neb., Charged, nationality "a Kenyan
+    citizen", usdAlleged 20000 = "$20,000 intended loss", seat usao-ne -> Omaha); Mabed Patricia Utate-Alberto, Patricia
+    Arisleydi Perez, George Arturo Alfau Mendez (D.N.J. complaint, Charged, no nationality stated, usdAlleged 1500000 =
+    "$1.5 million intended loss", seat usao-nj -> Newark).
+  - usao-mdpa Oct 30 "Jamaican National Extradited ...": Ashanie M. Campbell, Charged, nationality "Jamaican National" (title).
+    Co-defendant Jeremie L. Cotton (of Las Vegas) not listed.
+  - usao-edmo Oct 29 "ATM Jackpotter from Venezuela Pleads Guilty in St. Louis": Aaron Nieves-Carrillo, Pleaded guilty,
+    nationality "illegal alien from Venezuela".
+  - Seeds for all of them are in data/seed-releases.json. Only the Mogambi seed passes ingest() today. The NJ, Campbell
+    and Nieves-Carrillo seeds are dropped by the scope filter (see GAPS), so their 5 rows were built with the seed path's
+    own rowsFromItem() and appended to data/harvest.json. main() keeps existing named rows (isKeepRow), so they stay.
+  - MDFL Oct 29 Cuban smuggling / asylum fraud ring: all 6 were already rows (hourly DOJ pass, no stage). A seed on the MDFL
+    link fills stage "Sentenced" on those 6 rows. No new row. Note: the release says "Five Cuban nationals and one U.S.
+    citizen" without naming the citizen. Government-program (asylum) fraud qualifies either way.
+- Not added: Osmal Sanchez Loy (ICE Oct 2026 release). He already looks like row "Osmal Loy" (usao-mdpa Oct 23: 70, Fountain
+  Hill, "a citizen of Cuba and lawful permanent U.S. resident", charged Oct 23; ICE: arrested Oct 23 by HSI Allentown,
+  "never adjusted ... to become a lawful permanent resident"). Same name core, date and area. The two releases disagree on
+  LPR status. Not added again; no aka added.
+- GAPS (filter rules NOT changed; proposals for Krennic):
+  1. KEEP has no student-aid term. Ghostbusters only passes through "Theft of Government Money" in the Mogambi paragraph.
+     Proposed: add `federal student (?:financial )?aid|\bFAFSA\b|\bFSA (?:program )?funds|student[- ]aid fraud|Pell grants?`.
+  2. NONCITIZEN_CS needs a lowercase "national", so the title "Jamaican National Extradited" fails. Proposed: also match a
+     title-case `\b\p{Lu}\p{Ll}+ National(?:s)?\b` in the title only.
+  3. PRIVATE_FRAUD has no theft wording, so "bank theft" / ATM "jackpotting" fails. Proposed: add `bank theft|jackpott`.
+- Tests: npm test 161/161 (no rule changed, so no new test). Rows 561 -> 567, schemes 313. Workflow run 41226293557 OK;
+  Pages feed 567 rows.
+
 
 ## 2026-10-29 (9:35 PM CDT) ANNETTE JOHNSON (NDIL Oct 29, Charged) via seed; KEEP + "Covid-era federal grant funds" (Krennic asked 6:10 PM + 9:26 PM CT)
 
