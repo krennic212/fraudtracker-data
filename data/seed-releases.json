@@ -2360,6 +2360,78 @@
           "lon": -88.3201
         }
       }
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/justice-department-unveils-indictments-nationwide-ghost-student-fraud-scam-linked-kenyan",
+      "title": "Justice Department Unveils Indictments in Nationwide ‘Ghost Student’ Fraud Scam Linked to Kenyan Network",
+      "date": "2026-10-29",
+      "teaser": "District of Nebraska (Indictment) — 4:26CR3089 — $20,000 intended loss On Oct. 19, a federal Grand Jury in Nebraska returned a ten-count indictment against Francis Mogambi, a Kenyan citizen, charging him with five counts of Theft of Government Money and five counts of Aggravated Identity Theft. Mogambi faces 10 years in mandatory minimums based on his use of stolen U.S. citizen identities during and relation to his crimes. Mogambi was promptly arrested, and thereafter detained pending trial by the court based on his risk of non-appearance and the threat he posed to the public. According to the indictment, between Nov. 2025 and May 2026, Mogambi fraudulently obtained federal student financial aid using stolen identities. Mogambi worked with associates in Kenya to steal identities of United States citizens, use those identities to fraudulently enroll American victims in educational institutions, and redirect federal financial aid checks to himself, keeping 30% of the fraud proceeds and sending the rest to his conspirators in Kenya. Court documents also reflect that Mogambi attempted to recruit an individual into his scheme and openly shared the details of this brazen conspiracy to steal money from the American people, sharing that he received $2,000 a week and that he needed a business so that he could cash larger checks and not pay taxes. Mogambi arrived in the United States on May 15, 2024. He won the “Diversity Visa” lottery and was issued a DV1 visa. He was issued a Permanent Resident Card shortly after. This case is prosecuted by Assistant U.S. Attorney/District Fraud Counsel Daniel Packard for the District of Nebraska.",
+      "stage": "Charged",
+      "names": [
+        "Francis Mogambi"
+      ],
+      "seat": "usao-ne",
+      "schemeKey": "nebraska-mogambi",
+      "usdAlleged": 20000,
+      "nationality": {
+        "Francis Mogambi": "a Kenyan citizen"
+      }
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/justice-department-unveils-indictments-nationwide-ghost-student-fraud-scam-linked-kenyan",
+      "title": "Justice Department Unveils Indictments in Nationwide ‘Ghost Student’ Fraud Scam Linked to Kenyan Network",
+      "date": "2026-10-29",
+      "teaser": "District of New Jersey (Criminal Complaint) — 26-16210 (JRA) — $1.5 million intended loss Beginning in or about March 2021 and continuing through at least January 2026, Mabed Patricia Utate-Alberto, also known as, “Mabed Alberto Utate,” Patricia Arisleydi Perez, and George Arturo Alfau Mendez, also known as, “George Alfau” conspired with persons located in Kenya to defraud the Department of Education to obtain more than $1 million in FSA funds. Utate, Perez, and Mendez were witting money mules located in the U.S. that used U.S. bank accounts to receive FSA program funds obtained through false and fraudulent FAFSA applications using stolen American identities. After Utate, Perez, and Mendez received the money, they transferred — after taking their cut — the funds overseas to co-conspirators in Kenya associated with a purported Kenyan safari company. All three defendants have been arrested pursuant to a criminal complaint. Two co-conspirators are located in Kenya and are associated with a safari company. The government will seek to charge these co-conspirators as this case continues. This case is being prosecuted by Assistant U.S. Attorney Francesca Liquori for the District of New Jersey.",
+      "stage": "Charged",
+      "names": [
+        "Mabed Patricia Utate-Alberto",
+        "Patricia Arisleydi Perez",
+        "George Arturo Alfau Mendez"
+      ],
+      "seat": "usao-nj",
+      "schemeKey": "new-jersey-money-mules",
+      "usdAlleged": 1500000
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdpa/pr/jamaican-national-extradited-united-states-fraud-and-money-laundering-charges",
+      "title": "Jamaican National Extradited to United States on Fraud and Money Laundering Charges",
+      "date": "2026-10-30",
+      "teaser": "HARRISBURG - The United States Attorney’s Office for the Middle District of Pennsylvania announced that Ashanie M. Campbell, 29, of Panama City, Panama and Jamaica, and Jeremie L. Cotton, 38, of Las Vegas, Nevada, were both charged with conspiracy to commit wire fraud and mail fraud and conspiracy to launder monetary instruments. In addition, Campbell faces additional charges of mail fraud, wire fraud, and interstate transportation of property taken by fraud. According to United States Attorney Brian D. Miller, Campbell was extradited from Panama to the United States this week. Cotton previously appeared to face these charges following his arrest in December 2025. The 29-count indictment charges Campbell and Cotton with participating in a “lottery scam,” in which fraudsters pretended to reach out to people in the United States on behalf of Publishers Clearing House. The indictment alleges that Campbell, who resided in Jamaica in 2020 and traveled to Panama around May 2021, had access to and used a Google account with the address PCH8501@gmail.com in connection with this scheme. The indictment also alleges that five specific victims, including one who, in 2020, was approximately 75 years old and was a resident of Mechanicsburg, Pennsylvania, in the Middle District of Pennsylvania, were contacted by phone and email and told they had won large cash prizes from Publishers Clearing House.",
+      "stage": "Charged",
+      "names": [
+        "Ashanie M. Campbell"
+      ],
+      "nationality": {
+        "Ashanie M. Campbell": "Jamaican National"
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-edmo/pr/atm-jackpotter-venezuela-pleads-guilty-st-louis",
+      "title": "ATM Jackpotter from Venezuela Pleads Guilty in St. Louis",
+      "date": "2026-10-29",
+      "teaser": "ST. LOUIS – An illegal alien from Venezuela on Thursday admitted stealing thousands of dollars by jackpotting two ATMs in Missouri. Aaron Nieves-Carrillo, 21, pleaded guilty in U.S. District Court in St. Louis to one count of conspiracy and one count of bank theft. He admitted being part of a group of Venezuelans involved in the same activity across the U.S. Nieves-Carrillo and others installed hardware and/or software into ATMs and then manipulated the ATMs to dispense cash, Nieves-Carrillo’s plea agreement says. Nieves-Carrillo admitted stealing $11,000 from an ATM in Festus, Missouri on Feb. 27, 2025, and $2,800 from an ATM in Kirkwood the next day. Nieves-Carrillo’s sentencing is set for Feb. 4, 2027. The conspiracy charge is punishable by up to five years in prison and the bank theft charge is punishable by up to 10 years. Both charges carry a fine of up to $250,000. He also faces deportation.",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Aaron Nieves-Carrillo"
+      ],
+      "nationality": {
+        "Aaron Nieves-Carrillo": "illegal alien from Venezuela"
+      }
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdfl/pr/cuban-nationals-and-florida-man-sentenced-their-roles-international-alien-smuggling",
+      "title": "Cuban Nationals and Florida Man Sentenced for Their Roles in an International Alien Smuggling, Asylum Fraud, and Money Laundering Conspiracy",
+      "date": "2026-10-29",
+      "teaser": "Five Cuban nationals and one U.S. citizen were sentenced today for their roles in a vast conspiracy involving alien smuggling, asylum fraud, and money laundering. Liannys Yaiselys Vega-Perez was sentenced to four years in prison. Vega-Perez previously pleaded guilty to conspiracy to smuggle aliens for financial gain, conspiracy to commit asylum fraud, conspiracy to commit international money laundering, and conspiracy to commit concealment money laundering. Miguel Martinez Vasconcelos was sentenced to two years in prison. Martinez Vasconcelos previously pleaded guilty to conspiracy to smuggle aliens for financial gain and conspiracy to commit international money laundering. Layra Libertad Treto Santos was sentenced to 30 months in prison. Treto Santos previously pleaded guilty to conspiracy to smuggle aliens for financial gain, conspiracy to commit asylum fraud, and conspiracy to commit concealment money laundering. Luis Emmanuel Escalona-Marrero was sentenced to two years in prison. Escalona-Marrero previously pleaded guilty to conspiracy to smuggle aliens for financial gain and conspiracy to commit concealment money laundering. Walbis Pozo-Dutel was sentenced to two years in prison. Pozo-Dutel previously pleaded guilty to conspiracy to smuggle aliens for financial gain. Emanuel Martinez Gonzalez was sentenced to two years in prison. Martinez Gonzalez previously pleaded guilty to conspiracy to smuggle aliens for financial gain.",
+      "stage": "Sentenced",
+      "names": [
+        "Liannys Yaiselys Vega-Perez",
+        "Miguel Martinez Vasconcelos",
+        "Layra Libertad Treto Santos",
+        "Luis Emmanuel Escalona-Marrero",
+        "Walbis Pozo-Dutel",
+        "Emanuel Martinez Gonzalez"
+      ]
     }
   ]
 }
