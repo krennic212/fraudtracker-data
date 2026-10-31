@@ -71,7 +71,7 @@ const NEWS_OFFICE = [
 ];
 
 const KEEP =
-  /covid[- ]era federal (?:grant|relief) funds|medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)|pandemic relief|pandemic(?:[- ]era)?(?: and \w+)? (?:relief |loan |benefits? )?fraud|covid.?19 relief|employee retention credits?|\bercs?\b|sick and family leave credits?|tax shelter|theft of (?:government|public) (?:money|funds|property|benefits)|false claims act|fraud against taxpayers act|overbill\w*.{0,60}(?:postal service|usps|government|federal|army|navy|air force|military|agency|program)|(?:postal service|usps|government|federal) .{0,40}overbill|sham marriage|immigration (?:document )?fraud|fraud and misuse of visas/i;
+  /covid[- ]era federal (?:grant|relief) funds|federal student (?:financial )?aid|\bfafsa\b|\bfsa (?:program )?funds|student[- ]aid fraud|\bpell grants?\b|medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)|pandemic relief|pandemic(?:[- ]era)?(?: and \w+)? (?:relief |loan |benefits? )?fraud|covid.?19 relief|employee retention credits?|\bercs?\b|sick and family leave credits?|tax shelter|theft of (?:government|public) (?:money|funds|property|benefits)|false claims act|fraud against taxpayers act|overbill\w*.{0,60}(?:postal service|usps|government|federal|army|navy|air force|military|agency|program)|(?:postal service|usps|government|federal) .{0,40}overbill|sham marriage|immigration (?:document )?fraud|fraud and misuse of visas/i;
 
 // 2026-10-20: "wire fraud | bank fraud | mail fraud" were removed from KEEP. On their own they put
 // private-victim schemes (investors, banks, elderly victims) on the ledger whenever the district had a
@@ -765,7 +765,7 @@ export function keepBlob(title, teaser) {
  * is a non-citizen. Government-program fraud (KEEP above) is unchanged. These run only when keepBlob() is false.
  */
 const PRIVATE_FRAUD =
-  /\b(?:wire|bank|mail|securities|investment|commodities|access device|credit card|check|insurance|sleight-of-hand|romance|lottery|sweepstakes|elder|grandparent|tech[- ]support|gift[- ]card|business email|bust-out) (?:fraud|scams?|compromise)|\bdefraud(?:ed|ing|s)?\b|\bscam(?:s|med|mer|mers)?\b|\bswindl|\bembezzl|identity theft|\bponzi\b|fraud(?:ulent)? (?:scheme|conspiracy)/i;
+  /\bbank theft\b|\bjackpott(?:ing|ed|ers?)\b|\b(?:wire|bank|mail|securities|investment|commodities|access device|credit card|check|insurance|sleight-of-hand|romance|lottery|sweepstakes|elder|grandparent|tech[- ]support|gift[- ]card|business email|bust-out) (?:fraud|scams?|compromise)|\bdefraud(?:ed|ing|s)?\b|\bscam(?:s|med|mer|mers)?\b|\bswindl|\bembezzl|identity theft|\bponzi\b|fraud(?:ulent)? (?:scheme|conspiracy)/i;
 // Not private-victim fraud even with non-citizen wording: smuggling, drugs, sanctions/export, immigration-case
 // roundups and document cases belong to other trackers.
 const PRIVATE_NOT =
@@ -779,6 +779,16 @@ const NONCITIZEN_CS =
   /\b(?:is|was|are|were|a|an|as|and|both)\s+(?:a\s+)?citizens? of (?!the United States|the U\.S\.)(?:the )?\p{Lu}|\bnationals? of (?!the United States|the U\.S\.)(?:the )?\p{Lu}|\b(?!American\b|U\.S\b)\p{Lu}[\p{Ll}]+(?:[- ]\p{Lu}[\p{Ll}]+)? nationals?\b/u;
 const CITIZEN_TOO = /\bdual (?:U\.S\. )?(?:national|citizen)|\bnaturali[sz]ed\b|\bU\.S\. citizen\b|\bUnited States citizen\b|\bnational of the United States\b/i;
 const US_STATES_RE = /citizens? of (?:the )?(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New \w+|North \w+|South \w+|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming|Puerto Rico|Guam|this|our|[A-Z][a-z]+ County|[A-Z][a-z]+ City)\b/g;
+
+// Krennic 2026-10-31: a release TITLE that says "<Demonym> National(s)" with a capital N ("Jamaican National Extradited
+// ...") states the status. Title only, single-defendant rows only (ingest), demonym-shaped word only, so "Air National
+// Guard", "First National Bank" or "National Fraud Enforcement Division" never count; U.S.-citizen wording in the title wins.
+const TITLE_NATIONAL =
+  /(?<![\p{L}])(?!American\b|Native\b)(?:\p{Lu}\p{Ll}*(?:an|ian|ese|ish|i|ic|ch|ss)|Greek|Thai|Lao|Filipino|Kyrgyz)(?:[- ]\p{Lu}\p{Ll}+)? Nationals?\b(?! (?:Guard|Bank|Park|Forest|Security|Lab|Laboratory|Institutes?|Cent(?:er|re)|Association|Committee|Airport|Cemetery|Monument|League|Team)\b)/u;
+export function titleNationalStated(title) {
+  const t = String(title || "");
+  return TITLE_NATIONAL.test(t) && !CITIZEN_TOO.test(t) && !/\bdual\b/i.test(t);
+}
 
 function sentencesOf(text) {
   return String(text || "").replace(US_STATES_RE, " ").split(/(?<=[.!?])\s+(?=[“"(]?[A-Z0-9])/);
@@ -811,7 +821,7 @@ export function privateVictimNonCitizen(title, text) {
   // Illegal reentry is not a reason to drop here: it is itself the release stating non-citizen status.
   if (DROP.test(blob.replace(/illegal(?:ly)? re-?entry/gi, " "))) return false;
   if (PRIVATE_NOT.test(title) || /smuggl|drug trafficking|narcotic|cartel|sanctions/i.test(blob)) return false;
-  return PRIVATE_FRAUD.test(blob) && nonCitizenInRelease(blob);
+  return PRIVATE_FRAUD.test(blob) && (nonCitizenInRelease(blob) || titleNationalStated(title));
 }
 
 function rewriteExisting(r) {
@@ -882,7 +892,7 @@ export function ingest(existing, have, added, item, office) {
   const fullText = `${item.title}. ${item.fullText || item.teaser || ""}`;
   if (!program && !privateVictimNonCitizen(item.title, item.fullText || item.teaser || "")) return;
   let rows = rowsFromItem(item, office);
-  if (!program) rows = rows.filter((r) => nonCitizenStatedFor(r.name, fullText, rows.length === 1));
+  if (!program) rows = rows.filter((r) => nonCitizenStatedFor(r.name, fullText, rows.length === 1) || (rows.length === 1 && titleNationalStated(item.title)));
   for (const row of rows) {
     if (isExcluded(row)) continue;
     const key = `${row.sourceUrl}|${row.id}`;
