@@ -13871,5 +13871,29 @@
     "scheme": "Frederic Jean Rene Sicard",
     "schemeId": "harvest-https-www-justice-gov-usao-edtn-pr-two-aliens-ch-7b4e25aad8",
     "nationality": "a French national"
+  },
+  {
+    "name": "Salim Said Said Farah",
+    "city": "Phoenix, AZ",
+    "crime": "DOJ’s Fraud Division and the United States Attorney’s Office for the District Minnesota Uncover Nearly $30 Million in Benefits Fraud in Enforcement Surge",
+    "usa": "DOJ’s Fraud Division and the United States Attorney’s Office for the District Minnesota Uncover Nearly $30 Million in Benefits Fraud in Enforcement Surge",
+    "foreign": "Not stated in post",
+    "picked": "10/30/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-mn-pr-dojs-fraud-divi-2c1d0afe4f",
+    "when": "2026-10-30",
+    "text": "DOJ’s Fraud Division and the United States Attorney’s Office for the District Minnesota Uncover Nearly $30 Million in Benefits Fraud in Enforcement Surge. As posted for this defendant: Salim Said Said Farah , 44, of Minneapolis, Minnesota, was sentenced to 78 months and a $40,000 fine in prison on Oct. 30, for bribery of a juror. Beginning in April 2024, Farah and several co-defendants were on trial in the United States District Court for the MINNEAPOLIS – The Justice Department’s National Fraud Enforcement Division (Fraud Division), and the U.S. Attorney’s Office for the District of Minnesota announced a series of enforcement actions targeting fraud involving taxpayer-funded Medicaid and SNAP programs. Between Sept. 30, and today, the Fraud Division and the District of Minnesota have charged, convicted, or sentenced 13 defendants whose alleged or proven schemes caused nearly $83 million in intended losses to the federal government, including approximately $29.1 million in fraud uncovered in the newly charged cases. This effort is a result of a partnership between prosecutors from DOJ’s Fraud Division and the U.S. Attorney’s Office. This year alone, the DOJ has issued over 1,000 subpoenas and executed over 40 premises warrants  Source: official Justice Department press. Named scheme / enforcement sweep. Individual stores or defendants are listed only if the release names them. Administrative penalties are not convictions. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-mn/pr/dojs-fraud-division-and-united-states-attorneys-office-district-minnesota-uncover-nearly",
+    "voting": false,
+    "origin": "WIC / child nutrition",
+    "confirmedBy": "DOJ",
+    "lat": 33.4484,
+    "lon": -112.074,
+    "presence": "not_stated",
+    "scheme": "Salim Said Said Farah",
+    "schemeId": "harvest-https-www-justice-gov-usao-mn-pr-dojs-fraud-divi-c069d7ef20"
   }
 ]
