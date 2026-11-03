@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import {
   allPeople,
   isKeepRow,
+  isPlaceName,
   isOfficialHost,
   looksLikeHeadline,
   newsHasChargingPaper,
@@ -688,6 +689,33 @@ function buildRow(item, office, name, geo, names = [name]) {
   };
 }
 
+/** "<City>, XX" -> "XX" (or "" when the label has no state code). */
+export function geoState(geo) {
+  return (String(geo?.city || "").match(/,\s*([A-Z]{2})\s*$/) || [])[1] || "";
+}
+
+/**
+ * Krennic 2026-11-03: the release's own "a/an <State> man|woman" (or a title "<State> Man|Woman ...") says where the
+ * defendant lives. Exactly one such state in the text, else null. Pin: "<State>, XX" at that state's first district seat
+ * (no town is made up). Used only for single-defendant releases (rowsFromItem).
+ */
+export function residentStateGeo(blob) {
+  const states = Object.entries(STATE_NAMES).filter(([k]) => k !== "DC");
+  const alt = states.map(([, n]) => n).sort((a, b) => b.length - a.length).join("|");
+  const re = new RegExp(`(?:(?<!\\b(?:of|killing|killed|murdering|murdered|robbing|robbed|defrauding|defrauded|victimizing|victimized|against|from|to|with)\\s+)\\b(?:an?|the)\\s+(${alt})\\s+(?:man|woman)\\b|^\\s*(${alt})\\s+(?:Man|Woman)\\b)`, "gi");
+  const found = new Set();
+  for (const m of String(blob || "").matchAll(re)) {
+    const n = (m[1] || m[2]).toLowerCase();
+    const hit = states.find(([, v]) => v.toLowerCase() === n);
+    if (hit) found.add(hit[0]);
+  }
+  if (found.size !== 1) return null;
+  const code = [...found][0];
+  const seat = Object.values(DISTRICT_SEAT).find((v) => v[0].endsWith(`, ${code}`));
+  if (!seat) return null;
+  return { code, city: `${STATE_NAMES[code]}, ${code}`, lat: seat[1], lon: seat[2] };
+}
+
 export function rowsFromItem(item, office) {
   const blob = `${item.title} ${item.teaser || ""}`;
   // A seed (or a cross-posted Invasion Update row) may list its defendants explicitly; each must appear
@@ -709,6 +737,7 @@ export function rowsFromItem(item, office) {
   for (const raw of names) {
     const name = String(raw).slice(0, 120);
     if (looksLikeHeadline(name) && !op) continue;
+    if (isPlaceName(name)) continue; // Krennic 2026-11-03: a place is never a person ("South Africa", "Washoe County")
     // A seed's places[name] is the city the release gives for that person (state cases, county-level cases).
     const placed = item.places && typeof item.places === "object" ? item.places[name] : null;
     const pin = placed && Number.isFinite(placed.lat) && Number.isFinite(placed.lon) && placed.city ? { city: placed.city, lat: placed.lat, lon: placed.lon } : null;
@@ -716,7 +745,13 @@ export function rowsFromItem(item, office) {
     // of Glendale, California": that comes before a place word found anywhere in the text (Mailyan's "vacation in ...
     // Las Vegas"). A named district still wins, as before.
     const own = seatFromUrl(item.link) || districtNearName(blob, printed(name)) ? null : ofPlaceNearName(blob, printed(name));
-    const geo = pin || sectionGeo(blob, printed(name)) || geoNearName(blob, printed(name)) || own || fallback || districtNearName(blob, printed(name));
+    let geo = pin || sectionGeo(blob, printed(name)) || geoNearName(blob, printed(name)) || own || fallback || districtNearName(blob, printed(name));
+    // Krennic 2026-11-03: "a North Carolina man" (one defendant) beats the court's location (N.D. Ala. seat, Birmingham).
+    // A city the release gives in that same state is kept; only a pin in another state is replaced.
+    if (!pin && names.length === 1) {
+      const home = residentStateGeo(blob);
+      if (home && geoState(geo) !== home.code) geo = { city: home.city, lat: home.lat, lon: home.lon };
+    }
     if (!geo) continue;
     out.push(buildRow(item, office, name, geo, names));
   }
@@ -1630,6 +1665,7 @@ async function main() {
   if (staged.length) console.error(`stage updates: ${staged.join(", ")}`);
   const kept = existing.filter((r) => {
     if (looksLikeHeadline(r.name)) return false;
+    if (isPlaceName(r.name)) return false;
     return isKeepRow(r.name, r.crime || r.name, r.text || "");
   });
   const scanned = doj + seedN + inv + usda + hhs + ig + stateAg + stateVoting + news;

@@ -1,5 +1,18 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-11-03 (late morning) Krennic-approved fixes (10:01 AM CT approval)
+
+- Place names are never people (scripts/harvest-parse.mjs isPlaceName: whole name is a state, a city-geo.json city, a country, or ends in County/Parish/Valley...).
+  Filtered in rowsFromItem and in main() kept rows. Dropped "South Africa" (WDMO Venter release) and "Washoe County" (D. Nev.). Venter and Ramadhani stay.
+  The IRS-CI row named "Los Angeles" was renamed to its real defendant, Lamont McCarthy (same id, schemeId, verbatim text), instead of being lost.
+- "a/an <State> man|woman" (or a title "<State> Man|Woman") for a single defendant beats the court seat (residentStateGeo, after a seed pin; an in-state city is kept;
+  "killer of a Maryland man" style victims ignored). Pin "<State>, XX" at the state's first district seat.
+  Existing rows moved (12): Forrest Scott Woody -> North Carolina; Kareem Highsmith, Irvin Vilneus -> North Carolina; Madisyn Pettaway -> New Jersey;
+  Sharmaine Meadows -> Minnesota; Jingming Chen -> Massachusetts; Patrick Britton-Harr, Robert Glenn Johnson, Camille Aba -> Maryland; Melvin Emde -> Oklahoma;
+  Carl Lawrence -> Michigan; Daniel Keith McDougal -> Florida.
+- Invasion Update now shows voting rows with no place. FT still skips rows with no pin (rowsFromItem `if (!geo) continue`), so only Sheikhnoor Adbo (Minnesota) cross-posts. Not changed; needs approval.
+- Tests: scripts/harvest-fixes-1103b.test.mjs (5), added to package.json and the workflow list. Full suite 180/180. Damon Matai Seei stays.
+
 ## 2026-11-03 (mid-morning) voter-fraud gap check (Krennic asked: "Are any examples missing?")
 
 - Checked first: data/harvest.json intact (610 rows). After: 622 rows. No rule, filter or parser changes.

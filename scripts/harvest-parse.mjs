@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 /** Shared harvest rules: named people / operations, official URLs, headline drop. */
 
 const OP_STOP =
@@ -624,4 +625,34 @@ export function isOfficialHost(link) {
   return /(?:justice|usda|dhs|ice|irs|hud|fema|va|dol|cms)\.gov|oig\.(?:hhs|ssa|sba|dhs|dol)|vaoig\.gov|hudoig\.gov|sba\.gov|ssa\.gov|ag\.idaho\.gov|federalregister\.gov/i.test(
     String(link),
   ) || Boolean(stateOffice(link));
+}
+
+/**
+ * Krennic 2026-11-03: a place is never a person. Rows named "South Africa" (WDMO Venter release) or "Washoe County"
+ * (D. Nev. "fourth alien" release) came from a place word read as a defendant. Same rule as Invasion Update's isPlaceName:
+ * the WHOLE name is a U.S. state, a city in scripts/city-geo.json, a country, or ends in a place word (County, Parish ...).
+ * A person whose name merely contains a place word ("Paris Hilton", "Jordan Smith") is untouched.
+ */
+const PLACE_STATES = new Set(["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "district of columbia", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming", "puerto rico", "guam", "united states", "america"]);
+const PLACE_COUNTRIES = new Set(["afghanistan", "albania", "algeria", "angola", "argentina", "armenia", "australia", "austria", "bahamas", "bangladesh", "belarus", "belgium", "belize", "bolivia", "bosnia", "brazil", "bulgaria", "cambodia", "cameroon", "canada", "chile", "china", "colombia", "costa rica", "croatia", "cuba", "czech republic", "dominican republic", "ecuador", "egypt", "el salvador", "eritrea", "ethiopia", "france", "germany", "ghana", "greece", "guatemala", "guyana", "haiti", "honduras", "hong kong", "hungary", "india", "indonesia", "iran", "iraq", "ireland", "israel", "italy", "jamaica", "japan", "jordan", "kazakhstan", "kenya", "korea", "south korea", "north korea", "kosovo", "laos", "lebanon", "liberia", "libya", "lithuania", "malaysia", "mexico", "moldova", "mongolia", "morocco", "nepal", "netherlands", "new zealand", "nicaragua", "nigeria", "pakistan", "panama", "paraguay", "peru", "philippines", "poland", "portugal", "romania", "russia", "rwanda", "saudi arabia", "senegal", "serbia", "sierra leone", "singapore", "somalia", "south africa", "spain", "sri lanka", "sudan", "sweden", "switzerland", "syria", "taiwan", "tanzania", "thailand", "trinidad and tobago", "turkey", "uganda", "ukraine", "united kingdom", "uruguay", "uzbekistan", "venezuela", "vietnam", "yemen", "zambia", "zimbabwe"]);
+const PLACE_WORD = /\b(?:County|Parish|Borough|Township|Village|Metro|Metropolitan|Area|Region|Valley|Island|Islands)$/i;
+let PLACE_CITIES = null;
+function placeCities() {
+  if (PLACE_CITIES) return PLACE_CITIES;
+  PLACE_CITIES = new Set();
+  try {
+    const t = JSON.parse(readFileSync(new URL("./city-geo.json", import.meta.url), "utf8"));
+    for (const k of Object.keys(t)) PLACE_CITIES.add(k.replace(/,\s*[A-Z]{2}$/, "").toLowerCase());
+  } catch {}
+  return PLACE_CITIES;
+}
+export function isPlaceName(name) {
+  const raw = String(name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/^the\s+/i, "").replace(/[.]+$/, "").trim();
+  if (!raw) return false;
+  if (PLACE_WORD.test(raw)) return true;
+  const n = raw.toLowerCase().replace(/\s+/g, " ");
+  if (PLACE_STATES.has(n) || PLACE_COUNTRIES.has(n) || placeCities().has(n)) return true;
+  const cs = n.match(/^(.+?),\s*(.+)$/); // "Reno, Nevada" / "Reno, NV"
+  if (cs && (PLACE_STATES.has(cs[2]) || /^[a-z]{2}$/.test(cs[2])) && (placeCities().has(cs[1]) || PLACE_WORD.test(cs[1]))) return true;
+  return false;
 }
