@@ -1,5 +1,15 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-11-03 (afternoon) stage-for-another-crime rule (Krennic 12:29 PM CT)
+
+- Krennic: "If he wasn't convicted for voting but he was convicted for something else, don't list him as voting."
+- Invasion Update now untags such rows (scripts/stage-crime.mjs there), so the cross-post never copies them. Julio De La Rosa
+  (strangulation) and Gerardo Nieves-Borja (DUI) stay off the ledger (not fraud; they also have no pin). No-pin rule unchanged.
+- Ledger rows no longer filed as voting (kept, in scope as fraud): Juan Arturo Martinez (MDFL, sentenced for passport fraud; the
+  vote was described conduct) and the four MA PPP/EIDL wire-fraud defendants (Jonathan Arroyo, Daquan Dooley, Demetrous Thomas,
+  Gianni Williams Johnson; voting:true was a mis-tag, the release has no voting wording).
+- Tests: scripts/harvest-stage-crime.test.mjs (2), in package.json and the workflow list. Full suite 182/182.
+
 ## 2026-11-03 (late morning) Krennic-approved fixes (10:01 AM CT approval)
 
 - Place names are never people (scripts/harvest-parse.mjs isPlaceName: whole name is a state, a city-geo.json city, a country, or ends in County/Parish/Valley...).
