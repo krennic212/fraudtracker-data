@@ -1,5 +1,33 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-11-03 (morning) filter + name-parser fixes (Krennic approved the Nov 2 missed-cases rule fixes)
+
+- Checked first: data/harvest.json intact (608 rows). No new "Fargo Levy" commit.
+- scripts/harvest-gov.mjs:
+  - titleNationalsCoverAll(title, text): a plural "<Demonym> Nationals" title covers EVERY named defendant (ingest, private-victim
+    releases) only when title + body have no U.S.-citizen / American citizen / citizen of the United States / national of the
+    United States / U.S.-born / naturalized / dual wording ("Five Cuban nationals and one U.S. citizen" fails). Singular titles:
+    unchanged (single row only).
+  - sectionGeo(): in a release with 2+ district headers, the defendant's own "<X> District of <State>" section wins over a place
+    word from an earlier section (OPA "63 Individuals": Atlanta no longer pins the SDTX / NDNY / EDPA people).
+  - ofPlaceNearName() + dojItem: a teaser that names the defendant but no place, on a link with no district seat and no district in
+    the text, reads the body's "<Name>, 45, of Glendale, California" (Mailyan). A named district still wins.
+- scripts/harvest-parse.mjs: a "<Demonym> national" lead-in is stripped from names (Toleafoa, Ramadhani, Gudino, Van Der Staak);
+  "St." joins name tokens (Garfield St. Vincent Bruce); ALL-CAPS names with Unicode letters and "pled guilty" (GÖKÇE GÜVEN, not
+  "Kalder Inc."); one-word names only in a clearly structured list (3+ "<Demonym> national <Name>, <age>," entries, a status and a
+  charge verb, and the next sentence starts with the same word: Widarto).
+- Test: scripts/harvest-rules-1103.test.mjs (fixtures opa-2026-11-02-63-individuals-election, opa-2026-10-30-mailyan-botox,
+  sdny-2026-10-30-kalder-guven, mdpa-2026-10-30-chinese-nationals-elderly-scam), in npm test and the workflow Tests step. 175/175.
+- Dry run (old vs new, every seed + last 400 DOJ API releases Oct 15 - Nov 3, and a full local harvest run): 0 rows added,
+  changed or removed by the new code. Both old and new code would add Kareem Highsmith (WDNY) and Marvin Charo Collins (EDCA) on the
+  next hourly run; not caused by this change. The seeded Jiang / Yang / Bao, Widarto, Mailyan and GUVEN rows map to the same ids.
+- Existing pins corrected to the person's own district section (city/lat/lon only): Ali Khan, Jose Vasquez-Mendoza -> Houston, TX;
+  Pooja Pawse, Mobin Tora Kheil -> Albany, NY; Rosanny Fabre Villa, Gavin Moir, Antonio Lyttle, Eija Annikki Yaroma ->
+  Philadelphia, PA (OPA Nov 2 "63"); Eliza M. Moss -> Columbus, OH (OPA "16", Southern District of Ohio); Jullie Ann Sumalinog
+  Moore -> Las Vegas, NV (OPA "48", District of Nevada). Rows 608 -> 608.
+- Not changed: "Mexico Robert Glenn Johnson" is still a junk name the parser makes from the OPA 63 text ("... from Mexico Robert
+  Glenn Johnson"); the release is seeded so it never becomes a row. Village Capital and Higgs exclusions unchanged.
+
 ## 2026-11-02 (evening) daily missed-cases check (Oct 30 - Nov 2), standing order "just add"
 
 - Seeds added to data/seed-releases.json (DOJ press-release API text, verbatim; no photos):
