@@ -15409,5 +15409,30 @@
     "scheme": "Damon Matai Seei",
     "schemeId": "harvest-https-www-justice-gov-usao-ut-pr-former-postal-w-62e42ddd31-ut-seei-mail-ballots",
     "stage": "Charged"
+  },
+  {
+    "name": "Randy Pierre-Louis",
+    "city": "New York, NY",
+    "crime": "ICE picks up Dominican criminal suspected of voter fraud",
+    "usa": "ICE picks up Dominican criminal suspected of voter fraud",
+    "foreign": "Not stated in post",
+    "picked": "10/28/2026",
+    "entered": "Amount not stated",
+    "office": "DHSgov",
+    "id": "harvest-https-www-ice-gov-news-releases-ice-picks-domini-ae46b8f576",
+    "when": "2026-10-28",
+    "text": "ICE picks up Dominican criminal suspected of voter fraud. NEW YORK, N.Y. — A citizen of the Dominican Republic and U.S. lawful permanent resident, Randy Pierre-Louis, was charged with making false statements related to voter registration and visa fraud Oct. 23. He was arrested following an investigation by ICE’s Homeland Security Investigations New York. Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "ICE press",
+    "sourceUrl": "https://www.ice.gov/news/releases/ice-picks-dominican-criminal-suspected-voter-fraud",
+    "voting": true,
+    "origin": "Voting / elections",
+    "confirmedBy": "DHS",
+    "lat": 40.71,
+    "lon": -74.01,
+    "presence": "not_stated",
+    "scheme": "Randy Pierre-Louis",
+    "schemeId": "harvest-https-www-ice-gov-news-releases-ice-picks-domini-eb987bdca1",
+    "stage": "Charged"
   }
 ]
