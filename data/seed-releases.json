@@ -2527,6 +2527,226 @@
       },
       "schemeKey": "sdny-kalder-guven",
       "usdAlleged": 6717997
+    },
+    {
+      "link": "https://www.justice.gov/usao-edtn/pr/sevier-county-man-charged-federally-passport-fraud-identity-theft-and-voting-alien",
+      "title": "Sevier County Man Charged Federally With Passport Fraud, Identity Theft, And Voting By An Alien",
+      "date": "2026-10-30",
+      "teaser": "KNOXVILLE, Tenn. – On October 21, 2026, a federal grand jury in Knoxville returned an eleven-count indictment against Gregory Allan Porter, also known as “Tony Wayne Ortiz,” 67, of Sevierville, Tennessee, for two counts of false statement in a passport application, one count of aggravated identity theft, three counts of misuse of a passport, one count of false claim of U.S. citizenship, one count of misuse of a social security number, and three counts of voting by an alien. Porter appeared in court on October 30, 2026, before U.S. Magistrate Judge Jill E. McCook and entered a plea of not guilty to the charges in the indictment. He was detained pending trial, which has been set for January 5, 2027, in U.S. District Court in Knoxville before the Honorable Katherine A. Crytzer, United States District Judge. The indictment alleges that Porter, a Canadian citizen, entered the United States unlawfully in or around 1984 and thereafter assumed the identity of “Tony Wayne Ortiz,” an American citizen. Since in or around 1984, Porter lived and worked in the United States under the assumed identity of Tony Wayne Ortiz by fraudulently obtaining a birth certificate, social security number, Tennessee driver’s licenses, and United States passports. In addition, Porter voted in numerous state, local, and federal elections under his assumed identity.",
+      "seat": "usao-edtn",
+      "stage": "Charged",
+      "names": [
+        "Gregory Allan Porter"
+      ],
+      "voting": true,
+      "nationality": {
+        "Gregory Allan Porter": "a Canadian citizen"
+      },
+      "places": {
+        "Gregory Allan Porter": {
+          "city": "Sevierville, TN",
+          "lat": 35.8452,
+          "lon": -83.5386
+        }
+      },
+      "schemeKey": "edtn-porter-voting-alien"
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdfl/pr/illegal-alien-charged-illegally-voting-three-federal-elections",
+      "title": "Illegal Alien Charged with Illegally Voting in Three Federal Elections",
+      "date": "2026-09-23",
+      "teaser": "Fort Myers, Florida – Christiane Vinette Young (75), a Canadian national illegally present in the United States, has been charged by information with three counts of voting by an alien. If convicted on all counts, she faces a maximum penalty of three years in federal prison. U.S. Attorney Gregory W. Kehoe made the announcement. According to the information, Young voted in three federal elections—the 2024 general election, 2022 general election, and 2022 primary—despite knowing that she was not a citizen of the United States.",
+      "seat": "usao-mdfl",
+      "stage": "Charged",
+      "names": [
+        "Christiane Vinette Young"
+      ],
+      "voting": true,
+      "nationality": {
+        "Christiane Vinette Young": "a Canadian national illegally present in the United States"
+      },
+      "places": {
+        "Christiane Vinette Young": {
+          "city": "Fort Myers, FL",
+          "lat": 26.64,
+          "lon": -81.87
+        }
+      },
+      "schemeKey": "mdfl-young-voting-alien"
+    },
+    {
+      "link": "https://www.justice.gov/usao-ks/pr/nigerian-national-indicted-illegally-voting",
+      "title": "Nigerian national indicted for illegally voting",
+      "date": "2026-09-23",
+      "teaser": "TOPEKA, KAN. – A federal grand jury in Topeka returned an indictment charging a Nigerian national with falsely claiming to be a United States citizen to illegally vote in elections. According to court documents, George Olawunmi Johnson, 67, who was residing in Olathe, Kansas, is charged with one count of false claim to United States citizenship, one count of false claim to United States citizenship in order to vote, one count of fraudulent election conduct, and one count of voting by an alien in a federal election. Johnson is accused of falsely indicating that he is a U.S. citizen while registering to vote in February 2010 in Johnson County, Kansas. In November 2024, Johnson allegedly cast a ballot in Kansas that included candidates for the offices of U.S. President, Vice President, Senate, and House of Representatives after falsely certifying that he was eligible to vote as a U.S. citizen when he is in fact a permanent resident.",
+      "seat": "usao-ks",
+      "stage": "Charged",
+      "names": [
+        "George Olawunmi Johnson"
+      ],
+      "voting": true,
+      "nationality": {
+        "George Olawunmi Johnson": "a Nigerian national"
+      },
+      "places": {
+        "George Olawunmi Johnson": {
+          "city": "Olathe, KS",
+          "lat": 38.8822,
+          "lon": -94.8178
+        }
+      },
+      "schemeKey": "ks-johnson-voting-alien"
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/honduran-national-living-san-fernando-valley-arrested-federal-criminal-complaint",
+      "title": "Honduran National Living in San Fernando Valley Arrested on Federal Criminal Complaint Charging Him with Fraudulently Registering to Vote",
+      "date": "2026-08-28",
+      "teaser": "LOS ANGELES – A Honduran national and lawful permanent resident living in the San Fernando Valley was arrested today on a federal criminal complaint charging him with fraudulently registering to vote in United States elections. Darwin Jonathan Rivera Flores, 30, of Winnetka, is charged with two felonies: false claim to U.S. citizenship and fraudulent voter registration.",
+      "seat": "usao-cdca",
+      "stage": "Charged",
+      "names": [
+        "Darwin Jonathan Rivera Flores"
+      ],
+      "voting": true,
+      "nationality": {
+        "Darwin Jonathan Rivera Flores": "A Honduran national and lawful permanent resident"
+      },
+      "places": {
+        "Darwin Jonathan Rivera Flores": {
+          "city": "Winnetka, CA",
+          "lat": 34.21,
+          "lon": -118.57
+        }
+      },
+      "schemeKey": "cdca-rivera-flores-registration"
+    },
+    {
+      "link": "https://www.justice.gov/usao-edmi/pr/chinese-national-university-michigan-charged-illegally-voting-2024-election",
+      "title": "Chinese National at the University of Michigan  Charged with Illegally Voting in the 2024 Election",
+      "date": "2025-06-03",
+      "teaser": "DETROIT – A criminal complaint was filed charging Haoxiang Gao, a citizen and national of the People’s Republic of China (PRC), with false claims to register or vote and voting by aliens, announced United States Attorney Jerome F. Gorgon, Jr. Gorgon was joined in the announcement by Special Agent in Charge Cheyvoryea Gibson, Federal Bureau of Investigation, Detroit Field Division. According to the complaint, Gao was a college student attending the University of Michigan who illegally registered to vote in the days before the 2024 presidential election, apparently using his University of Michigan student ID, and then cast a ballot in the election at a polling location located at the University of Michigan Museum of Art, in Ann Arbor, Michigan. The complaint further alleges that Gao made false statements regarding his citizenship on his voter registration application and his early voting application. After being charged with state offenses, the state court granted Gao a $5,000 personal bond with conditions, including that he does not leave the State of Michigan and that he surrenders his passport for the pendency of the case. Gao did surrender his passport but on January 19, 2025—the day before the new administration took office in Washington—Gao jumped bond and fled the country on a flight bound for Shanghai, China.",
+      "seat": "usao-edmi",
+      "stage": "Charged",
+      "names": [
+        "Haoxiang Gao"
+      ],
+      "voting": true,
+      "nationality": {
+        "Haoxiang Gao": "a citizen and national of the People’s Republic of China (PRC)"
+      },
+      "places": {
+        "Haoxiang Gao": {
+          "city": "Ann Arbor, MI",
+          "lat": 42.2808,
+          "lon": -83.743
+        }
+      },
+      "schemeKey": "edmi-gao-voting-alien"
+    },
+    {
+      "link": "https://www.justice.gov/usao-sdfl/pr/ukrainian-citizens-charged-south-florida-illegally-voting-2024-united-states",
+      "title": "Ukrainian Citizens Charged in South Florida with Illegally Voting in 2024 United States Presidential Election",
+      "date": "2025-04-29",
+      "teaser": "MIAMI – Two Ukrainian women with no United States citizenship have been charged with unlawfully voting in the General Election for United States President during early voting in Palm Beach, Fla., on Oct. 31, 2024. Svitlana Demydenko (Svitlana), 53, and her daughter, Yelyzaveta Demydenko (Yelyzaveta), 22, made their initial appearances in West Palm Beach federal court today. According to the criminal complaint affidavit, Svitlana and Yelyzaveta entered the United States in April 2021 on nonimmigrant visas. In August 2024, while living in Florida, Svitlana and Yelyzaveta registered to vote in federal elections using a system that requires certification of United States citizenship, which neither of them had. On Oct. 31, 2024, and still without United States citizenship, Svitlana and Yelyzaveta voted from Palm Beach in the federal 2024 General Election, which included election of a United States President.",
+      "seat": "usao-sdfl",
+      "stage": "Charged",
+      "names": [
+        "Svitlana Demydenko",
+        "Yelyzaveta Demydenko"
+      ],
+      "voting": true,
+      "nationality": {
+        "Svitlana Demydenko": "Two Ukrainian women with no United States citizenship",
+        "Yelyzaveta Demydenko": "Two Ukrainian women with no United States citizenship"
+      },
+      "places": {
+        "Svitlana Demydenko": {
+          "city": "Palm Beach, FL",
+          "lat": 26.7206,
+          "lon": -80.0388
+        },
+        "Yelyzaveta Demydenko": {
+          "city": "Palm Beach, FL",
+          "lat": 26.7206,
+          "lon": -80.0388
+        }
+      },
+      "schemeKey": "sdfl-demydenko-voting-alien"
+    },
+    {
+      "link": "https://www.justice.gov/usao-wdpa/pr/apollo-man-charged-casting-multiple-votes-2024-presidential-election",
+      "title": "Apollo Man Charged with Casting Multiple Votes in 2024 Presidential Election",
+      "date": "2026-08-14",
+      "teaser": "PITTSBURGH, Pa. - A resident of Apollo, Pennsylvania, has been indicted by a federal grand jury in Pittsburgh on charges of violating federal voting laws, United States Attorney Troy Rivetti announced today. The two-count Indictment named Jeffrey Pope, 65, as the sole defendant. According to the Indictment, Pope—who has been registered to vote in Pennsylvania since 1999 but purchased property in Alaska in 2023—voted twice in the November 2024 general election, including for the office of President of the United States. The Indictment specifically alleges that, on or about October 18, 2024, Pope completed and submitted a mail-in ballot casting a vote for the office of President in Alaska, and then, on or about October 22, 2024, completed and submitted a mail-in ballot casting a vote for this same federal office in Pennsylvania. As part of his Pennsylvania ballot submission, Pope knowingly and willfully signed a false declaration stating that he was qualified to vote by the enclosed ballot and had not already voted in the election.",
+      "seat": "usao-wdpa",
+      "stage": "Charged",
+      "names": [
+        "Jeffrey Pope"
+      ],
+      "voting": true,
+      "anyVoter": true,
+      "places": {
+        "Jeffrey Pope": {
+          "city": "Apollo, PA",
+          "lat": 40.5815,
+          "lon": -79.5664
+        }
+      },
+      "schemeKey": "wdpa-pope-double-vote"
+    },
+    {
+      "link": "https://www.justice.gov/usao-cdca/pr/victorville-man-arrested-federal-indictment-alleging-he-paid-people-sign-ballot",
+      "title": "Victorville Man Arrested on Federal Indictment Alleging He Paid People to Sign Ballot Petitions Using Stolen Voter Identities",
+      "date": "2026-09-10",
+      "teaser": "RIVERSIDE, California – A San Bernardino County man was arrested today on a federal grand jury indictment charging him and two other defendants with paying people on Skid Row in downtown Los Angeles to sign petitions using stolen identities of registered voters to qualify initiatives on ballots in California elections. James Brass, 47, a.k.a. “Lord,” of Victorville, was arrested this morning and is expected to make his initial appearance this afternoon in United States District Court in Riverside. Also charged in the two-count indictment are two petition circulators who worked for Brass: Courtney Price, 49, of Jacksonville, Florida, and Jateisha Herron, 33, of Boron, California. All three defendants are charged with one count of conspiracy to commit identity fraud in furtherance of a state felony. Brass and Price are charged with an additional count of identity fraud",
+      "seat": "usao-cdca",
+      "stage": "Charged",
+      "names": [
+        "James Brass",
+        "Courtney Price",
+        "Jateisha Herron"
+      ],
+      "voting": true,
+      "anyVoter": true,
+      "places": {
+        "James Brass": {
+          "city": "Victorville, CA",
+          "lat": 34.5039,
+          "lon": -117.3192
+        },
+        "Courtney Price": {
+          "city": "Jacksonville, FL",
+          "lat": 30.3322,
+          "lon": -81.6557
+        },
+        "Jateisha Herron": {
+          "city": "Boron, CA",
+          "lat": 35,
+          "lon": -117.6498
+        }
+      },
+      "schemeKey": "cdca-brass-ballot-petitions"
+    },
+    {
+      "link": "https://www.justice.gov/usao-ut/pr/former-postal-worker-indicted-after-allegedly-disposing-hundreds-mail-ballots-utah",
+      "title": "Former Postal Worker Indicted After Allegedly Disposing of Hundreds of Mail-In Ballots in Utah",
+      "date": "2026-09-22",
+      "teaser": "SALT LAKE CITY , Utah – An indictment was unsealed today charging a former postman with the U.S. Postal Service (USPS) with unlawful secretion, destruction, and delay of mail after he allegedly unlawfully threw away mail that he was entrusted to deliver – including approximately 300 mail-in ballots to registered voters in Utah. Damon Matai Seei, 34, of Payson, Utah, was indicted by a federal grand jury on Sept. 16, 2026. He was arrested and appeared for his arraignment at the Orrin G. Hatch U.S. Courthouse this afternoon.",
+      "seat": "usao-ut",
+      "stage": "Charged",
+      "names": [
+        "Damon Matai Seei"
+      ],
+      "voting": true,
+      "anyVoter": true,
+      "places": {
+        "Damon Matai Seei": {
+          "city": "Payson, UT",
+          "lat": 40.0444,
+          "lon": -111.7321
+        }
+      },
+      "schemeKey": "ut-seei-mail-ballots"
     }
   ]
 }

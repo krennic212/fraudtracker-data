@@ -1,5 +1,18 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-11-03 (mid-morning) voter-fraud gap check (Krennic asked: "Are any examples missing?")
+
+- Checked first: data/harvest.json intact (610 rows). After: 622 rows. No rule, filter or parser changes.
+- Searched DOJ API (title terms vot/Election/Ballot/Citizenship/Registration + a full-body scan of every release since Jan 21, 2025), ice.gov voter releases.
+- Seeded 9 releases, 12 rows, all Charged, voting: true:
+  - Non-citizen: Gregory Allan Porter (EDTN, Sevierville TN), Christiane Vinette Young (MDFL, Fort Myers), George Olawunmi Johnson (D. Kan., Olathe),
+    Darwin Jonathan Rivera Flores (CDCA, Winnetka), Haoxiang Gao (EDMI, Ann Arbor; release says he fled to China), Svitlana and Yelyzaveta Demydenko (SDFL, Palm Beach).
+  - Election fraud, status not the point (anyVoter): Jeffrey Pope (WDPA double vote, Apollo PA), James Brass / Courtney Price / Jateisha Herron
+    (CDCA ballot-petition signatures with stolen voter identities), Damon Matai Seei (D. Utah postal worker, ~300 mail-in ballots thrown away).
+- Randy Pierre-Louis (ICE NY, voter registration false statements) goes to Invasion Update via pending.json; the cross-post should add him here.
+- Data issues left for Krennic (not changed): junk-name voting rows "South Africa" (WDMO Hanlie Venter) and "Washoe County" (D. Nev. Mlebinge Riziki Ramadhani) duplicate real rows;
+  Forrest Scott Woody pinned Birmingham, AL (court) though the release calls him a North Carolina man.
+
 ## 2026-11-03 (morning) filter + name-parser fixes (Krennic approved the Nov 2 missed-cases rule fixes)
 
 - Checked first: data/harvest.json intact (608 rows). No new "Fargo Levy" commit.
