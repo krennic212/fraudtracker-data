@@ -18,7 +18,9 @@ const COMPANY =
 // runs across a sentence end ("United States. Camino Giles Jiménez" is two pieces).
 const W = String.raw`\p{Lu}[\p{Ll}\p{Lu}'’]*\p{L}(?:[-‐‑]\p{Lu}[\p{Ll}\p{Lu}'’]*\p{L})?`;
 const WT = String.raw`\p{Lu}[\p{Ll}'’]*\p{Ll}(?:-\p{Lu}[\p{Ll}'’]*\p{Ll})?`;
-const PARTICLE = String.raw`(?:(?:de|del|de la|de las|de los|da|das|do|dos|di|du|van|van der|von|y)\s+)`;
+// "St." joins name tokens too ("Garfield St. Vincent Bruce", OPA Nov 2, 2026; Krennic 2026-11-03). It never starts or ends a
+// name: NAME_CORE starts with a full word and every particle must be followed by one.
+const PARTICLE = String.raw`(?:(?:de|del|de la|de las|de los|da|das|do|dos|di|du|van|van der|von|y|St\.)\s+)`;
 const NAME_CORE =
   String.raw`(?<![\p{L}\p{N}'’])` + W + String.raw`(?:\s+\p{Lu}\.)?(?:\s+` + PARTICLE + String.raw`?` + W + String.raw`){1,4}(?:,?\s+(?:Jr\.?|Sr\.?|II|III|IV)(?![\p{L}]))?`;
 const NAME_CORE_TITLE =
@@ -155,7 +157,7 @@ function capsDefendants(text) {
     const sur = toks[toks.length - 1];
     const surT = sur.charAt(0) + sur.slice(1).toLowerCase();
     const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const re = new RegExp(String.raw`(?<![\p{L}])(?:` + esc(surT) + "|" + esc(sur) + String.raw`)(?:\s*\([“"][^”"]{1,40}[”"]\)\s*)?(?:\s*,\s*(?:age\s*)?\d{1,3},|\s+(?:is|was|were|has been)\s+(?:charged|indicted|sentenced|arrested)|\s+pleaded guilty)`, "u");
+    const re = new RegExp(String.raw`(?<![\p{L}])(?:` + esc(surT) + "|" + esc(sur) + String.raw`)(?:\s*\([“"][^”"]{1,40}[”"]\)\s*)?(?:\s*,\s*(?:age\s*)?\d{1,3},|\s+(?:is|was|were|has been)\s+(?:charged|indicted|sentenced|arrested)|\s+(?:pleaded|pled) guilty)`, "u");
     if (re.test(text)) out.push(m[1]);
   }
   return out;
@@ -192,8 +194,12 @@ const US_STATE_NAME =
   /^(?:New (?:Jersey|York|Mexico|Hampshire)|North (?:Carolina|Dakota)|South (?:Carolina|Dakota)|West Virginia|Rhode Island|Puerto Rico|District of Columbia|United States)$/;
 const PARTICLE_WORD = /^(?:de|del|la|las|los|da|das|do|dos|di|du|van|der|von|y)$/;
 
+// "Samoan national Valelia Toleafoa" / "national Mlebinge Riziki Ramadhani" (a case-insensitive pattern took the lead-in;
+// OPA Nov 2, 2026): the nationality words before a lowercase "national(s)" are never part of the name (Krennic 2026-11-03).
+const NATIONAL_LEAD = /^(?:[\p{L}'’.-]+\s+){0,6}?nationals?,?\s+(?=\p{Lu})/u;
 function cleanPerson(raw) {
   const parts = String(raw)
+    .replace(NATIONAL_LEAD, "")
     .replace(/,\s+(?=(?:Jr|Sr|II|III|IV)\b)/, " ")
     .split(/\s+/)
     .filter((w) => !NAME_STOP.test(w.replace(/[.,]$/, "")));
@@ -312,7 +318,8 @@ function titleCasePerson(s) {
 function allCapsNames(text) {
   const blob = String(text);
   if (!/\bSENTENCED\b|\bCONVICTED\b/.test(blob)) return [];
-  const tokens = blob.match(/\b[A-Z]{2,}(?:-[A-Z]{2,})?\b/g) || [];
+  // Unicode capitals too ("GÖKÇE GÜVEN", Krennic 2026-11-03).
+  const tokens = blob.match(/(?<![\p{L}\p{N}])\p{Lu}{2,}(?:-\p{Lu}{2,})?(?![\p{L}\p{N}])/gu) || [];
   const out = [];
   const seen = new Set();
   let run = [];
@@ -402,6 +409,24 @@ function firstPerson(blob) {
   return null;
 }
 
+// Krennic 2026-11-03: a one-word name ("Indonesian national Widarto, 56, a lawful permanent resident, has been charged with
+// voting by an alien. Widarto allegedly voted ...", OPA Nov 2, 2026) only in a clearly structured list: the text has at least
+// 3 "<Demonym> national <Name>, <age>," entries, this entry has that exact shape plus a status and a charge / plea / sentence
+// verb, and the next sentence starts with the same word.
+const NATIONAL_ENTRY = /(?:^|[.!?]\s+|\s)(?:\p{Lu}\p{Ll}+\s+(?:of\s+(?:the\s+)?)?){0,4}\p{Lu}\p{Ll}+\s+national,?\s+\p{Lu}[\p{L}'’-]+(?:\s+\p{Lu}[\p{L}'’.-]+){0,5},\s+\d{1,3},/gu;
+const MONONYM_ENTRY = /(?:^|[.!?]\s+|\s)(\p{Lu}\p{Ll}+)\s+national,?\s+(\p{Lu}\p{Ll}{2,}),\s+\d{1,3},\s+an?\s+(?:lawful permanent resident|(?:\p{Ll}+\s+){0,3}(?:alien|non-?citizen))\b[^.]*?\b(?:has been|was|is|were)\s+(?:charged|indicted|sentenced|convicted)\b[^.]*\.\s+(\p{Lu}\p{Ll}{2,})\s+(?:allegedly|voted|registered|pleaded|was|is|has|knowingly|also)\b/gu;
+const MONO_STOP = /^(?:The|This|That|These|Those|He|She|They|It|His|Her|District|United|States|America|American|National|Department|Justice|Federal|County|Court)$/;
+function mononymEntries(text) {
+  const t = String(text || "");
+  if ((t.match(NATIONAL_ENTRY) || []).length < 3) return [];
+  const out = [];
+  for (const m of t.matchAll(MONONYM_ENTRY)) {
+    if (m[2] !== m[3] || MONO_STOP.test(m[2]) || STATE_LEAD.test(m[2]) || LEAD_PLACES.includes(m[2])) continue;
+    out.push(m[2]);
+  }
+  return out;
+}
+
 /** Every named defendant in a DOJ roundup body, not just the first. */
 export function allPeople(title, teaser = "") {
   // "Celestin Katubadi , 20," (a stray space before the comma in the Sept 18, 2026 roundup) reads as "Celestin Katubadi, 20,".
@@ -448,6 +473,7 @@ export function allPeople(title, teaser = "") {
     for (const part of m[1].split(/,\s+(?:and\s+)?|\s+and\s+/)) pushName(out, seen, part);
   }
   for (const n of capsDefendants(text)) pushName(out, seen, n);
+  for (const n of mononymEntries(text)) if (!seen.has(n.toLowerCase())) { seen.add(n.toLowerCase()); out.push(n); }
   const person = text.match(PERSON);
   if (person) pushName(out, seen, person[1]);
   if (!out.length) {

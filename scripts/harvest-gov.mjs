@@ -401,6 +401,9 @@ function geoFor(item) {
 }
 
 function geoNearName(blob, name) {
+  return geoNearNameAt(blob, name)?.hit || null;
+}
+function geoNearNameAt(blob, name) {
   const text = String(blob);
   const at = text.toLowerCase().indexOf(String(name).toLowerCase());
   if (at < 0) return null;
@@ -420,8 +423,50 @@ function geoNearName(blob, name) {
       }
     }
   }
-  return hit;
+  return hit ? { hit, index: best } : null;
 }
+
+const DISTRICT_HEAD = /\b(?:(?:Northern|Southern|Eastern|Western|Middle|Central)\s+)?District of (?:New |North |South |West |Rhode |Puerto )?[A-Z][a-z]+/g;
+/**
+ * Krennic 2026-11-03: in a roundup with 2+ district sections (OPA Nov 2, 2026 "63 Individuals"), the defendant's own section
+ * header wins over a place word from an EARLIER section ("Northern District of Georgia ... Atlanta" no longer pins the
+ * Southern District of Texas, District of Utah, District of Nevada ... people). A place word inside the person's own
+ * section still wins. Null when the text has fewer than 2 districts or no header before the name.
+ */
+export function sectionGeo(blob, name) {
+  const text = String(blob);
+  const at = text.indexOf(String(name));
+  if (at < 0) return null;
+  const all = [...text.matchAll(DISTRICT_HEAD)];
+  if (new Set(all.map((m) => m[0])).size < 2) return null;
+  let head = null;
+  for (const m of all) {
+    if (m.index > at) break;
+    if (/(?:appearance|appeared|arrested|surrendered)\s+(?:\w+\s+){0,3}(?:in|before)\s+(?:the\s+)?$/i.test(text.slice(Math.max(0, m.index - 60), m.index))) continue;
+    head = m;
+  }
+  if (!head) return null;
+  const hint = geoNearNameAt(text, name);
+  if (hint && hint.index >= head.index) return hint.hit;
+  return districtSeatFromText(head[0]);
+}
+
+/**
+ * Krennic 2026-11-03 ("California doctor Violetta Mailyan was sentenced ..."): the release's own "<Name>, <age>, of <City>,
+ * <State>" for this defendant -> that city (scripts/city-geo.json). Used only when nothing else places the row.
+ */
+export function ofPlaceNearName(blob, name, table = (CITY_GEO ??= loadJson(join(ROOT, "scripts/city-geo.json"), {}))) {
+  const esc = String(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const m = String(blob).match(new RegExp(`${esc},\\s+(?:age\\s+)?\\d{1,3},\\s+of\\s+([A-Z][A-Za-z.' -]{1,30}?),\\s+([A-Z][A-Za-z.]+(?:\\s[A-Z][a-z]+)?)\\b`));
+  if (!m) return null;
+  const st = m[2].replace(/\.$/, "");
+  const code = Object.keys(STATE_NAMES).find((k) => STATE_NAMES[k] === st) || AP_STATE[`${st}.`] || AP_STATE[st] || "";
+  if (!code) return null;
+  const city = `${m[1].trim()}, ${code}`;
+  const ll = table[city];
+  return Array.isArray(ll) ? { city, lat: ll[0], lon: ll[1] } : null;
+}
+const AP_STATE = { "Ala.": "AL", "Ariz.": "AZ", "Ark.": "AR", "Calif.": "CA", "Colo.": "CO", "Conn.": "CT", "Del.": "DE", "Fla.": "FL", "Ga.": "GA", "Ill.": "IL", "Ind.": "IN", "Kan.": "KS", "Ky.": "KY", "La.": "LA", "Md.": "MD", "Mass.": "MA", "Mich.": "MI", "Minn.": "MN", "Miss.": "MS", "Mo.": "MO", "Mont.": "MT", "Neb.": "NE", "Nev.": "NV", "Okla.": "OK", "Ore.": "OR", "Pa.": "PA", "Tenn.": "TN", "Tex.": "TX", "Va.": "VA", "Vt.": "VT", "Wash.": "WA", "Wis.": "WI", "Wyo.": "WY" };
 
 /**
  * The "<X> District of <State>" section header closest before the defendant in a roundup -> that office's seat (the
@@ -667,7 +712,11 @@ export function rowsFromItem(item, office) {
     // A seed's places[name] is the city the release gives for that person (state cases, county-level cases).
     const placed = item.places && typeof item.places === "object" ? item.places[name] : null;
     const pin = placed && Number.isFinite(placed.lat) && Number.isFinite(placed.lon) && placed.city ? { city: placed.city, lat: placed.lat, lon: placed.lon } : null;
-    const geo = pin || geoNearName(blob, printed(name)) || fallback || districtNearName(blob, printed(name));
+    // A link with no district seat (OPA) and no district in the text has no better pin than the person's own "<Name>, 45,
+    // of Glendale, California": that comes before a place word found anywhere in the text (Mailyan's "vacation in ...
+    // Las Vegas"). A named district still wins, as before.
+    const own = seatFromUrl(item.link) || districtNearName(blob, printed(name)) ? null : ofPlaceNearName(blob, printed(name));
+    const geo = pin || sectionGeo(blob, printed(name)) || geoNearName(blob, printed(name)) || own || fallback || districtNearName(blob, printed(name));
     if (!geo) continue;
     out.push(buildRow(item, office, name, geo, names));
   }
@@ -790,6 +839,19 @@ export function titleNationalStated(title) {
   return TITLE_NATIONAL.test(t) && !CITIZEN_TOO.test(t) && !/\bdual\b/i.test(t);
 }
 
+/**
+ * Plural "<Demonym> Nationals" in the title covers every named defendant only when the whole release (title + body) has no
+ * U.S.-citizen, naturalized, national-of-the-United-States, "American citizen", "citizen of the United States", U.S.-born or
+ * dual wording ("Five Cuban nationals and one U.S. citizen" fails). A citizen "of Texas" is a state, not this wording.
+ */
+const ANY_US_CITIZEN = /\b(?:U\.S\.|United States|American)[- ](?:citizens?|nationals?|born)\b|\bcitizens?\s+of\s+(?:the\s+)?(?:U\.S\.|United States|America)\b|\bborn in the (?:U\.S\.|United States)\b|\bnaturali[sz]ed\b|\bdual\b/i;
+export function titleNationalsCoverAll(title, text) {
+  const t = String(title || "");
+  if (!/\bNationals\b/.test(t) || !titleNationalStated(t)) return false;
+  const all = `${t} ${text || ""}`;
+  return !CITIZEN_TOO.test(all) && !ANY_US_CITIZEN.test(all);
+}
+
 function sentencesOf(text) {
   return String(text || "").replace(US_STATES_RE, " ").split(/(?<=[.!?])\s+(?=[“"(]?[A-Z0-9])/);
 }
@@ -892,7 +954,10 @@ export function ingest(existing, have, added, item, office) {
   const fullText = `${item.title}. ${item.fullText || item.teaser || ""}`;
   if (!program && !privateVictimNonCitizen(item.title, item.fullText || item.teaser || "")) return;
   let rows = rowsFromItem(item, office);
-  if (!program) rows = rows.filter((r) => nonCitizenStatedFor(r.name, fullText, rows.length === 1) || (rows.length === 1 && titleNationalStated(item.title)));
+  // Krennic 2026-11-03: a plural title ("Chinese Nationals Sentenced ...", usao-mdpa Oct 30, 2026) covers every named
+  // defendant when the release names no U.S. citizen and has no dual / "one U.S. citizen" wording (titleNationalsCoverAll).
+  const titleAll = rows.length > 1 && titleNationalsCoverAll(item.title, fullText);
+  if (!program) rows = rows.filter((r) => nonCitizenStatedFor(r.name, fullText, rows.length === 1) || (rows.length === 1 && titleNationalStated(item.title)) || titleAll);
   for (const row of rows) {
     if (isExcluded(row)) continue;
     const key = `${row.sourceUrl}|${row.id}`;
@@ -965,6 +1030,10 @@ export function dojItem(r) {
     // fraud"; the PUA claims are in the next paragraph): read the opening of the body for the program,
     // but keep the teaser's names, so no official or agent named further down becomes a row.
     else if (named.length && !keepBlob(title, teaser) && keepBlob(title, head)) return { title, teaser: head, link, when: unixMs(r.date), names: named };
+    // Krennic 2026-11-03: the teaser names the defendant but gives no place and the link has no district ("California doctor
+    // Violetta Mailyan was sentenced ...", an OPA release); the body's "Mailyan, 45, of Glendale, California" places the row.
+    // The teaser's names are kept, so nobody named further down becomes a row.
+    else if (named.length && !seatFromUrl(link) && !geoFor({ title, teaser, link }) && named.every((n) => !geoNearName(`${title} ${teaser}`, n) && !districtNearName(`${title} ${teaser}`, n)) && named.some((n) => ofPlaceNearName(head, n))) return { title, teaser: head, link, when: unixMs(r.date), names: named };
   }
   // Not a program case by teaser or opening: if the body states a defendant's non-citizen status, ingest()
   // may keep it as private-victim fraud (Krennic 2026-10-20); it needs the whole body for that check.
