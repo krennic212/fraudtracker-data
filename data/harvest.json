@@ -15386,5 +15386,30 @@
     "scheme": "Randy Pierre-Louis",
     "schemeId": "harvest-https-www-ice-gov-news-releases-ice-picks-domini-eb987bdca1",
     "stage": "Charged"
+  },
+  {
+    "name": "Sheikhnoor Adbo",
+    "city": "Minnesota, MN",
+    "crime": "In Nationwide crackdown on voter fraud ICE arrests dozens of aliens",
+    "usa": "In Nationwide crackdown on voter fraud ICE arrests dozens of aliens",
+    "foreign": "Not stated in post",
+    "picked": "11/2/2026",
+    "entered": "Amount not stated",
+    "office": "DHSgov",
+    "id": "harvest-https-www-ice-gov-news-releases-nationwide-crack-1859c53cdd",
+    "when": "2026-11-02",
+    "text": "In Nationwide crackdown on voter fraud ICE arrests dozens of aliens. Sheikhnoor Adbo, a citizen of Somalia, is a lawful permanent resident who, according to the Minnesota Secretary of State, voted in person on November 3, 2020. Source: official Justice Department press. Stage: Arrested. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "ICE press",
+    "sourceUrl": "https://www.ice.gov/news/releases/nationwide-crackdown-voter-fraud-ice-arrests-dozens-aliens",
+    "voting": true,
+    "origin": "Voting / elections",
+    "confirmedBy": "DHS",
+    "lat": 46.7296,
+    "lon": -94.6859,
+    "presence": "not_stated",
+    "scheme": "Sheikhnoor Adbo",
+    "schemeId": "harvest-https-www-ice-gov-news-releases-nationwide-crack-aa5e509fc9",
+    "stage": "Arrested"
   }
 ]
