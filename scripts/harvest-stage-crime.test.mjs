@@ -27,3 +27,12 @@ test("live ledger: De La Rosa and Nieves-Borja absent; Martinez and the PPP four
   }
   assert.equal(feed.find((x) => x.name === "Jose Maria Hernandez Bautista")?.voting, true);
 });
+
+// Krennic 2026-11-03 3:51 PM CST: "Keep Akpom as voting."
+test("Akpom stays a voting row on the ledger", () => {
+  const feed = JSON.parse(readFileSync(new URL("../data/harvest.json", import.meta.url), "utf8"));
+  const r = feed.find((x) => x.id === "harvest-https-www-justice-gov-usao-ndtx-pr-federal-prose-3dd1394123");
+  assert.ok(r, "Akpom row on the ledger");
+  assert.equal(r.name, "Joshua Nmelichukwu Akpom");
+  assert.equal(r.voting, true);
+});

@@ -441,3 +441,9 @@ Harvester fixes (scripts/harvest-gov.mjs, scripts/harvest-parse.mjs; tests: scri
 - HHS-OIG and IRS-CI were already list sources; their pages now pass through the same name / scope fixes. IRS-CI cases mostly appear as USAO releases (now pinned).
 - A dry run on a copy of the feed added the 25 seeded rows and 5 more harvester rows within scope (Oct 15–16): Miguel Dario Bautista Jimenez (D.N.J., naturalization/passport), Ronnie Lorenzo Robinson Jr. (W.D.N.C., Medicaid; the release's company row was already listed), Manjit Bedi (W.D. Wash., SNAP), CVS Pharmacy Inc. (D. Haw., FCA/Medicare), Peter L. Roper (OPA, sold purported federal tax credits). No duplicates, ids unique, no schemeId spans two releases, no skip-list name.
 - Existing rows were not re-filtered: about 50 older rows are private-victim cases that came in under the old "wire/bank/mail fraud" rule. They stay until Krennic decides (data/exclude.json).
+
+## 2026-11-03 ~4:00 PM CST — latest-examples sweep
+- 7 seeds added to data/seed-releases.json (Laufenberg, Burke, Colbert, Butts, Premier Medical Group, ILC Dover/Astrospace, SNG Dialysis Centers).
+- data/stage-updates.json: Khalwinder Singh Bhengura → Convicted (NDTX Oct 28 jury verdict).
+- Test: Akpom stays a voting row (Krennic: "Keep Akpom as voting.").
+- Gaps (no rule change): parser misses PPP/Medicaid/FCA settlement releases; stage set once, never upgraded by later releases.
