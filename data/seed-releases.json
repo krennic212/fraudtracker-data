@@ -2432,6 +2432,101 @@
         "Walbis Pozo-Dutel",
         "Emanuel Martinez Gonzalez"
       ]
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/justice-department-announces-charges-involving-63-individuals-election-related-crimes",
+      "title": "Justice Department Announces Charges Involving 63 Individuals for Election-Related Crimes",
+      "date": "2026-11-02",
+      "teaser": "Eastern District of Pennsylvania. Indonesian national Widarto, 56, a lawful permanent resident, has been charged with voting by an alien. Widarto allegedly voted in the 2024 general election.",
+      "seat": "usao-edpa",
+      "stage": "Charged",
+      "names": [
+        "Widarto"
+      ],
+      "voting": true,
+      "nationality": {
+        "Widarto": "Indonesian national"
+      },
+      "schemeKey": "opa-63-election-widarto"
+    },
+    {
+      "link": "https://www.justice.gov/opa/pr/botox-fraud-doctor-sentenced-15-years-prison-45m-medicare-scheme",
+      "title": "Botox Fraud Doctor Sentenced to 15 Years in Prison for $45M Medicare Scheme",
+      "date": "2026-10-30",
+      "teaser": "California doctor Violetta Mailyan was sentenced yesterday to 15 years in prison for using her medical practice to fraudulently bill Medicare more than $45 million for Botox injection services that were medically unnecessary and never provided. According to court documents and evidence presented at trial, Violetta Mailyan, 45, of Glendale, California, owned and operated Healthy Way Medical Center, a clinic that purported to provide beauty and cosmetic services. After a six-day jury trial ending in May 2026, Mailyan was convicted of nine counts of wire fraud and three counts of obstruction of a criminal investigation of a health care offense. The jury also found that Mailyan used the fraud proceeds to purchase two Tesla vehicles, including a Cybertruck, and five pieces of California real estate.",
+      "seat": "usao-cdca",
+      "stage": "Sentenced",
+      "names": [
+        "Violetta Mailyan"
+      ],
+      "places": {
+        "Violetta Mailyan": {
+          "city": "Glendale, CA",
+          "lat": 34.1425,
+          "lon": -118.2551
+        }
+      },
+      "schemeKey": "cdca-mailyan-botox-medicare",
+      "usdAlleged": 45000000
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdpa/pr/chinese-nationals-sentenced-conspiracy-defraud-elderly-victims",
+      "title": "Chinese Nationals Sentenced for Conspiracy to Defraud Elderly Victims",
+      "date": "2026-10-30",
+      "teaser": "WILLIAMSPORT - The United States Attorney’s Office for the Middle District of Pennsylvania announced that Yankun Jiang, age 26, of State College, PA; Hanlin Yang, age 26, of State College, PA; and Lei Bao, age 24, of New York, were sentenced for their roles in a wide-scale computer “pop-up” scam targeting elderly victims falsely claiming that their computer or bank accounts had been compromised.  Members of the conspiracy traveled to victims’ homes and posed as federal law enforcement officers to collect large sums of cash from the victims claiming that the assets would be protected, among other falsehoods.  More than 50 victims across 19 states were defrauded of more than $10,000,000. On October 20, 2026, Chief United States District Judge Matthew W. Brann sentenced Lei Bao to 30 months’ imprisonment and ordered her to pay $377,591 in restitution to victims.  Bao acted as a courier in the conspiracy, making several cash pick-ups from victims.  On at least five occasions, Bao also transported suitcases filled with stolen cash from Philadelphia, PA to Los Angeles, CA in order to deliver the cash to other members of the conspiracy. On October 22, 2026, Judge Brann sentenced Yankun Jiang to 84 months’ imprisonment and ordered him to pay $1,267,122 in restitution to victims.  Jiang was a courier in the conspiracy who ultimately became a key supervisor of the couriers.  Jiang collected stolen cash from other couriers in the conspiracy, packaged the accumulated cash, and coordinated the delivery of the cash to other members of the conspiracy in Los Angeles, CA. On October 23, 2026, Judge Brann sentenced Hanlin Yang to 24 months’ imprisonment and ordered him to pay $400,800 in restitution to victims.  Yang acted as a courier in the conspiracy, traveling to the homes of at least six victims to pick up cash.",
+      "seat": "usao-mdpa",
+      "stage": "Sentenced",
+      "names": [
+        "Yankun Jiang",
+        "Hanlin Yang",
+        "Lei Bao"
+      ],
+      "nationality": {
+        "Yankun Jiang": "Chinese Nationals (release title)",
+        "Hanlin Yang": "Chinese Nationals (release title)",
+        "Lei Bao": "Chinese Nationals (release title)"
+      },
+      "places": {
+        "Yankun Jiang": {
+          "city": "State College, PA",
+          "lat": 40.7934,
+          "lon": -77.86
+        },
+        "Hanlin Yang": {
+          "city": "State College, PA",
+          "lat": 40.7934,
+          "lon": -77.86
+        },
+        "Lei Bao": {
+          "city": "New York, NY",
+          "lat": 40.7128,
+          "lon": -74.006
+        }
+      },
+      "schemeKey": "mdpa-pop-up-elderly-scam-couriers"
+    },
+    {
+      "link": "https://www.justice.gov/usao-sdny/pr/kalder-ceo-sentenced-25-months-prison",
+      "title": "Kalder CEO Sentenced To 25 Months In Prison",
+      "date": "2026-10-30",
+      "teaser": "United States Attorney for the Southern District of New York, Jamie McDonald, announced today that GÖKÇE GÜVEN, the founder and former Chief Executive Officer of Kalder Inc. (“Kalder”), was sentenced to 25 months in prison for committing securities fraud in connection with a scheme to defraud the investors in Kalder, a technology startup before U.S. District Judge Lewis A. Kaplan.  GÜVEN pled guilty to one count of securities fraud on May 15, 2026, U.S. Magistrate Judge Sarah Netburn. GÜVEN, a citizen of Turkey, also made false statements and fabricated documents as part of a visa application. Following the expiration of her student visa, GÜVEN caused Kalder to sponsor her for an O-1A visa, which is typically issued to individuals with extraordinary ability in the sciences, education, business, or athletics. GÜVEN’s application repeated the same sorts of misrepresentations that GÜVEN had provided to Kalder’s investors. GÜVEN also supplied reference letters purportedly signed by business executives but that, in fact, GÜVEN had digitally signed herself without the executives’ knowledge or consent. GÜVEN was issued an O-1A visa in the fall of 2025. That visa has since been revoked. In addition to the prison term, GÜVEN, 27, of New York and Turkey, was ordered to pay forfeiture and restitution to her victims, each in the amount of $6,717,997.",
+      "seat": "usao-sdny",
+      "stage": "Sentenced",
+      "names": [
+        "GÖKÇE GÜVEN"
+      ],
+      "nationality": {
+        "GÖKÇE GÜVEN": "a citizen of Turkey"
+      },
+      "places": {
+        "GÖKÇE GÜVEN": {
+          "city": "New York, NY",
+          "lat": 40.7128,
+          "lon": -74.006
+        }
+      },
+      "schemeKey": "sdny-kalder-guven",
+      "usdAlleged": 6717997
     }
   ]
 }

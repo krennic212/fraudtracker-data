@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T23:06:07.048Z",
-  "rows": 602,
-  "schemes": 322,
-  "harvestSha256": "8b7fad56463a8a8f36490c72360bd3b3cb8fee537d7b6ad73821c4a3e9a2dd44",
+  "updatedAt": "2026-11-03T00:03:50.941Z",
+  "rows": 608,
+  "schemes": 326,
+  "harvestSha256": "ba50225f3b42712eab217872c2e0c048896dc544360541ef74ff87a3c803709f",
   "source": "https://github.com/krennic212/fraudtracker-data"
 }

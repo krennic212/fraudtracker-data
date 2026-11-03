@@ -1,5 +1,15 @@
 # HANDOFF: fraudtracker-data
 
+## 2026-11-02 (evening) daily missed-cases check (Oct 30 - Nov 2), standing order "just add"
+
+- Seeds added to data/seed-releases.json (DOJ press-release API text, verbatim; no photos):
+  - Widarto (OPA Nov 2 "63 Individuals", E.D. Pa., Charged, voting, "Indonesian national"). The parser does not take single-word names.
+  - Violetta Mailyan (OPA Oct 30 Botox / Medicare, Glendale, CA, Sentenced, usdAlleged 45,000,000 = "bill Medicare more than $45 million"). keepBlob passes but the parser found no name ("California doctor Violetta Mailyan was sentenced").
+  - GOKCE GUVEN (SDNY Oct 30 Kalder, Sentenced, "a citizen of Turkey", restitution $6,717,997). The parser named "Kalder Inc." instead of the ALL-CAPS name with Turkish letters.
+  - Yankun Jiang, Hanlin Yang, Lei Bao (MDPA Oct 30 elderly pop-up scam, Sentenced, one scheme). Seed kept, rows built by rowsFromItem and added by hand: ingest() drops them because titleNationalStated() only counts for a single-row release and the body has no per-person status.
+- Name / pin fixes on OPA 63 rows: "Samoan national Valelia Toleafoa" -> Valelia Toleafoa (pin Madison, WI -> Salt Lake City, UT), "national Mlebinge Riziki Ramadhani" -> Mlebinge Riziki Ramadhani (Madison, WI -> Las Vegas, NV), "Mexican national Juan Manuel Gudino" -> Juan Manuel Gudino (Sacramento, CA -> Little Rock, AR), "Vincent Bruce" (MDTN) -> Garfield St. Vincent Bruce. Parser gaps: a "<Demonym> national <Name>" lead-in after a section header is kept in the name; "St." in a name cuts it; districtNearName picks a neighbouring section's district in the OPA roundup.
+- Village Capital and Higgs still absent. npm test 167/167.
+
 ## 2026-10-31 (1:05 PM CDT) three filter fixes (Krennic approved 12:52 PM CDT)
 
 - Checked first: data/harvest.json was intact (567 rows). No new "Fargo Levy" commit.
