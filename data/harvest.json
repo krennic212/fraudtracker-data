@@ -15827,5 +15827,29 @@
     "presence": "not_stated",
     "scheme": "Andy Robert Perovici",
     "schemeId": "harvest-https-www-justice-gov-usao-or-pr-portland-man-pl-41247ac124"
+  },
+  {
+    "name": "Daiwor Woah-Tee",
+    "city": "Baltimore, MD",
+    "crime": "Maryland Man Pleads Guilty to Role in Tax and COVID-Fraud Conspiracy",
+    "usa": "Maryland Man Pleads Guilty to Role in Tax and COVID-Fraud Conspiracy",
+    "foreign": "Not stated in post",
+    "picked": "11/3/2026",
+    "entered": "Amount not stated",
+    "office": "DOLOIG",
+    "id": "harvest-https-www-oig-dol-gov-public-press-20releases-oi-6d1e19f560",
+    "when": "2026-11-03",
+    "text": "Maryland Man Pleads Guilty to Role in Tax and COVID-Fraud Conspiracy. As posted for this defendant: Daiwor Woah-Tee, who pled guilty to charges connected to his role in the conspiracy in June 2026, submitted UI applications to the Maryland Department of Labor on behalf of victims, often without the victim’s knowledge, falsely stating that the applicant was entitled to UI benefits. As a result, the co-conspirators caused the Maryland Department of Labor to deposit UI benefits into bank accounts that they controlled, allowing them to withdraw the funds for their own personal use. The co-conspirators received UI benefits in excess of $550,000. As part of the plea, Maryland Man Pleads Guilty to Role in Tax and COVID-Fraud Conspiracy November 3, 2026 FOR IMMEDIATE RELEASE U.S. Department of Labor, Office of Inspector General Baltimore, Maryland – A Maryland man pled guilty in federal court to tax and COVID-related fraud charges. This prosecution is part of the Trump Administration’s Task Force to Eliminate Fraud. Dekwii Woah-Tee, 43, of Rosedale, pled guilty to conspiracy to submit false, fictitious, and fraudulent claims to the Internal Revenue Service; wire-fraud conspiracy in connection with Unemployment Insurance (UI) claims for benefits; and aggravated identity theft stemming from a scheme to fraudulently obtain UI benefits during the COVID-19 Pandemic. Kelly O. Hayes, U.S. Attorney for the District of Maryland, announced the guilty plea with Exe Source: official DOL OIG press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOL OIG press",
+    "sourceUrl": "https://www.oig.dol.gov/public/Press%20Releases/OIG-OI-Press-Release-110426_3.htm",
+    "voting": false,
+    "origin": "Unemployment insurance",
+    "confirmedBy": "DOJ",
+    "lat": 39.2904,
+    "lon": -76.6122,
+    "presence": "not_stated",
+    "scheme": "Daiwor Woah-Tee",
+    "schemeId": "harvest-https-www-oig-dol-gov-public-press-20releases-oi-8c1f4a0b2d"
   }
 ]
