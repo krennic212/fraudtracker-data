@@ -15803,5 +15803,29 @@
     "scheme": "SNG Dialysis Centers",
     "schemeId": "harvest-https-www-justice-gov-usao-ma-pr-dialysis-center-8152de246f-ma-sng-prf-fca",
     "stage": "Civil settlement"
+  },
+  {
+    "name": "Andy Robert Perovici",
+    "city": "Portland, OR",
+    "crime": "Portland Man Pleads Guilty to Federal Conspiracy, Access Device Fraud and Aggravated Identity Theft Related to SNAP EBT Skimming Scheme",
+    "usa": "Portland Man Pleads Guilty to Federal Conspiracy, Access Device Fraud and Aggravated Identity Theft Related to SNAP EBT Skimming Scheme",
+    "foreign": "Not stated in post",
+    "picked": "11/3/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-or-pr-portland-man-pl-a96cb7458c",
+    "when": "2026-11-03",
+    "text": "Portland Man Pleads Guilty to Federal Conspiracy, Access Device Fraud and Aggravated Identity Theft Related to SNAP EBT Skimming Scheme. U.S. Attorney Scott E. Bradford announced today that Andy Robert Perovici , 36, of Portland, has pleaded guilty to federal charges for his role in a multi‑state scheme that targeted public assistance recipients and caused more than $550,000 in losses in Supplemental Nutrition Assistance Program (SNAP) and Temporary Assistance for Needy Families (TANF) Electronic Benefit Transfer (EBT) benefits in Oregon and Washington. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-or/pr/portland-man-pleads-guilty-federal-conspiracy-access-device-fraud-and-aggravated",
+    "voting": false,
+    "origin": "SNAP / food stamps",
+    "confirmedBy": "DOJ",
+    "lat": 45.5152,
+    "lon": -122.6784,
+    "presence": "not_stated",
+    "scheme": "Andy Robert Perovici",
+    "schemeId": "harvest-https-www-justice-gov-usao-or-pr-portland-man-pl-41247ac124"
   }
 ]
