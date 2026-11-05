@@ -447,3 +447,8 @@ Harvester fixes (scripts/harvest-gov.mjs, scripts/harvest-parse.mjs; tests: scri
 - data/stage-updates.json: Khalwinder Singh Bhengura → Convicted (NDTX Oct 28 jury verdict).
 - Test: Akpom stays a voting row (Krennic: "Keep Akpom as voting.").
 - Gaps (no rule change): parser misses PPP/Medicaid/FCA settlement releases; stage set once, never upgraded by later releases.
+
+## 2026-11-04 daily missed-cases check
+- Seeded Thakur Sukhdeo (usao-mdfl, EIDL plea); teaser runs through the "Economic Injury Disaster Loan (EIDL)" sentence because "COVID relief" alone does not match KEEP. Live in feed.
+- Rule gap, NOT changed (needs Krennic's yes): usao-sdca "Former Police Officer Admits ... Pocketing Nearly $300,000 in Stolen Government Benefits" (Ivan Alonso Rodriguez, SSA + OPM benefits of a dead retiree, 18 U.S.C. 641) fails keepBlob, so a seed cannot add it. Fix: add "government benefits" / "stolen public money" / "social security administration" benefit-theft wording to KEEP.
+- Parser duplicate, NOT changed: usao-ma Piron Lara SNAP/MassHealth release produced two rows, "Danis Piron Lara" and surname-only "Piron Lara". Fix: drop a parsed name that is a trailing subset of another name in the same release.
