@@ -16069,5 +16069,29 @@
     "scheme": "Thakur Sukhdeo",
     "schemeId": "harvest-https-www-justice-gov-usao-mdfl-pr-lehigh-acres--813e12538a-mdfl-sukhdeo-eidl",
     "stage": "Pleaded guilty"
+  },
+  {
+    "name": "Christina Klauda",
+    "city": "Portland, OR",
+    "crime": "Former Oregon Lumber Company Bookkeeper Pleads Guilty to Embezzling Nearly $1 Million From Employer Over Decade-Long Scheme",
+    "usa": "Former Oregon Lumber Company Bookkeeper Pleads Guilty to Embezzling Nearly $1 Million From Employer Over Decade-Long Scheme",
+    "foreign": "Not stated in post",
+    "picked": "11/4/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-or-pr-former-oregon-l-ac65d211ef",
+    "when": "2026-11-04",
+    "text": "Former Oregon Lumber Company Bookkeeper Pleads Guilty to Embezzling Nearly $1 Million From Employer Over Decade-Long Scheme. U.S. Attorney Scott E. Bradford announced today that Christina Klauda, 53, of Riddle, Oregon, has pleaded guilty to one count of bank fraud and two counts of making and subscribing false federal income tax returns for a years-long embezzlement and tax fraud scheme that targeted her former employer. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-or/pr/former-oregon-lumber-company-bookkeeper-pleads-guilty-embezzling-nearly-1-million",
+    "voting": false,
+    "origin": "Tax fraud",
+    "confirmedBy": "DOJ",
+    "lat": 45.5152,
+    "lon": -122.6784,
+    "presence": "not_stated",
+    "scheme": "Christina Klauda",
+    "schemeId": "harvest-https-www-justice-gov-usao-or-pr-former-oregon-l-7d7ad4c358"
   }
 ]
