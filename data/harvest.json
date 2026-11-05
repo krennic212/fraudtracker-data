@@ -16309,5 +16309,31 @@
     "presence": "not_stated",
     "scheme": "Hugh A. Brown Jr.",
     "schemeId": "harvest-https-www-justice-gov-usao-ndga-pr-fayette-count-6a97fcdfdb"
+  },
+  {
+    "name": "Reuben Taylor",
+    "city": "Boston, MA",
+    "crime": "Former Boston City Official Pleads Guilty to Pandemic Fraud",
+    "usa": "Former Boston City Official Pleads Guilty to Pandemic Fraud",
+    "foreign": "Not stated in post",
+    "picked": "11/4/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ma-pr-former-boston-c-98864360db",
+    "when": "2026-11-04",
+    "text": "Former Boston City Official Pleads Guilty to Pandemic Fraud. BOSTON – The former Director of the City of Boston’s Municipal Protective Services pleaded guilty yesterday in federal court in Boston to obtaining federal pandemic funds through fraud. Reuben Taylor, 40, of Boston, pleaded guilty to one count of wire fraud. U.S. District Court Judge Angel Kelley scheduled sentencing for Feb. 12, 2027. Taylor was charged in October 2026. Taylor worked for the Municipal Protective Services, an unarmed, non-sworn security division within the City of Boston’s Property Management Department, since 2008. In April 2021 Taylor submitted an application for a $20,804 Paycheck Protection Program loan in which he falsely claimed that he had worked as an auto mechanic in 2019. Taylor supported his application with a fabricated Form 1040 and Schedule C, claiming that h Source: official Justice Department press. Stage: Pleaded guilty. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ma/pr/former-boston-city-official-pleads-guilty-pandemic-fraud",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 42.3576,
+    "lon": -71.0684,
+    "presence": "not_stated",
+    "scheme": "Reuben Taylor",
+    "schemeId": "harvest-https-www-justice-gov-usao-ma-pr-former-boston-c-21e076ee3d-ma-reuben-taylor-ppp",
+    "usdAlleged": 20804,
+    "stage": "Pleaded guilty"
   }
 ]

@@ -1,3 +1,9 @@
+## 2026-11-05 (evening) daily missed-cases check
+
+- Seeded Reuben Taylor (usao-ma Nov 4, Pleaded guilty, PPP $20,804). Row in harvest.json. Village Capital / Higgs still out.
+- Skipped Destinee Ruffin (SDIN EIP/mail-theft): keepBlob false (Economic Impact Payment not in KEEP); needs Krennic yes before a KEEP add.
+- Skipped Paul Paredes (private lending wire fraud, no non-citizen stated).
+
 # HANDOFF: fraudtracker-data
 
 ## 2026-11-03 (afternoon) stage-for-another-crime rule (Krennic 12:29 PM CT)

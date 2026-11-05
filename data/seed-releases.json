@@ -2885,6 +2885,26 @@
         }
       },
       "schemeKey": "mdfl-sukhdeo-eidl"
+    },
+    {
+      "link": "https://www.justice.gov/usao-ma/pr/former-boston-city-official-pleads-guilty-pandemic-fraud",
+      "title": "Former Boston City Official Pleads Guilty to Pandemic Fraud",
+      "date": "2026-11-04",
+      "teaser": "BOSTON – The former Director of the City of Boston’s Municipal Protective Services pleaded guilty yesterday in federal court in Boston to obtaining federal pandemic funds through fraud. Reuben Taylor, 40, of Boston, pleaded guilty to one count of wire fraud. U.S. District Court Judge Angel Kelley scheduled sentencing for Feb. 12, 2027. Taylor was charged in October 2026. Taylor worked for the Municipal Protective Services, an unarmed, non-sworn security division within the City of Boston’s Property Management Department, since 2008. In April 2021 Taylor submitted an application for a $20,804 Paycheck Protection Program loan in which he falsely claimed that he had worked as an auto mechanic in 2019. Taylor supported his application with a fabricated Form 1040 and Schedule C, claiming that he received no wages in 2019 and instead received $99,863 as an independent contractor working as a mechanic. In the 2019 Form 1040 that Taylor actually submitted to the IRS, he reported earning $97,561 in wages as a municipal police officer and attached a Form W-2 from the City of Boston. In August 2021 Taylor submitted an application seeking forgiveness of the loan, claiming that he had spent the loan proceeds on payroll for his auto mechanic business. The Small Business Administration forgave Taylor’s loan in September 2021.",
+      "seat": "usao-ma",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Reuben Taylor"
+      ],
+      "places": {
+        "Reuben Taylor": {
+          "city": "Boston, MA",
+          "lat": 42.3576,
+          "lon": -71.0684
+        }
+      },
+      "usdAlleged": 20804,
+      "schemeKey": "ma-reuben-taylor-ppp"
     }
   ]
 }
