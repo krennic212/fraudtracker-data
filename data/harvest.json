@@ -16044,5 +16044,30 @@
     "scheme": "Ernesto Gutiérrez Ruvalcaba",
     "schemeId": "harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-761bc3ec34",
     "nationality": "a Mexican national"
+  },
+  {
+    "name": "Thakur Sukhdeo",
+    "city": "Lehigh Acres, FL",
+    "crime": "Lehigh Acres Man Pleads Guilty to Wire Fraud and Illegal Monetary Transactions",
+    "usa": "Lehigh Acres Man Pleads Guilty to Wire Fraud and Illegal Monetary Transactions",
+    "foreign": "Not stated in post",
+    "picked": "11/4/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-mdfl-pr-lehigh-acres--de8aab7388",
+    "when": "2026-11-04",
+    "text": "Lehigh Acres Man Pleads Guilty to Wire Fraud and Illegal Monetary Transactions. Fort Myers, Florida – Thakur Sukhdeo (40, Lehigh Acres) has pleaded guilty to two counts of wire fraud and two counts of illegal monetary transactions related to COVID relief. He faces a maximum penalty of 20 years in federal prison for each wire fraud count, and up to 10 years’ imprisonment for each illegal monetary transaction count. Sukhdeo has also agreed to forfeit $413,900, which are the proceeds of the criminal offense. U.S. Attorney Gregory W. Kehoe made the announcement. According to court records, during the COVID pandemic, the United States Small Business Administration (SBA) offered loans to small businesses under the Economic Injury Disaster Loan (EIDL). Source: official Justice Department press. Stage: Pleaded guilty. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-mdfl/pr/lehigh-acres-man-pleads-guilty-wire-fraud-and-illegal-monetary-transactions",
+    "voting": false,
+    "origin": "FEMA / disaster relief",
+    "confirmedBy": "DOJ",
+    "lat": 26.6254,
+    "lon": -81.6248,
+    "presence": "not_stated",
+    "scheme": "Thakur Sukhdeo",
+    "schemeId": "harvest-https-www-justice-gov-usao-mdfl-pr-lehigh-acres--813e12538a-mdfl-sukhdeo-eidl",
+    "stage": "Pleaded guilty"
   }
 ]

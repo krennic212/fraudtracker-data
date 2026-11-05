@@ -2866,6 +2866,25 @@
         "SNG Dialysis Centers"
       ],
       "schemeKey": "ma-sng-prf-fca"
+    },
+    {
+      "link": "https://www.justice.gov/usao-mdfl/pr/lehigh-acres-man-pleads-guilty-wire-fraud-and-illegal-monetary-transactions",
+      "title": "Lehigh Acres Man Pleads Guilty to Wire Fraud and Illegal Monetary Transactions",
+      "date": "2026-11-04",
+      "teaser": "Fort Myers, Florida – Thakur Sukhdeo (40, Lehigh Acres) has pleaded guilty to two counts of wire fraud and two counts of illegal monetary transactions related to COVID relief. He faces a maximum penalty of 20 years in federal prison for each wire fraud count, and up to 10 years’ imprisonment for each illegal monetary transaction count. Sukhdeo has also agreed to forfeit $413,900, which are the proceeds of the criminal offense. U.S. Attorney Gregory W. Kehoe made the announcement. According to court records, during the COVID pandemic, the United States Small Business Administration (SBA) offered loans to small businesses under the Economic Injury Disaster Loan (EIDL).",
+      "seat": "usao-mdfl",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Thakur Sukhdeo"
+      ],
+      "places": {
+        "Thakur Sukhdeo": {
+          "city": "Lehigh Acres, FL",
+          "lat": 26.6254,
+          "lon": -81.6248
+        }
+      },
+      "schemeKey": "mdfl-sukhdeo-eidl"
     }
   ]
 }
