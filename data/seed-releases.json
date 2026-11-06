@@ -2943,6 +2943,99 @@
           "lon": -116.9191
         }
       }
+    },
+    {
+      "link": "https://www.justice.gov/usao-dc/pr/dominican-republic-woman-sentenced-dc-1-million-unemployment-benefits-fraud-scheme",
+      "title": "Dominican Republic Woman Sentenced in D.C. for $1 Million Unemployment Benefits Fraud Scheme",
+      "date": "2026-11-06",
+      "teaser": "WASHINGTON – Karin L. Contreras, 45, a citizen of the Dominican Republic and a U.S. lawful permanent resident, was sentenced today in U.S. District Court to 27 months in prison in connection with her role in a scheme that attempted to defraud unemployment insurance programs during the COVID‑19 pandemic of more than $1 million, announced U.S. Attorney Jeanine Ferris Pirro. “Contreras stole from programs created to help people survive the upheaval of the pandemic,” said U.S. Attorney Pirro. “When criminals take advantage of a national emergency, they siphon resources from families in genuine need, they undermine public trust, and they make it harder for communities to recover. Today’s sentence reflects that harm and holds her accountable.” Contreras pleaded guilty on July 10, 2026, before U.S. District Judge Beryl A. Howell to conspiracy to commit wire fraud. In addition to the 27-month prison term, Judge Howell ordered Contreras to serve two years of supervised release and to pay restitution of $551,674.78. Federal prosecutors had requested a 41‑month prison term. ATM images of Karin Contreras withdrawing fraudulently obtained benefits. According to court documents, from June 2020 through March 2021, Contreras conspired with others to fraudulently obtain unemployment insurance benefits using stolen personal identity information. As a result of the fraudulent applications, conspirators received prepaid ATM cards loaded with benefits totaling more than $1 million. The overwhelming majority of the cards were mailed to a D.C. address immediately next to Contreras’ residence. Con",
+      "seat": "usao-dc",
+      "stage": "Sentenced",
+      "names": [
+        "Karin L. Contreras"
+      ],
+      "nationality": {
+        "Karin L. Contreras": "a citizen of the Dominican Republic"
+      },
+      "places": {
+        "Karin L. Contreras": {
+          "city": "Washington, DC",
+          "lat": 38.9072,
+          "lon": -77.0369
+        }
+      },
+      "schemeKey": "dc-contreras-ui",
+      "usdAlleged": 1000000
+    },
+    {
+      "link": "https://www.justice.gov/usao-wdva/pr/pair-plead-guilty-federal-unemployment-scheme-defrauded-us-taxpayers",
+      "title": "Pair Plead Guilty in Federal Unemployment Scheme that Defrauded U.S. Taxpayers",
+      "date": "2026-11-06",
+      "teaser": "ABINGDON, Va. – A pair of Virginia residents pleaded guilty recently to filing false claims for pandemic unemployment benefits authorized by the CARES Act. The CARES Act is a federal law, enacted in March of 2020, that was designed to provide emergency financial assistance to people affected by the COVID-19 pandemic. Thonton Snapp, 50, of Bristol, Virginia, and Jacob Michael Testerman, 36, of Abingdon, Virginia, both pleaded guilty to one count of conspiring to defraud the United States and commit an offense against the United States by filing fraudulent claims for pandemic unemployment benefits authorized by federal law. According to court documents, from July 2020 through September 2021, Snapp, Testerman, and others, conspired to file false and fraudulent claims for pandemic unemployment benefits. Co-conspirators provided personal identifying information (PII) to Martha Davis, who filed and recertified the false claims with the Virginia Employment Commission (VEC). To perpetuate the scheme, Snapp’s application listed a non-existent business, “Precision Carpentry” that was invented for the purpose of filing the fraudulent claims for unemployment benefits with the VEC. Testerman provided his own PII and the PII of other incarnated individuals to Davis for the purpose of filing and recertifying fraudulent claims for unemployment benefits. The Federal Bureau of Investigation, the United States Department of Labor - Office of the Inspector General, and the Virginia Employment Commission investigated the case. First Assistant United States Attorney Robert N. Tracci and Ian Kauf",
+      "seat": "usao-wdva",
+      "stage": "Pleaded guilty",
+      "names": [
+        "Thonton Snapp",
+        "Jacob Michael Testerman"
+      ],
+      "places": {
+        "Thonton Snapp": {
+          "city": "Bristol, VA",
+          "lat": 36.5951,
+          "lon": -82.1887
+        },
+        "Jacob Michael Testerman": {
+          "city": "Abingdon, VA",
+          "lat": 36.7098,
+          "lon": -81.9773
+        }
+      },
+      "schemeKey": "wdva-snapp-testerman-pua"
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndny/pr/johnson-city-man-indicted-multiple-counts-109000-social-security-fraud-loss",
+      "title": "Johnson City Man Indicted for Multiple Counts in $109,000 Social Security Fraud Loss",
+      "date": "2026-11-06",
+      "teaser": "David Darling, 59, of Johnson City, NY was arraigned today in Binghamton, NY before United States Magistrate Judge Miroslav Lovric on a multiple count indictment including access device fraud, theft of government property and aggravated identity theft. An Albany grand jury indicted Darling on September 3, 2026. This action is part of an ongoing effort of the Trump Administration’s Fraud Task Force aimed at eliminating fraud across the country. First Assistant United States Attorney John A. Sarcone III, Amy Connelly, Special Agent-in- Charge, Boston-New York-Philadelphia Field Division, Social Security Administration Office of the Inspector General (SSA OIG) made the announcement. First Assistant United States Attorney John Sarcone stated, “As alleged in the indictment, this defendant used an unauthorized ATM card to withdraw funds intended for a deceased beneficiary for nearly six years, resulting in a Social Security program loss of over $109,000. My office is committed to prosecuting those that steal from Social Security and who deny resources intended for living beneficiaries who genuinely rely on public assistance.” “This case reflects our unwavering commitment to protecting the integrity of Social Security programs and safeguarding the benefits meant for those who truly need them,” said Amy Connelly, Special Agent-in-Charge, Social Security Administration, Office of the Inspector General, Boston-New York-Philadelphia Field Division. “We will continue working closely with our law enforcement partners to identify, investigate, and stop those who seek to exploit these vit",
+      "seat": "usao-ndny",
+      "stage": "Charged",
+      "names": [
+        "David Darling"
+      ],
+      "places": {
+        "David Darling": {
+          "city": "Johnson City, NY",
+          "lat": 42.1156,
+          "lon": -75.9588
+        }
+      },
+      "schemeKey": "ndny-darling-ssa",
+      "usdAlleged": 109000
+    },
+    {
+      "link": "https://www.justice.gov/usao-md/pr/maryland-brothers-sentenced-tax-evasion",
+      "title": "Maryland Brothers Sentenced for Tax Evasion",
+      "date": "2026-11-06",
+      "teaser": "Baltimore, Maryland – A federal judge handed down prison terms to Maryland twin brothers, today, in connection with tax-evasion crimes. Judge Deborah K. Chasanow sentenced Dennis March, 55, and Greg March, 55, both of Berlin, to six months in prison each, followed by three years of supervised release — with a special condition of 12 months of home detention as part of their supervised-release term — for tax evasion. Judge Chasanow also ordered the March brothers to each pay restitution of nearly $1.8 million. Kelly O. Hayes, U.S. Attorney for the District of Maryland, announced the sentence with Special Agent in Charge Kareem Carter, Internal Revenue Service – Criminal Investigation (IRS-CI), Washington D.C. Field Office. This prosecution is part of the Trump Administration’s Task Force to Eliminate Fraud. According to court documents, from 2017 until April 2023, Dennis and Greg March both willfully evaded paying the lawful taxes they owed on their business and personal income-tax returns for 2017, 2018, 2019, 2020, 2021, and 2022. During this time, the March brothers committed multiple affirmative acts in Maryland that constituted tax evasion and attempted tax evasion. In total, the March brothers each unlawfully concealed more than $4.5 million in income generated from 2017 to 2023, and each failed to pay nearly $1.8 million in taxes on that income. Beginning in 2017, and continuing into 2023, the March brothers, along with a third business partner, jointly owned and controlled various business entities and ventures, including Elite Marketing Group LLC, Elite MG LLC, and Principal Law Group. Through the operation of Principal, Elite, Elite MG, and their other entities, the March brothers and their business partner generated significant revenues and income from 2017-20",
+      "seat": "usao-md",
+      "stage": "Sentenced",
+      "names": [
+        "Dennis March",
+        "Greg March"
+      ],
+      "places": {
+        "Dennis March": {
+          "city": "Berlin, MD",
+          "lat": 38.3226,
+          "lon": -75.2177
+        },
+        "Greg March": {
+          "city": "Berlin, MD",
+          "lat": 38.3226,
+          "lon": -75.2177
+        }
+      },
+      "schemeKey": "md-march-brothers-tax"
     }
   ]
 }

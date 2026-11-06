@@ -1,3 +1,12 @@
+## 2026-11-06 (evening) daily missed-cases check
+
+- Seeded Karin L. Contreras (usao-dc Nov 6, Sentenced, COVID unemployment UI >$1M; already on Invasion Update).
+- Seeded Thonton Snapp + Jacob Michael Testerman (usao-wdva Nov 6, Pleaded guilty, CARES pandemic unemployment; one scheme).
+- Seeded David Darling (usao-ndny Nov 6, Charged, SSA theft ~$109k via deceased-beneficiary ATM card).
+- Seeded Dennis March + Greg March (usao-md Nov 6, Sentenced, tax evasion; Berlin MD).
+- Skipped: Pawse/Tora Kheil (already on FL+IU), Tara Taylor Williams (private payroll), Antonio Petrosino (private investment), Katrenia Harris (private insurance), gold-bar Singh ring (private, no non-citizen), HMR company-only FCA, SDCA 93 border aggregate, Lab Genomics LLC already on FL (Leena Dalal not seeded).
+- Village Capital / Higgs still out. No filter/parser code changes.
+
 ## 2026-11-06 (late morning) miss-reduction rule pack (Krennic t123u: "Fix everything in the rules so less are missed in the future")
 
 - Checked first: live feed 660 rows, data/harvest.json intact. After: 661 (+Destinee Ruffin, +Ivan Alonso Rodriguez, -"Piron Lara" short-name duplicate).
