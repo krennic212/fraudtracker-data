@@ -1,3 +1,32 @@
+## 2026-11-06 (late morning) miss-reduction rule pack (Krennic t123u: "Fix everything in the rules so less are missed in the future")
+
+- Checked first: live feed 660 rows, data/harvest.json intact. After: 661 (+Destinee Ruffin, +Ivan Alonso Rodriguez, -"Piron Lara" short-name duplicate).
+- scripts/harvest-gov.mjs:
+  - KEEP: Economic Impact Payment / EIP / stimulus checks / recovery rebate; stolen government/public/federal benefits or money;
+    receipt/retention of stolen public money; FERS / civil service retirement / SSI; Social Security / retirement / annuity
+    benefits paid after a death; PPP loans; Medicaid fraud/program/billing; False Claims Act settlement/allegations; "resolve
+    ... false claims / fraud / kickback / overbilling".
+  - originFor: stimulus / stolen-benefit cases file as "Federal program (see release)" (Ruffin was "nursing credentials" from a driver's license).
+  - Charged -> Convicted from a later release (laterStageUpdate): same full name + same state, existing row earlier and from
+    another release, forward only (Charged < Pleaded guilty < Convicted < Sentenced). Stage from the seed, or the title for a
+    single-defendant release. Row keeps id/schemeId/sourceUrl; gets stage, stageSourceUrl and the later release's naming
+    sentence verbatim. Listed in harvest-status.json laterStages. 0 hits in the current 400-release window.
+  - DOJ_PAGES 6 -> 10 (400 releases per hourly run) for late-posted releases.
+  - No-pin voting cross-post (Krennic via Rex, Nov 6, and covered by t123u): Invasion Update voting rows with no place now
+    cross-post with city "Not stated", lat/lon null. similarVoterListed() skips the same voter printed another way
+    ("Monica Carzoli Carrillo" = "Monica Ivette Carzoli Carillo"; "Alejandro Villegas Garcia" = "Alejandro Garcia Villegas").
+    19 such rows arrive on the next hourly run. THE SITE STILL HIDES THEM: fraudtracker.grok.me coerceHarvest drops rows with
+    city "Not stated" and lat == null. Grok Build must change that filter (list them, no map marker) and Krennic must publish.
+- scripts/harvest-parse.mjs: dropShortForms() (a short form of a name printed in full in the same release is not a second
+  person, unless the release introduces it with its own age); settlementEntity() ("<Company> Agrees to Pay $X to Resolve False
+  Claims Act ..." names the company; fraud-type settlements only, so Lockheed's employment settlement stays out).
+- Seeds: Destinee Ruffin (SDIN Nov 4, Sentenced, stolen EIP checks; co-conspirators and a parser junk name "Sentence
+  Restitution Tony McMullen" not listed), Ivan Alonso Rodriguez (SDCA Nov 3, Pleaded guilty, El Cajon, stolen SSA/OPM benefits).
+- Dry run (old vs new; live feed + seeds + 400 DOJ API releases Oct 22 - Nov 6 + Invasion Update feed): new code adds Ruffin
+  (seeded), Rodriguez (seeded) and the 19 no-pin voting rows; 0 existing rows changed; 0 removed except "Piron Lara" (old code
+  would re-add it). Village Capital / Higgs still excluded.
+- Tests: scripts/harvest-rules-1106.test.mjs (9) in npm test and the workflow Tests step. Full suite 192/192.
+
 ## 2026-11-05 (evening) daily missed-cases check
 
 - Seeded Reuben Taylor (usao-ma Nov 4, Pleaded guilty, PPP $20,804). Row in harvest.json. Village Capital / Higgs still out.

@@ -168,6 +168,25 @@ function normHyphen(s) {
   return String(s).replace(/[\u2010-\u2015\u2212]/g, "-");
 }
 
+/**
+ * Krennic 2026-11-06: a False Claims Act / program-fraud settlement title names the company that pays
+ * ("Premier Medical Group Agrees to Pay $2.8 Million to Resolve False Claims Act Allegations ..."). The words before
+ * "Agree(s) to Pay $" are the payer; a descriptor ending in Contractor(s) / Company / Provider(s) / Firm(s) is cut.
+ * Only for fraud-type settlements, so an employment or antitrust settlement is not filed as fraud.
+ */
+const SETTLE_TITLE = /^(.{3,120}?)\s+(?:Agrees?|Agreed|Will|Have Agreed|Has Agreed)\s+(?:to\s+)?Pay\s+(?:(?:Over|More Than|Nearly|Almost|Approximately|About|Up to)\s+)?\$/i;
+const SETTLE_FRAUD = /false claims|kickback|overbill|improper(?:ly)? bill|medicare|medicaid|tricare|\bppp\b|paycheck protection|\beidl\b|fraud/i;
+export function settlementEntity(title) {
+  const t = String(title || "").trim();
+  if (!SETTLE_FRAUD.test(t)) return "";
+  const m = t.match(SETTLE_TITLE);
+  if (!m) return "";
+  let name = m[1].replace(/^.*\b(?:Contractors?|Compan(?:y|ies)|Providers?|Firms?|Operators?|Owners?|Systems? Operator)\s+(?=\p{Lu})/u, "").trim();
+  if (!/^\p{Lu}/u.test(name) || name.split(/\s+/).length > 10) return "";
+  if (/^(?:Former|Two|Three|Four|Five|Several|Defendants?|Doctor|Physician|Man|Woman|Owner)\b/i.test(name)) return "";
+  return name;
+}
+
 export function personOrEntity(title, teaser = "") {
   const op = operationName(title);
   const fromTeaser = teaser ? firstPerson(teaser) : null;
@@ -177,6 +196,8 @@ export function personOrEntity(title, teaser = "") {
   if (fromTitle) return fromTitle;
   const co = `${title} ${teaser}`.match(COMPANY);
   if (co) return { name: co[1].replace(/\s+/g, " ").trim(), kind: "company" };
+  const st = settlementEntity(title);
+  if (st) return { name: st, kind: "company" };
   if (op) return { name: op, kind: "scheme" };
   return null;
 }
@@ -496,7 +517,32 @@ export function allPeople(title, teaser = "") {
   // A quoted official ("…,” said Special Agent in Charge Christopher J. Altemus Jr., of IRS-CI’s Texas Field Office")
   // is never a defendant: drop a name only when EVERY place the text prints it is right after "said" + title words
   // (Krennic 2026-10-28, usao-ndga $100M stolen-identity tax release). A name that also appears anywhere else is kept.
-  return clean.filter((n) => !onlyQuotedSpeaker(n, text));
+  const named = clean.filter((n) => !onlyQuotedSpeaker(n, text));
+  return dropShortForms(named, text);
+}
+
+/**
+ * Krennic 2026-11-06: a short form of a name the same release prints in full is the same person ("Piron Lara was charged"
+ * after "Danis Piron Lara, 51, pleaded guilty", usao-ma Nov 4, 2026). The short form is dropped when its words are the
+ * last words of a longer name in the list, unless the release itself introduces the short form as its own person
+ * ("Maria Lopez, 45," printed apart from "Jose Maria Lopez").
+ */
+export function dropShortForms(names, text = "") {
+  const blob = normHyphen(String(text || ""));
+  const toks = (n) => String(n).toLowerCase().split(/\s+/).filter(Boolean);
+  return names.filter((n) => {
+    const t = toks(n);
+    const longer = names.find((m) => {
+      const mt = toks(m);
+      return m !== n && mt.length > t.length && mt.slice(-t.length).join(" ") === t.join(" ");
+    });
+    if (!longer) return true;
+    const lead = toks(longer)[toks(longer).length - t.length - 1];
+    // An own introduction: "<short>, <age>," not preceded by the longer name's word before it.
+    const re = new RegExp(`(?:^|[^\\p{L}'’-])(\\p{L}+\\s+)?${escRe(n)},\\s+\\d{1,3},`, "giu");
+    for (const m of blob.matchAll(re)) if (!m[1] || m[1].trim().toLowerCase() !== lead) return true;
+    return false;
+  });
 }
 
 // "said" + up to 8 title words ("U.S. Attorney", "Special Agent in Charge", "TIGTA Special Agent-in-Charge").

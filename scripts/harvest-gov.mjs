@@ -38,7 +38,9 @@ const CUTOFF = Date.parse("2025-01-21T00:00:00Z");
 
 const DOJ_API =
   "https://www.justice.gov/api/v1/press_releases.json?pagesize=40&sort=created&direction=DESC";
-const DOJ_PAGES = 6;
+// Krennic 2026-11-06 ("fix everything in the rules so less are missed"): 10 pages (400 releases) so a release posted late
+// or a busy news day still falls inside the hourly window.
+const DOJ_PAGES = Number(process.env.DOJ_PAGES || 10);
 
 const USDA_LIST =
   "https://www.usda.gov/about-usda/news/press-releases";
@@ -72,7 +74,7 @@ const NEWS_OFFICE = [
 ];
 
 const KEEP =
-  /covid[- ]era federal (?:grant|relief) funds|federal student (?:financial )?aid|\bfafsa\b|\bfsa (?:program )?funds|student[- ]aid fraud|\bpell grants?\b|medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)|pandemic relief|pandemic(?:[- ]era)?(?: and \w+)? (?:relief |loan |benefits? )?fraud|covid.?19 relief|employee retention credits?|\bercs?\b|sick and family leave credits?|tax shelter|theft of (?:government|public) (?:money|funds|property|benefits)|false claims act|fraud against taxpayers act|overbill\w*.{0,60}(?:postal service|usps|government|federal|army|navy|air force|military|agency|program)|(?:postal service|usps|government|federal) .{0,40}overbill|sham marriage|immigration (?:document )?fraud|fraud and misuse of visas/i;
+  /economic impact payments?|\beips?\b(?= checks?| payments?|\))|stimulus (?:checks?|payments?)|recovery rebate credits?|stolen (?:government|public|federal) (?:benefits?|money|funds)|(?:receipt|retention|conversion|theft) of (?:stolen )?(?:government|public) (?:money|funds|property|benefits)|federal employees retirement system|civil service retirement|supplemental security income|(?:social security|retirement insurance|survivor|federal retirement|opm|annuity) (?:benefits?|payments?|annuit(?:y|ies)).{0,240}(?:deceased|death|died|dead)\b|(?:deceased|death|died)\b.{0,240}(?:social security administration|office of personnel management|retirement benefits?|annuity payments?)|\bppp loans?\b|paycheck protection program|medicaid (?:fraud|program|funds|billing)|false claims act (?:settlement|allegations|liability|violations)|resolve (?:alleged )?(?:false claims|fraud|kickback|overbilling|improper billing)|covid[- ]era federal (?:grant|relief) funds|federal student (?:financial )?aid|\bfafsa\b|\bfsa (?:program )?funds|student[- ]aid fraud|\bpell grants?\b|medicare|medicaid|masshealth|medi-cal|children.?s health insurance|\bsnap\b|food[- ]stamp|\bebt\b|\bwic\b|school meals|child nutrition|national school lunch|\bppp\b|eidl|paycheck protection|cares act|(?:relief|loan|aid|program).{0,90}covid.?19|covid.?19.{0,90}(?:relief|loan|fraud|aid|ppp|eidl|business)|health care fraud|health-care fraud|healthcare fraud|benefit fraud|aca\b|affordable care|obamacare|improper enroll|phantom enroll|tax credit|visa fraud|\bh-2a\b|\bh-2b\b|\bh-1b\b|birth ?tourism|birthright|citizenship fraud|naturaliz|illegal(?:ly)? vot|unlawful(?:ly)? vot|voting by (an? )?aliens?|vot(?:ed|ing) as (an? )?aliens?|voted in the (?:\d{4} and )?\d{4} elections?|voter fraud|election fraud|election-related|false claims? (to|of).{0,20}citizenship|false statements? of.{0,20}citizenship|falsely claim(?:ing|ed)? .{0,40}citizenship|fraudulent registration|fraudulent(?:ly)? (?:voter )?regist|election crimes?|operation protect the vote|passport fraud|retailer.{0,40}(snap|disqualif|traffick)|traffick.{0,20}(snap|ebt|food.?stamp)|operation snap|bodega|diploma mill|nursing diploma|fraudulent (nursing|transcript|diploma)|fake diploma|operation nightingale|nursing school.{0,48}fraud|credential fraud|marriage fraud|unemployment (insur|benef|fraud|comp)|pandemic unemployment|\bpua\b|ui fraud|section 8|housing choice voucher|public housing|rental assistance|\bhud\b.{0,40}(fraud|charged|indicted|sentenced)|\bfema\b|disaster (relief|assist|loan|benefit|fraud)|asylum fraud|fraudulent asylum|humanitarian parole|parole fraud|\btps\b.{0,30}fraud|temporary protected status|adjustment of status|\bi-?9\b|e-verify|employment eligibility|fake (green.?card|social security|ssn|work (permit|doc))|counterfeit (green.?card|social security|work)|document mill|ssn mill|va (benefit|oig|disability|compensat|fraud)|veterans affairs|stolen valor|\btanf\b|cash assistance|temporary assistance for needy|workers['’]? ?comp|workers compensation|state disability (insur|fraud|benef)|pandemic relief|pandemic(?:[- ]era)?(?: and \w+)? (?:relief |loan |benefits? )?fraud|covid.?19 relief|employee retention credits?|\bercs?\b|sick and family leave credits?|tax shelter|theft of (?:government|public) (?:money|funds|property|benefits)|false claims act|fraud against taxpayers act|overbill\w*.{0,60}(?:postal service|usps|government|federal|army|navy|air force|military|agency|program)|(?:postal service|usps|government|federal) .{0,40}overbill|sham marriage|immigration (?:document )?fraud|fraud and misuse of visas/i;
 
 // 2026-10-20: "wire fraud | bank fraud | mail fraud" were removed from KEEP. On their own they put
 // private-victim schemes (investors, banks, elderly victims) on the ledger whenever the district had a
@@ -525,6 +527,11 @@ function originFor(rawBlob, official) {
   if (/tax evasion|evad(?:e|ed|ing) (?:\w+ )?taxes|(?:false|fraudulent) (?:\w+ )?tax returns?|\btax fraud\b|payroll tax|employment tax|trust fund taxes|tax preparer/i.test(blob) && !/medicare|medicaid|\bppp\b|eidl|unemployment|tax credits?|employee retention/i.test(blob)) {
     return "Tax fraud";
   }
+  // Krennic 2026-11-06: stolen stimulus checks / benefits are federal money, never "nursing credentials" (a driver's license
+  // in the story is not a nursing license).
+  if (/economic impact payments?|stimulus (?:checks?|payments?)|stolen (?:government|public|federal) (?:benefits?|money|funds)|federal employees retirement system/i.test(blob) && !/medicare|medicaid|\bsnap\b|unemployment/i.test(blob)) {
+    return "Federal program (see release)";
+  }
   if (/nurs(?:e|es|ing)\b|diploma|nightingale|\blicen[cs]e\b|credential/i.test(blob) && !/medicaid|medicare/i.test(blob)) {
     return "Health care / nursing credentials";
   }
@@ -752,6 +759,8 @@ export function rowsFromItem(item, office) {
       const home = residentStateGeo(blob);
       if (home && geoState(geo) !== home.code) geo = { city: home.city, lat: home.lat, lon: home.lon };
     }
+    // Krennic 2026-11-06: an Invasion Update voting row with no place is still listed (no map pin, city "Not stated").
+    if (!geo && item.crossPost === true) geo = { city: "Not stated", lat: null, lon: null };
     if (!geo) continue;
     out.push(buildRow(item, office, name, geo, names));
   }
@@ -978,6 +987,50 @@ export function samePersonRecent(existing, row) {
   });
 }
 
+/**
+ * Krennic 2026-11-06: Charged -> Convicted when a LATER official release about the same person reports the plea, verdict
+ * or sentence. The new release's stage comes from its seed stage or its own title ("Sentenced", "Convicted" / "Found
+ * Guilty", "Pleads Guilty"); a title stage only counts for a single-defendant release, so a co-defendant never borrows it.
+ * Same person = same full name (2+ words) and same state, the existing row dated earlier and from another release. Only a
+ * move forward (Charged < Pleaded guilty < Convicted < Sentenced); never backward, never invented. The row keeps its id,
+ * schemeId, sourceUrl and wording; it gets stage, stageSourceUrl and the later release's own naming sentence (verbatim).
+ */
+export const STAGE_RANK = { Charged: 1, "Pleaded guilty": 2, Convicted: 3, Sentenced: 4 };
+export function stageFromTitle(title) {
+  const t = String(title || "");
+  if (/\bsentenced\b|\bsentences?\b.{0,40}\bto\b.{0,20}\b(?:prison|years|months)\b|\breceives?\b.{0,40}\bsentence\b/i.test(t)) return "Sentenced";
+  if (/\bconvicted\b|\bfound guilty\b|\bguilty verdict\b|\bjury (?:convicts|finds)\b|\bconvicts\b/i.test(t)) return "Convicted";
+  if (/\bpleads? guilty\b|\bpleaded guilty\b|\bpled guilty\b|\badmits?\b/i.test(t)) return "Pleaded guilty";
+  return "";
+}
+export const laterStagesApplied = [];
+export function laterStageUpdate(existing, row, item, rowCount = 1) {
+  const stage = STAGE_RANK[item.stage] ? item.stage : rowCount === 1 ? stageFromTitle(item.title) : "";
+  if (!stage) return false;
+  const k = nameKey(row.name);
+  if (!k || k.split(" ").length < 2) return false;
+  const t = Date.parse(row.when);
+  const st = geoState(row);
+  if (!Number.isFinite(t) || !st) return false;
+  const prev = existing.find((e) => e && e.sourceUrl !== row.sourceUrl && nameKey(e.name) === k && STAGE_RANK[e.stage] && geoState(e) === st && Number.isFinite(Date.parse(e.when)) && Date.parse(e.when) < t);
+  if (!prev) return false;
+  if (STAGE_RANK[stage] <= STAGE_RANK[prev.stage]) return true; // same person, nothing newer: not a second row
+  const sur = row.name.trim().split(/\s+/).pop();
+  const said = sentencesOf(item.teaser || "").find((x) => x.includes(row.name)) || sentencesOf(item.teaser || "").find((x) => sur && x.includes(sur)) || "";
+  const from = prev.stage;
+  prev.stage = stage;
+  prev.stageSourceUrl = row.sourceUrl;
+  let text = String(prev.text || "").replace(/Stage: [^.]*(?:\([^)]*\))?\.\s*/, "").replace(/ Charges are allegations unless/, ` Stage: ${stage}. Charges are allegations unless`);
+  if (said && !text.includes(said)) {
+    const d = Number.isFinite(item.when) ? new Date(item.when).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }) : "later release";
+    const tag = `Update ("${item.title}", ${d}): ${said}`;
+    text = text.includes(" Source: official") ? text.replace(" Source: official", ` ${tag} Source: official`) : `${text} ${tag}`;
+  }
+  prev.text = text;
+  laterStagesApplied.push(`${prev.name} (${from} -> ${stage})`);
+  return true;
+}
+
 export function ingest(existing, have, added, item, office) {
   if (!item.title || !item.link) return;
   if (isExcluded({ link: item.link })) return;
@@ -1015,6 +1068,7 @@ export function ingest(existing, have, added, item, office) {
       }
       continue;
     }
+    if (laterStageUpdate(existing, row, item, rows.length)) continue;
     if (alreadyListedVoter(existing, row)) continue;
     if (samePersonRecent(existing, row)) continue;
     have.add(key);
@@ -1234,6 +1288,39 @@ export function listedVoterAnyDate(existing, name) {
   });
 }
 
+/**
+ * Krennic 2026-11-06 (no-pin voting rows now cross-post): the same voter printed another way by another agency is not a
+ * second row. Same words in another order ("Alejandro Villegas Garcia" / "Alejandro Garcia Villegas"), or the same first
+ * name and surname with one letter off or a middle name added ("Monica Carzoli Carrillo" / "Monica Ivette Carzoli Carillo").
+ */
+function oneOff(a, b) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1 || Math.min(a.length, b.length) < 4) return false;
+  let i = 0, j = 0, d = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++d > 1) return false;
+    if (a.length > b.length) i++; else if (b.length > a.length) j++; else { i++; j++; }
+  }
+  return d + (a.length - i) + (b.length - j) <= 1;
+}
+export function similarVoterListed(existing, name) {
+  const tok = nameKey(name).split(" ").filter(Boolean);
+  if (tok.length < 2) return false;
+  const sorted = [...tok].sort().join(" ");
+  return existing.some((e) => {
+    if (!e?.voting) return false;
+    const et = nameKey(e.name).split(" ").filter(Boolean);
+    if (et.length < 2) return false;
+    if ([...et].sort().join(" ") === sorted) return true;
+    if (et[0] !== tok[0]) return false;
+    const [short, long] = et.length <= tok.length ? [et, tok] : [tok, et];
+    const tail = short.slice(1);
+    const rest = long.slice(1);
+    return tail.length >= 1 && tail.every((w) => rest.some((x) => oneOff(w, x))) && oneOff(short[short.length - 1], long[long.length - 1]);
+  });
+}
+
 /** One Invasion Update row as a ledger ingest item, or null when it must not be cross-posted. */
 export function invasionVotingItem(row) {
   if (row?.status !== "approved" || row?.voting !== true) return null;
@@ -1249,7 +1336,7 @@ export function invasionVotingItem(row) {
   const when = Date.parse(`${row.when} 12:00 UTC`);
   const stage = /^(Charged|Arrested|Convicted|Removed)$/.test(label) ? label : "";
   const geo = geoForInvasionRow(row);
-  return { title: m[2].trim(), teaser: sentence, link, when, names: [row.name], ...(stage ? { stage } : {}), ...(geo ? { geo } : {}) };
+  return { title: m[2].trim(), teaser: sentence, link, when, names: [row.name], crossPost: true, ...(stage ? { stage } : {}), ...(geo ? { geo } : {}) };
 }
 
 export function crossPostInvasionVoting(existing, have, added, rows) {
@@ -1259,6 +1346,7 @@ export function crossPostInvasionVoting(existing, have, added, rows) {
     if (!item) continue;
     n += 1;
     if (listedVoterAnyDate(existing, row.name)) continue;
+    if (similarVoterListed(existing, row.name)) continue;
     ingest(existing, have, added, item, /\/\/(?:www\.)?(?:dhs|ice|cbp)\.gov\//i.test(item.link) ? "DHSgov" : "TheJusticeDept");
   }
   return n;
@@ -1663,6 +1751,7 @@ async function main() {
   const news = await harvestNews(existing, have, added);
   const staged = applyStageUpdates(existing);
   if (staged.length) console.error(`stage updates: ${staged.join(", ")}`);
+  if (laterStagesApplied.length) console.error(`later-release stages: ${laterStagesApplied.join(", ")}`);
   const kept = existing.filter((r) => {
     if (looksLikeHeadline(r.name)) return false;
     if (isPlaceName(r.name)) return false;
@@ -1678,6 +1767,7 @@ async function main() {
         checkedAt: Date.now(),
         added,
         enriched: [],
+        laterStages: laterStagesApplied,
         scanned,
         note: "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept.",
       },
