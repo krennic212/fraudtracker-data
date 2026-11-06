@@ -1,5 +1,6 @@
 ## 2026-11-06 (evening) daily missed-cases check
 
+- Test: harvest-voting-crosspost "every voting row has a state" now allows city "Not stated" with null lat/lon (matches Nov 6 no-pin cross-post).
 - Seeded Karin L. Contreras (usao-dc Nov 6, Sentenced, COVID unemployment UI >$1M; already on Invasion Update).
 - Seeded Thonton Snapp + Jacob Michael Testerman (usao-wdva Nov 6, Pleaded guilty, CARES pandemic unemployment; one scheme).
 - Seeded David Darling (usao-ndny Nov 6, Charged, SSA theft ~$109k via deceased-beneficiary ATM card).

@@ -89,8 +89,15 @@ describe("seed file voting entries", () => {
 });
 
 describe("live voting rows", () => {
-  it("every voting row has a state", () => {
-    for (const r of feed.filter((r) => r.voting)) assert.match(r.city, /, [A-Z]{2}$/, r.name);
+  it("every voting row has a state (or Not stated with no pin)", () => {
+    // Krennic Nov 6 no-pin voting cross-post: city "Not stated" + null lat/lon is allowed.
+    for (const r of feed.filter((r) => r.voting)) {
+      if (r.city === "Not stated") {
+        assert.ok(r.lat == null && r.lon == null, `${r.name}: Not stated but has a pin`);
+        continue;
+      }
+      assert.match(r.city, /, [A-Z]{2}$/, r.name);
+    }
   });
   it("a release headlined as illegal voting is a voting row (Aquilina was filed as a program case)", () => {
     for (const r of feed.filter((r) => /illegal(?:ly)? voting|voting by (?:an )?alien|voter fraud/i.test(r.crime))) assert.equal(r.voting, true, r.name);
