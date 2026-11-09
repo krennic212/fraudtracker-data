@@ -1,15 +1,10 @@
 {
-  "checkedAt": 1794009557653,
+  "checkedAt": 1794248301134,
   "added": [
-    "STEVEN EUGENE MELTON",
-    "Mikhail Mosley",
-    "Housing Assistance Payments Housing Management Resources, Inc.",
-    "Zen Aljufri",
-    "Kendale Wilson",
-    "Quest Diagnostics, Inc."
+    "Brenna Butdorf"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 995,
+  "scanned": 1014,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }

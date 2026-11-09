@@ -17181,5 +17181,29 @@
     "presence": "not_stated",
     "scheme": "Quest Diagnostics, Inc.",
     "schemeId": "harvest-https-www-justice-gov-usao-nj-pr-quest-diagnosti-a924479122"
+  },
+  {
+    "name": "Brenna Butdorf",
+    "city": "Cleveland, OH",
+    "crime": "Ohio Woman Sentenced for Not Paying Employment Taxes",
+    "usa": "Ohio Woman Sentenced for Not Paying Employment Taxes",
+    "foreign": "Not stated in post",
+    "picked": "11/9/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ndoh-pr-ohio-woman-se-f43ca8b71b",
+    "when": "2026-11-09",
+    "text": "Ohio Woman Sentenced for Not Paying Employment Taxes. AKRON, Ohio – A 51-year-old woman was sentenced for issuing payments to herself, using funds withheld from paychecks, instead of making required quarterly employment tax payments. Brenna Butdorf, 51, of Wooster, has been sentenced to 18 months in prison, followed by three years of supervised release, after pleading guilty to Failing to Truthfully Account for and Pay Over Trust Fund Taxes. She was also ordered to pay a $55,000 fine, $198,448.75 in restitution to the IRS, and an additional $147,992.50 to another victim as a condition of her supervised release. According to court documents, Butdorf managed the finances of an electrical contracting company that her husband owned and that was based out of their home. Federal law requires such companies to withhold social security, Medicare, and Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ndoh/pr/ohio-woman-sentenced-not-paying-employment-taxes",
+    "voting": false,
+    "origin": "Medicare / Medicaid",
+    "confirmedBy": "DOJ",
+    "lat": 41.4993,
+    "lon": -81.6944,
+    "presence": "not_stated",
+    "scheme": "Brenna Butdorf",
+    "schemeId": "harvest-https-www-justice-gov-usao-ndoh-pr-ohio-woman-se-88bec166ee"
   }
 ]
