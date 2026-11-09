@@ -1,3 +1,8 @@
+## 2026-11-09 (afternoon) Pages publish-before-push (Krennic t125s784: "Yes, re-run and fix the workflow")
+
+- Noon harvest saved Brenna Butdorf (695 rows) but the publish job never started: harvest pushed mid-run, so Pages would not deploy a workflow whose triggering commit was no longer branch tip. Live feed stayed on Friday 694 rows.
+- .github/workflows/hourly-harvest.yml: upload Pages artifact from the workspace, deploy-pages, then commit/push only after deploy succeeds (harvest-data artifact handoff). Concurrency group unchanged. No harvest rule changes.
+
 ## 2026-11-06 (evening) daily missed-cases check
 
 - Test: harvest-voting-crosspost "every voting row has a state" now allows city "Not stated" with null lat/lon (matches Nov 6 no-pin cross-post).
