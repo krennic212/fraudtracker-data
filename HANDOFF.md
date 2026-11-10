@@ -1,3 +1,9 @@
+## 2026-11-10 (morning) Restore Katrina McCant after harvest re-run
+
+- Re-run 42862983105 succeeded: commit step saved harvest files, and added 9 EDPA COVID tax-credit defendants (Latisha Dudley and co-defendants). Repo and live feed went to 704 rows.
+- The re-run did not re-find Katrina McCant (usao-md Nov 9, unemployment-benefits sentence), the morning's 696th row. DOJ scan was 1015 vs 1016 that morning, and the new Pages deploy overwrote the 696-row live feed.
+- Restored her exact morning-harvest row in data/harvest.json (705 rows, 393 schemes). isKeepRow still true; later harvests keep her as an existing row. No harvest rule changes.
+
 ## 2026-11-10 (morning) Fix publish artifact path (Krennic t137s843: "Yes, fix both workflows and re-run Fraud Ledger")
 
 - Morning harvest found Katrina McCant (696 rows) and Pages deployed, but the publish job downloaded harvest-data with path: `.`, so harvest.json landed at the repo root. `git add data/harvest.json ...` staged nothing and the commit failed (run 42842830852). Repo stayed at 695 rows.
