@@ -1,3 +1,8 @@
+## 2026-11-10 (morning) Fix publish artifact path (Krennic t137s843: "Yes, fix both workflows and re-run Fraud Ledger")
+
+- Morning harvest found Katrina McCant (696 rows) and Pages deployed, but the publish job downloaded harvest-data with path: `.`, so harvest.json landed at the repo root. `git add data/harvest.json ...` staged nothing and the commit failed (run 42842830852). Repo stayed at 695 rows.
+- .github/workflows/hourly-harvest.yml: download harvest-data into `data/` (artifact files are flat because the upload lists individual data/* files). Commit step exits 0 if nothing is staged. Deploy-then-commit order unchanged. No harvest rule changes.
+
 ## 2026-11-09 (afternoon) Pages publish-before-push (Krennic t125s784: "Yes, re-run and fix the workflow")
 
 - Noon harvest saved Brenna Butdorf (695 rows) but the publish job never started: harvest pushed mid-run, so Pages would not deploy a workflow whose triggering commit was no longer branch tip. Live feed stayed on Friday 694 rows.
