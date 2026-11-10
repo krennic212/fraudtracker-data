@@ -17445,5 +17445,29 @@
     "presence": "not_stated",
     "scheme": "Hasiyna Carroll",
     "schemeId": "harvest-https-www-justice-gov-usao-edpa-pr-two-philadelp-dae5ef162c"
+  },
+  {
+    "name": "Interstate Group Holdings, Inc.",
+    "city": "Fairview Heights, IL",
+    "crime": "Moving company agrees to settle allegations of providing payments and gifts to military members to influence surveys and obtain additional business",
+    "usa": "Moving company agrees to settle allegations of providing payments and gifts to military members to influence surveys and obtain additional business",
+    "foreign": "Not stated in post",
+    "picked": "11/10/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-sdil-pr-moving-compan-292ceb684a",
+    "when": "2026-11-10",
+    "text": "Moving company agrees to settle allegations of providing payments and gifts to military members to influence surveys and obtain additional business. FAIRVIEW HEIGHTS, Ill. – A moving company has agreed to pay $325,000 to resolve allegations that it violated the False Claims Act by attempting to influence military members’ evaluation of its moving services in government surveys. Interstate Group Holdings, Inc. is a transportation service provider located in Virginia that performed shipments in the Defense Personal Property Program, which is administered by the U.S. Transportation Command at Scott Air Force Base. DP3 provides moving and storage services to Department of War personnel, including coordinating the movement of servicemembers’ personal property when they relocate. During the relevant period, transportation service providers competed for DP3 shipments, and the number of shipments awarded by the government to each company depen Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-sdil/pr/moving-company-agrees-settle-allegations-providing-payments-and-gifts-military-members",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 38.5889,
+    "lon": -89.9904,
+    "presence": "not_stated",
+    "scheme": "Interstate Group Holdings, Inc.",
+    "schemeId": "harvest-https-www-justice-gov-usao-sdil-pr-moving-compan-ea2ce1927e"
   }
 ]

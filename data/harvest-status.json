@@ -1,18 +1,10 @@
 {
-  "checkedAt": 1794330966929,
+  "checkedAt": 1794331205458,
   "added": [
-    "Latisha Dudley",
-    "Timeeka Loud",
-    "Angel Brown",
-    "Gameer Coleman",
-    "Alethia Murphy",
-    "Shakeema Turner",
-    "Ann Grice",
-    "Tinisha Loud",
-    "Hasiyna Carroll"
+    "Interstate Group Holdings, Inc."
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1015,
+  "scanned": 1014,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
