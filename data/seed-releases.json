@@ -3036,6 +3036,26 @@
         }
       },
       "schemeKey": "md-march-brothers-tax"
+    },
+    {
+      "link": "https://www.justice.gov/usao-md/pr/former-usaid-employee-sentenced-cares-act-fraud",
+      "title": "Former USAID Employee Sentenced for CARES Act Fraud",
+      "date": "2026-11-09",
+      "teaser": "Greenbelt, Maryland – A former U.S. Agency for International Development (USAID) employee received a federal-prison term for a CARES Act scheme that enabled him to illegally obtain more than $176,000 in COVID-19 pandemic relief funds. U.S. District Judge Theodore D. Chuang sentenced Simeon Bakare, 56, of Waldorf, Maryland, to six months in federal prison for a wire-fraud charge. Bakare admitted he submitted multiple fraudulent PPP and EIDL applications to defraud the SBA, and ordered to forfeit $176,000 and pay $176,000 in restitution.",
+      "seat": "usao-md",
+      "stage": "Sentenced",
+      "names": [
+        "Simeon Bakare"
+      ],
+      "places": {
+        "Simeon Bakare": {
+          "city": "Waldorf, MD",
+          "lat": 38.6246,
+          "lon": -76.9391
+        }
+      },
+      "usdAlleged": 176000,
+      "schemeKey": "md-simeon-bakare-ppp-eidl"
     }
   ]
 }
