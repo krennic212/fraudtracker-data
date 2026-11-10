@@ -1,10 +1,14 @@
 {
-  "checkedAt": 1794331205458,
+  "checkedAt": 1794345454656,
   "added": [
-    "Interstate Group Holdings, Inc."
+    "Nejlai Mitchell",
+    "Tiffany Moody",
+    "Shaneen Ray",
+    "Sylvia Swindell",
+    "Katrena Stanback"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1014,
+  "scanned": 1013,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
