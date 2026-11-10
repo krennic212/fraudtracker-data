@@ -1,3 +1,8 @@
+## 2026-11-10 (evening) daily missed-cases check
+
+- Seeded Simeon Bakare (usao-md Nov 9, Sentenced, PPP/EIDL). Seed idempotence test (harvest-nc-roundup) fails until a new seed row is also in committed data/harvest.json, so the row was added to the committed feed (+ write-meta) before re-running harvest.
+- No filter/parser changes.
+
 ## 2026-11-10 (morning) Restore Katrina McCant after harvest re-run
 
 - Re-run 42862983105 succeeded: commit step saved harvest files, and added 9 EDPA COVID tax-credit defendants (Latisha Dudley and co-defendants). Repo and live feed went to 704 rows.
