@@ -18095,5 +18095,29 @@
     "presence": "not_stated",
     "scheme": "Hiam Hmaidan",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-illinois-tax-prepar-c515253b78"
+  },
+  {
+    "name": "Dusty Starr",
+    "city": "Anchorage, AK",
+    "crime": "Anchorage Woman Sentenced to 5 Years in Prison for Wire Fraud and Aggravated Identity Theft",
+    "usa": "Anchorage Woman Sentenced to 5 Years in Prison for Wire Fraud and Aggravated Identity Theft",
+    "foreign": "Not stated in post",
+    "picked": "11/10/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-c6cb113b01",
+    "when": "2026-11-10",
+    "text": "Anchorage Woman Sentenced to 5 Years in Prison for Wire Fraud and Aggravated Identity Theft. ANCHORAGE, Alaska – An Anchorage woman was sentenced today to 5 years in prison for wire fraud and aggravated identity theft followed by 5 years of supervised release. Payment of restitution to the victims in the case was also ordered. According to court documents, between February 2021 and February 2022, Dusty Starr, 48, carried out a scheme to defraud victims and obtain money using stolen identifications. The defendant’s scheme involved mail theft, identity theft, creation of fraudulent email and financial accounts, production of forged checks, and the submission of false applications to obtain COVID rental relief funds. The defendant possessed more than 170 identities stolen from the mail, from vehicles, and from individuals to carry out her fraud. Using these stolen identities Starr cr Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ak/pr/anchorage-woman-sentenced-5-years-prison-wire-fraud-and-aggravated-identity-theft",
+    "voting": false,
+    "origin": "HUD / housing",
+    "confirmedBy": "DOJ",
+    "lat": 61.2181,
+    "lon": -149.9003,
+    "presence": "not_stated",
+    "scheme": "Dusty Starr",
+    "schemeId": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-51d2aabb61"
   }
 ]
