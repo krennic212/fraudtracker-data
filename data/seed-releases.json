@@ -3056,6 +3056,22 @@
       },
       "usdAlleged": 176000,
       "schemeKey": "md-simeon-bakare-ppp-eidl"
+    },
+    {
+      "link": "https://www.ice.gov/news/releases/voter-fraud-crackdown-continues-ice-arrests-more-aliens-who-voted-illegally",
+      "title": "Voter fraud crackdown continues as ICE arrests more aliens who voted illegally",
+      "date": "2026-11-03",
+      "teaser": "Vilmelena Dye aka Vilmelena Pereira, a citizen of Brazil and a former lawful permanent resident arrested for illegally voting in the 1996 election. She allegedly illegally voted in the 1996 election. Dilea Ochoa Perez is a citizen from Mexico and was granted legal Deferred Action for Childhood Arrivals. She is charged with unlawful voting and voted in the 2022 and 2024 elections.",
+      "stage": "Arrested",
+      "names": [
+        "Vilmelena Dye",
+        "Dilea Ochoa Perez"
+      ],
+      "voting": true,
+      "nationality": {
+        "Vilmelena Dye": "citizen of Brazil",
+        "Dilea Ochoa Perez": "citizen from Mexico"
+      }
     }
   ]
 }
