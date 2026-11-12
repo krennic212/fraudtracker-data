@@ -18481,5 +18481,29 @@
     "presence": "not_stated",
     "scheme": "Clarksville Pain Institute, LLC",
     "schemeId": "harvest-https-www-justice-gov-usao-mdtn-pr-clarksville-p-c78c22ccc0"
+  },
+  {
+    "name": "Jaquez Tullis",
+    "city": "Miami, FL",
+    "crime": "Florida Man Sentenced for Stealing Millions of Dollars from Lenders Using Sham Cosmetic Surgery Clinics and Stolen Identities",
+    "usa": "Florida Man Sentenced for Stealing Millions of Dollars from Lenders Using Sham Cosmetic Surgery Clinics and Stolen Identities",
+    "foreign": "Not stated in post",
+    "picked": "11/12/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-opa-pr-florida-man-sentenc-bbe8e92fdd",
+    "when": "2026-11-12",
+    "text": "Florida Man Sentenced for Stealing Millions of Dollars from Lenders Using Sham Cosmetic Surgery Clinics and Stolen Identities. Today, A Wellington, Florida, man was sentenced today to 84 months in prison for using sham cosmetic surgery clinics and the stolen identities of more than 100 people to defraud medical lenders of approximately $2.3 million, and for fraudulently seeking COVID-19 disaster relief loans. “Jacquez Tullis built fake medical clinics using stolen identities, including those of practicing doctors and deceased individuals, and used them to steal millions from lenders,” said Assistant Attorney General Colin M. McDonald of the Justice Department’s National Fraud Enforcement Division. “When the pandemic hit, Tullis then tried to exploit taxpayer-funded relief meant for struggling small businesses. Today’s sentence makes clear that the Fraud Division will hold accountable those who abuse the public’s t Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/opa/pr/florida-man-sentenced-stealing-millions-dollars-lenders-using-sham-cosmetic-surgery-clinics",
+    "voting": false,
+    "origin": "FEMA / disaster relief",
+    "confirmedBy": "DOJ",
+    "lat": 25.7617,
+    "lon": -80.1918,
+    "presence": "not_stated",
+    "scheme": "Jaquez Tullis",
+    "schemeId": "harvest-https-www-justice-gov-opa-pr-florida-man-sentenc-4b8eb2f669"
   }
 ]
