@@ -760,7 +760,8 @@ export function rowsFromItem(item, office) {
       if (home && geoState(geo) !== home.code) geo = { city: home.city, lat: home.lat, lon: home.lon };
     }
     // Krennic 2026-11-06: an Invasion Update voting row with no place is still listed (no map pin, city "Not stated").
-    if (!geo && item.crossPost === true) geo = { city: "Not stated", lat: null, lon: null };
+    // Krennic 2026-11-12: the same for a voting seed when the official release names no state (Vilmelena Dye, ICE Nov 10).
+    if (!geo && (item.crossPost === true || item.voting === true)) geo = { city: "Not stated", lat: null, lon: null };
     if (!geo) continue;
     out.push(buildRow(item, office, name, geo, names));
   }

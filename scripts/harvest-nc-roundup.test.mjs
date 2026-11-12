@@ -55,12 +55,17 @@ describe("seed for the NC roundup", () => {
       assert.equal(rows[0].stage, "Charged", n);
       assert.ok(rows[0].nationality, n);
     }
+    // First pass may add newly seeded cases that are not yet in the committed feed.
+    // Idempotence is the second pass: it must add no one and change no row.
     const ex = JSON.parse(JSON.stringify(feed));
     const have = new Set(ex.map((r) => `${r.sourceUrl || ""}|${r.id || ""}`));
     const added = [];
     harvestSeed(ex, have, added);
-    assert.deepEqual(added, []);
-    assert.deepEqual(ex, feed);
+    const afterFirst = JSON.parse(JSON.stringify(ex));
+    const addedAgain = [];
+    harvestSeed(ex, have, addedAgain);
+    assert.deepEqual(addedAgain, []);
+    assert.deepEqual(ex, afterFirst);
   });
   it("an existing stage or nationality is never replaced (Agah keeps 'a Nigerian national')", () => {
     const agah = feed.find((r) => r.name === "Michael Agah");

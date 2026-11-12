@@ -1,7 +1,7 @@
 // Krennic 2026-11-06 (Tech chat): "Fix everything in the rules so less are missed in the future."
 import test from "node:test";
 import assert from "node:assert/strict";
-import { keepBlob, stageFromTitle, laterStageUpdate, invasionVotingItem, rowsFromItem, crossPostInvasionVoting } from "./harvest-gov.mjs";
+import { keepBlob, stageFromTitle, laterStageUpdate, invasionVotingItem, rowsFromItem, crossPostInvasionVoting, ingest } from "./harvest-gov.mjs";
 import { allPeople, dropShortForms, settlementEntity, personOrEntity } from "./harvest-parse.mjs";
 
 test("KEEP: Economic Impact Payment / stimulus-check theft is government money", () => {
@@ -88,4 +88,54 @@ test("a voter printed another way is not cross-posted twice", async () => {
   assert.equal(similarVoterListed(ex, "Alejandro Villegas Garcia"), true);
   assert.equal(similarVoterListed(ex, "Monica Perez"), false);
   assert.equal(similarVoterListed(ex, "Alejandro Garcia"), false);
+});
+
+test("voting seed with no place is kept, no pin (Vilmelena Dye, ICE voting roundup)", () => {
+  const ICE = "https://www.ice.gov/news/releases/voter-fraud-crackdown-continues-ice-arrests-more-aliens-who-voted-illegally";
+  const item = {
+    title: "Voter fraud crackdown continues as ICE arrests more aliens who voted illegally",
+    teaser: "Vilmelena Dye aka Vilmelena Pereira, a citizen of Brazil and a former lawful permanent resident arrested for illegally voting in the 1996 election. She allegedly illegally voted in the 1996 election. Dilea Ochoa Perez is a citizen from Mexico and was granted legal Deferred Action for Childhood Arrivals. She is charged with unlawful voting and voted in the 2022 and 2024 elections. Cong Anh Nguyen is a citizen of Vietnam, who has been convicted of theft and admitted to voting in the 2018, 2020, 2022 and 2024 elections.",
+    link: ICE,
+    when: Date.parse("2026-11-03T12:00:00Z"),
+    stage: "Arrested",
+    names: ["Vilmelena Dye", "Dilea Ochoa Perez"],
+    voting: true,
+    nationality: { "Vilmelena Dye": "citizen of Brazil", "Dilea Ochoa Perez": "citizen from Mexico" },
+  };
+  // A non-voting item from a release that names no state is still dropped (no map pin).
+  const { voting, ...asOrdinary } = item;
+  assert.equal(voting, true);
+  assert.equal(rowsFromItem(asOrdinary, "DHSgov").length, 0);
+  const rows = rowsFromItem(item, "DHSgov");
+  assert.deepEqual(rows.map((r) => r.name), ["Vilmelena Dye", "Dilea Ochoa Perez"]);
+  for (const r of rows) {
+    assert.equal(r.voting, true, r.name);
+    assert.equal(r.city, "Not stated", r.name);
+    assert.equal(r.lat, null, r.name);
+    assert.equal(r.lon, null, r.name);
+    assert.equal(r.stage, "Arrested", r.name);
+  }
+  assert.equal(rows[0].nationality, "citizen of Brazil");
+  // Cong Anh Nguyen is on the same release but is not a voting case (theft conviction; admitted voting).
+  assert.ok(!rows.some((r) => /Nguyen/i.test(r.name)));
+
+  // On a ledger that already has Dilea Ochoa-Perez from the EDPA charging release, only Dye is added.
+  const ledger = [{
+    name: "Dilea Ochoa-Perez",
+    voting: true,
+    sourceUrl: "https://www.justice.gov/usao-edpa/pr/four-aliens-charged-election-fraud",
+    when: "2026-09-24",
+    id: "existing-ochoa",
+    city: "Coatesville, PA",
+  }];
+  const added = [];
+  ingest(ledger, new Set(ledger.map((r) => `${r.sourceUrl}|${r.id}`)), added, item, "DHSgov");
+  assert.deepEqual(added, ["Vilmelena Dye"]);
+  assert.equal(ledger.filter((r) => /ochoa/i.test(r.name)).length, 1);
+  const dye = ledger.find((r) => r.name === "Vilmelena Dye");
+  assert.equal(dye.city, "Not stated");
+  assert.equal(dye.lat, null);
+  assert.equal(dye.nationality, "citizen of Brazil");
+  assert.equal(dye.voting, true);
+  assert.equal(dye.stage, "Arrested");
 });
