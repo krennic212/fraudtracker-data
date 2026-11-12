@@ -18119,5 +18119,30 @@
     "presence": "not_stated",
     "scheme": "Dusty Starr",
     "schemeId": "harvest-https-www-justice-gov-usao-ak-pr-anchorage-woman-51d2aabb61"
+  },
+  {
+    "name": "Vilmelena Dye",
+    "city": "Not stated",
+    "crime": "Voter fraud crackdown continues as ICE arrests more aliens who voted illegally",
+    "usa": "Voter fraud crackdown continues as ICE arrests more aliens who voted illegally",
+    "foreign": "Not stated in post",
+    "picked": "11/3/2026",
+    "entered": "Amount not stated",
+    "office": "DHSgov",
+    "id": "harvest-https-www-ice-gov-news-releases-voter-fraud-crac-23d5c7cdec",
+    "when": "2026-11-03",
+    "text": "Voter fraud crackdown continues as ICE arrests more aliens who voted illegally. Vilmelena Dye aka Vilmelena Pereira, a citizen of Brazil and a former lawful permanent resident arrested for illegally voting in the 1996 election. She allegedly illegally voted in the 1996 election. Source: official Justice Department press. Stage: Arrested. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "ICE press",
+    "sourceUrl": "https://www.ice.gov/news/releases/voter-fraud-crackdown-continues-ice-arrests-more-aliens-who-voted-illegally",
+    "voting": true,
+    "origin": "Voting / elections",
+    "confirmedBy": "DHS",
+    "lat": null,
+    "lon": null,
+    "presence": "not_stated",
+    "scheme": "Vilmelena Dye",
+    "schemeId": "harvest-https-www-ice-gov-news-releases-voter-fraud-crac-25d32dc54e",
+    "stage": "Arrested"
   }
 ]
