@@ -18843,5 +18843,29 @@
     "scheme": "Mustafa Aman",
     "schemeId": "harvest-https-www-justice-gov-usao-wdwa-pr-former-afghan-a6ec56e5c4",
     "stage": "Charged"
+  },
+  {
+    "name": "Jiandong Chen",
+    "city": "San Diego, CA",
+    "crime": "Chinese National in Viral YouTube Video Sentenced to 6 ½ Years in $27 Million Multinational Fraud Scheme Targeting 2,000 Seniors",
+    "usa": "Chinese National in Viral YouTube Video Sentenced to 6 ½ Years in $27 Million Multinational Fraud Scheme Targeting 2,000 Seniors",
+    "foreign": "Not stated in post",
+    "picked": "11/13/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-sdca-pr-chinese-natio-03163ffc99",
+    "when": "2026-11-13",
+    "text": "Chinese National in Viral YouTube Video Sentenced to 6 ½ Years in $27 Million Multinational Fraud Scheme Targeting 2,000 Seniors. SAN DIEGO – Jiandong Chen, aka “Little Tiger,” was sentenced in federal court today to 6 ½ years in prison for his part in a $27 million fraud and money laundering scheme targeting approximately 2,000 elderly victims across the United States. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-sdca/pr/chinese-national-viral-youtube-video-sentenced-6-12-years-27-million-multinational",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 32.7157,
+    "lon": -117.1611,
+    "presence": "not_stated",
+    "scheme": "Jiandong Chen",
+    "schemeId": "harvest-https-www-justice-gov-usao-sdca-pr-chinese-natio-bf1ade4b35"
   }
 ]
