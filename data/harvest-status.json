@@ -1,14 +1,11 @@
 {
-  "checkedAt": 1794605081885,
+  "checkedAt": 1794614403245,
   "added": [
-    "Janetta Marie Buttery",
-    "OTHER INDICTMENTS Juan Luis Romero-Garcia",
-    "Saul Alisme",
-    "Cyion Technologies LLC",
-    "Taxation, Inc."
+    "Jonathan Frank Barner",
+    "Mustafa Aman"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1023,
+  "scanned": 1031,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
