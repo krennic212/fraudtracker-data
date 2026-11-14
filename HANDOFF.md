@@ -1,3 +1,10 @@
+## 2026-11-13 (evening) daily missed-cases check
+
+- Seeded (commit 5503157, run 43530988640): Jonathan Frank Barner (MDFL Nov 13, Sentenced, SSA theft ~$107k) and Mustafa Aman (WDWA Nov 10, Charged, immigration fraud; release says he became a U.S. citizen) - both live.
+- Robert Armstrong (DNJ Nov 10, Charged; frauds on a bank, the State of Texas and school districts) seeded but NOT live: keepBlob() is false (KEEP/govMoney do not match "State of Texas" or "school districts"), then the private-victim rule drops it (no non-citizen wording). Fix: let govMoney count funds taken from a state government or public school district. Awaits Krennic yes.
+- Skipped: Cyion Technologies (company-only FCA), Pecos IRS impersonation (private victim), Rezende romance (private, no non-citizen wording), Baquero BEC laundering, Jeffers employer theft.
+- No filter/parser changes. Tests 193/193.
+
 ## 2026-11-10 (evening) daily missed-cases check
 
 - Seeded Simeon Bakare (usao-md Nov 9, Sentenced, PPP/EIDL). Seed idempotence test (harvest-nc-roundup) fails until a new seed row is also in committed data/harvest.json, so the row was added to the committed feed (+ write-meta) before re-running harvest.
