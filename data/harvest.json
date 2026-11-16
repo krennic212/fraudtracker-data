@@ -18867,5 +18867,29 @@
     "presence": "not_stated",
     "scheme": "Jiandong Chen",
     "schemeId": "harvest-https-www-justice-gov-usao-sdca-pr-chinese-natio-bf1ade4b35"
+  },
+  {
+    "name": "Harold Radford Porter",
+    "city": "Tallahassee, FL",
+    "crime": "Man Charged with Stealing and Laundering Federal Funds",
+    "usa": "Man Charged with Stealing and Laundering Federal Funds",
+    "foreign": "Not stated in post",
+    "picked": "11/16/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-ndfl-pr-man-charged-s-6b837d3b27",
+    "when": "2026-11-16",
+    "text": "Man Charged with Stealing and Laundering Federal Funds. Pensacola, Florida – Harold Radford Porter, 45, formerly of Pensacola, has been indicted in federal court for one count of theft of government money and eight counts of money laundering. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-ndfl/pr/man-charged-stealing-and-laundering-federal-funds",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 30.4383,
+    "lon": -84.2807,
+    "presence": "not_stated",
+    "scheme": "Harold Radford Porter",
+    "schemeId": "harvest-https-www-justice-gov-usao-ndfl-pr-man-charged-s-bff4c170d7"
   }
 ]
