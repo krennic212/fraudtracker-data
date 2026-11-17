@@ -1,13 +1,16 @@
 {
-  "checkedAt": 1794874373025,
+  "checkedAt": 1794940338144,
   "added": [
-    "James Pearson",
-    "Charlie Bernard Griffin III",
-    "Ethelbert Chinenye Nwanegbo",
-    "Jose Licea"
+    "Maxon Groupe, LLC",
+    "Willie De Gibbs",
+    "Shawn Dmitrius Lightfoot",
+    "InnovAge Holding Corporation",
+    "Firewater Associates, LLC",
+    "Enrico Cifelli",
+    "Michelle Bocchieri"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1033,
+  "scanned": 1031,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
