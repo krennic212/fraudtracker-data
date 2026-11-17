@@ -3102,6 +3102,49 @@
       "names": [
         "Mustafa Aman"
       ]
+    },
+    {
+      "date": "2026-11-16",
+      "link": "https://www.justice.gov/usao-wdky/pr/federal-grand-jury-returns-indictment-against-bowling-green-man-cares-act-fraud",
+      "title": "Federal Grand Jury Returns Indictment Against Bowling Green Man for CARES Act Fraud",
+      "teaser": "Bowling Green, KY – A federal grand jury in Bowling Green returned an indictment on November 12, 2026, charging a Bowling Green man with two counts of fraud related to the Economic Injury Disaster Loan program. According to court documents, between March 2020, and July 2023, James “Tim” Pearson, 60, of Bowling Green, Kentucky knowingly filed two applications for Economic Injury Disaster Loans (EIDL) containing materially false and misleading statements to the Small Business Administration (SBA), resulting in the theft of $155,000 and an attempted theft of an additional $350,000. Pearson utilized the entity Thoroughbred Contracting Group Limited Liability Company, a Kentucky Limited Liability Company.",
+      "names": [
+        "James Pearson"
+      ],
+      "nameIn": {
+        "James Pearson": "James “Tim” Pearson"
+      },
+      "stage": "Charged",
+      "places": {
+        "James Pearson": {
+          "city": "Bowling Green, KY",
+          "lat": 37.0079,
+          "lon": -86.4559
+        }
+      }
+    },
+    {
+      "date": "2026-11-12",
+      "link": "https://www.justice.gov/usao-mdfl/pr/jacksonville-pharmacy-owner-and-accountant-indicted-51-million-health-care-fraud",
+      "title": "Jacksonville Pharmacy Owner and Accountant Indicted in $51 Million Health Care Fraud Scheme",
+      "teaser": "Jacksonville, Florida – Charlie Bernard Griffin III (61, Jacksonville) has been charged in a 31-count federal indictment with health care fraud and money laundering. Ethelbert Chinenye Nwanegbo (47, St. Johns) has been charged in the same indictment with money laundering. FCCD filled the prescriptions, submitted claims to Medicare, Medicaid, or private insurers for the medications, and, if the claims were paid, was reimbursed for the medications. The actions of Griffin and his co-conspirators caused the submission of tens of thousands of fraudulent claims, resulting in reimbursements from Medicare, Medicaid, and private insurers totaling approximately $51 million. Griffin received a total of approximately $14 million in proceeds as a result of his involvement in the offense.",
+      "names": [
+        "Charlie Bernard Griffin III",
+        "Ethelbert Chinenye Nwanegbo"
+      ],
+      "stage": "Charged",
+      "places": {
+        "Charlie Bernard Griffin III": {
+          "city": "Jacksonville, FL",
+          "lat": 30.3322,
+          "lon": -81.6557
+        },
+        "Ethelbert Chinenye Nwanegbo": {
+          "city": "St. Johns, FL",
+          "lat": 30.0819,
+          "lon": -81.5476
+        }
+      }
     }
   ]
 }
