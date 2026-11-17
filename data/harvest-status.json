@@ -1,16 +1,13 @@
 {
-  "checkedAt": 1794871636391,
+  "checkedAt": 1794874373025,
   "added": [
-    "Joseph Kerrissey III",
-    "Firewater Investigations, LLC",
-    "Mark Scarrow",
-    "Timothy Randolph Ingram",
-    "Gregory Harris",
-    "Roman Khlynovskiy",
-    "Adelphi Technology, LLC"
+    "James Pearson",
+    "Charlie Bernard Griffin III",
+    "Ethelbert Chinenye Nwanegbo",
+    "Jose Licea"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1032,
+  "scanned": 1033,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
