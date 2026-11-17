@@ -1,3 +1,11 @@
+## 2026-11-16 (evening) daily missed-cases check (weekend Nov 13 6 PM - Nov 16)
+
+- Seeded (commit 45e6ba1, run 43985633039, live): James "Tim" Pearson (WDKY Nov 16, Charged, EIDL/SBA $155k; Bowling Green pin) and Charlie Bernard Griffin III + Ethelbert Chinenye Nwanegbo (MDFL Nov 12, Charged, $51M Medicare/Medicaid HIV-PEP pharmacy scheme; one scheme). The hourly DOJ pass had not picked up either release.
+- Not added: WV State Auditor Mark Hunt + staff (SDWV Nov 16; tax-deed property theft / state-timecard bank fraud, public corruption rather than a program fraud; Hoffmann's state-wage timecards would hit the same govMoney gap as Armstrong); Honduran consul bribery (NDGA; extortion, not fraud); Newton psychologist, Robinhood employee, Revere romance (private, no non-citizen wording); Saul Alisme already listed.
+- Broken name (parser): row harvest-...-kansas-bookkeep-8f16af5c9d is named "OTHER INDICTMENTS Juan Luis Romero-Garcia" (usao-ks Nov 13 section header glued on). Fix needs a parser change (strip "OTHER INDICTMENTS" heading) - awaits Krennic yes.
+- Possible duplicate voter: Ernest Gutierrez Ruvalcaba (OPA 28-foreign-nationals roundup) and Ernesto Gutierrez Ruvalcaba (CDCA 10-noncitizens) - likely the same person; removal needs Krennic approval.
+- No filter/parser changes. Tests 193/193.
+
 ## 2026-11-13 (evening) daily missed-cases check
 
 - Seeded (commit 5503157, run 43530988640): Jonathan Frank Barner (MDFL Nov 13, Sentenced, SSA theft ~$107k) and Mustafa Aman (WDWA Nov 10, Charged, immigration fraud; release says he became a U.S. citizen) - both live.
