@@ -1,3 +1,9 @@
+## 2026-11-17 (morning) approved tracker fixes (Krennic: fix 4 only on this repo)
+
+- Fix 4 (approved): confirmed from official DOJ API bodies that Ernest / Ernesto Gutiérrez Ruvalcaba is one Central District of California defendant (age 57, Mexican national, Wilmington; registered February 2024, voted one month later). USAO-CDCA Oct 19 and Nov 4 both use Ernesto; the Oct 19 OPA wrap used Ernest.
+- Kept the earliest official source row (OPA Oct 19, id harvest-https-www-justice-gov-opa-pr-justice-department--e31428fb1c), renamed it to Ernesto Gutiérrez Ruvalcaba. Removed the Nov 4 indictment duplicate (harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-10dc12e78f). Person-scoped exclude.json entries stop the harvester from re-adding "Ernest" on the OPA and USAO-CDCA Oct 19 releases, or "Ernesto" on the Nov 4 indictment; the other people on those releases stay listed. Parser tests still expect "Ernest" in the official OPA wording.
+- Fixes 1 and 3 were not approved and were not changed on this repo. Tests 195/195. Harvest triggered after push; see the log for run ids and live counts.
+
 ## 2026-11-16 (evening) daily missed-cases check (weekend Nov 13 6 PM - Nov 16)
 
 - Seeded (commit 45e6ba1, run 43985633039, live): James "Tim" Pearson (WDKY Nov 16, Charged, EIDL/SBA $155k; Bowling Green pin) and Charlie Bernard Griffin III + Ethelbert Chinenye Nwanegbo (MDFL Nov 12, Charged, $51M Medicare/Medicaid HIV-PEP pharmacy scheme; one scheme). The hourly DOJ pass had not picked up either release.

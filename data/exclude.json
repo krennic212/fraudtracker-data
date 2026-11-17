@@ -179,6 +179,28 @@
       "match": "person",
       "reason": "Krennic 2026-10-28: IRS-CI Special Agent in Charge quoted in the release, not a defendant (row renamed to the defendant, Akinade Adedeji Raheem)",
       "decided": "Krennic 2026-10-28"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
+      "name": "Ernest Gutiérrez Ruvalcaba",
+      "match": "person",
+      "reason": "Krennic 2026-11-17: same CDCA defendant as the kept row Ernesto Gutiérrez Ruvalcaba (OPA Oct 19, 2026). Official USAO-CDCA releases use Ernesto; the OPA wrap used Ernest. Person-scoped so the other 27 people on this release stay listed, and the harvester will not re-add the Anglicized name.",
+      "decided": "Krennic 2026-11-17"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-cdca/pr/federal-grand-jury-indicts-10-noncitizens-who-illegally-registered-vote-california",
+      "id": "harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-10dc12e78f",
+      "name": "Ernesto Gutiérrez Ruvalcaba",
+      "match": "person",
+      "reason": "Krennic 2026-11-17: duplicate of the kept Oct 19 OPA row for the same Central District of California defendant (registered February 2024 in Wilmington, voted one month later). Later USAO-CDCA indictment of Nov 4, 2026. Person-scoped so other people on the indictment stay listed.",
+      "decided": "Krennic 2026-11-17"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-cdca/pr/11-foreign-nationals-arrested-california-federal-charges-alleging-they-illegally",
+      "name": "Ernest Gutiérrez Ruvalcaba",
+      "match": "person",
+      "reason": "Krennic 2026-11-17: same person-scoped exclusion as the OPA Oct 19 wrap, so the Anglicized given name is not re-added from the USAO-CDCA arrest release of the same day. The kept ledger row is Ernesto Gutiérrez Ruvalcaba.",
+      "decided": "Krennic 2026-11-17"
     }
   ]
 }

@@ -104,8 +104,11 @@ describe("OPA multi-district election roundup (Operation Protect the Vote, 2026-
     const existing = [];
     const added = [];
     ingest(existing, new Set(), added, dojItem(api), "TheJusticeDept");
-    assert.deepEqual(added, EXPECTED.map((e) => e[0]));
-    assert.deepEqual(existing.map((r) => r.city), EXPECTED.map((e) => e[1]));
+    // Krennic 2026-11-17: "Ernest Gutiérrez Ruvalcaba" is a person-scoped exclude. The ledger keeps him once
+    // under the correct name Ernesto (official USAO-CDCA wording) from this same Oct 19 case.
+    const expectedAdded = EXPECTED.filter(([n]) => n !== "Ernest Gutiérrez Ruvalcaba");
+    assert.deepEqual(added, expectedAdded.map((e) => e[0]));
+    assert.deepEqual(existing.map((r) => r.city), expectedAdded.map((e) => e[1]));
     // Same release again (seed + API in one run): nothing added twice.
     const again = [];
     ingest(existing, new Set(existing.map((r) => `${r.sourceUrl}|${r.id}`)), again, dojItem(api), "TheJusticeDept");
@@ -139,6 +142,9 @@ describe("seed stage on a row the DOJ API added first", () => {
     assert.equal(existing[0].stage, "Charged");
     assert.match(existing[0].text, /Stage: Charged \(not convicted\)\. Charges are allegations/);
     assert.equal(existing[1].stage, "Convicted");
-    assert.equal(existing.filter((r) => r.stage === "Charged").length, 27);
+    // Ernest Gutiérrez Ruvalcaba is person-excluded (kept on the ledger as Ernesto); the seed does not restage him.
+    assert.equal(existing.filter((r) => r.stage === "Charged").length, 26);
+    const ernest = existing.find((r) => r.name === "Ernest Gutiérrez Ruvalcaba");
+    assert.ok(ernest && !ernest.stage);
   });
 });

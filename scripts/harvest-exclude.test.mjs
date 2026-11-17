@@ -129,3 +129,31 @@ describe("quoted official is never the defendant (usao-ndga Raheem, 2026-10-28)"
     assert.equal(rows[0].schemeId, "harvest-https-www-justice-gov-usao-ndga-pr-nigerian-man--a96ea5b29f");
   });
 });
+
+describe("person-scoped exclude: Ernest / Ernesto Gutiérrez Ruvalcaba duplicate (Krennic 2026-11-17)", () => {
+  const OPA = "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes";
+  const CDCA_OCT19 = "https://www.justice.gov/usao-cdca/pr/11-foreign-nationals-arrested-california-federal-charges-alleging-they-illegally";
+  const CDCA_NOV4 = "https://www.justice.gov/usao-cdca/pr/federal-grand-jury-indicts-10-noncitizens-who-illegally-registered-vote-california";
+  const KEPT_ID = "harvest-https-www-justice-gov-opa-pr-justice-department--e31428fb1c";
+  const DROP_ID = "harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-10dc12e78f";
+  it("excludes only the Anglicized name and the later indictment row, not the rest of those releases", () => {
+    assert.equal(isExcluded({ name: "Ernest Gutiérrez Ruvalcaba", sourceUrl: OPA }), true);
+    assert.equal(isExcluded({ name: "Ernest Gutiérrez Ruvalcaba", sourceUrl: CDCA_OCT19 }), true);
+    assert.equal(isExcluded({ name: "Ernesto Gutiérrez Ruvalcaba", sourceUrl: CDCA_NOV4 }), true);
+    assert.equal(isExcluded({ id: DROP_ID }), true);
+    assert.equal(isExcluded({ name: "Ernesto Gutiérrez Ruvalcaba", sourceUrl: OPA }), false);
+    assert.equal(isExcluded({ name: "Amandeep Kaur", sourceUrl: OPA }), false);
+    assert.equal(isExcluded({ name: "Amandeep Kaur", sourceUrl: CDCA_NOV4 }), false);
+    assert.equal(isExcluded({ link: OPA }), false);
+  });
+  it("the feed keeps one row, under the correct name, from the earliest official source", () => {
+    const feed = JSON.parse(readFileSync(join(root, "data/harvest.json"), "utf8"));
+    const rows = feed.filter((r) => /Guti[eé]rrez Ruvalcaba/i.test(r.name));
+    assert.equal(rows.length, 1);
+    assert.equal(rows[0].id, KEPT_ID);
+    assert.equal(rows[0].name, "Ernesto Gutiérrez Ruvalcaba");
+    assert.equal(rows[0].sourceUrl, OPA);
+    assert.equal(rows[0].when, "2026-10-19");
+    assert.ok(!feed.some((r) => r.id === DROP_ID));
+  });
+});

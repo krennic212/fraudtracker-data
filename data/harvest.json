@@ -2638,7 +2638,7 @@
     "stage": "Charged"
   },
   {
-    "name": "Ernest Gutiérrez Ruvalcaba",
+    "name": "Ernesto Gutiérrez Ruvalcaba",
     "city": "Los Angeles, CA",
     "crime": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes",
     "usa": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes",
@@ -2648,7 +2648,7 @@
     "office": "TheJusticeDept",
     "id": "harvest-https-www-justice-gov-opa-pr-justice-department--e31428fb1c",
     "when": "2026-10-19",
-    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ernest Gutiérrez Ruvalcaba, 57, a Mexican national living in Wilmington, California, fraudulently registered to vote in February 2024 and voted one month later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "text": "Justice Department Charges 28 Foreign Nationals in California for Election Crimes. As posted for this defendant: Ernesto Gutiérrez Ruvalcaba (charged as Ernest Gutiérrez Ruvalcaba), 57, a Mexican national living in Wilmington, California, fraudulently registered to vote in February 2024 and voted one month later. Federal law enforcement throughout California today arrested 11 foreign nationals living in the United States who are among 28 total charged in criminal complaints with federal crimes, including that they fraudulently registered to vote in U.S. elections, electoral contests in which most of them cast illegal and fraudulently obtained ballots. Today’s arrests are part of “Operation Protect the Vote” – a coordinated effort among all four California-based United States Attorney’s Offices to combat and root out fraud in U.S. elections and protect electoral integrity. All 28 foreign nationals charged are lawful permanent residents (LPRs), or “green card” holders. Although LPRs have legal immigration status in the United States, they are not U.S. citizens and are not permitted to vote in U.S. el Source: official Justice Department press. Stage: Charged (not convicted). Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
     "photo": "",
     "via": "DOJ press feed",
     "sourceUrl": "https://www.justice.gov/opa/pr/justice-department-charges-28-foreign-nationals-california-election-crimes",
@@ -2658,7 +2658,7 @@
     "lat": 34.0522,
     "lon": -118.2437,
     "presence": "not_stated",
-    "scheme": "Ernest Gutiérrez Ruvalcaba",
+    "scheme": "Ernesto Gutiérrez Ruvalcaba",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-justice-department--7f6b3fa84d",
     "nationality": "a Mexican national",
     "stage": "Charged"
@@ -15995,31 +15995,6 @@
     "presence": "not_stated",
     "scheme": "Liang Xiong",
     "schemeId": "harvest-https-www-justice-gov-usao-edmo-pr-chinese-natio-4466f9f97f"
-  },
-  {
-    "name": "Ernesto Gutiérrez Ruvalcaba",
-    "city": "Los Angeles, CA",
-    "crime": "Federal Grand Jury Indicts 10 Noncitizens Who Illegally Registered to Vote in California",
-    "usa": "Federal Grand Jury Indicts 10 Noncitizens Who Illegally Registered to Vote in California",
-    "foreign": "Not stated in post",
-    "picked": "11/4/2026",
-    "entered": "Amount not stated",
-    "office": "TheJusticeDept",
-    "id": "harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-10dc12e78f",
-    "when": "2026-11-04",
-    "text": "Federal Grand Jury Indicts 10 Noncitizens Who Illegally Registered to Vote in California. Ernesto Gutiérrez Ruvalcaba, 57, a Mexican national living in Wilmington, illegally registered to vote in February 2024 by falsely claiming to be a U.S. citizen and then unlawfully voted one month later. Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
-    "photo": "",
-    "via": "DOJ press feed",
-    "sourceUrl": "https://www.justice.gov/usao-cdca/pr/federal-grand-jury-indicts-10-noncitizens-who-illegally-registered-vote-california",
-    "voting": true,
-    "origin": "Voting / elections",
-    "confirmedBy": "DOJ",
-    "lat": 34.0522,
-    "lon": -118.2437,
-    "presence": "not_stated",
-    "scheme": "Ernesto Gutiérrez Ruvalcaba",
-    "schemeId": "harvest-https-www-justice-gov-usao-cdca-pr-federal-grand-761bc3ec34",
-    "nationality": "a Mexican national"
   },
   {
     "name": "Thakur Sukhdeo",
