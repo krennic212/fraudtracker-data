@@ -201,6 +201,14 @@
       "match": "person",
       "reason": "Krennic 2026-11-17: same person-scoped exclusion as the OPA Oct 19 wrap, so the Anglicized given name is not re-added from the USAO-CDCA arrest release of the same day. The kept ledger row is Ernesto Gutiérrez Ruvalcaba.",
       "decided": "Krennic 2026-11-17"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-wdny/pr/algerian-man-pleads-guilty-his-role-black-market-fraud-conspiracy-targeted-thousands",
+      "id": "harvest-https-www-justice-gov-usao-wdny-pr-algerian-man--98e99a262f",
+      "name": "Dila Belmili",
+      "match": "person",
+      "reason": "Krennic 2026-11-17: a/k/a of Abdellah Belmili on the same WDNY Nov 17, 2026 guilty-plea release (\"Abdellah Belmili, a/k/a Dila Belmili, a/k/a SPOX\"). Keep Abdellah Belmili. Person-scoped so the alias row is not re-added from this release.",
+      "decided": "Krennic 2026-11-17"
     }
   ]
 }
