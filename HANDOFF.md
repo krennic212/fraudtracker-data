@@ -1,3 +1,10 @@
+## 2026-11-17 (evening) daily missed-cases check
+
+- Seeded (commit eca5596, run 44206591751, live): Arthur Marquez (CDCA, Pleaded guilty, $2.1M COVID UI); Zachary Somers Hiscock + Arif Hasan Sayed (MDFL, Convicted, GI Bill) and co-conspirators Timothy Slater, Nikhil Patel, Gangadhar Bathula, Kyle Blake Kotecha (Pleaded guilty; one scheme); Matthew West + Kevin Kutina (Convicted) and Robert + William Gonzalez (Pleaded guilty), MDFL SDVOSB Bay Pines contract (same schemeId as the existing "Maxon Groupe, LLC" row); Katherine Reynolds (MA, Sentenced, PPP); Joshua Duke (MDLA, Pleaded guilty, employment taxes; computed origin reads "Medicare / Medicaid" because of the Medicare-tax wording); Stuart Bernsen (OPA, Sentenced, tax shelter); Daniel Holifield (SDAL, Pleaded guilty, county sheriff funds + tax evasion); Andy Sanborn (NH, Civil settlement, EIDL FCA); VA surge (OPA Nov 17): Heidi Brady, Yolanda Johnson Sayed, Michael Christopher Comiskey (Charged; separate schemeKeys), Barbara Ferrell (SDWV, Sentenced); Mansuri Manuchekhri (EDNY, Pleaded guilty to sham-marriage immigration fraud).
+- Seeded but NOT live (keepBlob false, no rule changed): Krandon Wenger (EDPA, Sentenced, Affordable Connectivity Program $741k) - KEEP has no "Affordable Connectivity Program" / "pandemic program fraud", and GOV_MONEY's defraud pattern does not match "defrauded the U.S, government". Cirt Lindsay (VT, Sentenced, state unclaimed-property fraud) - same state-government-money gap as Armstrong. Fixes await Krennic yes.
+- Possible duplicate: Abdellah Belmili and "Dila Belmili" (his a/k/a) are two rows from the WDNY Nov 17 release; removal needs Krennic approval.
+- No filter/parser changes. Tests 195/195.
+
 ## 2026-11-17 (morning) approved tracker fixes (Krennic: fix 4 only on this repo)
 
 - Fix 4 (approved): confirmed from official DOJ API bodies that Ernest / Ernesto Gutiérrez Ruvalcaba is one Central District of California defendant (age 57, Mexican national, Wilmington; registered February 2024, voted one month later). USAO-CDCA Oct 19 and Nov 4 both use Ernesto; the Oct 19 OPA wrap used Ernest.
