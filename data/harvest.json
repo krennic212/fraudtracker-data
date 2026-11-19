@@ -20575,5 +20575,30 @@
     "presence": "not_stated",
     "scheme": "Brandlyn Yonally",
     "schemeId": "harvest-https-www-justice-gov-usao-ndfl-pr-panama-city-a-0245d001b4"
+  },
+  {
+    "name": "Russell Fallacara",
+    "city": "Bayonne, NJ",
+    "crime": "Former Hudson County Parks Department Director Sentenced to 72 Months Imprisonment for His Role in Bribe and Kickback Scheme",
+    "usa": "Former Hudson County Parks Department Director Sentenced to 72 Months Imprisonment for His Role in Bribe and Kickback Scheme",
+    "foreign": "Not stated in post",
+    "picked": "11/18/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-nj-pr-former-hudson-c-dbf99882c0",
+    "when": "2026-11-18",
+    "text": "Former Hudson County Parks Department Director Sentenced to 72 Months Imprisonment for His Role in Bribe and Kickback Scheme. Former Hudson County Parks Department Director Russell Fallacara was sentenced today to 72 months’ imprisonment for conspiring to commit honest services fraud. Fallacara, 58, of Bayonne, New Jersey, previously pleaded guilty before U.S. District Judge Claire C. Cecchi to an Information charging him with conspiring to defraud Hudson County of the right to officials’ honest services. Source: official Justice Department press. Stage: Sentenced. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-nj/pr/former-hudson-county-parks-department-director-sentenced-72-months-imprisonment-his-role",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 40.6687,
+    "lon": -74.1143,
+    "presence": "not_stated",
+    "scheme": "Russell Fallacara",
+    "schemeId": "harvest-https-www-justice-gov-usao-nj-pr-former-hudson-c-3f4f731ce3",
+    "stage": "Sentenced"
   }
 ]
