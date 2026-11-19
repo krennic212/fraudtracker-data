@@ -1,15 +1,16 @@
 {
-  "checkedAt": 1795113018003,
+  "checkedAt": 1795127983010,
   "added": [
-    "Patrick Lorn Sellers",
-    "Jane Frances Pierce",
-    "Orlandi Castillo Leon",
-    "Liover Leon-Hernandez",
-    "Postal Inspector",
-    "Carla Magaly Alcedo Mendoza"
+    "Ruby Scott",
+    "Daniell Green",
+    "Michelle Sands",
+    "Terrence Quincy-Thomas Ward",
+    "Mirwais Shams",
+    "Ahmad Shams",
+    "Karla Montoya"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1045,
+  "scanned": 1066,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
