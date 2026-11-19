@@ -1,3 +1,10 @@
+## 2026-11-18 (evening) daily missed-cases check
+
+- Confirmed live after the 2026-11-17 approved rule fixes: Krandon Wenger (ACP), Cirt Lindsay (VT unclaimed property), Robert Armstrong.
+- Nov 17 6 PM - Nov 18 6 PM CT: every in-scope DOJ release (DOJ API, sort=date and sort=created) was already on the ledger (Naserdean, Michael Anderson, McDowell, Lemay, Darbonne, Wint, Tooley, Buchanan, Zhong Chen, Sijia Guo). Nothing seeded.
+- Blocked by keepBlob (no rule changed): Russell Fallacara (D.N.J. Nov 18, former Hudson County Parks director, sentenced 72 months, conspiracy to defraud Hudson County of honest services; bribes/kickbacks for county contracts). KEEP/GOV_MONEY has no county honest-services / public-corruption bribery pattern. Fix would need Krennic yes.
+- Name glitches seen (no change): "Press Release Jovan Renee Darbonne" duplicates "Jovan Renee Darbonne"; "Salim Said SaidFarah" vs "Salim Said Said Farah"; "Convictions Muna Wais Fidhin". Removal needs Krennic approval.
+
 ## 2026-11-17 (evening) approved tracker fixes (Krennic: all six from the missed-cases check; this repo is 1, 2, 5)
 
 - Fix 1 (approved): KEEP now includes "Affordable Connectivity Program" and "pandemic broadband (assistance) program". GOV_MONEY's defraud-the-government pattern now matches "defrauded the U.S, government" (official typo) and "defrauded the U.S. government". "He defrauded investors" still does not keep. Krandon Wenger (EDPA Nov 17, $741,726 ACP restitution) now passes keepBlob and will be added from the existing seed.
