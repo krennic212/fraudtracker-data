@@ -1,14 +1,16 @@
 {
-  "checkedAt": 1795041285937,
+  "checkedAt": 1795061217106,
   "added": [
-    "Inna Opatska",
-    "JOSEPH EUGENE LEMAY",
-    "Kenneth Irving Tooley",
-    "Zhong Chen",
-    "Sijia Guo"
+    "Bun Khath",
+    "Jeremiah Almaguer",
+    "Jennifer Williams",
+    "William Mills",
+    "Kazem Younes",
+    "Jolson Wu",
+    "Chandni Patel"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1035,
+  "scanned": 1045,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
