@@ -17,3 +17,13 @@ describe("county/local public-official bribery keeps (2026-11-19)", () => {
     assert.equal(keepBlob("Man Sentenced", "He defrauded investors in Bergen County of $2 million."), false);
   });
 });
+
+import { readFileSync } from "node:fs";
+describe("Fallacara seed (D.N.J. Nov 18, 2026)", () => {
+  it("official release text keeps", () => {
+    const s = JSON.parse(readFileSync(new URL("../data/seed-releases.json", import.meta.url), "utf8"));
+    const r = s.releases.find((x) => (x.names || []).includes("Russell Fallacara"));
+    assert.ok(r);
+    assert.equal(keepBlob(r.title, r.teaser), true);
+  });
+});
