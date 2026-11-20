@@ -1,24 +1,11 @@
 {
-  "checkedAt": 1795212885861,
+  "checkedAt": 1795217669197,
   "added": [
-    "Chukwuebuka Madueke Arinze",
-    "Gabriel Adam Alexander Luthor",
-    "Elizabeth Christine Brown",
-    "Ronald Byrd",
-    "Malik Palmer",
-    "Douglas Mathis",
-    "Morris Kanneh",
-    "Sironde Dixon",
-    "Rakiem Savage",
-    "Haneef Palmer",
-    "Saikeen Dixon",
-    "Aikeem Palmer",
-    "Greelensky Charles",
-    "Augusto Villar Vizcaino",
-    "Myrna Faría"
+    "Timmie L. Haynes",
+    "Francisco Federico Reyes-Bravo"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1043,
+  "scanned": 1045,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
