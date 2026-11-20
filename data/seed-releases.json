@@ -3493,6 +3493,40 @@
           "lon": -74.1143
         }
       }
+    },
+    {
+      "date": "2026-11-19",
+      "link": "https://www.justice.gov/usao-nd/pr/tappen-nd-man-pleads-guilty-crop-insurance-fraud-and-agrees-5-year-usda-benefits",
+      "title": "Tappen, ND, Man Pleads Guilty to Crop Insurance Fraud and Agrees to 5-Year USDA Benefits Debarment",
+      "teaser": "Joseph Michael Fettig, age 51, from Tappen, North Dakota, pleaded guilty to a felony charge of False Statements to Influence the United States Department of Agriculture – Risk Management Agency, colloquially known as “Crop Insurance Fraud.” From March 1, 2022, to December 31, 2022, Fettig shifted production by making false statements to the Risk Management Agency and Federal Crop Insurance Corporation that manufactured and inflated crop insurance indemnities on his corn production in Logan County.",
+      "names": [
+        "Joseph Michael Fettig"
+      ],
+      "stage": "Pleaded guilty",
+      "places": {
+        "Joseph Michael Fettig": {
+          "city": "Tappen, ND",
+          "lat": 46.8714,
+          "lon": -99.629
+        }
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "link": "https://www.justice.gov/usao-pr/pr/former-hacienda-employee-sentenced-50-months-prison-his-participation-bribery-conspiracy",
+      "title": "Former Hacienda Employee Sentenced to 50 Months in Prison for His Participation in a Bribery Conspiracy",
+      "teaser": "On November 18, 2026, United States District Court Judge Silvia Carreño Coll sentenced former Hacienda employee Luis A. Jiménez-Guzmán to 50 months in prison, two years of supervised release, and restitution of 5 million dollars for his role in a bribery conspiracy to defraud the Puerto Rico Department of Treasury (PRDT or Hacienda). Jiménez-Guzmán knowingly and willfully conspired to commit federal program bribery and wire fraud, involving the loss of approximately $5,000,000 in Puerto Rico tax revenue.",
+      "names": [
+        "Luis A. Jiménez-Guzmán"
+      ],
+      "stage": "Sentenced",
+      "places": {
+        "Luis A. Jiménez-Guzmán": {
+          "city": "San Juan, PR",
+          "lat": 18.4655,
+          "lon": -66.1057
+        }
+      }
     }
   ]
 }
