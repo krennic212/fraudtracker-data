@@ -1,5 +1,11 @@
 ## 2026-11-18 (evening) daily missed-cases check
 
+## 2026-11-20 approved rule changes (Krennic: "Approve both rule changes")
+
+- KEEP now includes crop insurance / Federal Crop Insurance Corporation / FCIC / USDA Risk Management Agency. KEEP also matches "defraud/deprive ... Puerto Rico Treasury / Hacienda / Commonwealth of Puerto Rico / Government of Guam / USVI / CNMI / American Samoa" and bribes/kickbacks tied to those agencies. Private crop business fraud and private-sector PR bribery still do not keep.
+- Dry-run on seed (177) and live harvest (848): only Fettig and Jiménez-Guzmán flipped false->true. Tests 210/210 (scripts/harvest-rules-1120.test.mjs).
+- Name glitches and Hudson County no-show case untouched.
+
 - Confirmed live after the 2026-11-17 approved rule fixes: Krandon Wenger (ACP), Cirt Lindsay (VT unclaimed property), Robert Armstrong.
 - Nov 17 6 PM - Nov 18 6 PM CT: every in-scope DOJ release (DOJ API, sort=date and sort=created) was already on the ledger (Naserdean, Michael Anderson, McDowell, Lemay, Darbonne, Wint, Tooley, Buchanan, Zhong Chen, Sijia Guo). Nothing seeded.
 - 2026-11-19 DONE (Krennic: "Yes, add the county bribery pattern"): GOV_MONEY now keeps public-official bribery/kickbacks/honest-services where a county, city, municipal or state government is the victim or party to the contracts. Tests in scripts/harvest-rules-1119.test.mjs. Seed dry run: 139 kept before and after, no new seed rows. Fallacara had aged out of the 40-item DOJ API window, so he was added to data/seed-releases.json (official USAO-NJ release 26-254).
