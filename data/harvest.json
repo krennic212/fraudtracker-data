@@ -21010,5 +21010,29 @@
     "scheme": "Luis A. Jiménez-Guzmán",
     "schemeId": "harvest-https-www-justice-gov-usao-pr-pr-former-hacienda-a4976f38b0",
     "stage": "Sentenced"
+  },
+  {
+    "name": "Nonprofits Help News Tax Pros Search Inc",
+    "city": "Denver, CO",
+    "crime": "Nov. 17, 2026 — The United States Attorney’s Office for the District of Colorado announces that Tarek Mohamad Kassem, Parker, Colorado, was sentenced to 18 months in federal prison, three years of supervised release, restitution totaling $2,041,649.51, and a forfeiture money judgement of $1,776,792.00 after pleading guilty to one count of wire fraud and one count of money laundering.",
+    "usa": "Nov. 17, 2026 — The United States Attorney’s Office for the District of Colorado announces that Tarek Mohamad Kassem, Parker, Colorado, was sentenced to 18 months in federal prison, three years of supervised release, restitution totaling $2,041,649.51, and a forfeiture money judgement of $1,776,792.00 after pleading guilty to one count of wire fraud and one count of money laundering.",
+    "foreign": "Not stated in post",
+    "picked": "",
+    "entered": "Amount not stated",
+    "office": "IRSCI",
+    "id": "harvest-https-www-irs-gov-compliance-criminal-investigat-e597013481",
+    "when": "",
+    "text": "Nov. 17, 2026 — The United States Attorney’s Office for the District of Colorado announces that Tarek Mohamad Kassem, Parker, Colorado, was sentenced to 18 months in federal prison, three years of supervised release, restitution totaling $2,041,649.51, and a forfeiture money judgement of $1,776,792.00 after pleading guilty to one count of wire fraud and one count of money laundering.. Parker man sentenced for COVID-19 related fraud | Internal Revenue Service Skip to main content An official website of the United States government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites. Search IRS tasks, forms, and answers Suggestions Information Menu Sign in Individual Business Tax Pro Access your tax information with an IRS account. Refunds Payments Tax records Create account Main navigation File Overview INFORMATION FOR… Individuals Business and self-employed Charities and nonprofits International filers Retirement Governments and Source: official IRS Criminal Investigation press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "IRS-CI press",
+    "sourceUrl": "https://www.irs.gov/compliance/criminal-investigation/parker-man-sentenced-for-covid-19-related-fraud",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 39.7392,
+    "lon": -104.9903,
+    "presence": "not_stated",
+    "scheme": "Nonprofits Help News Tax Pros Search Inc",
+    "schemeId": "harvest-https-www-irs-gov-compliance-criminal-investigat-bca4036b75"
   }
 ]
