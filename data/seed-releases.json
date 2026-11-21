@@ -3527,6 +3527,74 @@
           "lon": -66.1057
         }
       }
+    },
+    {
+      "date": "2026-11-20",
+      "link": "https://www.justice.gov/opa/pr/law-firm-owner-indicted-willful-failure-file-tax-returns",
+      "title": "Law Firm Owner Indicted for Willful Failure to File Tax Returns",
+      "teaser": "An indictment was unsealed today in the District of Colorado charging a Colorado Springs, Colorado, man with willfully failing to file individual and corporate tax returns for the years 2020 to 2025. Terry Fjeld was the owner and 100% shareholder of Terry Fjeld PC, a Colorado law firm. According to the indictment, from approximately 2018 through 2025, the IRS issued more than 20 separate notices to Fjeld informing him of his obligation to file individual tax returns, and Fjeld has nevertheless willfully failed to file individual or corporate tax returns since approximately 2010.",
+      "names": [
+        "Terry Fjeld"
+      ],
+      "stage": "Charged",
+      "places": {
+        "Terry Fjeld": {
+          "city": "Colorado Springs, CO",
+          "lat": 38.8339,
+          "lon": -104.8214
+        }
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "link": "https://www.justice.gov/opa/pr/kansas-realtor-indicted-tax-evasion-failure-file-tax-returns-and-pandemic-relief-fraud",
+      "title": "Kansas Realtor Indicted for Tax Evasion, Failure to File Tax Returns, and Pandemic Relief Fraud",
+      "teaser": "A federal grand jury in Kansas City, Kansas, returned a superseding indictment yesterday charging a Louisburg, Kansas, woman with tax evasion, wire fraud, and willful failure to file personal and corporate income tax returns. According to the superseding indictment, Michelle O’Connor, also known as Michelle Yi Lee, owned and operated a realty company based in the Kansas City metro area. In 2020, O’Connor also allegedly submitted 34 fraudulent Economic Injury Disaster Loan (EIDL) applications on behalf of her real estate business and seven other corporate entities. In total, O’Connor allegedly received nearly $300,000 from her fraudulent EIDLs.",
+      "names": [
+        "Michelle O’Connor"
+      ],
+      "stage": "Charged",
+      "places": {
+        "Michelle O’Connor": {
+          "city": "Louisburg, KS",
+          "lat": 38.6195,
+          "lon": -94.6808
+        }
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "link": "https://www.justice.gov/usao-ndtx/pr/dallas-tax-preparer-indicted-multi-million-dollar-tax-fraud-scheme-and-false-loan",
+      "title": "Dallas tax preparer indicted in multi-million-dollar tax fraud scheme and false loan application",
+      "teaser": "United States Attorney for the Northern District of Texas Ryan Raybould announced that a federal grand jury returned a 40-count indictment against a local tax return preparer for alleging false tax returns and false statement to a credit union. Veronica Williams who operated Veronica Tax Services (also known as “Veronica Taxs Service”), is charged with eight counts of subscribing to false tax returns, 31 counts of aiding and assisting in the preparation of false tax returns and one count of making a false statement to a financial institution. The indictment further alleges that, between 2021 and 2026, Williams prepared and filed customer tax returns containing false claims for coronavirus-related sick and family leave credits.",
+      "names": [
+        "Veronica Williams"
+      ],
+      "stage": "Charged",
+      "places": {
+        "Veronica Williams": {
+          "city": "Dallas, TX",
+          "lat": 32.7767,
+          "lon": -96.797
+        }
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "link": "https://www.justice.gov/usao-ma/pr/alleged-tren-de-aragua-gang-member-pleads-guilty-atm-jackpotting-scheme",
+      "title": "Alleged Tren de Aragua Gang Member Pleads Guilty to ATM \"Jackpotting Scheme\" Following Homeland Security Task Force Investigation",
+      "teaser": "BOSTON – An illegal alien from Venezuela, who is an alleged member of the violent transitional criminal organization Tren De Aragua (TdA) pleaded guilty yesterday in connection with an ATM jackpotting conspiracy that included robberies and attempted robberies in Massachusetts, Maine, New Hampshire, Connecticut and Rhode Island. Moises Alejandro Martinez Gutierrez, 29, pleaded guilty to two counts of conspiracy to commit bank theft and damaging a protected computer. TdA has used ATM jackpotting in the United States to steal millions of dollars from financial institutions.",
+      "names": [
+        "Moises Alejandro Martinez Gutierrez"
+      ],
+      "stage": "Pleaded guilty",
+      "places": {
+        "Moises Alejandro Martinez Gutierrez": {
+          "city": "Boston, MA",
+          "lat": 42.3601,
+          "lon": -71.0589
+        }
+      }
     }
   ]
 }

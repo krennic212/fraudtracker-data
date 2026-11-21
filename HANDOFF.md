@@ -1,3 +1,10 @@
+## 2026-11-20 (evening) daily missed-cases check
+
+- Confirmed live after the 2026-11-20 approved rule changes: Joseph Michael Fettig (crop insurance), Luis A. Jimenez-Guzman (PR Hacienda bribery).
+- Seeded (data/seed-releases.json): Michelle O'Connor a/k/a Michelle Yi Lee (OPA/D. Kan. Nov 19, Charged, tax evasion + 34 fraudulent EIDL applications), Veronica Williams (NDTX Nov 19, Charged, tax preparer false returns incl. COVID sick/family leave credits), Moises Alejandro Martinez Gutierrez (D. Mass. Nov 19, Pleaded guilty, illegal alien from Venezuela, TdA ATM jackpotting - same pattern as Aaron Nieves-Carrillo), Terry Fjeld (OPA/D. Colo. Nov 20, Charged, willful failure to file tax returns).
+- Blocked by keepBlob/GOV_MONEY (no rule changed; seed kept so it goes live once approved): Terry Fjeld. GOV_MONEY matches "fail(ed|ing|ure) to (pay|collect|account for) ... taxes" but not "willful(ly) fail(ed|ing|ure) to file ... tax returns". Proposed fix: add `(?:willful(?:ly)?\s+)?fail(?:ed|ing|ure)? to file (?:\w+ ){0,4}(?:income )?tax returns?` to GOV_MONEY. Needs Krennic yes.
+- Not added: Jingbin Jiang (SDNY elder-fraud leader, no non-citizen status stated), Richard Reinaldo Garcia, Luz Adriana Tellez, Kristen Levin, Jessica Russell (private-victim, no non-citizen status).
+
 ## 2026-11-18 (evening) daily missed-cases check
 
 ## 2026-11-20 approved rule changes (Krennic: "Approve both rule changes")
