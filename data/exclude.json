@@ -209,6 +209,20 @@
       "match": "person",
       "reason": "Krennic 2026-11-17: a/k/a of Abdellah Belmili on the same WDNY Nov 17, 2026 guilty-plea release (\"Abdellah Belmili, a/k/a Dila Belmili, a/k/a SPOX\"). Keep Abdellah Belmili. Person-scoped so the alias row is not re-added from this release.",
       "decided": "Krennic 2026-11-17"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/opa/pr/dojs-fraud-division-and-us-attorneys-office-district-minnesota-uncover-voter-fraud-and",
+      "match": "person",
+      "name": "Salim Said Said Farah",
+      "reason": "Krennic 2026-11-24 standing OK for duplicate cleanups: same Minnesota defendant as the kept row Salim Said Said Farah (USAO-MN Oct 30, 2026 release). The OPA wrap of the same surge printed 'SaidFarah'. Person-scoped so the other people on the OPA release stay listed.",
+      "decided": "Krennic 2026-11-24 (standing permission)"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/opa/pr/dojs-fraud-division-and-us-attorneys-office-district-minnesota-uncover-voter-fraud-and",
+      "match": "person",
+      "name": "Salim Said SaidFarah",
+      "reason": "Krennic 2026-11-24 standing OK for duplicate cleanups: same Minnesota defendant as the kept row Salim Said Said Farah (USAO-MN Oct 30, 2026 release). The OPA wrap of the same surge printed 'SaidFarah'. Person-scoped so the other people on the OPA release stay listed.",
+      "decided": "Krennic 2026-11-24 (standing permission)"
     }
   ]
 }

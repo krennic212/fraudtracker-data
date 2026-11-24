@@ -1,3 +1,10 @@
+## 2026-11-24 name and duplicate cleanups (Krennic standing OK, Nov 24: "Handle rule fixes that pass the dry run and name or duplicate cleanups yourself")
+
+- Root cause fixed in scripts/harvest-parse.mjs `tidyName` (used by allPeople and, via rewriteExisting in harvest-gov.mjs, on rows already in the feed): page/section boilerplate glued onto a name ("Press Release", "News Release", "Convictions", "Sentencings", "Guilty Pleas", "Indictments", "Arrests", "Charges") is stripped; a glued surname ("SaidFarah") is split only when the release uses the right half alone and never prints the glued word again (Mc/Mac/De/La/etc. never split). Tests: scripts/harvest-names-1124.test.mjs.
+- data/exclude.json: person-scoped entries drop the OPA Oct 30 Minnesota wrap's "Salim Said SaidFarah" / "Salim Said Said Farah"; the kept row is Salim Said Said Farah (USAO-MN Oct 30).
+- Full local dry run old vs new (seed 186, DOJ API 400, IU voting 233, USDA, OIG, state, news): 884 -> 881 rows. Changes: Muna Wais Fidhin (was "Convictions ..."), Shaakir Mohamud Ibrahim (was "Charges ...", same glitch on the same OPA wrap), Press Release Jovan Renee Darbonne and Press Release Ian Jackson (SBA mirrors) collapse into the DOJ rows, OPA SaidFarah removed. Nothing else changed.
+- Hudson County Parks no-show worker (Alfonso A. Zamarra, USAO-NJ Oct 21, 2026, charged with 28 counts of wire fraud): already on the feed since Oct 22 (official release URL, Charged). No seed or keep rule needed.
+
 ## 2026-11-24 approved rule changes (Krennic, relayed by Rex: "Approve the Jeremy Jarod Jackson / Kristi Williams / Hektor Avdyli / Terry Fjeld rule change")
 
 - GOV_MONEY now also keeps: theft/embezzlement of property, school, county, city, municipal or local tax collections (Kristi Williams, Tomball ISD); "stolen (federal) tax refunds" (Jeremy Jarod Jackson); "(willfully) fail(ed/ing/ure) to file ... tax returns" (Terry Fjeld).

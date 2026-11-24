@@ -20,6 +20,7 @@ import {
   personOrEntity,
   rewriteHarvestName,
   stateOffice,
+  tidyName,
 } from "./harvest-parse.mjs";
 import { rowId, schemeIdFor } from "./ledger-id.mjs";
 import { nameKey } from "./ledger-dedupe.mjs";
@@ -934,7 +935,11 @@ export function privateVictimNonCitizen(title, text) {
   return PRIVATE_FRAUD.test(blob) && (nonCitizenInRelease(blob) || titleNationalStated(title));
 }
 
-function rewriteExisting(r) {
+export function rewriteExisting(r) {
+  // Krennic 2026-11-24: boilerplate glued onto a name ("Press Release ...", "Convictions ...") or a glued surname
+  // ("SaidFarah") is fixed on rows already in the feed too (see tidyName). The scheme label follows when it was the name.
+  const tidy = r && r.name ? tidyName(r.name, r.text || "") : r?.name;
+  if (r && tidy && tidy !== r.name) r = { ...r, name: tidy, scheme: r.scheme === r.name ? tidy : r.scheme };
   // Only headline-style names get rewritten. A real name is left alone:
   // rewriting it to the release's first defendant turned co-defendants
   // into copies of one person (the duplicate rows on the live ledger).

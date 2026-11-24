@@ -508,7 +508,7 @@ export function allPeople(title, teaser = "") {
   const clean = [];
   const cleanSeen = new Set();
   for (const n of out) {
-    const c = stripLeadPlace(n, text);
+    const c = tidyName(stripLeadPlace(n, text), text);
     const k = c.toLowerCase();
     if (cleanSeen.has(k)) continue;
     cleanSeen.add(k);
@@ -587,6 +587,34 @@ export function stripLeadPlace(name, text = "") {
     if (caption || /^of\b/.test(prefix) || ctx.test(text)) return rest;
   }
   return name;
+}
+
+/**
+ * Krennic 2026-11-24 (standing OK for name cleanups): page boilerplate glued onto the front of a name ("Press Release
+ * Jovan Renee Darbonne" from an SBA page header, "Convictions Muna Wais Fidhin" from an OPA roundup section header) is
+ * never part of the name. A surname glued to the word before it ("Salim Said SaidFarah ," on the Oct 30, 2026 OPA
+ * Minnesota roundup; USAO-MN prints "Salim Said Said Farah") is split only when the release refers to the person by the
+ * right half alone ("Farah and several co-defendants") and never prints the glued word again. Mc/Mac/De/La/Le/Di/Van/O'
+ * style surnames ("McDonald", "MacArthur", "DeSantis") are never split.
+ */
+const LEAD_BOILER = /^(?:(?:Press|News)\s+Releases?|Convictions?|Sentencings?|Guilty\s+Pleas?|Indictments?|Arrests?|Charges)\s+(?=\p{Lu})/u;
+const GLUED = /^(\p{Lu}\p{Ll}{2,})(\p{Lu}\p{Ll}{2,})$/u;
+const SURNAME_PREFIX = /^(?:Mac|Mc|De|Del|Della|Di|Da|Du|La|Le|Lo|Van|Von|Fitz|St|Ben|Abu|Al|El)$/;
+export function tidyName(name, text = "") {
+  let n = String(name || "").trim();
+  for (let i = 0; i < 3 && LEAD_BOILER.test(n); i++) n = n.replace(LEAD_BOILER, "");
+  if (n.split(/\s+/).length < 2) return String(name || "").trim();
+  const words = n.split(/\s+/);
+  const t = String(text || "");
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  for (let i = 1; i < words.length; i++) {
+    const m = words[i].match(GLUED);
+    if (!m || SURNAME_PREFIX.test(m[1])) continue;
+    const glued = (t.match(new RegExp(`(?<![\\p{L}])${esc(words[i])}(?![\\p{L}])`, "gu")) || []).length;
+    const alone = new RegExp(`(?<![\\p{L}])${esc(m[2])}(?![\\p{L}])`, "u").test(t.replace(new RegExp(esc(words[i]), "gu"), " "));
+    if (glued <= 1 && alone) words.splice(i, 1, m[1], m[2]);
+  }
+  return words.join(" ");
 }
 
 export function looksLikeHeadline(name) {
