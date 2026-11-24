@@ -1,3 +1,12 @@
+## 2026-11-23 (evening) daily missed-cases check
+
+- Seeded and live (run 45295464889): Moises Torres (SDTX Nov 23, Pleaded guilty, Brownsville tax preparer, $529,130 IRS loss); Whitnee Leach + Jeannie Negron (OPA/EDNC Nov 23, Sentenced, COVID tax-credit refunds, one schemeId).
+- Seeded but blocked (no rule changed; seeds stay so they go live once approved):
+  - Kristi Williams (SDTX Nov 23, Pleaded guilty, stole ~$996,174 in property tax payments from Tomball ISD): keepBlob/GOV_MONEY has no school-district / local property-tax wording. Fix: count theft of a public school district's or local government's tax collections as government money.
+  - Jeremy Jarod Jackson (WDTX Nov 20, Pleaded guilty, laundered >$500,000 of stolen federal tax refunds): GOV_MONEY matches "fraudulent refunds" but not "stolen federal tax refunds". Fix: add "stolen (federal )?tax refunds".
+  - Hektor Avdyli (EDWI Nov 23, Charged, sold stolen credit card data; "a Kosovo citizen"): private-victim fraud, but NONCITIZEN_CS only reads "citizen of X" / "X national", not "<Country> citizen". Fix: accept "a <Country> citizen" (not U.S./American).
+- Already listed: Orlando Patrick (NDIL PPP), Myrna Faria (PR SSA), Chukwuebuka Madueke Arinze (NE CFAP), Francisco Federico Reyes-Bravo (NDTX).
+
 ## 2026-11-20 (evening) daily missed-cases check
 
 - Confirmed live after the 2026-11-20 approved rule changes: Joseph Michael Fettig (crop insurance), Luis A. Jimenez-Guzman (PR Hacienda bribery).
