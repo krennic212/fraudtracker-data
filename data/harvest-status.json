@@ -1,8 +1,16 @@
 {
-  "checkedAt": 1795542281026,
-  "added": [],
+  "checkedAt": 1795563126316,
+  "added": [
+    "Joseph Kaminski",
+    "AcuMedGroup LLC",
+    "Ahmed Maqbul Syed",
+    "Jian Xin Huang",
+    "Xiuqin Huang",
+    "Karount Jannet Toledo Vazquez",
+    "Ganesh Bista"
+  ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1069,
+  "scanned": 1023,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
