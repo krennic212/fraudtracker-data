@@ -21664,5 +21664,29 @@
     "scheme": "Jeannie Negron",
     "schemeId": "harvest-https-www-justice-gov-opa-pr-north-carolina-retu-98813f61a4",
     "stage": "Sentenced"
+  },
+  {
+    "name": "Kenneth G. Shoemaker II",
+    "city": "Buffalo, NY",
+    "crime": "Buffalo man pleads guilty to distributing fentanyl that caused the death of another individual",
+    "usa": "Buffalo man pleads guilty to distributing fentanyl that caused the death of another individual",
+    "foreign": "Not stated in post",
+    "picked": "11/23/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-wdny-pr-buffalo-man-p-4bff195688",
+    "when": "2026-11-23",
+    "text": "Buffalo man pleads guilty to distributing fentanyl that caused the death of another individual. BUFFALO, NY—U.S. Attorney Michael DiGiacomo announced today that Kenneth G. Shoemaker, II a/k/a Kenny, 50, of Buffalo, NY, pleaded guilty before U.S. District Judge Lawrence J. Vilardo to distribution of fentanyl and maintaining a drug involved premises, which carry a maximum penalty of 20 years in prison and a $1,000,000 fine. Between January 2020, and February 7, 2025, Shoemaker sold large quantities of fentanyl, para-fluorofentanyl, crack cocaine, and amphetamine (Adderall), at his Sweet Avenue residence. He personally distributed the controlled substances on nearly a daily basis, accepting cash, Zelle, Cash App, stolen merchandise, such as shoes, clothing, and power tools, gift cards, social benefit program currency equivalents, such as EBT cards, and sex. Shoemaker also allowed custom Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-wdny/pr/buffalo-man-pleads-guilty-distributing-fentanyl-caused-death-another-individual",
+    "voting": false,
+    "origin": "SNAP / food stamps",
+    "confirmedBy": "DOJ",
+    "lat": 42.8864,
+    "lon": -78.8784,
+    "presence": "not_stated",
+    "scheme": "Kenneth G. Shoemaker II",
+    "schemeId": "harvest-https-www-justice-gov-usao-wdny-pr-buffalo-man-p-4477d4e791"
   }
 ]
