@@ -1,3 +1,10 @@
+## 2026-11-24 approved rule changes (Krennic, relayed by Rex: "Approve the Jeremy Jarod Jackson / Kristi Williams / Hektor Avdyli / Terry Fjeld rule change")
+
+- GOV_MONEY now also keeps: theft/embezzlement of property, school, county, city, municipal or local tax collections (Kristi Williams, Tomball ISD); "stolen (federal) tax refunds" (Jeremy Jarod Jackson); "(willfully) fail(ed/ing/ure) to file ... tax returns" (Terry Fjeld).
+- NONCITIZEN_CS now reads "a <Country> citizen" (not American / United / a U.S. state / Puerto Rico / Guam; U.S.-citizen wording in the sentence still wins) (Hektor Avdyli).
+- Dry run old vs new: full local harvest (seed 186, DOJ API 400, Invasion voting 233, USDA, OIG, state, news) added only Fjeld, K. Williams, Avdyli, J. J. Jackson; per-item keep check on 2,713 seed/live/cached DOJ/IU items flipped only those four. Tests 218/218 (scripts/harvest-rules-1124.test.mjs).
+- Name glitches (Darbonne, SaidFarah, Muna Wais Fidhin) and the Hudson County Parks no-show case untouched.
+
 ## 2026-11-23 (evening) daily missed-cases check
 
 - Seeded and live (run 45295464889): Moises Torres (SDTX Nov 23, Pleaded guilty, Brownsville tax preparer, $529,130 IRS loss); Whitnee Leach + Jeannie Negron (OPA/EDNC Nov 23, Sentenced, COVID tax-credit refunds, one schemeId).
