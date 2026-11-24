@@ -3,6 +3,7 @@
 - GOV_MONEY now also keeps: theft/embezzlement of property, school, county, city, municipal or local tax collections (Kristi Williams, Tomball ISD); "stolen (federal) tax refunds" (Jeremy Jarod Jackson); "(willfully) fail(ed/ing/ure) to file ... tax returns" (Terry Fjeld).
 - NONCITIZEN_CS now reads "a <Country> citizen" (not American / United / a U.S. state / Puerto Rico / Guam; U.S.-citizen wording in the sentence still wins) (Hektor Avdyli).
 - Dry run old vs new: full local harvest (seed 186, DOJ API 400, Invasion voting 233, USDA, OIG, state, news) added only Fjeld, K. Williams, Avdyli, J. J. Jackson; per-item keep check on 2,713 seed/live/cached DOJ/IU items flipped only those four. Tests 218/218 (scripts/harvest-rules-1124.test.mjs).
+- Live after run 45414429244 (success, 8:29 AM CT): all four on the feed (Fjeld Charged, K. Williams Pleaded guilty, Avdyli Charged, J. J. Jackson Pleaded guilty); 884 rows.
 - Name glitches (Darbonne, SaidFarah, Muna Wais Fidhin) and the Hudson County Parks no-show case untouched.
 
 ## 2026-11-23 (evening) daily missed-cases check
