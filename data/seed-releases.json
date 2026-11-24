@@ -3595,6 +3595,97 @@
           "lon": -71.0589
         }
       }
+    },
+    {
+      "date": "2026-11-23",
+      "link": "https://www.justice.gov/usao-sdtx/pr/tax-preparer-admits-scheme-involving-deductions-workers-unauthorized-work-us",
+      "title": "Tax preparer admits to scheme involving deductions for workers unauthorized to work in US",
+      "teaser": "A Brownsville tax preparer has pleaded guilty to preparing false tax returns as part of a scheme that caused approximately $529,130 in losses to the IRS. Moises Torres admitted to preparing fraudulent tax returns using fabricated 1099 Forms to claim false labor deductions and obtain fraudulent tax refunds. Torres operated a tax preparation business in Brownsville and filed returns for clients from 2018 through 2021. The investigation revealed he used false 1099 Forms to help contractors claim deductions for labor costs paid to workers who were not legally authorized to work in the United States.",
+      "names": [
+        "Moises Torres"
+      ],
+      "stage": "Pleaded guilty",
+      "places": {
+        "Moises Torres": {
+          "city": "Brownsville, TX",
+          "lat": 25.9017,
+          "lon": -97.4975
+        }
+      }
+    },
+    {
+      "date": "2026-11-23",
+      "link": "https://www.justice.gov/opa/pr/north-carolina-return-preparers-sentenced-prison-pandemic-relief-fraud-scheme",
+      "title": "North Carolina Return Preparers Sentenced to Prison in Pandemic-Relief Fraud Scheme",
+      "teaser": "Two North Carolina women were sentenced to prison for conspiring to prepare false tax returns claiming fraudulent refunds based on COVID-19 tax credits. “Whitnee Leach and Jeannie Negron helped turn a tax preparation business into a vehicle for filing false returns and seeking millions of dollars in fraudulent COVID-19 tax credit refunds,” said Assistant Attorney General Colin M. McDonald of the Justice Department’s National Fraud Enforcement Division. “These credits were created to support struggling businesses during the pandemic, not to generate fraudulent payouts for tax preparers and their clients. Today’s sentencings demonstrate that the Fraud Division will continue to hold accountable those who exploit taxpayer-funded relief programs and abuse the trust placed in tax professionals.” “Millions of taxpayer dollars were put at risk by a scheme that exploited COVID-19 relief programs for personal profit,” said U.S. Attorney W. Ellis Boyle for the Eastern District of North Carolina. “These sentences reflect the serious consequences that await those who manipulate federal programs and attempt to steal from the American people.",
+      "names": [
+        "Whitnee Leach",
+        "Jeannie Negron"
+      ],
+      "stage": "Sentenced",
+      "places": {
+        "Whitnee Leach": {
+          "city": "Lumberton, NC",
+          "lat": 34.6182,
+          "lon": -79.0086
+        },
+        "Jeannie Negron": {
+          "city": "Lumberton, NC",
+          "lat": 34.6182,
+          "lon": -79.0086
+        }
+      }
+    },
+    {
+      "date": "2026-11-23",
+      "link": "https://www.justice.gov/usao-sdtx/pr/former-school-district-financial-officer-admits-1m-fraud-scheme",
+      "title": "Former school district financial officer admits to $1M fraud scheme",
+      "teaser": "A 51-year-old Tomball resident has pleaded guilty to wire fraud after stealing approximately $996,174 from Tomball Independent School District. Kristi Williams admitted she stole money intended for property tax payments. Williams was the manager of Property Tax Administration at Tomball ISD from January 2018 until November 2023 and oversaw the collection of local property taxes.",
+      "names": [
+        "Kristi Williams"
+      ],
+      "stage": "Pleaded guilty",
+      "places": {
+        "Kristi Williams": {
+          "city": "Tomball, TX",
+          "lat": 30.0972,
+          "lon": -95.6161
+        }
+      }
+    },
+    {
+      "date": "2026-11-23",
+      "link": "https://www.justice.gov/usao-edwi/pr/kosovo-man-extradited-united-states-face-charges-related-selling-stolen-credit-card",
+      "title": "Kosovo Man Extradited to the United States to Face Charges Related to Selling Stolen Credit Card and Personal Information on the Internet",
+      "teaser": "Brad D. Schimel, First Assistant United States Attorney for the Eastern District of Wisconsin, announced that Hektor Avdyli (age 21) had been extradited to the United States from Kosovo to face charges in this district related to his alleged use of online criminal forums on the dark web to advertise and sell stolen credit card information that his customers could use to commit fraud. In October 2025, a federal grand jury in Milwaukee returned a sealed indictment charging Avdyli with wire fraud, in violation of Title 18, United States Code, Sections 1343 & 1349 [Counts 1-4]; access device fraud, in violation of Title 18, United States Code, Sections 1029(a)(2), 1029(b)(1) & 1029(c)(1)(A)(i) [Counts 5-6]; and aggravated identity theft, in violation of Title 18, United States Code, Sections 1028A(a)(1) [Counts 7-8]. According to court documents, Avdyli used online criminal forums to advertis Through investigative work, the FBI was able to identify the seller as Hektor Avdyli, a Kosovo citizen.",
+      "names": [
+        "Hektor Avdyli"
+      ],
+      "stage": "Charged",
+      "places": {
+        "Hektor Avdyli": {
+          "city": "Milwaukee, WI",
+          "lat": 43.0389,
+          "lon": -87.9065
+        }
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "link": "https://www.justice.gov/usao-wdtx/pr/former-middle-school-teacher-pleads-guilty-money-laundering",
+      "title": "Former Middle School Teacher Pleads Guilty to Money Laundering",
+      "teaser": "A Waco man pleaded guilty in federal court for his scheme to launder more than $500,000 of stolen federal tax refunds, announced U.S. Attorney for the Western District of Texas, Justin R. Simmons. According to court documents, Jeremy Jarod Jackson pleaded guilty to one count of money laundering. In his plea, Jackson admitted to posing as a trustee of SWBC Professional Employee Services and changing the business address to direct tax refunds to himself.",
+      "names": [
+        "Jeremy Jarod Jackson"
+      ],
+      "stage": "Pleaded guilty",
+      "places": {
+        "Jeremy Jarod Jackson": {
+          "city": "Waco, TX",
+          "lat": 31.5493,
+          "lon": -97.1467
+        }
+      }
     }
   ]
 }
