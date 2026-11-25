@@ -1,16 +1,20 @@
 {
-  "checkedAt": 1795563126316,
+  "checkedAt": 1795565382594,
   "added": [
-    "Joseph Kaminski",
-    "AcuMedGroup LLC",
-    "Ahmed Maqbul Syed",
-    "Jian Xin Huang",
-    "Xiuqin Huang",
-    "Karount Jannet Toledo Vazquez",
-    "Ganesh Bista"
+    "Richard Odelis Villegas Nunez",
+    "Christopher Curtis",
+    "James Thomas Stearman, Jr.",
+    "Syed M. Makki",
+    "Trung Nguyen Van",
+    "Zhi Ge",
+    "Phillip Digennaro",
+    "Kyerra Wilson",
+    "Matthew Madsen",
+    "Army Sergeant",
+    "Huawei Technologies Co."
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1023,
+  "scanned": 1062,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
