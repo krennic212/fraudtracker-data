@@ -3686,6 +3686,136 @@
           "lon": -97.1467
         }
       }
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-ma/pr/illegal-alien-pleads-guilty-identity-theft-offense",
+      "title": "Illegal Alien Pleads Guilty to Identity Theft Offense",
+      "seat": "usao-ma",
+      "stage": "Pleaded guilty",
+      "teaser": "A Dominican man unlawfully residing in Allston, Mass. pleaded guilty in federal court in Boston to using a stolen identity of a U.S. citizen to obtain a REAL ID. Richard Odelis Villegas Nunez, 35, pleaded guilty to one count of unlawful production of an identification document. Using this same information, Villegas Nunez also received $48,865 in MassHealth benefits between June 2021 and December 2025 under the victim's identity.",
+      "names": [
+        "Richard Odelis Villegas Nunez"
+      ],
+      "nationality": {
+        "Richard Odelis Villegas Nunez": "a Dominican man unlawfully residing in Allston, Mass."
+      },
+      "places": {
+        "Richard Odelis Villegas Nunez": {
+          "city": "Boston, MA",
+          "lat": 42.3601,
+          "lon": -71.0589
+        }
+      },
+      "schemeKey": "ma-villegas-nunez-masshealth",
+      "usdAlleged": 48865
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-id/pr/jury-convicts-pocatello-man-covid-19-fraud-and-money-laundering",
+      "title": "Jury Convicts Pocatello Man for Covid-19 Fraud and Money Laundering",
+      "seat": "usao-id",
+      "stage": "Convicted",
+      "teaser": "After a four-day trial, a federal jury sitting in Pocatello found Christopher Curtis guilty of bank fraud, wire fraud, and engaging in an unlawful monetary transaction for fraudulently obtaining and spending more than $195,000 in COVID-19 pandemic relief funds. Curtis used a business called Preferred Nevada Logistics LLC to fraudulently obtain funds through the Paycheck Protection Program (PPP) and the Small Business Administration's Economic Injury Disaster Loan (EIDL) program.",
+      "names": [
+        "Christopher Curtis"
+      ],
+      "places": {
+        "Christopher Curtis": {
+          "city": "Pocatello, ID",
+          "lat": 42.8713,
+          "lon": -112.4455
+        }
+      },
+      "schemeKey": "id-curtis-ppp-eidl",
+      "usdAlleged": 195000
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/opa/pr/federal-grand-jury-returns-indictment-against-greensburg-man-crop-insurance-fraud",
+      "title": "Federal Grand Jury Returns Indictment Against Greensburg Man for Crop Insurance Fraud",
+      "seat": "usao-wdky",
+      "stage": "Charged",
+      "teaser": "A federal grand jury in Bowling Green returned an indictment charging a Greensburg man with one count of conspiracy and eight counts of crop insurance fraud. According to court documents, between January 2017 and June 2021, James Thomas Stearman, Jr. 78, of Bowling Green, Kentucky, knowingly conspired with eight tobacco farmers to defraud the Federal Crop Insurance Corporation.",
+      "names": [
+        "James Thomas Stearman, Jr."
+      ],
+      "places": {
+        "James Thomas Stearman, Jr.": {
+          "city": "Bowling Green, KY",
+          "lat": 36.9685,
+          "lon": -86.4808
+        }
+      },
+      "schemeKey": "ky-stearman-crop-insurance"
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-wdmo/pr/us-attorney-western-district-missouri-announces-contribution-protecting-americans",
+      "title": "U.S. Attorney for the Western District of Missouri Announces Contribution to Protecting Americans From Fraud",
+      "seat": "usao-wdmo",
+      "stage": "Sentenced",
+      "teaser": "Syed M. Makki, 38, a citizen of India, was sentenced in federal court to 15½ years in prison without parole for taking part in an elder fraud conspiracy in which victims liquidated savings and retirement accounts to buy gold bars, coins, and cash. Estimated loss-$6,000,000.",
+      "names": [
+        "Syed M. Makki"
+      ],
+      "nationality": {
+        "Syed M. Makki": "a citizen of India"
+      },
+      "places": {
+        "Syed M. Makki": {
+          "city": "Kansas City, MO",
+          "lat": 39.0997,
+          "lon": -94.5786
+        }
+      },
+      "schemeKey": "wdmo-makki-elder-gold",
+      "usdAlleged": 6000000
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-wdmo/pr/us-attorney-western-district-missouri-announces-contribution-protecting-americans",
+      "title": "U.S. Attorney for the Western District of Missouri Announces Contribution to Protecting Americans From Fraud",
+      "seat": "usao-wdmo",
+      "stage": "Charged",
+      "teaser": "Trung Nguyen Van, 37, a Vietnamese national, was charged for his role in defrauding a victim out of millions of dollars' worth of cryptocurrency in a wire fraud \"pig butchering\" scam. Estimated loss-$569,569.",
+      "names": [
+        "Trung Nguyen Van"
+      ],
+      "nationality": {
+        "Trung Nguyen Van": "a Vietnamese national"
+      },
+      "places": {
+        "Trung Nguyen Van": {
+          "city": "Kansas City, MO",
+          "lat": 39.0997,
+          "lon": -94.5786
+        }
+      },
+      "schemeKey": "wdmo-trung-nguyen-van-pig-butchering",
+      "usdAlleged": 569569
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-ma/pr/member-global-insider-trading-network-extradited-united-states-securities-fraud-and",
+      "title": "Member of Global Insider Trading Network Extradited to United States for Securities Fraud and Money Laundering",
+      "seat": "usao-ma",
+      "stage": "Charged",
+      "teaser": "A Singaporean citizen has been extradited to the United States to face federal securities fraud and money laundering charges in Boston. Zhi Ge, a/k/a \"Josh Ge,\" 35, of Singapore, appeared on Nov. 20, 2026 before U.S. Magistrate Judge Jennifer C. Boal.",
+      "names": [
+        "Zhi Ge"
+      ],
+      "nationality": {
+        "Zhi Ge": "a Singaporean citizen"
+      },
+      "places": {
+        "Zhi Ge": {
+          "city": "Boston, MA",
+          "lat": 42.3601,
+          "lon": -71.0589
+        }
+      },
+      "schemeKey": "ma-ge-insider-trading-network"
     }
   ]
 }

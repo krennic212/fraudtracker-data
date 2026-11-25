@@ -1,3 +1,10 @@
+## 2026-11-24 (evening) daily missed-cases check
+
+- Seeded (data/seed-releases.json): Richard Odelis Villegas Nunez (D. Mass. Nov 24, Pleaded guilty, "A Dominican man unlawfully residing in Allston", stolen identity, $48,865 MassHealth); Christopher Curtis (D. Idaho Nov 24, Convicted at trial, PPP/EIDL >$195,000); James Thomas Stearman, Jr. (OPA/W.D. Ky. Nov 24, Charged, crop insurance fraud, FCIC); Syed M. Makki ("a citizen of India", Sentenced, elder gold-bar fraud) and Trung Nguyen Van ("a Vietnamese national", Charged, pig butchering), both from the W.D. Mo. Nov 24 scam-surge roundup; Zhi Ge (D. Mass. Nov 24, Charged, "A Singaporean citizen", insider-trading network).
+- Rule fix (standing OK for dry-run-clean fixes): NONCITIZEN_CS's "a <Country> citizen" branch now also matches a capital "A"/"An" at a sentence start ("A Singaporean citizen ..."). Before, only lowercase "a" matched, so Zhi Ge was blocked. Tests: scripts/harvest-rules-1124b.test.mjs (229/229).
+- Dry run old vs new (full local harvest, seed 192, DOJ API 400, IU voting 233, USDA, HHS, OIG, state AG, news): both added the same 5 seeds; new rules added only Zhi Ge; no existing row changed. Per-item check over 4,611 seed/live/cached DOJ/IU items: privateVictim flips only Zhi Ge's release and the W.D. Pa. scam-surge roundup (no named defendants, so no rows).
+- Already listed: Karount Jannet Toledo Vazquez (OPA Nov 24), Yolanda Matthews (OPA Nov 24).
+
 ## 2026-11-24 name and duplicate cleanups (Krennic standing OK, Nov 24: "Handle rule fixes that pass the dry run and name or duplicate cleanups yourself")
 
 - Root cause fixed in scripts/harvest-parse.mjs `tidyName` (used by allPeople and, via rewriteExisting in harvest-gov.mjs, on rows already in the feed): page/section boilerplate glued onto a name ("Press Release", "News Release", "Convictions", "Sentencings", "Guilty Pleas", "Indictments", "Arrests", "Charges") is stripped; a glued surname ("SaidFarah") is split only when the release uses the right half alone and never prints the glued word again (Mc/Mac/De/La/etc. never split). Tests: scripts/harvest-names-1124.test.mjs.
