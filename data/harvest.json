@@ -22440,5 +22440,29 @@
     "presence": "not_stated",
     "scheme": "Francisco Ivan Velazquez",
     "schemeId": "harvest-https-www-justice-gov-usao-nv-pr-first-assistant-7acfee03bb"
+  },
+  {
+    "name": "Clinton Ogedegbe",
+    "city": "Charlotte, NC",
+    "crime": "U.S. Attorney Russ Ferguson Announces Contribution to Protecting Americans from Fraud in Largest-Ever Crackdown on Scammers",
+    "usa": "U.S. Attorney Russ Ferguson Announces Contribution to Protecting Americans from Fraud in Largest-Ever Crackdown on Scammers",
+    "foreign": "Not stated in post",
+    "picked": "11/24/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-wdnc-pr-us-attorney-r-da2caa5967",
+    "when": "2026-11-24",
+    "text": "U.S. Attorney Russ Ferguson Announces Contribution to Protecting Americans from Fraud in Largest-Ever Crackdown on Scammers. CHARLOTTE, N.C. —United States Attorney Russ Ferguson joined Attorney General Todd Blanche and other law enforcement officials in announcing decisive action against foreign and domestic scams. The Justice Department’s historic surge in resources to protect Americans from criminal scam networks and online fraud follows President Trump’s Executive Order 14390 directing a government-wide crackdown. “Whether scammers are operating in North Carolina, another state, or halfway around the world, we are committed to bringing them to justice,” said U.S. Attorney Russ Ferguson. “Many of these scams are absolutely terrifying—like threatening people with arrest or making them believe their loved ones are in trouble. We will follow the money, find the evidence, and use every tool at our disposal to mak Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-wdnc/pr/us-attorney-russ-ferguson-announces-contribution-protecting-americans-fraud-largest",
+    "voting": false,
+    "origin": "Federal program (see release)",
+    "confirmedBy": "DOJ",
+    "lat": 35.2271,
+    "lon": -80.8431,
+    "presence": "not_stated",
+    "scheme": "Clinton Ogedegbe",
+    "schemeId": "harvest-https-www-justice-gov-usao-wdnc-pr-us-attorney-r-313614bc24"
   }
 ]

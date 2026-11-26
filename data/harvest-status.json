@@ -1,17 +1,10 @@
 {
-  "checkedAt": 1795651757571,
+  "checkedAt": 1795717819350,
   "added": [
-    "Zhang Huang",
-    "Yanle Huang",
-    "Shanell Stacey Ann Jones",
-    "Keith Williams",
-    "Jamari Lewis",
-    "Yizhao Hou",
-    "YDH Int'l Inc.",
-    "Francisco Ivan Velazquez"
+    "Clinton Ogedegbe"
   ],
   "enriched": [],
   "laterStages": [],
-  "scanned": 1075,
+  "scanned": 1061,
   "note": "Hourly: justice.gov + seed releases + Invasion Update official voting rows + USDA + HHS/SBA/SSA/IRS/DOL/VA OIG + Idaho AG Medicaid-fraud newsroom + state election-crime newsrooms (AGs, FDLE, SOS; voting releases only) + verified news that cites an official charging paper. Headline-only rows dropped. Named people and named operations kept."
 }
