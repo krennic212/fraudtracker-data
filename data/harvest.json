@@ -22464,5 +22464,29 @@
     "presence": "not_stated",
     "scheme": "Clinton Ogedegbe",
     "schemeId": "harvest-https-www-justice-gov-usao-wdnc-pr-us-attorney-r-313614bc24"
+  },
+  {
+    "name": "Oklahoma Heart Hospital, LLC",
+    "city": "Oklahoma City, OK",
+    "crime": "Oklahoma Hospitals and Physician Group Pay $4.2 Million to Settle Allegations of Submitting False Claims to Medicare, Medicaid, TRICARE, and the Department of Veterans Affairs",
+    "usa": "Oklahoma Hospitals and Physician Group Pay $4.2 Million to Settle Allegations of Submitting False Claims to Medicare, Medicaid, TRICARE, and the Department of Veterans Affairs",
+    "foreign": "Not stated in post",
+    "picked": "11/24/2026",
+    "entered": "Amount not stated",
+    "office": "TheJusticeDept",
+    "id": "harvest-https-www-justice-gov-usao-wdok-pr-oklahoma-hosp-df7a1f6ac2",
+    "when": "2026-11-24",
+    "text": "Oklahoma Hospitals and Physician Group Pay $4.2 Million to Settle Allegations of Submitting False Claims to Medicare, Medicaid, TRICARE, and the Department of Veterans Affairs. OKLAHOMA CITY – Oklahoma Heart Hospital, LLC, Oklahoma Heart Hospital South, LLC, and Oklahoma Heart Hospital Physicians, LLC (collectively “OHH Entities”), paid $4,200,000.00 to settle civil claims stemming from allegations that they submitted false claims to Medicare, Medicaid, TRICARE, and the Department of Veterans Affairs (“VA”), announced First Assistant U.S. Attorney Travis D. Smith. Oklahoma Heart Hospital, LLC, (“OHH”) and Oklahoma Heart Hospital South, LLC (“OHH-South”) are limited liability companies organized in the State of Oklahoma that own and operate the hospital entities doing business as Oklahoma Heart Hospital and Oklahoma Heart Hospital South, which are located in Oklahoma City, Oklahoma. Oklahoma Heart Hospital Physicians, LLC (“OHH Physicians”) is a limited liability  Source: official Justice Department press. Charges are allegations unless the page says convicted or a guilty plea. Presence not stated unless the page says so.",
+    "photo": "",
+    "via": "DOJ press feed",
+    "sourceUrl": "https://www.justice.gov/usao-wdok/pr/oklahoma-hospitals-and-physician-group-pay-42-million-settle-allegations-submitting",
+    "voting": false,
+    "origin": "Medicare / Medicaid",
+    "confirmedBy": "DOJ",
+    "lat": 35.4676,
+    "lon": -97.5164,
+    "presence": "not_stated",
+    "scheme": "Oklahoma Heart Hospital, LLC",
+    "schemeId": "harvest-https-www-justice-gov-usao-wdok-pr-oklahoma-hosp-c01e82b38d"
   }
 ]
