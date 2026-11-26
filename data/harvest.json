@@ -22387,7 +22387,7 @@
     "lon": -73.7949,
     "presence": "not_stated",
     "scheme": "Yizhao Hou",
-    "schemeId": "harvest-https-www-justice-gov-usao-edny-pr-district-cour-eaeafbaccb-edny-ydh-counterfeit-postage",
+    "schemeId": "harvest-https-www-justice-gov-usao-edny-pr-district-cour-eaeafbaccb",
     "usdAlleged": 300000,
     "stage": "Civil settlement (allegations only, no determination of liability)"
   },
@@ -22413,7 +22413,7 @@
     "lon": -73.7949,
     "presence": "not_stated",
     "scheme": "YDH Int'l Inc.",
-    "schemeId": "harvest-https-www-justice-gov-usao-edny-pr-district-cour-eaeafbaccb-edny-ydh-counterfeit-postage",
+    "schemeId": "harvest-https-www-justice-gov-usao-edny-pr-district-cour-eaeafbaccb",
     "usdAlleged": 300000,
     "stage": "Civil settlement (allegations only, no determination of liability)"
   },
