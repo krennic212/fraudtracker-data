@@ -3816,6 +3816,109 @@
         }
       },
       "schemeKey": "ma-ge-insider-trading-network"
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/opa/pr/four-family-members-including-two-chinese-nationals-charged-55m-medicare-and-medicaid",
+      "title": "Four Family Members, Including Two Chinese Nationals, Charged in $55M Medicare and Medicaid Pharmacy Fraud Scheme",
+      "seat": "usao-edny",
+      "stage": "Charged",
+      "teaser": "A federal grand jury in the Eastern District of New York returned an indictment on Nov. 20 charging Zhang Huang, also known as “Danny Huang,” 35, Yanle Huang, also known as “Logan Wong,” 38, Jian Xin Huang, 62, and Xiuqin Huang, 61, all of Queens, New York, variously with conspiring to bill Medicare and New York Medicaid for medically unnecessary prescription medications and paying illegal kickbacks, money laundering, and tax offenses. Jian Xin Huang and Xiuqin Huang are Chinese nationals with lawful permanent residency in the United States.",
+      "names": [
+        "Zhang Huang",
+        "Yanle Huang"
+      ],
+      "places": {
+        "Zhang Huang": {
+          "city": "Queens, NY",
+          "lat": 40.7282,
+          "lon": -73.7949
+        },
+        "Yanle Huang": {
+          "city": "Queens, NY",
+          "lat": 40.7282,
+          "lon": -73.7949
+        }
+      },
+      "usdAlleged": 55000000
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/usao-sdms/pr/harrison-county-woman-pleads-guilty-conspiracy-and-identity-theft-related-social",
+      "title": "Harrison County Woman Pleads Guilty to Conspiracy and Identity Theft related to Social Security Fraud",
+      "seat": "usao-sdms",
+      "stage": "Pleaded guilty",
+      "teaser": "On November 17, 2026, a Harrison County woman pleaded guilty to conspiracy to commit wire fraud and aggravated identity theft. According to court documents and information presented to the court, Shanell Stacey Ann Jones, 30, of Gulfport, conspired to fraudulently obtain $259,934.57 from the Social Security Administration by diverting social security benefit payments intended for social security recipients to accounts owned by or accessible by Jones.",
+      "names": [
+        "Shanell Stacey Ann Jones"
+      ],
+      "places": {
+        "Shanell Stacey Ann Jones": {
+          "city": "Gulfport, MS",
+          "lat": 30.3674,
+          "lon": -89.0928
+        }
+      },
+      "schemeKey": "sdms-jones-ssa-benefits",
+      "usdAlleged": 259934
+    },
+    {
+      "date": "2026-11-24",
+      "link": "https://www.justice.gov/opa/pr/new-york-father-and-son-plead-guilty-600m-covid-tax-fraud-scheme",
+      "title": "New York Father and Son Plead Guilty in $600M Covid Tax Fraud Scheme",
+      "seat": "usao-edny",
+      "stage": "Pleaded guilty",
+      "teaser": "A New York father and his son pleaded guilty in federal court for their roles in a conspiracy to defraud the United States of more than $600 million by filing more than 8,000 fraudulent tax returns claiming COVID-19-related employment tax credits. According to court documents and statements made in court, Keith Williams, 48, of West Hempstead, New York, and his son Jamari Lewis, 28, of West Hempstead, as well as others, repeatedly exploited two government programs intended to help businesses impacted by the COVID-19 pandemic.",
+      "names": [
+        "Keith Williams",
+        "Jamari Lewis"
+      ],
+      "places": {
+        "Keith Williams": {
+          "city": "West Hempstead, NY",
+          "lat": 40.6948,
+          "lon": -73.6501
+        },
+        "Jamari Lewis": {
+          "city": "West Hempstead, NY",
+          "lat": 40.6948,
+          "lon": -73.6501
+        }
+      },
+      "schemeKey": "edny-williams-lewis-credit-reset-erc",
+      "usdAlleged": 600000000
+    },
+    {
+      "date": "2026-11-25",
+      "link": "https://www.justice.gov/usao-edny/pr/district-court-orders-queens-based-logistics-company-affiliate-and-their-owner-pay",
+      "title": "District Court Orders Queens-Based Logistics Company, Affiliate, and Their Owner to Pay $300,000 and Cease Sending Packages Through United States Mail",
+      "seat": "usao-edny",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "teaser": "A settlement agreement with Yizhao Hou and two companies he controls, YDH Express Inc. and YDH Int'l Inc., so ordered by the U.S. District Court for the Eastern District of New York on November 25, 2026, resolves the lawsuit filed by the United States alleging that Defendants violated the False Claims Act (FCA) by shipping thousands of parcels bearing counterfeit United States Postal Service (USPS) labels. Defendants will pay $300,000 to the United States. The claims against Defendants are allegations only and there has been no determination of liability.",
+      "names": [
+        "Yizhao Hou",
+        "YDH Express Inc.",
+        "YDH Int'l Inc."
+      ],
+      "places": {
+        "Yizhao Hou": {
+          "city": "Queens, NY",
+          "lat": 40.7282,
+          "lon": -73.7949
+        },
+        "YDH Express Inc.": {
+          "city": "Queens, NY",
+          "lat": 40.7282,
+          "lon": -73.7949
+        },
+        "YDH Int'l Inc.": {
+          "city": "Queens, NY",
+          "lat": 40.7282,
+          "lon": -73.7949
+        }
+      },
+      "schemeKey": "edny-ydh-counterfeit-postage",
+      "usdAlleged": 300000
     }
   ]
 }
