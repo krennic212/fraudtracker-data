@@ -3918,6 +3918,57 @@
         }
       },
       "usdAlleged": 300000
+    },
+    {
+      "link": "https://www.justice.gov/usao-ks/pr/florida-company-agrees-pay-over-23-million-resolve-false-claims-act-allegations",
+      "title": "Florida company agrees to pay over $2.3 Million to resolve false claims act allegations involving improper Paycheck Protection Program",
+      "date": "2026-10-13",
+      "teaser": "KANSAS CITY, KANSAS – Systemair MFG, Inc., a Florida Corporation with its principal place of business in Lenexa, Kansas, has agreed to pay $2,357,709.00 to resolve allegations that it submitted a false claim to obtain a Paycheck Protection Program loan. The Coronavirus Aid, Relief, and Economic Security Act established the PPP to provide forgivable loans to eligible small businesses affected by the COVID-19 pandemic. The U.S. Small Business Administration administered the loan program. To qualify for a First Draw PPP loan, businesses were generally required to meet size limits, including having fewer than 500 employees of affiliated entities. When applying for PPP loans, borrowers were required to certify that they were eligible for the requested loans and that the information they provided was true and accurate.",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "Systemair MFG, Inc."
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-edmi/pr/foreign-owned-industrial-manufacturing-company-pay-15-million-settle-false-claims-act",
+      "title": "Foreign-Owned Industrial Manufacturing Company to Pay $1.5 Million to Settle False Claims Act Allegations Related to Paycheck Protection Program Loan",
+      "date": "2026-10-22",
+      "teaser": "DETROIT – United States Attorney Jerome F. Gorgon Jr. announced today that 3CON Corporation, a company located in Wixom, Michigan that designs and manufactures automated production systems for the automotive and life sciences industries, has agreed to pay $1,500,439.50 to settle allegations that it violated the False Claims Act by making false statements to the U.S. Small Business Administration (SBA) to obtain a Paycheck Protection Program (PPP) loan for which 3CON was ineligible. Congress created the PPP in March 2020 to provide emergency financial assistance to American businesses suffering from the economic effects of the COVID-19 pandemic. Under the PPP, eligible small businesses could receive forgivable loans guaranteed by the SBA.",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "3CON Corporation"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-de/pr/carten-fujikin-agrees-pay-more-750000-resolve-false-claims-act-allegations-relating",
+      "title": "Carten-Fujikin Agrees to Pay More Than $750,000 to Resolve False-Claims-Act Allegations Relating to Paycheck Protection Program Loan",
+      "date": "2026-10-28",
+      "teaser": "WILMINGTON, Del. – Carten-Fujikin, Inc. (CFI), a Delaware corporation with its principal place of business in Cheshire, Connecticut, has agreed to pay $774,812.51 to resolve allegations that it improperly obtained a Paycheck Protection Program (PPP) loan from the U.S. Small Business Administration (SBA) for which it was not eligible. PPP was an emergency loan program established by Congress in March 2020 under the Coronavirus Aid, Relief and Economic Security Act, and administered by the SBA. The program was created to support small businesses and to help them continue to pay employees and meet other business expenses during the COVID-19 pandemic. A second round of loans was authorized in early 2021. To be eligible for these Second Draw PPP loans, a business was required to certify that it had no more than 300 employees, including those employed by any domestic and foreign affiliates.",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "Carten-Fujikin, Inc."
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-ndca/pr/pleasanton-biotech-company-agrees-pay-over-half-million-dollars-resolve-allegations-it",
+      "title": "Pleasanton Biotech Company Agrees to Pay Over a Half Million Dollars to Resolve Allegations That It Improperly Obtained Federal Grant Funds",
+      "date": "2026-11-13",
+      "teaser": "SAN FRANCISCO – Cyion Technologies LLC (Cyion), a Pleasanton-based company involved in biological research and drug discovery, has agreed to pay $528,335.74 to resolve allegations that it violated the False Claims Act by improperly accepting and drawing down funds from federal grant awards that it was ineligible to receive. The settlement relates to two Small Business Technology Transfer (STTR) and one Small Business Innovation Research (SBIR) awards that Cyion obtained from the National Institutes of Health (NIH). The terms and conditions of the STTR and SBIR grants preclude companies whose principal investigators hold outside full-time employment from applying for or receiving such awards.",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "Cyion Technologies LLC"
+      ]
+    },
+    {
+      "link": "https://www.justice.gov/usao-edmi/pr/foreign-owned-companies-pay-49-million-settle-fraud-allegations-related-paycheck",
+      "title": "Foreign-Owned Companies To Pay $4.9 Million To Settle Fraud Allegations Related To Paycheck Protection Program Loans",
+      "date": "2026-10-27",
+      "teaser": "DETROIT – United States Attorney Jerome F. Gorgon Jr. announced today that Energy Steel & Supply, Co., and Hayward Tyler, Inc., have agreed to pay $4,769,597 to settle allegations that they violated the False Claims Act by making false statements to the U.S. Small Business Administration (SBA) to obtain Paycheck Protection Program (PPP) loans for which they were ineligible. Congress created the PPP in March 2020 to provide emergency financial assistance to American businesses suffering from the economic effects of the COVID-19 pandemic. Under the PPP, eligible small businesses could receive forgivable loans guaranteed by the SBA. Regulations provided various eligibility requirements for the PPP, including limitations on the number of employees and restrictions for foreign-owned companies.",
+      "stage": "Civil settlement (allegations only, no determination of liability)",
+      "names": [
+        "Energy Steel & Supply, Co.",
+        "Hayward Tyler, Inc."
+      ]
     }
   ]
 }

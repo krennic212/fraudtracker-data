@@ -250,6 +250,14 @@
       "name": "Operation NO DOZE",
       "match": "person",
       "reason": "Duplicate cleanup: same named operation as the usao-or Oct 28 row (kept, renamed 'Operation NO DOZE'); this SBA legacy page carried no date and only site boilerplate."
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/disaster-fraud/ncdf-disaster-complaint-form",
+      "reason": "Krennic 2026-11-26: not a release (NCDF tip form linked in every PPP/COVID settlement footer). The 4 rows that carried it (Systemair MFG, 3CON, Energy Steel & Supply, Carten-Fujikin) are re-listed from their own USAO releases via data/seed-releases.json."
+    },
+    {
+      "sourceUrl": "https://oig.hhs.gov/fraud/report-fraud/",
+      "reason": "Krennic 2026-11-26: not a release (HHS-OIG tip page). Cyion Technologies LLC is re-listed from usao-ndca/pr/pleasanton-biotech-company-agrees-pay-over-half-million-dollars-resolve-allegations-it."
     }
   ]
 }

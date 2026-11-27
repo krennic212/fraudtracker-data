@@ -632,3 +632,17 @@ Harvester fixes (scripts/harvest-gov.mjs, scripts/harvest-parse.mjs; tests: scri
   Energy Steel & Supply, Carten-Fujikin -> justice.gov/disaster-fraud/ncdf-disaster-complaint-form; Cyion Technologies ->
   oig.hhs.gov/fraud/report-fraud/). Hayward Tyler, Inc. (same PPP settlement) is not listed.
 - Workflow Tests step still lists only the tests through 1106; npm test runs all.
+
+## 2026-11-26 7:15 PM CT — tip-page source links (Krennic 6:59 PM CT: "fix the 5 Fraud Ledger source links ... add Hayward Tyler, Inc.")
+- Root cause (parser bug): buildRow takes officialUrl(title + teaser) before item.link, and the teaser of a no-name DOJ API
+  release is the body, whose PPP/COVID footer links the NCDF Web Complaint Form. officialUrl (scripts/harvest-parse.mjs) now
+  skips tip pages (NOT_A_RELEASE: ncdf-disaster-complaint-form, report-fraud, hotline, tips, complaint-form) and takes the
+  next official link, else the release's own URL. The 4 PPP rows also shared one schemeId because of it.
+- Data: data/exclude.json drops rows sourced to the two tip pages; data/seed-releases.json re-lists the 5 releases from their
+  own USAO pages (stage "Civil settlement (allegations only, no determination of liability)", names as printed):
+  Systemair MFG, Inc. (usao-ks Oct 13), 3CON Corporation (usao-edmi Oct 22), Energy Steel & Supply, Co. + Hayward Tyler, Inc.
+  (usao-edmi Oct 27, new row), Carten-Fujikin, Inc. (usao-de Oct 28), Cyion Technologies LLC (usao-ndca Nov 13; was labeled
+  HHS OIG press, now DOJ press feed). Name-fixes entry for the old Energy Steel id removed (row replaced).
+- Dry run: officialUrl old vs new on 908 feed rows, 196 seeds, 2,079 Invasion rows and 360 recent DOJ API releases: 0 flips.
+  Full offline pipeline: only the 5 old rows removed and 6 rows added (5 corrected + Hayward Tyler); 0 other rows changed.
+  909 rows. Tests 246/246 (scripts/harvest-audit-1126.test.mjs).

@@ -69,9 +69,18 @@ export function operationName(title) {
   return `Operation ${words.join(" ")}`;
 }
 
+// Pages a release links to for tips, never the release itself: "report it ... via the NCDF Web Complaint Form at:
+// https://www.justice.gov/disaster-fraud/ncdf-disaster-complaint-form" (every PPP / COVID settlement footer) and the HHS-OIG
+// "report fraud" page. Krennic 2026-11-26: such a link is never a row's source; the next official link (or the release's
+// own URL) is used instead.
+export const NOT_A_RELEASE = /\/disaster-fraud\/ncdf-disaster-complaint-form|\/(?:fraud\/)?report-fraud\b|\/hotline\b|\/tips?\/?$|\/complaint-form\b/i;
 export function officialUrl(blob) {
-  const m = String(blob).match(OFFICIAL);
-  return m ? m[0].replace(/[),.;]+$/, "") : null;
+  const re = new RegExp(OFFICIAL.source, "gi");
+  for (const m of String(blob).matchAll(re)) {
+    const u = m[0].replace(/[),.;]+$/, "");
+    if (!NOT_A_RELEASE.test(u)) return u;
+  }
+  return null;
 }
 
 const PERSON_AGE = new RegExp(

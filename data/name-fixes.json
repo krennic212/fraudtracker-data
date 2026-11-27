@@ -2,11 +2,6 @@
   "_note": "Name cleanups by row id (Krennic 2026-11-24 standing OK: name and duplicate cleanups). scripts/harvest-gov.mjs rewriteExisting applies them on every run. The id never changes, so the release's own re-parse is treated as already listed. Each name is as the release prints it.",
   "rows": [
     {
-      "id": "harvest-https-www-justice-gov-disaster-fraud-ncdf-disast-a98d66b263",
-      "name": "Energy Steel & Supply, Co.",
-      "reason": "Parser cut the name at '&'. Release: 'Energy Steel & Supply, Co., and Hayward Tyler, Inc., have agreed to pay $4,769,597'."
-    },
-    {
       "id": "harvest-https-www-justice-gov-usao-sdca-pr-tax-preparer--4a835d0a35",
       "name": "Oladapo Olagbemi",
       "reason": "Job title glued on ('San Diego CPA Oladapo Olagbemi'). OPA Nov 13 release names him 'Oladapo Olagbemi'."
