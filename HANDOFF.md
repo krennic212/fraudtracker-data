@@ -615,3 +615,20 @@ Harvester fixes (scripts/harvest-gov.mjs, scripts/harvest-parse.mjs; tests: scri
 - Seeded Thakur Sukhdeo (usao-mdfl, EIDL plea); teaser runs through the "Economic Injury Disaster Loan (EIDL)" sentence because "COVID relief" alone does not match KEEP. Live in feed.
 - Rule gap, NOT changed (needs Krennic's yes): usao-sdca "Former Police Officer Admits ... Pocketing Nearly $300,000 in Stolen Government Benefits" (Ivan Alonso Rodriguez, SSA + OPM benefits of a dead retiree, 18 U.S.C. 641) fails keepBlob, so a seed cannot add it. Fix: add "government benefits" / "stolen public money" / "social security administration" benefit-theft wording to KEEP.
 - Parser duplicate, NOT changed: usao-ma Piron Lara SNAP/MassHealth release produced two rows, "Danis Piron Lara" and surname-only "Piron Lara". Fix: drop a parsed name that is a trailing subset of another name in the same release.
+
+## 2026-11-26 evening site audit (Krennic: "Check sites for needed improvements or fixes"; standing OK Nov 24)
+- Rule fix: `igWhen` (scripts/harvest-gov.mjs) dates OIG list pages from a full month date, then the URL (now also
+  /2026/09/16/ SBA style), then an abbreviated lead date ("Oct. 20, 2026 —", IRS-CI). rewriteExisting fills only empty dates.
+  4 rows got dates: Michelle Green, Trenikia Lashae Banks, Tenia A. Thompson (SBA), Lamont McCarthy (IRS-CI).
+- Name cleanups (new data/name-fixes.json, by id, id unchanged): Supply, Co. -> Energy Steel & Supply, Co.; San Diego CPA
+  Oladapo Olagbemi -> Oladapo Olagbemi; Housing Assistance Payments Housing Management Resources, Inc. -> Housing Management
+  Resources, Inc.; Operation No Doze Launches -> Operation NO DOZE.
+- Duplicate cleanups (data/exclude.json, person-scoped): Ahmed Maqbul Syed Nov 24 USAO-AZ roundup repeat; IRS-CI menu-word row
+  "Nonprofits Help News Tax Pros Search Inc" (= Tarek Mohamad Kassem); "Taxation, Inc." (fragment of Olagbemi's business
+  name); undated SBA "Operation NO DOZE" (same operation as the usao-or row).
+- Dry run old vs new on the 912-row feed: only those 12 rows flip (4 removed, 8 changed). 908 rows. Tests 241/241
+  (scripts/harvest-audit-1126.test.mjs).
+- NOT fixed (needs a decision): 5 rows whose sourceUrl is a report-fraud page, not the release (Systemair MFG, 3CON,
+  Energy Steel & Supply, Carten-Fujikin -> justice.gov/disaster-fraud/ncdf-disaster-complaint-form; Cyion Technologies ->
+  oig.hhs.gov/fraud/report-fraud/). Hayward Tyler, Inc. (same PPP settlement) is not listed.
+- Workflow Tests step still lists only the tests through 1106; npm test runs all.

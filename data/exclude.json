@@ -223,6 +223,33 @@
       "name": "Salim Said SaidFarah",
       "reason": "Krennic 2026-11-24 standing OK for duplicate cleanups: same Minnesota defendant as the kept row Salim Said Said Farah (USAO-MN Oct 30, 2026 release). The OPA wrap of the same surge printed 'SaidFarah'. Person-scoped so the other people on the OPA release stay listed.",
       "decided": "Krennic 2026-11-24 (standing permission)"
+    },
+    {
+      "sourceUrl": "https://www.justice.gov/usao-az/pr/us-attorney-district-arizona-announces-contribution-largest-enforcement-surge-against",
+      "name": "Ahmed Maqbul Syed",
+      "match": "person",
+      "reason": "Duplicate cleanup (Krennic 2026-11-24 standing OK): Nov 24 USAO-AZ roundup repeats his Oct 29 sentencing (same 96 months), already listed from usao-az/pr/indian-national-sentenced-eight-years-prison-laundering-money-fraud-scheme-targeting."
+    },
+    {
+      "id": "harvest-https-www-irs-gov-compliance-criminal-investigat-e597013481",
+      "sourceUrl": "https://www.irs.gov/compliance/criminal-investigation/parker-man-sentenced-for-covid-19-related-fraud",
+      "name": "Nonprofits Help News Tax Pros Search Inc",
+      "match": "person",
+      "reason": "Duplicate cleanup: IRS-CI page menu words read as a company name; the case is Tarek Mohamad Kassem, already listed from usao-co/pr/parker-man-sentenced-covid-19-related-fraud."
+    },
+    {
+      "id": "harvest-https-www-justice-gov-opa-pr-federal-court-san-d-95ed43df00",
+      "sourceUrl": "https://www.justice.gov/opa/pr/federal-court-san-diego-california-enters-permanent-injunction-barring-criminally-prosecuted",
+      "name": "Taxation, Inc.",
+      "match": "person",
+      "reason": "Duplicate cleanup: fragment of 'D.A.O. Accounting, Consulting, and Taxation, Inc.', Oladapo Olagbemi's business name, not a defendant. Olagbemi is already listed (usao-sdca tax-preparer-sentenced-5-million-tax-fraud)."
+    },
+    {
+      "id": "harvest-https-www-sba-gov-article-2026-09-16-sba-oig-lau-1038b59cee",
+      "sourceUrl": "https://www.sba.gov/article/2026/09/16/sba-oig-launches-operation-no-doze-target-ppp-covid-eidl-fraud",
+      "name": "Operation NO DOZE",
+      "match": "person",
+      "reason": "Duplicate cleanup: same named operation as the usao-or Oct 28 row (kept, renamed 'Operation NO DOZE'); this SBA legacy page carried no date and only site boilerplate."
     }
   ]
 }

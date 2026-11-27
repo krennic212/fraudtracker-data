@@ -936,7 +936,50 @@ export function privateVictimNonCitizen(title, text) {
   return PRIVATE_FRAUD.test(blob) && (nonCitizenInRelease(blob) || titleNationalStated(title));
 }
 
+/**
+ * Release date for an OIG list page (SBA / IRS-CI / SSA / DOL / VA). Order: a full month date in the body
+ * ("October 7, 2026"), then a date in the URL (20261016_ or /2026/10/07/), then an abbreviated month date
+ * ("Oct. 20, 2026 —", how IRS-CI pages lead). NaN when none; never a future date.
+ */
+const MONTHS_ABBR = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, sept: 8, oct: 9, nov: 10, dec: 11 };
+export function igWhen(url, body, now = Date.now()) {
+  const b = String(body || "");
+  const ok = (t) => (Number.isFinite(t) && t <= now + 86400000 ? t : NaN);
+  const full = b.match(/\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2})\b/i);
+  if (full) {
+    const t = ok(Date.parse(full[1]));
+    if (Number.isFinite(t)) return t;
+  }
+  const u = String(url || "").match(/\/(20\d{2})(?:\/(\d{2})\/(\d{2})\/|(\d{2})(\d{2})[_\/])/);
+  if (u) {
+    const t = ok(Date.parse(`${u[1]}-${u[2] || u[4]}-${u[3] || u[5]}T12:00:00Z`));
+    if (Number.isFinite(t)) return t;
+  }
+  const a = b.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept?|Oct|Nov|Dec)\.?\s+(\d{1,2}),\s+(20\d{2})\b/i);
+  if (a) return ok(Date.UTC(Number(a[3]), MONTHS_ABBR[a[1].toLowerCase()], Number(a[2]), 12));
+  return NaN;
+}
+
+// data/name-fixes.json: name / duplicate cleanups by row id (Krennic 2026-11-24 standing OK). The id never changes,
+// so the harvester's own re-parse of the release (same id) is treated as already listed and never re-adds the bad name.
+const NAME_FIXES_FILE = join(ROOT, "data/name-fixes.json");
+let NAME_FIXES = null;
+export function loadNameFixes(file = NAME_FIXES_FILE) {
+  const rows = loadJson(file, { rows: [] })?.rows;
+  return new Map((Array.isArray(rows) ? rows : []).filter((e) => e?.id && e?.name).map((e) => [e.id, e.name]));
+}
+
 export function rewriteExisting(r) {
+  const fixes = (NAME_FIXES ??= loadNameFixes());
+  // Krennic 2026-11-26 audit: a fixed name from data/name-fixes.json wins; the scheme label follows when it was the name.
+  const fixed = r && r.id ? fixes.get(r.id) : null;
+  if (r && fixed && fixed !== r.name) r = { ...r, name: fixed, scheme: r.scheme === r.name ? fixed : r.scheme };
+  // An OIG list row saved with no date (SBA legacy pages, IRS-CI "Oct. 20, 2026 —") gets the release date from its URL
+  // or its own opening line. Only an empty date is filled; a row that has one is never changed.
+  if (r && !r.when && !r.picked) {
+    const t = igWhen(r.sourceUrl, `${r.crime || ""} ${r.text || ""}`);
+    if (Number.isFinite(t)) r = { ...r, when: new Date(t).toISOString().slice(0, 10), picked: new Date(t).toLocaleDateString("en-US", { timeZone: "UTC" }) };
+  }
   // Krennic 2026-11-24: boilerplate glued onto a name ("Press Release ...", "Convictions ...") or a glued surname
   // ("SaidFarah") is fixed on rows already in the feed too (see tidyName). The scheme label follows when it was the name.
   const tidy = r && r.name ? tidyName(r.name, r.text || "") : r?.name;
@@ -1581,13 +1624,7 @@ async function harvestIgLists(existing, have, added) {
       }
       const title = oigPageTitle(page, url);
       const body = oigPageBody(page, title);
-      const monthHit = body.match(
-        /\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+20\d{2})\b/i,
-      );
-      const urlHit = url.match(/\/(20\d{2})(\d{2})(\d{2})[_\/]/);
-      let when = NaN;
-      if (monthHit) when = Date.parse(monthHit[1]);
-      else if (urlHit) when = Date.parse(`${urlHit[1]}-${urlHit[2]}-${urlHit[3]}T12:00:00Z`);
+      const when = igWhen(url, body);
       ingest(
         existing,
         have,
